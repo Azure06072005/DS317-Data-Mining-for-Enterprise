@@ -38,10 +38,6 @@ export default function Prediction() {
     }));
   };
 
-  const getPerformanceValue = (key: keyof typeof performanceMetrics): number => {
-    return performanceMetrics[key];
-  };
-
   const handleEngagementChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setEngagementMetrics(prev => ({
@@ -54,10 +50,11 @@ export default function Prediction() {
     e.preventDefault();
     
     // Weighting constants for satisfaction calculation
-    const ACCURACY_WEIGHT = 0.3;
-    const EARNED_RATIO_WEIGHT = 0.3;
+    const ACCURACY_WEIGHT = 0.25;
+    const EARNED_RATIO_WEIGHT = 0.25;
     const EARNED_SCORE_WEIGHT = 0.2;
     const ENGAGEMENT_WEIGHT = 0.2;
+    const SESSION_WEIGHT = 0.1;
     
     // Calculate average metrics
     const avgAccuracy = (performanceMetrics.accuracy_p1 + performanceMetrics.accuracy_p2 + 
@@ -69,12 +66,16 @@ export default function Prediction() {
     
     const engagementScore = (engagementMetrics.videoCompletionRate + engagementMetrics.exerciseCompletionRate) / 2;
     
+    // Normalize session activity (assuming 100 sessions is excellent)
+    const sessionScore = Math.min(100, (engagementMetrics.numberOfSessions / 100) * 100);
+    
     // Calculate overall satisfaction level (0-100)
     const satisfactionLevel = Math.min(100, Math.max(0,
       (avgAccuracy * 100 * ACCURACY_WEIGHT) + 
       (avgRatio * 100 * EARNED_RATIO_WEIGHT) + 
       (avgScore * EARNED_SCORE_WEIGHT) + 
-      (engagementScore * ENGAGEMENT_WEIGHT)
+      (engagementScore * ENGAGEMENT_WEIGHT) +
+      (sessionScore * SESSION_WEIGHT)
     ));
     
     // Determine group based on satisfaction level
@@ -205,7 +206,7 @@ export default function Prediction() {
                             min="0"
                             max="1"
                             step="0.01"
-                            value={getPerformanceValue(fieldName)}
+                            value={performanceMetrics[fieldName]}
                             onChange={handlePerformanceChange}
                             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition text-sm"
                             required
@@ -234,7 +235,7 @@ export default function Prediction() {
                             min="0"
                             max="1"
                             step="0.01"
-                            value={getPerformanceValue(fieldName)}
+                            value={performanceMetrics[fieldName]}
                             onChange={handlePerformanceChange}
                             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition text-sm"
                             required
@@ -263,7 +264,7 @@ export default function Prediction() {
                             min="0"
                             max="100"
                             step="0.1"
-                            value={getPerformanceValue(fieldName)}
+                            value={performanceMetrics[fieldName]}
                             onChange={handlePerformanceChange}
                             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition text-sm"
                             required
