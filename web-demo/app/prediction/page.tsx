@@ -1,108 +1,105 @@
 "use client";
 
 import { useState } from "react";
-import { coursesData, getCourseById } from "@/data/courseData";
-import { PredictionResult, SATISFACTION_GROUPS } from "@/types/prediction";
+import { coursesData } from "@/data/courseData";
+import { SATISFACTION_GROUPS } from "@/types/prediction";
+import {
+  getUsersByCourseId,
+  getUserCourseSatisfaction,
+  getUserCourses,
+  getCourseStatistics
+} from "@/data/predictionData";
+
+type PredictionType = "course" | "user";
+
+interface CoursePredictionResult {
+  type: "course";
+  courseId: string;
+  totalUsers: number;
+  avgSatisfaction: number;
+  overallGroup: 'A' | 'B' | 'C' | 'D' | 'E';
+  groupCounts: Record<'A' | 'B' | 'C' | 'D' | 'E', number>;
+  distribution: Array<{ name: string; value: number; percentage: number }>;
+}
+
+interface UserPredictionResult {
+  type: "user";
+  userId: string;
+  courseId: string;
+  satisfaction: {
+    userId: string;
+    courseId: string;
+    satisfactionLabel: number;
+    satisfactionPercentage: number;
+    group: 'A' | 'B' | 'C' | 'D' | 'E';
+  };
+  otherCourses: Array<{
+    userId: string;
+    courseId: string;
+    satisfactionLabel: number;
+    satisfactionPercentage: number;
+    group: 'A' | 'B' | 'C' | 'D' | 'E';
+  }>;
+}
+
+type PredictionResult = CoursePredictionResult | UserPredictionResult;
 
 export default function Prediction() {
+  const [predictionType, setPredictionType] = useState<PredictionType>("course");
   const [selectedCourseId, setSelectedCourseId] = useState("");
-  
-  // Performance metrics for 4 periods
-  const [performanceMetrics, setPerformanceMetrics] = useState({
-    accuracy_p1: 0, accuracy_p2: 0, accuracy_p3: 0, accuracy_p4: 0,
-    avg_earned_ratio_p1: 0, avg_earned_ratio_p2: 0, avg_earned_ratio_p3: 0, avg_earned_ratio_p4: 0,
-    avg_earned_score_p1: 0, avg_earned_score_p2: 0, avg_earned_score_p3: 0, avg_earned_score_p4: 0,
-  });
-  
-  // Engagement metrics
-  const [engagementMetrics, setEngagementMetrics] = useState({
-    numberOfSessions: 0,
-    totalTimeSpent: 0,
-    videoCompletionRate: 0,
-    exerciseCompletionRate: 0,
-  });
-
+  const [selectedUserId, setSelectedUserId] = useState("");
   const [prediction, setPrediction] = useState<PredictionResult | null>(null);
 
-  const selectedCourse = selectedCourseId ? getCourseById(selectedCourseId) : null;
+  // Get available users for selected course
+  const availableUsers = selectedCourseId ? getUsersByCourseId(selectedCourseId) : [];
 
   const handleCourseChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedCourseId(e.target.value);
+    const newCourseId = e.target.value;
+    setSelectedCourseId(newCourseId);
+    setSelectedUserId(""); // Reset user selection when course changes
+    setPrediction(null);
   };
 
-  const handlePerformanceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setPerformanceMetrics(prev => ({
-      ...prev,
-      [name]: parseFloat(value) || 0,
-    }));
+  const handleUserChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedUserId(e.target.value);
+    setPrediction(null);
   };
 
-  const handleEngagementChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setEngagementMetrics(prev => ({
-      ...prev,
-      [name]: parseFloat(value) || 0,
-    }));
+  const handlePredictionTypeChange = (type: PredictionType) => {
+    setPredictionType(type);
+    setSelectedCourseId("");
+    setSelectedUserId("");
+    setPrediction(null);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Weighting constants for satisfaction calculation
-    const ACCURACY_WEIGHT = 0.25;
-    const EARNED_RATIO_WEIGHT = 0.25;
-    const EARNED_SCORE_WEIGHT = 0.2;
-    const ENGAGEMENT_WEIGHT = 0.2;
-    const SESSION_WEIGHT = 0.1;
-    
-    // Calculate average metrics
-    const avgAccuracy = (performanceMetrics.accuracy_p1 + performanceMetrics.accuracy_p2 + 
-                         performanceMetrics.accuracy_p3 + performanceMetrics.accuracy_p4) / 4;
-    const avgRatio = (performanceMetrics.avg_earned_ratio_p1 + performanceMetrics.avg_earned_ratio_p2 + 
-                      performanceMetrics.avg_earned_ratio_p3 + performanceMetrics.avg_earned_ratio_p4) / 4;
-    const avgScore = (performanceMetrics.avg_earned_score_p1 + performanceMetrics.avg_earned_score_p2 + 
-                      performanceMetrics.avg_earned_score_p3 + performanceMetrics.avg_earned_score_p4) / 4;
-    
-    const engagementScore = (engagementMetrics.videoCompletionRate + engagementMetrics.exerciseCompletionRate) / 2;
-    
-    // Normalize session activity (assuming 100 sessions is excellent)
-    const sessionScore = Math.min(100, (engagementMetrics.numberOfSessions / 100) * 100);
-    
-    // Calculate overall satisfaction level (0-100)
-    const satisfactionLevel = Math.min(100, Math.max(0,
-      (avgAccuracy * 100 * ACCURACY_WEIGHT) + 
-      (avgRatio * 100 * EARNED_RATIO_WEIGHT) + 
-      (avgScore * EARNED_SCORE_WEIGHT) + 
-      (engagementScore * ENGAGEMENT_WEIGHT) +
-      (sessionScore * SESSION_WEIGHT)
-    ));
-    
-    // Determine group based on satisfaction level
-    let group: 'A' | 'B' | 'C' | 'D' | 'E';
-    if (satisfactionLevel >= 80) group = 'A';
-    else if (satisfactionLevel >= 65) group = 'B';
-    else if (satisfactionLevel >= 50) group = 'C';
-    else if (satisfactionLevel >= 30) group = 'D';
-    else group = 'E';
-    
-    const groupInfo = SATISFACTION_GROUPS[group];
-    
-    // Deterministic confidence based on input consistency
-    const performanceVariance = Math.abs(avgAccuracy - avgRatio) + 
-                                Math.abs(avgAccuracy - (avgScore / 100)) +
-                                Math.abs(avgRatio - (avgScore / 100));
-    const baseConfidence = 85;
-    const confidencePenalty = Math.min(10, performanceVariance * 20);
-    const confidence = Math.floor(baseConfidence - confidencePenalty);
-    
-    setPrediction({
-      satisfactionLevel: Math.round(satisfactionLevel),
-      confidence,
-      group,
-      groupLabel: groupInfo.label,
-      groupPercentage: groupInfo.percentage,
-    });
+    if (predictionType === "course") {
+      // Predict by course - show overall satisfaction
+      const stats = getCourseStatistics(selectedCourseId);
+      if (stats) {
+        setPrediction({
+          type: "course",
+          courseId: selectedCourseId,
+          ...stats
+        });
+      }
+    } else {
+      // Predict by user - show user's satisfaction with selected course + other courses
+      const userCourseSat = getUserCourseSatisfaction(selectedUserId, selectedCourseId);
+      const otherCourses = getUserCourses(selectedUserId).filter(c => c.courseId !== selectedCourseId);
+      
+      if (userCourseSat) {
+        setPrediction({
+          type: "user",
+          userId: selectedUserId,
+          courseId: selectedCourseId,
+          satisfaction: userCourseSat,
+          otherCourses
+        });
+      }
+    }
   };
 
   return (
@@ -114,7 +111,7 @@ export default function Prediction() {
             Dự đoán Mức độ Hài lòng
           </h1>
           <p className="text-lg text-gray-600">
-            Nhập thông tin để dự đoán mức độ hài lòng của học viên
+            Chọn loại dự đoán và nhập thông tin để xem kết quả
           </p>
         </div>
 
@@ -125,242 +122,97 @@ export default function Prediction() {
             <h2 className="text-2xl font-bold text-gray-900 mb-6">
               Thông tin đầu vào
             </h2>
-            <form onSubmit={handleSubmit} className="space-y-8">
-              {/* Group 1: Course Information */}
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Prediction Type Selection */}
               <div className="border-b pb-6">
                 <h3 className="text-lg font-semibold text-gray-800 mb-4">
-                  1. Thông tin khóa học
+                  Chọn loại dự đoán
                 </h3>
-                
-                {/* Course ID Dropdown */}
-                <div className="mb-4">
-                  <label htmlFor="courseId" className="block text-sm font-medium text-gray-700 mb-2">
-                    Mã khóa học
+                <div className="flex gap-4">
+                  <button
+                    type="button"
+                    onClick={() => handlePredictionTypeChange("course")}
+                    className={`flex-1 py-3 px-4 rounded-lg font-medium transition ${
+                      predictionType === "course"
+                        ? "bg-cyan-600 text-white"
+                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                    }`}
+                  >
+                    Theo Khóa học
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handlePredictionTypeChange("user")}
+                    className={`flex-1 py-3 px-4 rounded-lg font-medium transition ${
+                      predictionType === "user"
+                        ? "bg-cyan-600 text-white"
+                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                    }`}
+                  >
+                    Theo Người học
+                  </button>
+                </div>
+              </div>
+
+              {/* Course Selection */}
+              <div>
+                <label htmlFor="courseId" className="block text-sm font-medium text-gray-700 mb-2">
+                  Khóa học
+                </label>
+                <select
+                  id="courseId"
+                  value={selectedCourseId}
+                  onChange={handleCourseChange}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition bg-white"
+                  required
+                >
+                  <option value="">-- Chọn khóa học --</option>
+                  {coursesData.map((course) => (
+                    <option key={course.courseId} value={course.courseId}>
+                      {course.courseId}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {/* User Selection - Only shown for "user" type and after course is selected */}
+              {predictionType === "user" && (
+                <div>
+                  <label htmlFor="userId" className="block text-sm font-medium text-gray-700 mb-2">
+                    Người học
                   </label>
                   <select
-                    id="courseId"
-                    value={selectedCourseId}
-                    onChange={handleCourseChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition bg-white"
+                    id="userId"
+                    value={selectedUserId}
+                    onChange={handleUserChange}
+                    disabled={!selectedCourseId}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition bg-white disabled:bg-gray-100 disabled:cursor-not-allowed"
                     required
                   >
-                    <option value="">-- Chọn khóa học --</option>
-                    {coursesData.map((course) => (
-                      <option key={course.courseId} value={course.courseId}>
-                        {course.courseId}
+                    <option value="">
+                      {selectedCourseId
+                        ? "-- Chọn người học --"
+                        : "-- Vui lòng chọn khóa học trước --"}
+                    </option>
+                    {availableUsers.map((userId) => (
+                      <option key={userId} value={userId}>
+                        {userId}
                       </option>
                     ))}
                   </select>
+                  {!selectedCourseId && (
+                    <p className="mt-2 text-sm text-gray-500">
+                      Dropdown này chỉ hiện những user học khóa đã chọn
+                    </p>
+                  )}
                 </div>
-
-                {/* Auto-filled course information */}
-                {selectedCourse && (
-                  <div className="grid grid-cols-2 gap-4 mt-4 p-4 bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg">
-                    <div>
-                      <p className="text-xs text-gray-600">Tổng số học viên</p>
-                      <p className="text-sm font-semibold text-gray-900">{selectedCourse.totalStudentsEnrolled.toLocaleString()}</p>
-                    </div>
-                    <div>
-                      <p className="text-xs text-gray-600">Tổng số video</p>
-                      <p className="text-sm font-semibold text-gray-900">{selectedCourse.totalVideos}</p>
-                    </div>
-                    <div>
-                      <p className="text-xs text-gray-600">Tổng số bài tập</p>
-                      <p className="text-sm font-semibold text-gray-900">{selectedCourse.totalExercises}</p>
-                    </div>
-                    <div>
-                      <p className="text-xs text-gray-600">Số lĩnh vực</p>
-                      <p className="text-sm font-semibold text-gray-900">{selectedCourse.numFields}</p>
-                    </div>
-                    <div className="col-span-2">
-                      <p className="text-xs text-gray-600">Yêu cầu điều kiện</p>
-                      <p className="text-sm font-semibold text-gray-900">
-                        {selectedCourse.isPrerequisites ? "Có" : "Không"}
-                      </p>
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* Group 2: Performance Metrics */}
-              <div className="border-b pb-6">
-                <h3 className="text-lg font-semibold text-gray-800 mb-4">
-                  2. Chỉ số hiệu suất học tập (4 giai đoạn)
-                </h3>
-                
-                {/* Accuracy for 4 periods */}
-                <div className="mb-4">
-                  <p className="text-sm font-medium text-gray-700 mb-2">Độ chính xác (0-1)</p>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                    {['p1', 'p2', 'p3', 'p4'].map((period) => {
-                      const fieldName = `accuracy_${period}` as keyof typeof performanceMetrics;
-                      return (
-                        <div key={fieldName}>
-                          <label htmlFor={fieldName} className="block text-xs text-gray-600 mb-1">
-                            P{period.charAt(1)}
-                          </label>
-                          <input
-                            type="number"
-                            id={fieldName}
-                            name={fieldName}
-                            min="0"
-                            max="1"
-                            step="0.01"
-                            value={performanceMetrics[fieldName]}
-                            onChange={handlePerformanceChange}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition text-sm"
-                            required
-                          />
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-
-                {/* Average Earned Ratio for 4 periods */}
-                <div className="mb-4">
-                  <p className="text-sm font-medium text-gray-700 mb-2">Tỷ lệ điểm đạt được (0-1)</p>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                    {['p1', 'p2', 'p3', 'p4'].map((period) => {
-                      const fieldName = `avg_earned_ratio_${period}` as keyof typeof performanceMetrics;
-                      return (
-                        <div key={fieldName}>
-                          <label htmlFor={fieldName} className="block text-xs text-gray-600 mb-1">
-                            P{period.charAt(1)}
-                          </label>
-                          <input
-                            type="number"
-                            id={fieldName}
-                            name={fieldName}
-                            min="0"
-                            max="1"
-                            step="0.01"
-                            value={performanceMetrics[fieldName]}
-                            onChange={handlePerformanceChange}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition text-sm"
-                            required
-                          />
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-
-                {/* Average Earned Score for 4 periods */}
-                <div className="mb-4">
-                  <p className="text-sm font-medium text-gray-700 mb-2">Điểm trung bình (0-100)</p>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                    {['p1', 'p2', 'p3', 'p4'].map((period) => {
-                      const fieldName = `avg_earned_score_${period}` as keyof typeof performanceMetrics;
-                      return (
-                        <div key={fieldName}>
-                          <label htmlFor={fieldName} className="block text-xs text-gray-600 mb-1">
-                            P{period.charAt(1)}
-                          </label>
-                          <input
-                            type="number"
-                            id={fieldName}
-                            name={fieldName}
-                            min="0"
-                            max="100"
-                            step="0.1"
-                            value={performanceMetrics[fieldName]}
-                            onChange={handlePerformanceChange}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition text-sm"
-                            required
-                          />
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              </div>
-
-              {/* Group 3: Engagement Metrics */}
-              <div className="pb-6">
-                <h3 className="text-lg font-semibold text-gray-800 mb-4">
-                  3. Chỉ số tương tác
-                </h3>
-                
-                <div className="space-y-4">
-                  <div>
-                    <label htmlFor="numberOfSessions" className="block text-sm font-medium text-gray-700 mb-2">
-                      Số phiên học
-                    </label>
-                    <input
-                      type="number"
-                      id="numberOfSessions"
-                      name="numberOfSessions"
-                      min="0"
-                      value={engagementMetrics.numberOfSessions}
-                      onChange={handleEngagementChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition"
-                      placeholder="VD: 50"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="totalTimeSpent" className="block text-sm font-medium text-gray-700 mb-2">
-                      Tổng thời gian học (phút)
-                    </label>
-                    <input
-                      type="number"
-                      id="totalTimeSpent"
-                      name="totalTimeSpent"
-                      min="0"
-                      value={engagementMetrics.totalTimeSpent}
-                      onChange={handleEngagementChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition"
-                      placeholder="VD: 1200"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="videoCompletionRate" className="block text-sm font-medium text-gray-700 mb-2">
-                      Tỷ lệ hoàn thành video (%)
-                    </label>
-                    <input
-                      type="number"
-                      id="videoCompletionRate"
-                      name="videoCompletionRate"
-                      min="0"
-                      max="100"
-                      step="0.1"
-                      value={engagementMetrics.videoCompletionRate}
-                      onChange={handleEngagementChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition"
-                      placeholder="VD: 85.5"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="exerciseCompletionRate" className="block text-sm font-medium text-gray-700 mb-2">
-                      Tỷ lệ hoàn thành bài tập (%)
-                    </label>
-                    <input
-                      type="number"
-                      id="exerciseCompletionRate"
-                      name="exerciseCompletionRate"
-                      min="0"
-                      max="100"
-                      step="0.1"
-                      value={engagementMetrics.exerciseCompletionRate}
-                      onChange={handleEngagementChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition"
-                      placeholder="VD: 75.0"
-                      required
-                    />
-                  </div>
-                </div>
-              </div>
+              )}
 
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 text-white py-3 px-6 rounded-lg font-medium hover:from-cyan-700 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 transition transform hover:scale-[1.02]"
+                disabled={!selectedCourseId || (predictionType === "user" && !selectedUserId)}
+                className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 text-white py-3 px-6 rounded-lg font-medium hover:from-cyan-700 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 transition transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
                 Dự đoán
               </button>
@@ -375,94 +227,156 @@ export default function Prediction() {
             
             {prediction ? (
               <div className="space-y-6">
-                {/* Prediction Group */}
-                <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border-2 border-cyan-200">
-                  <div className="text-sm text-gray-600 mb-2">Nhóm phân loại</div>
-                  <div className="flex items-baseline gap-3">
-                    <div className={`text-5xl font-bold ${
-                      prediction.group === 'A' ? 'text-green-600' :
-                      prediction.group === 'B' ? 'text-blue-600' :
-                      prediction.group === 'C' ? 'text-yellow-600' :
-                      prediction.group === 'D' ? 'text-orange-600' :
-                      'text-red-600'
-                    }`}>
-                      {prediction.group}
-                    </div>
-                    <div className="text-lg text-gray-700">{prediction.groupLabel}</div>
-                  </div>
-                  <div className="mt-2 text-sm text-gray-600">
-                    Tỷ lệ: {prediction.groupPercentage}% học viên
-                  </div>
-                </div>
-
-                {/* Satisfaction Level */}
-                <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-sm font-medium text-gray-700">Mức độ hài lòng</span>
-                    <span className="text-sm font-bold text-gray-900">{prediction.satisfactionLevel}/100</span>
-                  </div>
-                  <div className="w-full bg-gray-200 rounded-full h-6 overflow-hidden">
-                    <div
-                      className={`h-6 rounded-full transition-all duration-500 ${
-                        prediction.satisfactionLevel >= 80 ? 'bg-gradient-to-r from-green-500 to-green-600' :
-                        prediction.satisfactionLevel >= 65 ? 'bg-gradient-to-r from-blue-500 to-blue-600' :
-                        prediction.satisfactionLevel >= 50 ? 'bg-gradient-to-r from-yellow-500 to-yellow-600' :
-                        prediction.satisfactionLevel >= 30 ? 'bg-gradient-to-r from-orange-500 to-orange-600' :
-                        'bg-gradient-to-r from-red-500 to-red-600'
-                      }`}
-                      style={{ width: `${prediction.satisfactionLevel}%` }}
-                    ></div>
-                  </div>
-                </div>
-
-                {/* Confidence Score */}
-                <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-sm font-medium text-gray-700">Độ tin cậy</span>
-                    <span className="text-sm font-bold text-gray-900">{prediction.confidence}%</span>
-                  </div>
-                  <div className="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
-                    <div
-                      className="bg-gradient-to-r from-cyan-600 to-blue-600 h-4 rounded-full transition-all duration-500"
-                      style={{ width: `${prediction.confidence}%` }}
-                    ></div>
-                  </div>
-                </div>
-
-                {/* Group Distribution */}
-                <div className="border-t pt-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                    Phân bố nhóm hài lòng
-                  </h3>
-                  <div className="space-y-3">
-                    {Object.entries(SATISFACTION_GROUPS).map(([key, info]) => {
-                      const isSelected = key === prediction.group;
-                      
-                      return (
-                        <div key={key}>
-                          <div className="flex justify-between text-sm mb-1">
-                            <span className="text-gray-700 font-medium">
-                              Nhóm {key}: {info.label}
-                            </span>
-                            <span className="text-gray-900 font-medium">{info.percentage}%</span>
-                          </div>
-                          <div className="w-full bg-gray-200 rounded-full h-2">
-                            <div
-                              className={`h-2 rounded-full ${
-                                info.color === 'green' ? 'bg-green-500' :
-                                info.color === 'blue' ? 'bg-blue-500' :
-                                info.color === 'yellow' ? 'bg-yellow-500' :
-                                info.color === 'orange' ? 'bg-orange-500' :
-                                'bg-red-500'
-                              } ${isSelected ? 'opacity-100' : 'opacity-40'}`}
-                              style={{ width: `${info.percentage}%` }}
-                            ></div>
-                          </div>
+                {prediction.type === "course" ? (
+                  /* Course Prediction Results */
+                  <>
+                    <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border-2 border-cyan-200">
+                      <div className="text-sm text-gray-600 mb-2">Khóa học: {prediction.courseId}</div>
+                      <div className="text-sm text-gray-600 mb-2">Tổng số người học: {prediction.totalUsers}</div>
+                      <div className="flex items-baseline gap-3 mt-4">
+                        <div className={`text-5xl font-bold ${
+                          prediction.overallGroup === 'A' ? 'text-green-600' :
+                          prediction.overallGroup === 'B' ? 'text-blue-600' :
+                          prediction.overallGroup === 'C' ? 'text-yellow-600' :
+                          prediction.overallGroup === 'D' ? 'text-orange-600' :
+                          'text-red-600'
+                        }`}>
+                          {prediction.overallGroup}
                         </div>
-                      );
-                    })}
-                  </div>
-                </div>
+                        <div className="text-lg text-gray-700">
+                          {SATISFACTION_GROUPS[prediction.overallGroup as keyof typeof SATISFACTION_GROUPS].label}
+                        </div>
+                      </div>
+                      <div className="mt-2 text-sm text-gray-600">
+                        Mức độ hài lòng trung bình: {prediction.avgSatisfaction}%
+                      </div>
+                    </div>
+
+                    {/* Group Statistics */}
+                    <div className="border-t pt-6">
+                      <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                        Thống kê phân nhóm
+                      </h3>
+                      <div className="grid grid-cols-2 gap-4 mb-4">
+                        <div className="bg-green-50 p-3 rounded-lg">
+                          <div className="text-sm text-gray-600">Group A</div>
+                          <div className="text-2xl font-bold text-green-600">{prediction.groupCounts.A}</div>
+                        </div>
+                        <div className="bg-blue-50 p-3 rounded-lg">
+                          <div className="text-sm text-gray-600">Group B</div>
+                          <div className="text-2xl font-bold text-blue-600">{prediction.groupCounts.B}</div>
+                        </div>
+                        <div className="bg-yellow-50 p-3 rounded-lg">
+                          <div className="text-sm text-gray-600">Group C</div>
+                          <div className="text-2xl font-bold text-yellow-600">{prediction.groupCounts.C}</div>
+                        </div>
+                        <div className="bg-orange-50 p-3 rounded-lg">
+                          <div className="text-sm text-gray-600">Group D</div>
+                          <div className="text-2xl font-bold text-orange-600">{prediction.groupCounts.D}</div>
+                        </div>
+                        <div className="col-span-2 bg-red-50 p-3 rounded-lg">
+                          <div className="text-sm text-gray-600">Group E</div>
+                          <div className="text-2xl font-bold text-red-600">{prediction.groupCounts.E}</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Distribution Chart */}
+                    <div className="border-t pt-6">
+                      <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                        Biểu đồ phân bố
+                      </h3>
+                      <div className="space-y-3">
+                        {prediction.distribution.map((item) => (
+                          <div key={item.name}>
+                            <div className="flex justify-between text-sm mb-1">
+                              <span className="text-gray-700 font-medium">{item.name}</span>
+                              <span className="text-gray-900 font-medium">
+                                {item.value} ({item.percentage}%)
+                              </span>
+                            </div>
+                            <div className="w-full bg-gray-200 rounded-full h-2">
+                              <div
+                                className={`h-2 rounded-full ${
+                                  item.name === 'Group A' ? 'bg-green-500' :
+                                  item.name === 'Group B' ? 'bg-blue-500' :
+                                  item.name === 'Group C' ? 'bg-yellow-500' :
+                                  item.name === 'Group D' ? 'bg-orange-500' :
+                                  'bg-red-500'
+                                }`}
+                                style={{ width: `${item.percentage}%` }}
+                              ></div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  /* User Prediction Results */
+                  <>
+                    <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border-2 border-cyan-200">
+                      <div className="text-sm text-gray-600 mb-2">Người học: {prediction.userId}</div>
+                      <div className="text-sm text-gray-600 mb-2">Khóa học đang xem: {prediction.courseId}</div>
+                      <div className="flex items-baseline gap-3 mt-4">
+                        <div className={`text-5xl font-bold ${
+                          prediction.satisfaction.group === 'A' ? 'text-green-600' :
+                          prediction.satisfaction.group === 'B' ? 'text-blue-600' :
+                          prediction.satisfaction.group === 'C' ? 'text-yellow-600' :
+                          prediction.satisfaction.group === 'D' ? 'text-orange-600' :
+                          'text-red-600'
+                        }`}>
+                          {prediction.satisfaction.group}
+                        </div>
+                        <div className="text-lg text-gray-700">
+                          {SATISFACTION_GROUPS[prediction.satisfaction.group as keyof typeof SATISFACTION_GROUPS].label}
+                        </div>
+                      </div>
+                      <div className="mt-2 text-sm text-gray-600">
+                        Mức độ hài lòng: {prediction.satisfaction.satisfactionPercentage}%
+                      </div>
+                    </div>
+
+                    {/* Other Courses Table */}
+                    {prediction.otherCourses.length > 0 && (
+                      <div className="border-t pt-6">
+                        <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                          Các khóa học khác của người học này
+                        </h3>
+                        <div className="overflow-x-auto">
+                          <table className="w-full">
+                            <thead>
+                              <tr className="border-b-2 border-gray-300">
+                                <th className="text-left py-3 px-4 font-semibold text-gray-700">Khóa học</th>
+                                <th className="text-left py-3 px-4 font-semibold text-gray-700">Mức độ hài lòng</th>
+                                <th className="text-left py-3 px-4 font-semibold text-gray-700">Phân loại</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {prediction.otherCourses.map((course) => (
+                                <tr key={course.courseId} className="border-b border-gray-200">
+                                  <td className="py-3 px-4 text-gray-800">{course.courseId}</td>
+                                  <td className="py-3 px-4 text-gray-800">{course.satisfactionPercentage}%</td>
+                                  <td className="py-3 px-4">
+                                    <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${
+                                      course.group === 'A' ? 'bg-green-100 text-green-700' :
+                                      course.group === 'B' ? 'bg-blue-100 text-blue-700' :
+                                      course.group === 'C' ? 'bg-yellow-100 text-yellow-700' :
+                                      course.group === 'D' ? 'bg-orange-100 text-orange-700' :
+                                      'bg-red-100 text-red-700'
+                                    }`}>
+                                      Group {course.group}
+                                    </span>
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    )}
+                  </>
+                )}
 
                 {/* Info */}
                 <div className="bg-cyan-50 rounded-lg p-4 border border-cyan-200">
