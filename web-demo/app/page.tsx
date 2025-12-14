@@ -1,19 +1,53 @@
+import Image from "next/image";
+
 export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Banner Section */}
       <div className="relative bg-gradient-to-br from-blue-600 via-blue-500 to-blue-400 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          {/* Logo Placeholders */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-            {[1, 2, 3, 4].map((i) => (
-              <div
-                key={i}
-                className="aspect-square border-2 border-dashed border-white/40 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-white/20 transition"
-              >
-                <span className="text-white/60 text-sm">Logo {i}</span>
-              </div>
-            ))}
+          {/* Logos */}
+          <div className="flex items-center justify-center gap-8 mb-12 flex-wrap">
+            <div className="bg-white rounded-lg p-3 flex items-center justify-center" style={{ height: '80px', width: 'auto' }}>
+              <Image
+                src="/EPv4pC2UYAAa8kn.png"
+                alt="XuetangX Logo"
+                width={120}
+                height={60}
+                className="object-contain"
+                style={{ maxHeight: '60px', width: 'auto' }}
+              />
+            </div>
+            <div className="bg-white rounded-lg p-3 flex items-center justify-center" style={{ height: '80px', width: 'auto' }}>
+              <Image
+                src="/GMA-new-logo.png"
+                alt="Global MOOC Alliance Logo"
+                width={120}
+                height={60}
+                className="object-contain"
+                style={{ maxHeight: '60px', width: 'auto' }}
+              />
+            </div>
+            <div className="bg-white rounded-lg p-3 flex items-center justify-center" style={{ height: '80px', width: 'auto' }}>
+              <Image
+                src="/Logo_UIT_updated.svg.png"
+                alt="UIT Logo"
+                width={120}
+                height={60}
+                className="object-contain"
+                style={{ maxHeight: '60px', width: 'auto' }}
+              />
+            </div>
+            <div className="bg-white rounded-lg p-3 flex items-center justify-center" style={{ height: '80px', width: 'auto' }}>
+              <Image
+                src="/Tsinghua_University_Logo.svg.png"
+                alt="Tsinghua University Logo"
+                width={120}
+                height={60}
+                className="object-contain"
+                style={{ maxHeight: '60px', width: 'auto' }}
+              />
+            </div>
           </div>
 
           {/* Main Content */}
