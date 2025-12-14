@@ -38,6 +38,10 @@ export default function Prediction() {
     }));
   };
 
+  const getPerformanceValue = (key: keyof typeof performanceMetrics): number => {
+    return performanceMetrics[key];
+  };
+
   const handleEngagementChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setEngagementMetrics(prev => ({
@@ -49,7 +53,13 @@ export default function Prediction() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Mock prediction logic based on input
+    // Weighting constants for satisfaction calculation
+    const ACCURACY_WEIGHT = 0.3;
+    const EARNED_RATIO_WEIGHT = 0.3;
+    const EARNED_SCORE_WEIGHT = 0.2;
+    const ENGAGEMENT_WEIGHT = 0.2;
+    
+    // Calculate average metrics
     const avgAccuracy = (performanceMetrics.accuracy_p1 + performanceMetrics.accuracy_p2 + 
                          performanceMetrics.accuracy_p3 + performanceMetrics.accuracy_p4) / 4;
     const avgRatio = (performanceMetrics.avg_earned_ratio_p1 + performanceMetrics.avg_earned_ratio_p2 + 
@@ -61,10 +71,10 @@ export default function Prediction() {
     
     // Calculate overall satisfaction level (0-100)
     const satisfactionLevel = Math.min(100, Math.max(0,
-      (avgAccuracy * 100 * 0.3) + 
-      (avgRatio * 100 * 0.3) + 
-      (avgScore * 0.2) + 
-      (engagementScore * 0.2)
+      (avgAccuracy * 100 * ACCURACY_WEIGHT) + 
+      (avgRatio * 100 * EARNED_RATIO_WEIGHT) + 
+      (avgScore * EARNED_SCORE_WEIGHT) + 
+      (engagementScore * ENGAGEMENT_WEIGHT)
     ));
     
     // Determine group based on satisfaction level
@@ -76,7 +86,14 @@ export default function Prediction() {
     else group = 'E';
     
     const groupInfo = SATISFACTION_GROUPS[group];
-    const confidence = Math.floor(Math.random() * 15) + 75; // 75-89%
+    
+    // Deterministic confidence based on input consistency
+    const performanceVariance = Math.abs(avgAccuracy - avgRatio) + 
+                                Math.abs(avgAccuracy - (avgScore / 100)) +
+                                Math.abs(avgRatio - (avgScore / 100));
+    const baseConfidence = 85;
+    const confidencePenalty = Math.min(10, performanceVariance * 20);
+    const confidence = Math.floor(baseConfidence - confidencePenalty);
     
     setPrediction({
       satisfactionLevel: Math.round(satisfactionLevel),
@@ -174,25 +191,28 @@ export default function Prediction() {
                 <div className="mb-4">
                   <p className="text-sm font-medium text-gray-700 mb-2">Độ chính xác (0-1)</p>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                    {['p1', 'p2', 'p3', 'p4'].map((period) => (
-                      <div key={`accuracy_${period}`}>
-                        <label htmlFor={`accuracy_${period}`} className="block text-xs text-gray-600 mb-1">
-                          P{period.charAt(1)}
-                        </label>
-                        <input
-                          type="number"
-                          id={`accuracy_${period}`}
-                          name={`accuracy_${period}`}
-                          min="0"
-                          max="1"
-                          step="0.01"
-                          value={performanceMetrics[`accuracy_${period}` as keyof typeof performanceMetrics]}
-                          onChange={handlePerformanceChange}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition text-sm"
-                          required
-                        />
-                      </div>
-                    ))}
+                    {['p1', 'p2', 'p3', 'p4'].map((period) => {
+                      const fieldName = `accuracy_${period}` as keyof typeof performanceMetrics;
+                      return (
+                        <div key={fieldName}>
+                          <label htmlFor={fieldName} className="block text-xs text-gray-600 mb-1">
+                            P{period.charAt(1)}
+                          </label>
+                          <input
+                            type="number"
+                            id={fieldName}
+                            name={fieldName}
+                            min="0"
+                            max="1"
+                            step="0.01"
+                            value={getPerformanceValue(fieldName)}
+                            onChange={handlePerformanceChange}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition text-sm"
+                            required
+                          />
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
 
@@ -200,25 +220,28 @@ export default function Prediction() {
                 <div className="mb-4">
                   <p className="text-sm font-medium text-gray-700 mb-2">Tỷ lệ điểm đạt được (0-1)</p>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                    {['p1', 'p2', 'p3', 'p4'].map((period) => (
-                      <div key={`avg_earned_ratio_${period}`}>
-                        <label htmlFor={`avg_earned_ratio_${period}`} className="block text-xs text-gray-600 mb-1">
-                          P{period.charAt(1)}
-                        </label>
-                        <input
-                          type="number"
-                          id={`avg_earned_ratio_${period}`}
-                          name={`avg_earned_ratio_${period}`}
-                          min="0"
-                          max="1"
-                          step="0.01"
-                          value={performanceMetrics[`avg_earned_ratio_${period}` as keyof typeof performanceMetrics]}
-                          onChange={handlePerformanceChange}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition text-sm"
-                          required
-                        />
-                      </div>
-                    ))}
+                    {['p1', 'p2', 'p3', 'p4'].map((period) => {
+                      const fieldName = `avg_earned_ratio_${period}` as keyof typeof performanceMetrics;
+                      return (
+                        <div key={fieldName}>
+                          <label htmlFor={fieldName} className="block text-xs text-gray-600 mb-1">
+                            P{period.charAt(1)}
+                          </label>
+                          <input
+                            type="number"
+                            id={fieldName}
+                            name={fieldName}
+                            min="0"
+                            max="1"
+                            step="0.01"
+                            value={getPerformanceValue(fieldName)}
+                            onChange={handlePerformanceChange}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition text-sm"
+                            required
+                          />
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
 
@@ -226,25 +249,28 @@ export default function Prediction() {
                 <div className="mb-4">
                   <p className="text-sm font-medium text-gray-700 mb-2">Điểm trung bình (0-100)</p>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                    {['p1', 'p2', 'p3', 'p4'].map((period) => (
-                      <div key={`avg_earned_score_${period}`}>
-                        <label htmlFor={`avg_earned_score_${period}`} className="block text-xs text-gray-600 mb-1">
-                          P{period.charAt(1)}
-                        </label>
-                        <input
-                          type="number"
-                          id={`avg_earned_score_${period}`}
-                          name={`avg_earned_score_${period}`}
-                          min="0"
-                          max="100"
-                          step="0.1"
-                          value={performanceMetrics[`avg_earned_score_${period}` as keyof typeof performanceMetrics]}
-                          onChange={handlePerformanceChange}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition text-sm"
-                          required
-                        />
-                      </div>
-                    ))}
+                    {['p1', 'p2', 'p3', 'p4'].map((period) => {
+                      const fieldName = `avg_earned_score_${period}` as keyof typeof performanceMetrics;
+                      return (
+                        <div key={fieldName}>
+                          <label htmlFor={fieldName} className="block text-xs text-gray-600 mb-1">
+                            P{period.charAt(1)}
+                          </label>
+                          <input
+                            type="number"
+                            id={fieldName}
+                            name={fieldName}
+                            min="0"
+                            max="100"
+                            step="0.1"
+                            value={getPerformanceValue(fieldName)}
+                            onChange={handlePerformanceChange}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition text-sm"
+                            required
+                          />
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               </div>

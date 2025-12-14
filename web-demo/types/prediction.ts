@@ -54,6 +54,6 @@ export const SATISFACTION_GROUPS = {
   A: { label: 'Rất hài lòng', percentage: 5.7, color: 'green' },
   B: { label: 'Hài lòng', percentage: 11.1, color: 'blue' },
   C: { label: 'Trung bình', percentage: 10.7, color: 'yellow' },
-  D: { label: 'Không hài lòng', percentage: 18.9, color: 'orange' },
-  E: { label: 'Rất không hài lòng', percentage: 53.9, color: 'red' },
+  D: { label: 'Không hài lòng', percentage: 18.8, color: 'orange' },
+  E: { label: 'Rất không hài lòng', percentage: 53.7, color: 'red' },
 } as const;
