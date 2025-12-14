@@ -1,40 +1,89 @@
 "use client";
 
 import { useState } from "react";
+import { coursesData, getCourseById } from "@/data/courseData";
+import { PredictionResult, SATISFACTION_GROUPS } from "@/types/prediction";
 
 export default function Prediction() {
-  const [formData, setFormData] = useState({
-    courseId: "",
-    studentEngagement: "",
-    attendanceRate: "",
-    assignmentScore: "",
-    participationScore: "",
-    previousRating: "",
+  const [selectedCourseId, setSelectedCourseId] = useState("");
+  
+  // Performance metrics for 4 periods
+  const [performanceMetrics, setPerformanceMetrics] = useState({
+    accuracy_p1: 0, accuracy_p2: 0, accuracy_p3: 0, accuracy_p4: 0,
+    avg_earned_ratio_p1: 0, avg_earned_ratio_p2: 0, avg_earned_ratio_p3: 0, avg_earned_ratio_p4: 0,
+    avg_earned_score_p1: 0, avg_earned_score_p2: 0, avg_earned_score_p3: 0, avg_earned_score_p4: 0,
+  });
+  
+  // Engagement metrics
+  const [engagementMetrics, setEngagementMetrics] = useState({
+    numberOfSessions: 0,
+    totalTimeSpent: 0,
+    videoCompletionRate: 0,
+    exerciseCompletionRate: 0,
   });
 
-  const [prediction, setPrediction] = useState<{
-    level: string;
-    confidence: number;
-  } | null>(null);
+  const [prediction, setPrediction] = useState<PredictionResult | null>(null);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+  const selectedCourse = selectedCourseId ? getCourseById(selectedCourseId) : null;
+
+  const handleCourseChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedCourseId(e.target.value);
+  };
+
+  const handlePerformanceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setPerformanceMetrics(prev => ({
+      ...prev,
+      [name]: parseFloat(value) || 0,
+    }));
+  };
+
+  const handleEngagementChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setEngagementMetrics(prev => ({
+      ...prev,
+      [name]: parseFloat(value) || 0,
+    }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Mock prediction logic
-    const randomConfidence = Math.floor(Math.random() * 30) + 70;
-    const levels = ["Cao", "Trung bình", "Thấp"];
-    const randomLevel = levels[Math.floor(Math.random() * levels.length)];
+    // Mock prediction logic based on input
+    const avgAccuracy = (performanceMetrics.accuracy_p1 + performanceMetrics.accuracy_p2 + 
+                         performanceMetrics.accuracy_p3 + performanceMetrics.accuracy_p4) / 4;
+    const avgRatio = (performanceMetrics.avg_earned_ratio_p1 + performanceMetrics.avg_earned_ratio_p2 + 
+                      performanceMetrics.avg_earned_ratio_p3 + performanceMetrics.avg_earned_ratio_p4) / 4;
+    const avgScore = (performanceMetrics.avg_earned_score_p1 + performanceMetrics.avg_earned_score_p2 + 
+                      performanceMetrics.avg_earned_score_p3 + performanceMetrics.avg_earned_score_p4) / 4;
+    
+    const engagementScore = (engagementMetrics.videoCompletionRate + engagementMetrics.exerciseCompletionRate) / 2;
+    
+    // Calculate overall satisfaction level (0-100)
+    const satisfactionLevel = Math.min(100, Math.max(0,
+      (avgAccuracy * 100 * 0.3) + 
+      (avgRatio * 100 * 0.3) + 
+      (avgScore * 0.2) + 
+      (engagementScore * 0.2)
+    ));
+    
+    // Determine group based on satisfaction level
+    let group: 'A' | 'B' | 'C' | 'D' | 'E';
+    if (satisfactionLevel >= 80) group = 'A';
+    else if (satisfactionLevel >= 65) group = 'B';
+    else if (satisfactionLevel >= 50) group = 'C';
+    else if (satisfactionLevel >= 30) group = 'D';
+    else group = 'E';
+    
+    const groupInfo = SATISFACTION_GROUPS[group];
+    const confidence = Math.floor(Math.random() * 15) + 75; // 75-89%
     
     setPrediction({
-      level: randomLevel,
-      confidence: randomConfidence,
+      satisfactionLevel: Math.round(satisfactionLevel),
+      confidence,
+      group,
+      groupLabel: groupInfo.label,
+      groupPercentage: groupInfo.percentage,
     });
   };
 
@@ -58,124 +107,233 @@ export default function Prediction() {
             <h2 className="text-2xl font-bold text-gray-900 mb-6">
               Thông tin đầu vào
             </h2>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Course ID */}
-              <div>
-                <label htmlFor="courseId" className="block text-sm font-medium text-gray-700 mb-2">
-                  Mã khóa học
-                </label>
-                <input
-                  type="text"
-                  id="courseId"
-                  name="courseId"
-                  value={formData.courseId}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
-                  placeholder="VD: C_1234567"
-                  required
-                />
+            <form onSubmit={handleSubmit} className="space-y-8">
+              {/* Group 1: Course Information */}
+              <div className="border-b pb-6">
+                <h3 className="text-lg font-semibold text-gray-800 mb-4">
+                  1. Thông tin khóa học
+                </h3>
+                
+                {/* Course ID Dropdown */}
+                <div className="mb-4">
+                  <label htmlFor="courseId" className="block text-sm font-medium text-gray-700 mb-2">
+                    Mã khóa học
+                  </label>
+                  <select
+                    id="courseId"
+                    value={selectedCourseId}
+                    onChange={handleCourseChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition bg-white"
+                    required
+                  >
+                    <option value="">-- Chọn khóa học --</option>
+                    {coursesData.map((course) => (
+                      <option key={course.courseId} value={course.courseId}>
+                        {course.courseId}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Auto-filled course information */}
+                {selectedCourse && (
+                  <div className="grid grid-cols-2 gap-4 mt-4 p-4 bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg">
+                    <div>
+                      <p className="text-xs text-gray-600">Tổng số học viên</p>
+                      <p className="text-sm font-semibold text-gray-900">{selectedCourse.totalStudentsEnrolled.toLocaleString()}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-600">Tổng số video</p>
+                      <p className="text-sm font-semibold text-gray-900">{selectedCourse.totalVideos}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-600">Tổng số bài tập</p>
+                      <p className="text-sm font-semibold text-gray-900">{selectedCourse.totalExercises}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-600">Số lĩnh vực</p>
+                      <p className="text-sm font-semibold text-gray-900">{selectedCourse.numFields}</p>
+                    </div>
+                    <div className="col-span-2">
+                      <p className="text-xs text-gray-600">Yêu cầu điều kiện</p>
+                      <p className="text-sm font-semibold text-gray-900">
+                        {selectedCourse.isPrerequisites ? "Có" : "Không"}
+                      </p>
+                    </div>
+                  </div>
+                )}
               </div>
 
-              {/* Student Engagement */}
-              <div>
-                <label htmlFor="studentEngagement" className="block text-sm font-medium text-gray-700 mb-2">
-                  Mức độ tương tác (0-100)
-                </label>
-                <input
-                  type="number"
-                  id="studentEngagement"
-                  name="studentEngagement"
-                  min="0"
-                  max="100"
-                  value={formData.studentEngagement}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
-                  placeholder="VD: 75"
-                  required
-                />
+              {/* Group 2: Performance Metrics */}
+              <div className="border-b pb-6">
+                <h3 className="text-lg font-semibold text-gray-800 mb-4">
+                  2. Chỉ số hiệu suất học tập (4 giai đoạn)
+                </h3>
+                
+                {/* Accuracy for 4 periods */}
+                <div className="mb-4">
+                  <p className="text-sm font-medium text-gray-700 mb-2">Độ chính xác (0-1)</p>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    {['p1', 'p2', 'p3', 'p4'].map((period) => (
+                      <div key={`accuracy_${period}`}>
+                        <label htmlFor={`accuracy_${period}`} className="block text-xs text-gray-600 mb-1">
+                          P{period.charAt(1)}
+                        </label>
+                        <input
+                          type="number"
+                          id={`accuracy_${period}`}
+                          name={`accuracy_${period}`}
+                          min="0"
+                          max="1"
+                          step="0.01"
+                          value={performanceMetrics[`accuracy_${period}` as keyof typeof performanceMetrics]}
+                          onChange={handlePerformanceChange}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition text-sm"
+                          required
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Average Earned Ratio for 4 periods */}
+                <div className="mb-4">
+                  <p className="text-sm font-medium text-gray-700 mb-2">Tỷ lệ điểm đạt được (0-1)</p>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    {['p1', 'p2', 'p3', 'p4'].map((period) => (
+                      <div key={`avg_earned_ratio_${period}`}>
+                        <label htmlFor={`avg_earned_ratio_${period}`} className="block text-xs text-gray-600 mb-1">
+                          P{period.charAt(1)}
+                        </label>
+                        <input
+                          type="number"
+                          id={`avg_earned_ratio_${period}`}
+                          name={`avg_earned_ratio_${period}`}
+                          min="0"
+                          max="1"
+                          step="0.01"
+                          value={performanceMetrics[`avg_earned_ratio_${period}` as keyof typeof performanceMetrics]}
+                          onChange={handlePerformanceChange}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition text-sm"
+                          required
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Average Earned Score for 4 periods */}
+                <div className="mb-4">
+                  <p className="text-sm font-medium text-gray-700 mb-2">Điểm trung bình (0-100)</p>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    {['p1', 'p2', 'p3', 'p4'].map((period) => (
+                      <div key={`avg_earned_score_${period}`}>
+                        <label htmlFor={`avg_earned_score_${period}`} className="block text-xs text-gray-600 mb-1">
+                          P{period.charAt(1)}
+                        </label>
+                        <input
+                          type="number"
+                          id={`avg_earned_score_${period}`}
+                          name={`avg_earned_score_${period}`}
+                          min="0"
+                          max="100"
+                          step="0.1"
+                          value={performanceMetrics[`avg_earned_score_${period}` as keyof typeof performanceMetrics]}
+                          onChange={handlePerformanceChange}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition text-sm"
+                          required
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
 
-              {/* Attendance Rate */}
-              <div>
-                <label htmlFor="attendanceRate" className="block text-sm font-medium text-gray-700 mb-2">
-                  Tỉ lệ tham dự (%)
-                </label>
-                <input
-                  type="number"
-                  id="attendanceRate"
-                  name="attendanceRate"
-                  min="0"
-                  max="100"
-                  value={formData.attendanceRate}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
-                  placeholder="VD: 85"
-                  required
-                />
-              </div>
+              {/* Group 3: Engagement Metrics */}
+              <div className="pb-6">
+                <h3 className="text-lg font-semibold text-gray-800 mb-4">
+                  3. Chỉ số tương tác
+                </h3>
+                
+                <div className="space-y-4">
+                  <div>
+                    <label htmlFor="numberOfSessions" className="block text-sm font-medium text-gray-700 mb-2">
+                      Số phiên học
+                    </label>
+                    <input
+                      type="number"
+                      id="numberOfSessions"
+                      name="numberOfSessions"
+                      min="0"
+                      value={engagementMetrics.numberOfSessions}
+                      onChange={handleEngagementChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition"
+                      placeholder="VD: 50"
+                      required
+                    />
+                  </div>
 
-              {/* Assignment Score */}
-              <div>
-                <label htmlFor="assignmentScore" className="block text-sm font-medium text-gray-700 mb-2">
-                  Điểm bài tập (0-100)
-                </label>
-                <input
-                  type="number"
-                  id="assignmentScore"
-                  name="assignmentScore"
-                  min="0"
-                  max="100"
-                  value={formData.assignmentScore}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
-                  placeholder="VD: 80"
-                  required
-                />
-              </div>
+                  <div>
+                    <label htmlFor="totalTimeSpent" className="block text-sm font-medium text-gray-700 mb-2">
+                      Tổng thời gian học (phút)
+                    </label>
+                    <input
+                      type="number"
+                      id="totalTimeSpent"
+                      name="totalTimeSpent"
+                      min="0"
+                      value={engagementMetrics.totalTimeSpent}
+                      onChange={handleEngagementChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition"
+                      placeholder="VD: 1200"
+                      required
+                    />
+                  </div>
 
-              {/* Participation Score */}
-              <div>
-                <label htmlFor="participationScore" className="block text-sm font-medium text-gray-700 mb-2">
-                  Điểm tham gia (0-100)
-                </label>
-                <input
-                  type="number"
-                  id="participationScore"
-                  name="participationScore"
-                  min="0"
-                  max="100"
-                  value={formData.participationScore}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
-                  placeholder="VD: 90"
-                  required
-                />
-              </div>
+                  <div>
+                    <label htmlFor="videoCompletionRate" className="block text-sm font-medium text-gray-700 mb-2">
+                      Tỷ lệ hoàn thành video (%)
+                    </label>
+                    <input
+                      type="number"
+                      id="videoCompletionRate"
+                      name="videoCompletionRate"
+                      min="0"
+                      max="100"
+                      step="0.1"
+                      value={engagementMetrics.videoCompletionRate}
+                      onChange={handleEngagementChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition"
+                      placeholder="VD: 85.5"
+                      required
+                    />
+                  </div>
 
-              {/* Previous Rating */}
-              <div>
-                <label htmlFor="previousRating" className="block text-sm font-medium text-gray-700 mb-2">
-                  Đánh giá trước đó (0-5)
-                </label>
-                <input
-                  type="number"
-                  id="previousRating"
-                  name="previousRating"
-                  min="0"
-                  max="5"
-                  step="0.1"
-                  value={formData.previousRating}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
-                  placeholder="VD: 4.5"
-                  required
-                />
+                  <div>
+                    <label htmlFor="exerciseCompletionRate" className="block text-sm font-medium text-gray-700 mb-2">
+                      Tỷ lệ hoàn thành bài tập (%)
+                    </label>
+                    <input
+                      type="number"
+                      id="exerciseCompletionRate"
+                      name="exerciseCompletionRate"
+                      min="0"
+                      max="100"
+                      step="0.1"
+                      value={engagementMetrics.exerciseCompletionRate}
+                      onChange={handleEngagementChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition"
+                      placeholder="VD: 75.0"
+                      required
+                    />
+                  </div>
+                </div>
               </div>
 
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-lg font-medium hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition transform hover:scale-[1.02]"
+                className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 text-white py-3 px-6 rounded-lg font-medium hover:from-cyan-700 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 transition transform hover:scale-[1.02]"
               >
                 Dự đoán
               </button>
@@ -190,15 +348,43 @@ export default function Prediction() {
             
             {prediction ? (
               <div className="space-y-6">
-                {/* Prediction Level */}
-                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-6 border-2 border-blue-200">
-                  <div className="text-sm text-gray-600 mb-2">Mức độ hài lòng</div>
-                  <div className={`text-4xl font-bold ${
-                    prediction.level === "Cao" ? "text-green-600" :
-                    prediction.level === "Trung bình" ? "text-yellow-600" :
-                    "text-red-600"
-                  }`}>
-                    {prediction.level}
+                {/* Prediction Group */}
+                <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border-2 border-cyan-200">
+                  <div className="text-sm text-gray-600 mb-2">Nhóm phân loại</div>
+                  <div className="flex items-baseline gap-3">
+                    <div className={`text-5xl font-bold ${
+                      prediction.group === 'A' ? 'text-green-600' :
+                      prediction.group === 'B' ? 'text-blue-600' :
+                      prediction.group === 'C' ? 'text-yellow-600' :
+                      prediction.group === 'D' ? 'text-orange-600' :
+                      'text-red-600'
+                    }`}>
+                      {prediction.group}
+                    </div>
+                    <div className="text-lg text-gray-700">{prediction.groupLabel}</div>
+                  </div>
+                  <div className="mt-2 text-sm text-gray-600">
+                    Tỷ lệ: {prediction.groupPercentage}% học viên
+                  </div>
+                </div>
+
+                {/* Satisfaction Level */}
+                <div>
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-sm font-medium text-gray-700">Mức độ hài lòng</span>
+                    <span className="text-sm font-bold text-gray-900">{prediction.satisfactionLevel}/100</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-6 overflow-hidden">
+                    <div
+                      className={`h-6 rounded-full transition-all duration-500 ${
+                        prediction.satisfactionLevel >= 80 ? 'bg-gradient-to-r from-green-500 to-green-600' :
+                        prediction.satisfactionLevel >= 65 ? 'bg-gradient-to-r from-blue-500 to-blue-600' :
+                        prediction.satisfactionLevel >= 50 ? 'bg-gradient-to-r from-yellow-500 to-yellow-600' :
+                        prediction.satisfactionLevel >= 30 ? 'bg-gradient-to-r from-orange-500 to-orange-600' :
+                        'bg-gradient-to-r from-red-500 to-red-600'
+                      }`}
+                      style={{ width: `${prediction.satisfactionLevel}%` }}
+                    ></div>
                   </div>
                 </div>
 
@@ -210,38 +396,39 @@ export default function Prediction() {
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
                     <div
-                      className="bg-gradient-to-r from-blue-600 to-purple-600 h-4 rounded-full transition-all duration-500"
+                      className="bg-gradient-to-r from-cyan-600 to-blue-600 h-4 rounded-full transition-all duration-500"
                       style={{ width: `${prediction.confidence}%` }}
                     ></div>
                   </div>
                 </div>
 
-                {/* Visualization */}
+                {/* Group Distribution */}
                 <div className="border-t pt-6">
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                    Phân bố xác suất
+                    Phân bố nhóm hài lòng
                   </h3>
                   <div className="space-y-3">
-                    {["Cao", "Trung bình", "Thấp"].map((level) => {
-                      const isSelected = level === prediction.level;
-                      const probability = isSelected 
-                        ? prediction.confidence 
-                        : Math.floor((100 - prediction.confidence) / 2);
+                    {Object.entries(SATISFACTION_GROUPS).map(([key, info]) => {
+                      const isSelected = key === prediction.group;
                       
                       return (
-                        <div key={level}>
+                        <div key={key}>
                           <div className="flex justify-between text-sm mb-1">
-                            <span className="text-gray-700">{level}</span>
-                            <span className="text-gray-900 font-medium">{probability}%</span>
+                            <span className="text-gray-700 font-medium">
+                              Nhóm {key}: {info.label}
+                            </span>
+                            <span className="text-gray-900 font-medium">{info.percentage}%</span>
                           </div>
                           <div className="w-full bg-gray-200 rounded-full h-2">
                             <div
                               className={`h-2 rounded-full ${
-                                level === "Cao" ? "bg-green-500" :
-                                level === "Trung bình" ? "bg-yellow-500" :
-                                "bg-red-500"
-                              } ${isSelected ? "opacity-100" : "opacity-40"}`}
-                              style={{ width: `${probability}%` }}
+                                info.color === 'green' ? 'bg-green-500' :
+                                info.color === 'blue' ? 'bg-blue-500' :
+                                info.color === 'yellow' ? 'bg-yellow-500' :
+                                info.color === 'orange' ? 'bg-orange-500' :
+                                'bg-red-500'
+                              } ${isSelected ? 'opacity-100' : 'opacity-40'}`}
+                              style={{ width: `${info.percentage}%` }}
                             ></div>
                           </div>
                         </div>
@@ -251,7 +438,7 @@ export default function Prediction() {
                 </div>
 
                 {/* Info */}
-                <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                <div className="bg-cyan-50 rounded-lg p-4 border border-cyan-200">
                   <p className="text-sm text-gray-700">
                     <span className="font-semibold">Lưu ý:</span> Kết quả dự đoán được tính toán dựa trên mô hình Data Mining đã được huấn luyện với dữ liệu lịch sử.
                   </p>
