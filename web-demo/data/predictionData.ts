@@ -9,6 +9,17 @@ export interface UserCourseSatisfaction {
   group: 'A' | 'B' | 'C' | 'D' | 'E';
 }
 
+// Constants from data distribution (node2vec_smote_sample.csv: 764 satisfied, 236 dissatisfied)
+const SATISFIED_RATIO = 0.764; // 764 / 1000 users are satisfied (label 2.0)
+
+// Group distribution constants
+// Group A: 5.7%, Group B: 11.1% (total satisfied: 16.8%)
+const GROUP_A_RATIO_IN_SATISFIED = 0.34; // 5.7 / (5.7 + 11.1) ≈ 0.34
+
+// Group C: 10.7%, Group D: 18.8%, Group E: 53.7% (total dissatisfied: 83.2%)
+const GROUP_C_RATIO_IN_DISSATISFIED = 0.13; // 10.7 / 83.2 ≈ 0.13
+const GROUP_D_RATIO_IN_DISSATISFIED = 0.36; // (10.7 + 18.8) / 83.2 ≈ 0.36
+
 // Generate synthetic user-course-satisfaction data
 // Mapping satisfaction_label to groups:
 // 2.0 -> Groups A, B (satisfied)
@@ -32,14 +43,14 @@ const generateUserData = (): UserCourseSatisfaction[] => {
     
     selectedCourses.forEach(courseId => {
       // Distribution based on CSV: 764 label 2.0, 236 label 1.0
-      const satisfactionLabel = Math.random() < 0.764 ? 2.0 : 1.0;
+      const satisfactionLabel = Math.random() < SATISFIED_RATIO ? 2.0 : 1.0;
       
       let group: 'A' | 'B' | 'C' | 'D' | 'E';
       let satisfactionPercentage: number;
       
       if (satisfactionLabel === 2.0) {
         // Satisfied - Groups A or B
-        if (Math.random() < 0.34) { // 5.7 / (5.7 + 11.1) ≈ 0.34
+        if (Math.random() < GROUP_A_RATIO_IN_SATISFIED) {
           group = 'A';
           satisfactionPercentage = 80 + Math.floor(Math.random() * 20); // 80-100
         } else {
@@ -49,10 +60,10 @@ const generateUserData = (): UserCourseSatisfaction[] => {
       } else {
         // Dissatisfied - Groups C, D, or E
         const rand = Math.random();
-        if (rand < 0.13) { // 10.7 / (10.7 + 18.8 + 53.7) ≈ 0.13
+        if (rand < GROUP_C_RATIO_IN_DISSATISFIED) {
           group = 'C';
           satisfactionPercentage = 50 + Math.floor(Math.random() * 15); // 50-65
-        } else if (rand < 0.36) { // (10.7 + 18.8) / 83.2 ≈ 0.36
+        } else if (rand < GROUP_D_RATIO_IN_DISSATISFIED) {
           group = 'D';
           satisfactionPercentage = 30 + Math.floor(Math.random() * 20); // 30-50
         } else {
