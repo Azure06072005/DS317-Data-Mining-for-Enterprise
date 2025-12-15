@@ -13,7 +13,6 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
   ResponsiveContainer,
 } from "recharts";
 import { coursesData } from "@/data/courseData";
@@ -91,7 +90,7 @@ export default function Dashboard() {
             <LineChart data={trendData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis dataKey="year" stroke="#6b7280" />
-              <YAxis stroke="#6b7280" label={{ value: 'Học viên (K)', angle: -90, position: 'insideLeft' }} />
+              <YAxis stroke="#6b7280" label={{ value: 'Số học viên', angle: -90, position: 'insideLeft' }} />
               <Tooltip
                 contentStyle={{
                   backgroundColor: "#fff",
