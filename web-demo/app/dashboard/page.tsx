@@ -40,6 +40,11 @@ const formatLargeNumber = (num: number): string => {
   return num.toString();
 };
 
+// Format percentage for chart labels
+const formatPercentage = (value: number, total: number): string => {
+  return `${((value / total) * 100).toFixed(1)}%`;
+};
+
 // Top 10 courses by students
 const top10Courses = [...coursesData]
   .sort((a, b) => b.totalStudentsEnrolled - a.totalStudentsEnrolled)
@@ -70,11 +75,25 @@ const trendData = [
   { month: "T12", year2019: 72000, year2020: 85000, year2021: 98000 },
 ];
 
-// Distribution by num_fields
+// Distribution by num_fields - using lookup objects for clarity
+const fieldLabels: Record<number, string> = {
+  0: "0 lĩnh vực",
+  1: "1 lĩnh vực",
+  2: "2 lĩnh vực",
+  3: "3 lĩnh vực"
+};
+
+const fieldColors: Record<number, string> = {
+  0: "#0d9488",
+  1: "#14b8a6",
+  2: "#f97316",
+  3: "#fb923c"
+};
+
 const numFieldsCount = [0, 1, 2, 3].map(field => ({
-  name: field === 0 ? "0 lĩnh vực" : field === 1 ? "1 lĩnh vực" : field === 2 ? "2 lĩnh vực" : "3 lĩnh vực",
+  name: fieldLabels[field],
   value: coursesData.filter(c => c.numFields === field).length,
-  color: field === 0 ? "#0d9488" : field === 1 ? "#14b8a6" : field === 2 ? "#f97316" : "#fb923c"
+  color: fieldColors[field]
 }));
 
 // Prerequisites distribution
@@ -83,23 +102,27 @@ const prerequisitesData = [
   { name: "Không Prerequisites", value: totalCourses - coursesWithPrerequisites, color: "#f97316" },
 ];
 
-// Student enrollment distribution by ranges
-const enrollmentRanges = [
-  { range: "< 10K", count: coursesData.filter(c => c.totalStudentsEnrolled < 10000).length, color: "#0d9488" },
-  { range: "10K-20K", count: coursesData.filter(c => c.totalStudentsEnrolled >= 10000 && c.totalStudentsEnrolled < 20000).length, color: "#14b8a6" },
-  { range: "20K-50K", count: coursesData.filter(c => c.totalStudentsEnrolled >= 20000 && c.totalStudentsEnrolled < 50000).length, color: "#f97316" },
-  { range: "> 50K", count: coursesData.filter(c => c.totalStudentsEnrolled >= 50000).length, color: "#fb923c" },
-];
+// Student enrollment distribution by ranges - using single reduce for efficiency
+const enrollmentRanges = coursesData.reduce((acc, course) => {
+  const students = course.totalStudentsEnrolled;
+  if (students < 10000) acc[0].count++;
+  else if (students < 20000) acc[1].count++;
+  else if (students < 50000) acc[2].count++;
+  else acc[3].count++;
+  return acc;
+}, [
+  { range: "< 10K", count: 0, color: "#0d9488" },
+  { range: "10K-20K", count: 0, color: "#14b8a6" },
+  { range: "20K-50K", count: 0, color: "#f97316" },
+  { range: "> 50K", count: 0, color: "#fb923c" },
+]);
 
-// Grouped bar chart data - Top 5 courses comparing videos vs exercises
-const top5CoursesComparison = [...coursesData]
-  .sort((a, b) => b.totalStudentsEnrolled - a.totalStudentsEnrolled)
-  .slice(0, 5)
-  .map(course => ({
-    courseId: course.courseId,
-    Videos: course.totalVideos,
-    Exercises: course.totalExercises,
-  }));
+// Grouped bar chart data - Reuse top10Courses and take first 5
+const top5CoursesComparison = top10Courses.slice(0, 5).map(course => ({
+  courseId: course.courseId,
+  Videos: course.totalVideos,
+  Exercises: course.totalExercises,
+}));
 
 export default function Dashboard() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -218,7 +241,7 @@ export default function Dashboard() {
                 outerRadius={100}
                 paddingAngle={2}
                 dataKey="value"
-                label={(entry) => `${entry.name}: ${((entry.value / totalCourses) * 100).toFixed(1)}%`}
+                label={(entry) => `${entry.name}: ${formatPercentage(entry.value, totalCourses)}`}
               >
                 {prerequisitesData.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={entry.color} />
