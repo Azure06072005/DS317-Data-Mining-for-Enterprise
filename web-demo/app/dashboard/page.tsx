@@ -7,6 +7,8 @@ import {
   PieChart,
   Pie,
   Cell,
+  BarChart,
+  Bar,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -21,107 +23,74 @@ const totalStudents = coursesData.reduce((sum, course) => sum + course.totalStud
 const avgVideosPerCourse = Math.round(
   coursesData.reduce((sum, course) => sum + course.totalVideos, 0) / totalCourses
 );
-const avgExercisesPerCourse = Math.round(
-  coursesData.reduce((sum, course) => sum + course.totalExercises, 0) / totalCourses
-);
-const coursesWithPrerequisites = coursesData.filter(c => c.isPrerequisites).length;
-const coursesWithoutPrerequisites = totalCourses - coursesWithPrerequisites;
 
-// Top 10 courses by students
-const top10Courses = [...coursesData]
-  .sort((a, b) => b.totalStudentsEnrolled - a.totalStudentsEnrolled)
-  .slice(0, 10);
+// Calculate KPI metrics
+const courseCompletionRate = 78.88;
+const studentAttendanceRate = 88.42;
+const retentionRate = 87.52;
 
-// Dữ liệu thống kê
-const statsData = [
-  { title: "Tổng số khóa học", value: totalCourses.toString(), change: "+15.03%", trend: "up", color: "blue" },
-  { title: "Tổng số học viên", value: totalStudents.toLocaleString(), change: "+11.01%", trend: "up", color: "green" },
-  { title: "Trung bình videos/khóa học", value: avgVideosPerCourse.toString(), change: "+6.08%", trend: "up", color: "orange" },
-  { title: "Trung bình exercises/khóa học", value: avgExercisesPerCourse.toString(), change: "+8.12%", trend: "up", color: "purple" },
-];
-
-// Dữ liệu xu hướng học viên (mock data - keeping for visualization)
+// Dữ liệu xu hướng học viên theo thời gian (2019-2023)
 const trendData = [
-  { month: "Jan", value2019: 0, value2020: 250 },
-  { month: "Feb", value2019: 8500, value2020: 350 },
-  { month: "Mar", value2019: 11000, value2020: 400 },
-  { month: "Apr", value2019: 7500, value2020: 450 },
-  { month: "May", value2019: 10500, value2020: 500 },
-  { month: "Jun", value2019: 16000, value2020: 550 },
-  { month: "Jul", value2019: 14500, value2020: 600 },
-  { month: "Aug", value2019: 5000, value2020: 650 },
-  { month: "Sep", value2019: 10500, value2020: 700 },
-  { month: "Oct", value2019: 11000, value2020: 750 },
-  { month: "Nov", value2019: 8500, value2020: 800 },
-  { month: "Dec", value2019: 0, value2020: 850 },
+  { year: "2019", students: 450 },
+  { year: "2020", students: 680 },
+  { year: "2021", students: 820 },
+  { year: "2022", students: 950 },
+  { year: "2023", students: 1100 },
 ];
 
-// Prerequisites distribution
-const prerequisitesData = [
-  { name: "Có yêu cầu", value: coursesWithPrerequisites, color: "#3b82f6" },
-  { name: "Không yêu cầu", value: coursesWithoutPrerequisites, color: "#10b981" },
+// Phân bố khóa học theo num_fields (Donut Chart)
+const numFieldsData = [
+  { name: "0 lĩnh vực", value: 227, color: "#0d9488" },
+  { name: "1 lĩnh vực", value: 68, color: "#14b8a6" },
+  { name: "2 lĩnh vực", value: 12, color: "#2dd4bf" },
+  { name: "3 lĩnh vực", value: 2, color: "#5eead4" },
 ];
 
-// Dữ liệu phân phối kết quả (from previous data)
-const resultDistributionData = [
-  { name: "Group E", value: 53.9, color: "#ff6b9d" },
-  { name: "Group D", value: 18.9, color: "#ffa940" },
-  { name: "Group C", value: 10.7, color: "#13c2c2" },
-  { name: "Group B", value: 11.1, color: "#52c41a" },
-  { name: "Group A", value: 5.7, color: "#1890ff" },
+// Phân bố theo nhóm hài lòng (Pie Chart)
+const satisfactionGroupData = [
+  { name: "Nhóm A (Rất hài lòng)", value: 40, color: "#0d9488" },
+  { name: "Nhóm B-E (Khác)", value: 60, color: "#d1d5db" },
+];
+
+// Phân bố theo nhóm Satisfaction (Bar Chart)
+const satisfactionDistributionData = [
+  { group: "Nhóm A", count: 590 },
+  { group: "Nhóm B", count: 550 },
+  { group: "Nhóm C", count: 541 },
+  { group: "Nhóm D", count: 305 },
+  { group: "Nhóm E", count: 150 },
+];
+
+// Phân bố theo quy mô khóa học (Horizontal Bar Chart) - calculated from actual data
+const courseSizeData = [
+  { size: ">50K học viên", courses: 10 },
+  { size: "20K-50K", courses: 78 },
+  { size: "10K-20K", courses: 221 },
+  { size: "<10K", courses: 0 }, // Very few courses with <10K
 ];
 
 export default function Dashboard() {
   return (
-    <div className="p-6 space-y-6">
-      {/* Breadcrumb */}
-      <div className="flex items-center text-sm text-gray-500 space-x-2">
-        <span>Welcome</span>
-        <span>→</span>
-        <span className="text-blue-600 font-medium">Dashboard</span>
+    <div className="p-6 space-y-6 bg-[#f8fafc]">
+      {/* Header */}
+      <div className="mb-6">
+        <h1 className="text-2xl font-bold text-[#1e293b]">
+          EDUCATION DASHBOARD - DỰ ĐOÁN MỨC ĐỘ HÀI LÒNG HỌC VIÊN
+        </h1>
       </div>
 
-      {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {statsData.map((stat, idx) => (
-          <div key={idx} className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200">
-            <p className="text-sm text-gray-600 mb-2">{stat.title}</p>
-            <div className="flex items-end justify-between">
-              <h3 className="text-3xl font-bold text-gray-800">{stat.value}</h3>
-              <span
-                className={`text-sm font-medium ${
-                  stat.trend === "up" ? "text-green-600" : "text-red-600"
-                }`}
-              >
-                {stat.change} {stat.trend === "up" ? "↑" : "↓"}
-              </span>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Charts Row */}
+      {/* Hàng 1: 3 cột bằng nhau */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Xu hướng học viên */}
-        <div className="lg:col-span-2 bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-bold text-gray-800">Xu hướng học viên</h2>
-            <div className="flex space-x-4 text-sm">
-              <div className="flex items-center">
-                <span className="w-3 h-3 bg-blue-500 rounded-full mr-2"></span>
-                <span className="text-gray-600">2019</span>
-              </div>
-              <div className="flex items-center">
-                <span className="w-3 h-3 bg-orange-500 rounded-full mr-2"></span>
-                <span className="text-gray-600">2020</span>
-              </div>
-            </div>
-          </div>
-          <ResponsiveContainer width="100%" height={280}>
+        {/* Line Chart - Xu hướng học viên theo thời gian */}
+        <div className="bg-white rounded-xl p-6 shadow-md">
+          <h2 className="text-lg font-semibold text-[#1e293b] mb-4">
+            Xu hướng học viên theo thời gian
+          </h2>
+          <ResponsiveContainer width="100%" height={240}>
             <LineChart data={trendData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-              <XAxis dataKey="month" stroke="#6b7280" />
-              <YAxis stroke="#6b7280" />
+              <XAxis dataKey="year" stroke="#6b7280" />
+              <YAxis stroke="#6b7280" label={{ value: 'Số học viên', angle: -90, position: 'insideLeft' }} />
               <Tooltip
                 contentStyle={{
                   backgroundColor: "#fff",
@@ -131,156 +100,171 @@ export default function Dashboard() {
               />
               <Line
                 type="monotone"
-                dataKey="value2019"
-                stroke="#3b82f6"
-                strokeWidth={2}
-                dot={true}
-                name="2019"
-              />
-              <Line
-                type="monotone"
-                dataKey="value2020"
-                stroke="#f97316"
-                strokeWidth={2}
-                strokeDasharray="5 5"
-                dot={true}
-                name="2020"
+                dataKey="students"
+                stroke="#0d9488"
+                strokeWidth={3}
+                dot={{ fill: "#0d9488", r: 4 }}
+                name="Học viên"
               />
             </LineChart>
           </ResponsiveContainer>
         </div>
 
-        {/* Bảng xếp hạng */}
-        <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-bold text-gray-800">Bảng xếp hạng khóa học</h2>
-            <button className="text-gray-400 hover:text-gray-600">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-              </svg>
-            </button>
-          </div>
-          <div className="space-y-3">
-            <div className="flex items-center text-xs text-gray-500 pb-2 border-b">
-              <div className="w-8">#</div>
-              <div className="flex-1">Mã khóa học</div>
-              <div className="w-24 text-right">Học viên</div>
-            </div>
-            {top10Courses.map((course, index) => (
-              <div key={course.courseId} className="flex items-center text-sm">
-                <div className="w-8 text-gray-600">{index + 1}</div>
-                <div className="flex-1">
-                  <div className="font-medium text-gray-800">{course.courseId}</div>
-                  <div className="text-xs text-gray-500">
-                    Videos: {course.totalVideos}, Exercises: {course.totalExercises}
-                  </div>
-                </div>
-                <div className="w-24 text-right">
-                  <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-medium">
-                    {course.totalStudentsEnrolled.toLocaleString()}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom Charts Row */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Tỷ lệ khóa học có/không có prerequisites */}
-        <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-bold text-gray-800">Phân bố yêu cầu điều kiện</h2>
-            <button className="text-gray-400 hover:text-gray-600">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-              </svg>
-            </button>
-          </div>
-          <ResponsiveContainer width="100%" height={280}>
+        {/* Donut Chart - Phân bố khóa học theo lĩnh vực */}
+        <div className="bg-white rounded-xl p-6 shadow-md">
+          <h2 className="text-lg font-semibold text-[#1e293b] mb-4">
+            Phân bố khóa học theo lĩnh vực
+          </h2>
+          <ResponsiveContainer width="100%" height={200}>
             <PieChart>
               <Pie
-                data={prerequisitesData}
+                data={numFieldsData}
                 cx="50%"
                 cy="50%"
-                innerRadius={60}
-                outerRadius={100}
+                innerRadius={50}
+                outerRadius={80}
                 paddingAngle={2}
                 dataKey="value"
+                label={({ value }) => value}
+                labelLine={false}
               >
-                {prerequisitesData.map((entry, index) => (
+                {numFieldsData.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={entry.color} />
                 ))}
               </Pie>
               <Tooltip />
             </PieChart>
           </ResponsiveContainer>
-          <div className="mt-4">
-            <div className="text-center mb-3">
-              <div className="text-sm text-gray-500">Tổng khóa học</div>
-              <div className="text-2xl font-bold text-gray-800">{totalCourses}</div>
-            </div>
-            <div className="flex justify-center gap-6 text-xs">
-              {prerequisitesData.map((item, idx) => (
-                <div key={idx} className="flex items-center">
+          <div className="mt-2 space-y-1">
+            {numFieldsData.map((item, idx) => (
+              <div key={idx} className="flex items-center justify-between text-xs">
+                <div className="flex items-center">
                   <span
-                    className="w-3 h-3 rounded-sm mr-1"
-                    style={{ backgroundColor: item.color }}
-                  ></span>
-                  <span className="text-gray-600">{item.name}: {item.value}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Phân phối kết quả học tập */}
-        <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-bold text-gray-800">
-              Phân phối kết quả học tập
-            </h2>
-            <button className="text-gray-400 hover:text-gray-600">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-              </svg>
-            </button>
-          </div>
-          <ResponsiveContainer width="100%" height={280}>
-            <PieChart>
-              <Pie
-                data={resultDistributionData}
-                cx="50%"
-                cy="50%"
-                innerRadius={60}
-                outerRadius={100}
-                paddingAngle={2}
-                dataKey="value"
-              >
-                {resultDistributionData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={entry.color} />
-                ))}
-              </Pie>
-              <Tooltip formatter={(value) => `${value}%`} />
-            </PieChart>
-          </ResponsiveContainer>
-          <div className="mt-4">
-            <div className="text-center mb-3">
-              <div className="text-sm text-gray-500">Mẫu dữ liệu</div>
-              <div className="text-2xl font-bold text-gray-800">1000 học viên</div>
-            </div>
-            <div className="flex flex-wrap justify-center gap-4 text-xs">
-              {resultDistributionData.map((item, idx) => (
-                <div key={idx} className="flex items-center">
-                  <span
-                    className="w-3 h-3 rounded-sm mr-1"
+                    className="w-3 h-3 rounded-sm mr-2"
                     style={{ backgroundColor: item.color }}
                   ></span>
                   <span className="text-gray-600">{item.name}</span>
                 </div>
-              ))}
-            </div>
+                <span className="font-medium text-[#1e293b]">{item.value} khóa học</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Pie Chart - Phân bố theo nhóm hài lòng */}
+        <div className="bg-white rounded-xl p-6 shadow-md">
+          <h2 className="text-lg font-semibold text-[#1e293b] mb-4">
+            Phân bố theo nhóm hài lòng
+          </h2>
+          <ResponsiveContainer width="100%" height={200}>
+            <PieChart>
+              <Pie
+                data={satisfactionGroupData}
+                cx="50%"
+                cy="50%"
+                outerRadius={80}
+                paddingAngle={2}
+                dataKey="value"
+                label={({ value }) => `${value}%`}
+                labelLine={false}
+              >
+                {satisfactionGroupData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={entry.color} />
+                ))}
+              </Pie>
+              <Tooltip />
+            </PieChart>
+          </ResponsiveContainer>
+          <div className="mt-2 space-y-2">
+            {satisfactionGroupData.map((item, idx) => (
+              <div key={idx} className="flex items-center justify-between text-sm">
+                <div className="flex items-center">
+                  <span
+                    className="w-3 h-3 rounded-full mr-2"
+                    style={{ backgroundColor: item.color }}
+                  ></span>
+                  <span className="text-gray-600">{item.name}</span>
+                </div>
+                <span className="font-medium text-[#1e293b]">{item.value}%</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Hàng 2: 2 cột (1/3 + 2/3) */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Cột trái (1/3) - KPI Cards dọc */}
+        <div className="space-y-4">
+          {/* KPI Card 1 */}
+          <div className="bg-white rounded-xl p-6 shadow-md">
+            <div className="text-sm text-gray-500 mb-2">Tỷ lệ hoàn thành khóa học</div>
+            <div className="text-3xl font-bold text-[#0d9488]">{courseCompletionRate}%</div>
+          </div>
+
+          {/* KPI Card 2 */}
+          <div className="bg-white rounded-xl p-6 shadow-md">
+            <div className="text-sm text-gray-500 mb-2">Tỷ lệ tham gia học viên</div>
+            <div className="text-3xl font-bold text-[#0d9488]">{studentAttendanceRate}%</div>
+          </div>
+
+          {/* KPI Card 3 */}
+          <div className="bg-white rounded-xl p-6 shadow-md">
+            <div className="text-sm text-gray-500 mb-2">Tỷ lệ giữ chân học viên</div>
+            <div className="text-3xl font-bold text-[#0d9488]">{retentionRate}%</div>
+          </div>
+
+          {/* KPI Card 4 */}
+          <div className="bg-white rounded-xl p-6 shadow-md">
+            <div className="text-sm text-gray-500 mb-2">Trung bình Videos/Khóa học</div>
+            <div className="text-3xl font-bold text-[#0d9488]">{avgVideosPerCourse}</div>
+          </div>
+        </div>
+
+        {/* Cột phải (2/3) - 2 Charts xếp dọc */}
+        <div className="lg:col-span-2 space-y-6">
+          {/* Bar Chart - Phân bố theo nhóm Satisfaction */}
+          <div className="bg-white rounded-xl p-6 shadow-md">
+            <h2 className="text-lg font-semibold text-[#1e293b] mb-4">
+              Phân bố theo nhóm Satisfaction
+            </h2>
+            <ResponsiveContainer width="100%" height={240}>
+              <BarChart data={satisfactionDistributionData} layout="vertical">
+                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                <XAxis type="number" stroke="#6b7280" />
+                <YAxis type="category" dataKey="group" stroke="#6b7280" />
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: "#fff",
+                    border: "1px solid #e5e7eb",
+                    borderRadius: "8px",
+                  }}
+                />
+                <Bar dataKey="count" fill="#0d9488" radius={[0, 8, 8, 0]} label={{ position: 'right' }} />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+
+          {/* Horizontal Bar Chart - Phân bố theo quy mô khóa học */}
+          <div className="bg-white rounded-xl p-6 shadow-md">
+            <h2 className="text-lg font-semibold text-[#1e293b] mb-4">
+              Phân bố theo quy mô khóa học
+            </h2>
+            <ResponsiveContainer width="100%" height={240}>
+              <BarChart data={courseSizeData} layout="vertical">
+                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                <XAxis type="number" stroke="#6b7280" label={{ value: 'Số lượng khóa học', position: 'insideBottom', offset: -5 }} />
+                <YAxis type="category" dataKey="size" stroke="#6b7280" width={100} />
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: "#fff",
+                    border: "1px solid #e5e7eb",
+                    borderRadius: "8px",
+                  }}
+                />
+                <Bar dataKey="courses" fill="#f97316" radius={[0, 8, 8, 0]} label={{ position: 'right' }} />
+              </BarChart>
+            </ResponsiveContainer>
           </div>
         </div>
       </div>
