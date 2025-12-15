@@ -233,7 +233,7 @@ export default function Dashboard() {
         <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200 shadow-sm">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-bold text-gray-800">TOP 10 KHÓA HỌC ĐÔNG NHẤT</h2>
-            <button className="text-gray-400 hover:text-gray-600">
+            <button type="button" aria-label="Tùy chọn thêm" className="text-gray-400 hover:text-gray-600">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
               </svg>
@@ -268,7 +268,7 @@ export default function Dashboard() {
         <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200 shadow-sm">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-bold text-gray-800">TỶ LỆ PREREQUISITES</h2>
-            <button className="text-gray-400 hover:text-gray-600">
+            <button type="button" aria-label="Tùy chọn thêm" className="text-gray-400 hover:text-gray-600">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
               </svg>
@@ -367,7 +367,7 @@ export default function Dashboard() {
         <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200 shadow-sm">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-bold text-gray-800">PHÂN PHỐI KẾT QUẢ HỌC TẬP</h2>
-            <button className="text-gray-400 hover:text-gray-600">
+            <button type="button" aria-label="Tùy chọn thêm" className="text-gray-400 hover:text-gray-600">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
               </svg>
