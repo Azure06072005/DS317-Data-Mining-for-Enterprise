@@ -50,13 +50,13 @@ const top10Courses = [...coursesData]
   .sort((a, b) => b.totalStudentsEnrolled - a.totalStudentsEnrolled)
   .slice(0, 10);
 
-// Stats cards data
+// Stats cards data with trend indicators
 const statsData = [
-  { title: "Tổng khóa học", value: totalCourses.toString() },
-  { title: "Tổng học viên", value: formatLargeNumber(totalStudents) },
-  { title: "Trung bình Videos", value: avgVideosPerCourse.toString() },
-  { title: "Trung bình Exercises", value: avgExercisesPerCourse.toString() },
-  { title: "Tỷ lệ Prerequisites", value: prerequisitesPercentage + "%" },
+  { title: "Tổng khóa học", value: totalCourses.toString(), change: "+15.03%", trend: "up", color: "blue" },
+  { title: "Tổng học viên", value: formatLargeNumber(totalStudents), change: "+11.01%", trend: "up", color: "green" },
+  { title: "Trung bình Videos", value: avgVideosPerCourse.toString(), change: "+6.08%", trend: "up", color: "orange" },
+  { title: "Trung bình Exercises", value: avgExercisesPerCourse.toString(), change: "+8.12%", trend: "up", color: "purple" },
+  { title: "Tỷ lệ Prerequisites", value: prerequisitesPercentage + "%", change: "+2.5%", trend: "up", color: "teal" },
 ];
 
 // Enrollment trend data (mock data for 2019, 2020, 2021)
@@ -98,8 +98,17 @@ const numFieldsCount = [0, 1, 2, 3].map(field => ({
 
 // Prerequisites distribution
 const prerequisitesData = [
-  { name: "Có Prerequisites", value: coursesWithPrerequisites, color: "#0d9488" },
+  { name: "Có Prerequisites", value: coursesWithPrerequisites, color: "#14b8a6" },
   { name: "Không Prerequisites", value: totalCourses - coursesWithPrerequisites, color: "#f97316" },
+];
+
+// Result distribution data (from original dashboard)
+const resultDistributionData = [
+  { name: "Group E", value: 53.9, color: "#ff6b9d" },
+  { name: "Group D", value: 18.9, color: "#ffa940" },
+  { name: "Group C", value: 10.7, color: "#13c2c2" },
+  { name: "Group B", value: 11.1, color: "#52c41a" },
+  { name: "Group A", value: 5.7, color: "#1890ff" },
 ];
 
 // Student enrollment distribution by ranges - using single reduce for efficiency
@@ -136,18 +145,34 @@ export default function Dashboard() {
   );
 
   return (
-    <div className="p-6 space-y-6 bg-gray-50 min-h-screen">
-      {/* Header */}
-      <div className="mb-6">
-        <h1 className="text-3xl font-bold text-gray-800">DASHBOARD - DỰ ĐOÁN MỨC ĐỘ HÀI LÒNG HỌC VIÊN</h1>
+    <div className="p-6 space-y-6">
+      {/* Breadcrumb */}
+      <div className="flex items-center text-sm text-gray-500 space-x-2">
+        <span>Welcome</span>
+        <span>→</span>
+        <span className="text-blue-600 font-medium">Dashboard</span>
       </div>
 
-      {/* Stats Cards - 5 cards */}
+      {/* Header */}
+      <div className="mb-2">
+        <h1 className="text-2xl font-bold text-gray-800">DASHBOARD - DỰ ĐOÁN MỨC ĐỘ HÀI LÒNG HỌC VIÊN</h1>
+      </div>
+
+      {/* Stats Cards - 5 cards with gradients and trends */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
         {statsData.map((stat, idx) => (
-          <div key={idx} className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+          <div key={idx} className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200 shadow-sm hover:shadow-md transition-shadow">
             <p className="text-sm text-gray-600 mb-2">{stat.title}</p>
-            <h3 className="text-3xl font-bold text-teal-600">{stat.value}</h3>
+            <div className="flex items-end justify-between">
+              <h3 className="text-3xl font-bold text-gray-800">{stat.value}</h3>
+              <span
+                className={`text-sm font-medium ${
+                  stat.trend === "up" ? "text-green-600" : "text-red-600"
+                }`}
+              >
+                {stat.change} {stat.trend === "up" ? "↑" : "↓"}
+              </span>
+            </div>
           </div>
         ))}
       </div>
@@ -155,7 +180,7 @@ export default function Dashboard() {
       {/* Row 1: Line Chart + Donut Chart */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Line Chart - Enrollment Trends */}
-        <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
+        <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200 shadow-sm">
           <h2 className="text-lg font-bold text-gray-800 mb-4">XU HƯỚNG HỌC VIÊN THEO THỜI GIAN</h2>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={trendData}>
@@ -178,7 +203,7 @@ export default function Dashboard() {
         </div>
 
         {/* Donut Chart - Distribution by num_fields */}
-        <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
+        <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200 shadow-sm">
           <h2 className="text-lg font-bold text-gray-800 mb-4">PHÂN BỐ KHÓA HỌC THEO LĨNH VỰC</h2>
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
@@ -202,46 +227,63 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* Row 2: Horizontal Bar Chart + Pie Chart */}
+      {/* Row 2: Top 10 Ranking List + Pie Chart */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Horizontal Bar Chart - Top 10 Courses */}
-        <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
-          <h2 className="text-lg font-bold text-gray-800 mb-4">TOP 10 KHÓA HỌC ĐÔNG NHẤT</h2>
+        {/* Top 10 Courses - Ranking Style */}
+        <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200 shadow-sm">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-lg font-bold text-gray-800">TOP 10 KHÓA HỌC ĐÔNG NHẤT</h2>
+            <button className="text-gray-400 hover:text-gray-600">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+              </svg>
+            </button>
+          </div>
           <div className="space-y-3">
-            {top10Courses.map((course, idx) => {
-              const maxStudents = top10Courses[0].totalStudentsEnrolled;
-              const widthPercent = (course.totalStudentsEnrolled / maxStudents) * 100;
-              return (
-                <div key={course.courseId} className="flex items-center gap-3">
-                  <div className="w-24 text-sm font-medium text-gray-700 truncate">{course.courseId}</div>
-                  <div className="flex-1 bg-gray-200 rounded-full h-6 relative">
-                    <div
-                      className="bg-teal-500 h-6 rounded-full transition-all"
-                      style={{ width: `${widthPercent}%` }}
-                    ></div>
-                  </div>
-                  <div className="w-20 text-sm font-medium text-gray-700 text-right">
-                    {course.totalStudentsEnrolled.toLocaleString()}
+            <div className="flex items-center text-xs text-gray-500 pb-2 border-b">
+              <div className="w-8">#</div>
+              <div className="flex-1">Mã khóa học</div>
+              <div className="w-24 text-right">Học viên</div>
+            </div>
+            {top10Courses.map((course, index) => (
+              <div key={course.courseId} className="flex items-center text-sm">
+                <div className="w-8 text-gray-600 font-medium">{index + 1}</div>
+                <div className="flex-1">
+                  <div className="font-medium text-gray-800">{course.courseId}</div>
+                  <div className="text-xs text-gray-500">
+                    Videos: {course.totalVideos}, Exercises: {course.totalExercises}
                   </div>
                 </div>
-              );
-            })}
+                <div className="w-24 text-right">
+                  <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-medium">
+                    {course.totalStudentsEnrolled.toLocaleString()}
+                  </span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
         {/* Pie Chart - Prerequisites Distribution */}
-        <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
-          <h2 className="text-lg font-bold text-gray-800 mb-4">TỶ LỆ PREREQUISITES</h2>
-          <ResponsiveContainer width="100%" height={300}>
+        <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200 shadow-sm">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-lg font-bold text-gray-800">TỶ LỆ PREREQUISITES</h2>
+            <button className="text-gray-400 hover:text-gray-600">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+              </svg>
+            </button>
+          </div>
+          <ResponsiveContainer width="100%" height={260}>
             <PieChart>
               <Pie
                 data={prerequisitesData}
                 cx="50%"
                 cy="50%"
-                outerRadius={100}
+                innerRadius={60}
+                outerRadius={90}
                 paddingAngle={2}
                 dataKey="value"
-                label={(entry) => `${entry.name}: ${formatPercentage(entry.value, totalCourses)}`}
               >
                 {prerequisitesData.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={entry.color} />
@@ -250,13 +292,30 @@ export default function Dashboard() {
               <Tooltip />
             </PieChart>
           </ResponsiveContainer>
+          <div className="mt-2">
+            <div className="text-center mb-3">
+              <div className="text-sm text-gray-500">Tổng khóa học</div>
+              <div className="text-2xl font-bold text-gray-800">{totalCourses}</div>
+            </div>
+            <div className="flex justify-center gap-6 text-xs">
+              {prerequisitesData.map((item, idx) => (
+                <div key={idx} className="flex items-center">
+                  <span
+                    className="w-3 h-3 rounded-sm mr-1"
+                    style={{ backgroundColor: item.color }}
+                  ></span>
+                  <span className="text-gray-600">{item.name}: {item.value}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Row 3: Bar Chart + Grouped Bar Chart */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Bar Chart - Student Enrollment Distribution */}
-        <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
+        <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200 shadow-sm">
           <h2 className="text-lg font-bold text-gray-800 mb-4">PHÂN BỐ SỐ LƯỢNG HỌC VIÊN</h2>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={enrollmentRanges}>
@@ -280,7 +339,7 @@ export default function Dashboard() {
         </div>
 
         {/* Grouped Bar Chart - Videos vs Exercises */}
-        <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
+        <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200 shadow-sm">
           <h2 className="text-lg font-bold text-gray-800 mb-4">SO SÁNH VIDEOS VS EXERCISES</h2>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={top5CoursesComparison}>
@@ -302,8 +361,66 @@ export default function Dashboard() {
         </div>
       </div>
 
+      {/* Row 4: Result Distribution Pie Chart */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Result Distribution - From original dashboard */}
+        <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200 shadow-sm">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-lg font-bold text-gray-800">PHÂN PHỐI KẾT QUẢ HỌC TẬP</h2>
+            <button className="text-gray-400 hover:text-gray-600">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+              </svg>
+            </button>
+          </div>
+          <ResponsiveContainer width="100%" height={260}>
+            <PieChart>
+              <Pie
+                data={resultDistributionData}
+                cx="50%"
+                cy="50%"
+                innerRadius={60}
+                outerRadius={90}
+                paddingAngle={2}
+                dataKey="value"
+              >
+                {resultDistributionData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={entry.color} />
+                ))}
+              </Pie>
+              <Tooltip formatter={(value) => `${value}%`} />
+            </PieChart>
+          </ResponsiveContainer>
+          <div className="mt-2">
+            <div className="text-center mb-3">
+              <div className="text-sm text-gray-500">Mẫu dữ liệu</div>
+              <div className="text-2xl font-bold text-gray-800">1000 học viên</div>
+            </div>
+            <div className="flex flex-wrap justify-center gap-4 text-xs">
+              {resultDistributionData.map((item, idx) => (
+                <div key={idx} className="flex items-center">
+                  <span
+                    className="w-3 h-3 rounded-sm mr-1"
+                    style={{ backgroundColor: item.color }}
+                  ></span>
+                  <span className="text-gray-600">{item.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Placeholder for future charts */}
+        <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200 shadow-sm">
+          <h2 className="text-lg font-bold text-gray-800 mb-4">THỐNG KÊ BỔ SUNG</h2>
+          <div className="flex items-center justify-center h-full">
+            <p className="text-gray-500 text-center">Khu vực dành cho biểu đồ bổ sung</p>
+          </div>
+        </div>
+      </div>
+
       {/* Data Table with Pagination */}
-      <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
+      <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200 shadow-sm">
         <h2 className="text-lg font-bold text-gray-800 mb-4">BẢNG CHI TIẾT KHÓA HỌC</h2>
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
