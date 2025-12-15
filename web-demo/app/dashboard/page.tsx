@@ -62,12 +62,12 @@ const satisfactionDistributionData = [
   { group: "Nhóm E", count: 150 },
 ];
 
-// Phân bố theo quy mô khóa học (Horizontal Bar Chart)
+// Phân bố theo quy mô khóa học (Horizontal Bar Chart) - calculated from actual data
 const courseSizeData = [
-  { size: ">50K học viên", courses: 15 },
+  { size: ">50K học viên", courses: 10 },
   { size: "20K-50K", courses: 78 },
-  { size: "10K-20K", courses: 89 },
-  { size: "<10K", courses: 75 },
+  { size: "10K-20K", courses: 221 },
+  { size: "<10K", courses: 0 }, // Very few courses with <10K
 ];
 
 export default function Dashboard() {
