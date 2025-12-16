@@ -8,7 +8,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           {/* Logos */}
           <div className="flex items-center justify-center gap-8 mb-12 flex-wrap">
-            <div className="bg-white rounded-lg p-3 flex items-center justify-center" style={{ height: '80px', width: 'auto' }}>
+            <div className="p-3 flex items-center justify-center" style={{ height: '80px', width: 'auto' }}>
               <Image
                 src="/EPv4pC2UYAAa8kn.png"
                 alt="XuetangX Logo"
@@ -18,7 +18,7 @@ export default function Home() {
                 style={{ maxHeight: '60px', width: 'auto' }}
               />
             </div>
-            <div className="bg-white rounded-lg p-3 flex items-center justify-center" style={{ height: '80px', width: 'auto' }}>
+            <div className="p-3 flex items-center justify-center" style={{ height: '80px', width: 'auto' }}>
               <Image
                 src="/GMA-new-logo.png"
                 alt="Global MOOC Alliance Logo"
@@ -28,7 +28,7 @@ export default function Home() {
                 style={{ maxHeight: '60px', width: 'auto' }}
               />
             </div>
-            <div className="bg-white rounded-lg p-3 flex items-center justify-center" style={{ height: '80px', width: 'auto' }}>
+            <div className="p-3 flex items-center justify-center" style={{ height: '80px', width: 'auto' }}>
               <Image
                 src="/Logo_UIT_updated.svg.png"
                 alt="UIT Logo"
@@ -38,7 +38,7 @@ export default function Home() {
                 style={{ maxHeight: '60px', width: 'auto' }}
               />
             </div>
-            <div className="bg-white rounded-lg p-3 flex items-center justify-center" style={{ height: '80px', width: 'auto' }}>
+            <div className="p-3 flex items-center justify-center" style={{ height: '80px', width: 'auto' }}>
               <Image
                 src="/Tsinghua_University_Logo.svg.png"
                 alt="Tsinghua University Logo"
