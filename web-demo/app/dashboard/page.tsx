@@ -7,10 +7,15 @@ import {
   PieChart,
   Pie,
   Cell,
+  BarChart,
+  Bar,
+  AreaChart,
+  Area,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
+  Legend,
   ResponsiveContainer,
 } from "recharts";
 import { coursesData } from "@/data/courseData";
@@ -18,19 +23,66 @@ import { coursesData } from "@/data/courseData";
 // Calculate statistics from course_resource.csv
 const totalCourses = coursesData.length;
 const totalStudents = coursesData.reduce((sum, course) => sum + course.totalStudentsEnrolled, 0);
-const avgVideosPerCourse = Math.round(
-  coursesData.reduce((sum, course) => sum + course.totalVideos, 0) / totalCourses
-);
-const avgExercisesPerCourse = Math.round(
-  coursesData.reduce((sum, course) => sum + course.totalExercises, 0) / totalCourses
-);
+const totalVideos = coursesData.reduce((sum, course) => sum + course.totalVideos, 0);
+const totalExercises = coursesData.reduce((sum, course) => sum + course.totalExercises, 0);
+const avgVideosPerCourse = Math.round(totalVideos / totalCourses);
+const avgExercisesPerCourse = Math.round(totalExercises / totalCourses);
+const avgStudentsPerCourse = Math.round(totalStudents / totalCourses);
 const coursesWithPrerequisites = coursesData.filter(c => c.isPrerequisites).length;
 const coursesWithoutPrerequisites = totalCourses - coursesWithPrerequisites;
+const prerequisitesPercentage = ((coursesWithPrerequisites / totalCourses) * 100).toFixed(1);
+
+// Find course with most and least students
+const courseWithMostStudents = [...coursesData].sort((a, b) => b.totalStudentsEnrolled - a.totalStudentsEnrolled)[0];
+const courseWithLeastStudents = [...coursesData].sort((a, b) => a.totalStudentsEnrolled - b.totalStudentsEnrolled)[0];
 
 // Top 10 courses by students
 const top10Courses = [...coursesData]
   .sort((a, b) => b.totalStudentsEnrolled - a.totalStudentsEnrolled)
   .slice(0, 10);
+
+// Top 10 courses by videos
+const top10CoursesByVideos = [...coursesData]
+  .sort((a, b) => b.totalVideos - a.totalVideos)
+  .slice(0, 10)
+  .map(course => ({
+    courseId: course.courseId,
+    videos: course.totalVideos
+  }));
+
+// Exercise distribution buckets
+const exerciseBuckets = {
+  "0-20": 0,
+  "21-40": 0,
+  "41-60": 0,
+  "61-80": 0,
+  "81-100": 0,
+  ">100": 0
+};
+
+coursesData.forEach(course => {
+  const exercises = course.totalExercises;
+  if (exercises <= 20) exerciseBuckets["0-20"]++;
+  else if (exercises <= 40) exerciseBuckets["21-40"]++;
+  else if (exercises <= 60) exerciseBuckets["41-60"]++;
+  else if (exercises <= 80) exerciseBuckets["61-80"]++;
+  else if (exercises <= 100) exerciseBuckets["81-100"]++;
+  else exerciseBuckets[">100"]++;
+});
+
+const exerciseDistributionData = Object.entries(exerciseBuckets).map(([range, count]) => ({
+  range,
+  count
+}));
+
+// Student distribution by course (sorted descending)
+const studentDistributionData = [...coursesData]
+  .sort((a, b) => b.totalStudentsEnrolled - a.totalStudentsEnrolled)
+  .map((course, index) => ({
+    index: index + 1,
+    courseId: course.courseId,
+    students: course.totalStudentsEnrolled
+  }));
 
 // Dữ liệu thống kê
 const statsData = [
@@ -38,6 +90,14 @@ const statsData = [
   { title: "Tổng số học viên", value: totalStudents.toLocaleString(), change: "+11.01%", trend: "up", color: "green" },
   { title: "Trung bình videos/khóa học", value: avgVideosPerCourse.toString(), change: "+6.08%", trend: "up", color: "orange" },
   { title: "Trung bình exercises/khóa học", value: avgExercisesPerCourse.toString(), change: "+8.12%", trend: "up", color: "purple" },
+];
+
+// Additional stats cards
+const additionalStatsData = [
+  { title: "Tổng số videos", value: totalVideos.toLocaleString(), color: "cyan" },
+  { title: "Tổng số exercises", value: totalExercises.toLocaleString(), color: "indigo" },
+  { title: "Khóa học nhiều học viên nhất", value: `${courseWithMostStudents.courseId} (${courseWithMostStudents.totalStudentsEnrolled.toLocaleString()})`, color: "pink" },
+  { title: "Tỷ lệ khóa học có điều kiện", value: `${prerequisitesPercentage}%`, color: "teal" },
 ];
 
 // Dữ liệu xu hướng học viên (mock data - keeping for visualization)
@@ -95,6 +155,18 @@ export default function Dashboard() {
               >
                 {stat.change} {stat.trend === "up" ? "↑" : "↓"}
               </span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Additional Stats Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {additionalStatsData.map((stat, idx) => (
+          <div key={idx} className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200">
+            <p className="text-sm text-gray-600 mb-2">{stat.title}</p>
+            <div className="flex items-end justify-between">
+              <h3 className={stat.title === "Khóa học nhiều học viên nhất" ? "text-xl font-bold text-gray-800" : "text-3xl font-bold text-gray-800"}>{stat.value}</h3>
             </div>
           </div>
         ))}
@@ -281,6 +353,121 @@ export default function Dashboard() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* New Charts Row - Top 10 Videos & Exercise Distribution */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Top 10 Courses by Videos */}
+        <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-lg font-bold text-gray-800">Top 10 khóa học theo số lượng video</h2>
+          </div>
+          <ResponsiveContainer width="100%" height={350}>
+            <BarChart data={top10CoursesByVideos} layout="vertical">
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+              <XAxis type="number" stroke="#6b7280" />
+              <YAxis dataKey="courseId" type="category" width={100} stroke="#6b7280" />
+              <Tooltip 
+                contentStyle={{
+                  backgroundColor: "#fff",
+                  border: "1px solid #e5e7eb",
+                  borderRadius: "8px",
+                }}
+              />
+              <Bar dataKey="videos" fill="#3b82f6" name="Số lượng video" />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+
+        {/* Exercise Distribution */}
+        <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-lg font-bold text-gray-800">Phân bố số lượng exercises</h2>
+          </div>
+          <ResponsiveContainer width="100%" height={350}>
+            <BarChart data={exerciseDistributionData}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+              <XAxis dataKey="range" stroke="#6b7280" />
+              <YAxis stroke="#6b7280" />
+              <Tooltip 
+                contentStyle={{
+                  backgroundColor: "#fff",
+                  border: "1px solid #e5e7eb",
+                  borderRadius: "8px",
+                }}
+              />
+              <Bar dataKey="count" fill="#10b981" name="Số khóa học" />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
+
+      {/* Student Distribution Area Chart */}
+      <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-lg font-bold text-gray-800">Phân bố học viên theo khóa học</h2>
+        </div>
+        <ResponsiveContainer width="100%" height={300}>
+          <AreaChart data={studentDistributionData}>
+            <defs>
+              <linearGradient id="colorStudents" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="#8b5cf6" stopOpacity={0.8}/>
+                <stop offset="95%" stopColor="#8b5cf6" stopOpacity={0}/>
+              </linearGradient>
+            </defs>
+            <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+            <XAxis dataKey="index" stroke="#6b7280" label={{ value: 'Thứ hạng khóa học', position: 'insideBottom', offset: -5 }} />
+            <YAxis stroke="#6b7280" />
+            <Tooltip 
+              contentStyle={{
+                backgroundColor: "#fff",
+                border: "1px solid #e5e7eb",
+                borderRadius: "8px",
+              }}
+              formatter={(value: number, name: string) => {
+                if (name === 'students') return [value.toLocaleString(), 'Học viên'];
+                return [value, name];
+              }}
+            />
+            <Area type="monotone" dataKey="students" stroke="#8b5cf6" fillOpacity={1} fill="url(#colorStudents)" name="students" />
+          </AreaChart>
+        </ResponsiveContainer>
+      </div>
+
+      {/* Summary Statistics Table */}
+      <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-lg font-bold text-gray-800">Thống kê tổng quan</h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="bg-white rounded-lg p-4 shadow-sm">
+            <p className="text-sm text-gray-600 mb-1">Trung bình videos/khóa học</p>
+            <p className="text-2xl font-bold text-blue-600">{avgVideosPerCourse}</p>
+          </div>
+          <div className="bg-white rounded-lg p-4 shadow-sm">
+            <p className="text-sm text-gray-600 mb-1">Trung bình exercises/khóa học</p>
+            <p className="text-2xl font-bold text-green-600">{avgExercisesPerCourse}</p>
+          </div>
+          <div className="bg-white rounded-lg p-4 shadow-sm">
+            <p className="text-sm text-gray-600 mb-1">Trung bình học viên/khóa học</p>
+            <p className="text-2xl font-bold text-orange-600">{avgStudentsPerCourse.toLocaleString()}</p>
+          </div>
+          <div className="bg-white rounded-lg p-4 shadow-sm">
+            <p className="text-sm text-gray-600 mb-1">Khóa học nhiều học viên nhất</p>
+            <p className="text-lg font-bold text-purple-600">{courseWithMostStudents.courseId}</p>
+            <p className="text-sm text-gray-500">{courseWithMostStudents.totalStudentsEnrolled.toLocaleString()} học viên</p>
+          </div>
+          <div className="bg-white rounded-lg p-4 shadow-sm">
+            <p className="text-sm text-gray-600 mb-1">Khóa học ít học viên nhất</p>
+            <p className="text-lg font-bold text-pink-600">{courseWithLeastStudents.courseId}</p>
+            <p className="text-sm text-gray-500">{courseWithLeastStudents.totalStudentsEnrolled.toLocaleString()} học viên</p>
+          </div>
+          <div className="bg-white rounded-lg p-4 shadow-sm">
+            <p className="text-sm text-gray-600 mb-1">Tổng số khóa học</p>
+            <p className="text-2xl font-bold text-cyan-600">{totalCourses}</p>
+            <p className="text-sm text-gray-500">{prerequisitesPercentage}% có điều kiện</p>
           </div>
         </div>
       </div>
