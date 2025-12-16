@@ -115,6 +115,41 @@ export default function Prediction() {
           </p>
         </div>
 
+        {/* Notice about new pages */}
+        <div className="bg-blue-50 border-l-4 border-blue-500 p-6 mb-8 rounded-r-lg">
+          <div className="flex items-start">
+            <div className="flex-shrink-0">
+              <svg className="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div className="ml-3">
+              <h3 className="text-lg font-medium text-blue-900">
+                Thông báo: Chức năng mới
+              </h3>
+              <div className="mt-2 text-sm text-blue-700">
+                <p className="mb-2">
+                  Chúng tôi đã tách trang này thành 2 trang chuyên biệt để bạn có trải nghiệm tốt hơn:
+                </p>
+                <ul className="list-disc list-inside space-y-1 ml-2">
+                  <li>
+                    <a href="/course" className="font-semibold underline hover:text-blue-900">
+                      Trang Course
+                    </a>
+                    {" - Xem thống kê và phân tích chi tiết về các khóa học"}
+                  </li>
+                  <li>
+                    <a href="/user" className="font-semibold underline hover:text-blue-900">
+                      Trang User
+                    </a>
+                    {" - Tra cứu thông tin và mức độ hài lòng của người học"}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Main Content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Form Section */}
