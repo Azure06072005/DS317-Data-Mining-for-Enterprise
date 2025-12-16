@@ -94,10 +94,10 @@ const statsData = [
 
 // Additional stats cards
 const additionalStatsData = [
-  { title: "Tổng số videos", value: totalVideos.toLocaleString(), color: "cyan" },
-  { title: "Tổng số exercises", value: totalExercises.toLocaleString(), color: "indigo" },
-  { title: "Khóa học nhiều học viên nhất", value: `${courseWithMostStudents.courseId} (${courseWithMostStudents.totalStudentsEnrolled.toLocaleString()})`, color: "pink" },
-  { title: "Tỷ lệ khóa học có điều kiện", value: `${prerequisitesPercentage}%`, color: "teal" },
+  { title: "Tổng số videos", value: totalVideos.toLocaleString(), color: "cyan", size: "large" },
+  { title: "Tổng số exercises", value: totalExercises.toLocaleString(), color: "indigo", size: "large" },
+  { title: "Khóa học nhiều học viên nhất", value: `${courseWithMostStudents.courseId} (${courseWithMostStudents.totalStudentsEnrolled.toLocaleString()})`, color: "pink", size: "small" },
+  { title: "Tỷ lệ khóa học có điều kiện", value: `${prerequisitesPercentage}%`, color: "teal", size: "large" },
 ];
 
 // Dữ liệu xu hướng học viên (mock data - keeping for visualization)
@@ -166,7 +166,7 @@ export default function Dashboard() {
           <div key={idx} className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200">
             <p className="text-sm text-gray-600 mb-2">{stat.title}</p>
             <div className="flex items-end justify-between">
-              <h3 className={stat.title === "Khóa học nhiều học viên nhất" ? "text-xl font-bold text-gray-800" : "text-3xl font-bold text-gray-800"}>{stat.value}</h3>
+              <h3 className={stat.size === "small" ? "text-xl font-bold text-gray-800" : "text-3xl font-bold text-gray-800"}>{stat.value}</h3>
             </div>
           </div>
         ))}
@@ -412,7 +412,7 @@ export default function Dashboard() {
         <ResponsiveContainer width="100%" height={300}>
           <AreaChart data={studentDistributionData}>
             <defs>
-              <linearGradient id="colorStudents" x1="0" y1="0" x2="0" y2="1">
+              <linearGradient id="dashboardStudentDistributionGradient" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="5%" stopColor="#8b5cf6" stopOpacity={0.8}/>
                 <stop offset="95%" stopColor="#8b5cf6" stopOpacity={0}/>
               </linearGradient>
@@ -431,7 +431,7 @@ export default function Dashboard() {
                 return [value, name];
               }}
             />
-            <Area type="monotone" dataKey="students" stroke="#8b5cf6" fillOpacity={1} fill="url(#colorStudents)" name="students" />
+            <Area type="monotone" dataKey="students" stroke="#8b5cf6" fillOpacity={1} fill="url(#dashboardStudentDistributionGradient)" name="students" />
           </AreaChart>
         </ResponsiveContainer>
       </div>
