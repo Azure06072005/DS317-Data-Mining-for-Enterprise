@@ -51,13 +51,15 @@ async function fetchCourseStats(): Promise<CourseStatsResponse> {
     (acc, row) => {
       const course = csvRowToCourseInfo(row);
       
+      acc.courses.push(course); // Use push instead of spread for O(n) performance
+      
       return {
         totalCourses: acc.totalCourses + 1,
         totalStudents: acc.totalStudents + course.totalStudentsEnrolled,
         totalVideos: acc.totalVideos + course.totalVideos,
         totalExercises: acc.totalExercises + course.totalExercises,
         coursesWithPrerequisites: acc.coursesWithPrerequisites + (course.isPrerequisites ? 1 : 0),
-        courses: [...acc.courses, course],
+        courses: acc.courses,
       };
     },
     {
@@ -100,20 +102,20 @@ async function fetchCourseStats(): Promise<CourseStatsResponse> {
 }
 
 /**
- * Fetch all courses directly from CSV
+ * Fetch all courses directly from CSV using aggregation for better performance
  */
 async function fetchAllCourses(): Promise<CourseInfo[]> {
-  const allCourses: CourseInfo[] = [];
-  
-  await parseCSVWithPagination<CourseCSVRow>(
+  // Use aggregateCSV to collect all courses efficiently
+  const result = await aggregateCSV<CourseCSVRow, CourseInfo[]>(
     COURSE_CSV_PATH,
-    1,
-    1000 // Get all at once since we're reading from local file
-  ).then(result => {
-    allCourses.push(...result.data.map(csvRowToCourseInfo));
-  });
+    (acc, row) => {
+      acc.push(csvRowToCourseInfo(row));
+      return acc;
+    },
+    []
+  );
   
-  return allCourses;
+  return result;
 }
 
 /**

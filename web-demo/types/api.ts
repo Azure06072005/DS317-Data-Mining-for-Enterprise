@@ -121,6 +121,7 @@ export interface PredictionsListResponse {
     total: number;
     totalPages: number;
   };
+  _note?: string; // Optional note for API limitations
 }
 
 // CSV Row Types (raw data from CSV files)

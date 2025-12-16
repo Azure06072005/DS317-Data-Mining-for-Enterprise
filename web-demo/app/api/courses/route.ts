@@ -98,13 +98,15 @@ async function getCoursesStats() {
     (acc, row) => {
       const course = csvRowToCourseInfo(row);
       
+      acc.courses.push(course); // Use push instead of spread for O(n) performance
+      
       return {
         totalCourses: acc.totalCourses + 1,
         totalStudents: acc.totalStudents + course.totalStudentsEnrolled,
         totalVideos: acc.totalVideos + course.totalVideos,
         totalExercises: acc.totalExercises + course.totalExercises,
         coursesWithPrerequisites: acc.coursesWithPrerequisites + (course.isPrerequisites ? 1 : 0),
-        courses: [...acc.courses, course],
+        courses: acc.courses,
       };
     },
     {

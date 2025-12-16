@@ -6,8 +6,10 @@ const PREDICTION_CSV_PATH = getCSVPath('node2vec_smote_sample.csv');
 
 /**
  * GET /api/predictions/by-course/[courseId] - Get predictions for a specific course
- * Note: The current CSV doesn't have course_id field, so this will return all predictions
- * In a real scenario, you would filter by course_id from the CSV
+ * 
+ * Note: The current CSV (node2vec_smote_sample.csv) doesn't contain course_id field.
+ * This endpoint returns all predictions regardless of courseId for demonstration purposes.
+ * In a production scenario with course_id in the CSV, filtering would be implemented.
  */
 export async function GET(
   request: NextRequest,
@@ -49,6 +51,8 @@ export async function GET(
     const response: PredictionsListResponse = {
       data: result.data,
       pagination: result.pagination,
+      // Note: course_id filtering not available in current dataset
+      _note: 'This endpoint returns all predictions as course_id is not available in the current CSV file',
     };
 
     return NextResponse.json(response);
