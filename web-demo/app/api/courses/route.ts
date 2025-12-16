@@ -1,13 +1,8 @@
-import React from "react";
-import { CourseStatsResponse, CoursesListResponse } from "@/types/api";
-import { CourseInfo } from "@/types/prediction";
-import DashboardClient from "./DashboardClient";
-import { aggregateCSV, parseCSVWithPagination, getCSVPath } from "@/lib/csv-parser";
-import { CourseCSVRow } from "@/types/api";
-import { cache } from "@/lib/cache";
-
-// Mark this page as dynamic
-export const dynamic = 'force-dynamic';
+import { NextRequest, NextResponse } from 'next/server';
+import { parseCSVWithPagination, aggregateCSV, getCSVPath } from '@/lib/csv-parser';
+import { cache } from '@/lib/cache';
+import { CourseCSVRow, CourseStatsResponse, CoursesListResponse } from '@/types/api';
+import { CourseInfo } from '@/types/prediction';
 
 const COURSE_CSV_PATH = getCSVPath('course_resource.csv');
 const CACHE_TTL = 300; // 5 minutes
@@ -27,15 +22,67 @@ function csvRowToCourseInfo(row: CourseCSVRow): CourseInfo {
 }
 
 /**
- * Fetch course statistics directly from CSV
+ * GET /api/courses - List courses with pagination
+ * GET /api/courses?stats=true - Get course statistics
  */
-async function fetchCourseStats(): Promise<CourseStatsResponse> {
+export async function GET(request: NextRequest) {
+  try {
+    const searchParams = request.nextUrl.searchParams;
+    const isStats = searchParams.get('stats') === 'true';
+
+    if (isStats) {
+      return await getCoursesStats();
+    }
+
+    return await getCoursesList(searchParams);
+  } catch (error) {
+    console.error('Error in GET /api/courses:', error);
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    );
+  }
+}
+
+/**
+ * Get paginated list of courses
+ */
+async function getCoursesList(searchParams: URLSearchParams) {
+  const page = parseInt(searchParams.get('page') || '1', 10);
+  const limit = parseInt(searchParams.get('limit') || '100', 10);
+
+  // Validate pagination parameters
+  if (page < 1 || limit < 1 || limit > 100) {
+    return NextResponse.json(
+      { error: 'Invalid pagination parameters' },
+      { status: 400 }
+    );
+  }
+
+  const result = await parseCSVWithPagination<CourseCSVRow>(
+    COURSE_CSV_PATH,
+    page,
+    limit
+  );
+
+  const response: CoursesListResponse = {
+    data: result.data.map(csvRowToCourseInfo),
+    pagination: result.pagination,
+  };
+
+  return NextResponse.json(response);
+}
+
+/**
+ * Get aggregated course statistics
+ */
+async function getCoursesStats() {
   // Try to get from cache first
   const cacheKey = 'courses:stats';
   const cached = cache.get<CourseStatsResponse>(cacheKey);
   
   if (cached) {
-    return cached;
+    return NextResponse.json(cached);
   }
 
   // Aggregate statistics from CSV
@@ -98,49 +145,5 @@ async function fetchCourseStats(): Promise<CourseStatsResponse> {
   // Cache the result
   cache.set(cacheKey, response, CACHE_TTL);
 
-  return response;
-}
-
-/**
- * Fetch all courses directly from CSV using aggregation for better performance
- */
-async function fetchAllCourses(): Promise<CourseInfo[]> {
-  // Use aggregateCSV to collect all courses efficiently
-  const result = await aggregateCSV<CourseCSVRow, CourseInfo[]>(
-    COURSE_CSV_PATH,
-    (acc, row) => {
-      acc.push(csvRowToCourseInfo(row));
-      return acc;
-    },
-    []
-  );
-  
-  return result;
-}
-
-/**
- * Dashboard page - Server component that fetches data from API
- */
-export default async function Dashboard() {
-  try {
-    // Fetch data from API
-    const stats = await fetchCourseStats();
-    const allCourses = await fetchAllCourses();
-    
-    return <DashboardClient stats={stats} allCourses={allCourses} />;
-  } catch (error) {
-    console.error('Error loading dashboard:', error);
-    
-    // Return error UI
-    return (
-      <div className="p-6">
-        <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-          <h2 className="text-lg font-bold text-red-800 mb-2">Error Loading Dashboard</h2>
-          <p className="text-red-600">
-            Failed to load course data. Please try again later.
-          </p>
-        </div>
-      </div>
-    );
-  }
+  return NextResponse.json(response);
 }
