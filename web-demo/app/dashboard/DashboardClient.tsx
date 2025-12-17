@@ -132,40 +132,54 @@ export default function DashboardClient({ stats, allCourses }: DashboardClientPr
   ];
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-6 space-y-8 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 min-h-screen">
       {/* Breadcrumb */}
-      <div className="flex items-center text-sm text-gray-500 space-x-2">
+      <div className="flex items-center text-sm text-gray-600 space-x-2">
         <span>Welcome</span>
         <span>→</span>
-        <span className="text-blue-600 font-medium">Dashboard</span>
+        <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent font-semibold">Dashboard</span>
       </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {statsData.map((stat, idx) => (
-          <div key={idx} className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200">
-            <p className="text-sm text-gray-600 mb-2">{stat.title}</p>
-            <div className="flex items-end justify-between">
-              <h3 className="text-3xl font-bold text-gray-800">{stat.value}</h3>
-              <span
-                className={`text-sm font-medium ${
-                  stat.trend === "up" ? "text-green-600" : "text-red-600"
-                }`}
-              >
-                {stat.change} {stat.trend === "up" ? "↑" : "↓"}
-              </span>
+          <div key={idx} className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-transparent hover:border-purple-200">
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-100 via-pink-100 to-blue-100 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="relative z-10">
+              <p className="text-sm text-gray-600 mb-3 font-medium">{stat.title}</p>
+              <div className="flex items-end justify-between">
+                <h3 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">{stat.value}</h3>
+                <span
+                  className={`text-sm font-semibold px-3 py-1 rounded-full ${
+                    stat.trend === "up" ? "bg-green-100 text-green-600" : "bg-red-100 text-red-600"
+                  }`}
+                >
+                  {stat.change} {stat.trend === "up" ? "↑" : "↓"}
+                </span>
+              </div>
             </div>
           </div>
         ))}
       </div>
 
       {/* Additional Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {additionalStatsData.map((stat, idx) => (
-          <div key={idx} className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200">
-            <p className="text-sm text-gray-600 mb-2">{stat.title}</p>
-            <div className="flex items-end justify-between">
-              <h3 className={stat.size === "small" ? "text-xl font-bold text-gray-800" : "text-3xl font-bold text-gray-800"}>{stat.value}</h3>
+          <div key={idx} className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+            <div className={`absolute inset-0 bg-gradient-to-br ${
+              stat.color === 'cyan' ? 'from-cyan-100 to-blue-100' :
+              stat.color === 'indigo' ? 'from-indigo-100 to-purple-100' :
+              stat.color === 'pink' ? 'from-pink-100 to-rose-100' :
+              'from-teal-100 to-emerald-100'
+            } rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+            <div className="relative z-10">
+              <p className="text-sm text-gray-600 mb-3 font-medium">{stat.title}</p>
+              <h3 className={`${stat.size === "small" ? "text-lg" : "text-3xl"} font-bold bg-gradient-to-r ${
+                stat.color === 'cyan' ? 'from-cyan-600 to-blue-600' :
+                stat.color === 'indigo' ? 'from-indigo-600 to-purple-600' :
+                stat.color === 'pink' ? 'from-pink-600 to-rose-600' :
+                'from-teal-600 to-emerald-600'
+              } bg-clip-text text-transparent`}>{stat.value}</h3>
             </div>
           </div>
         ))}
@@ -174,17 +188,17 @@ export default function DashboardClient({ stats, allCourses }: DashboardClientPr
       {/* Charts Row */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Xu hướng học viên */}
-        <div className="lg:col-span-2 bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-bold text-gray-800">Xu hướng học viên</h2>
+        <div className="lg:col-span-2 bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Xu hướng học viên</h2>
             <div className="flex space-x-4 text-sm">
-              <div className="flex items-center">
+              <div className="flex items-center bg-blue-50 px-3 py-1 rounded-full">
                 <span className="w-3 h-3 bg-blue-500 rounded-full mr-2"></span>
-                <span className="text-gray-600">2019</span>
+                <span className="text-gray-700 font-medium">2019</span>
               </div>
-              <div className="flex items-center">
+              <div className="flex items-center bg-orange-50 px-3 py-1 rounded-full">
                 <span className="w-3 h-3 bg-orange-500 rounded-full mr-2"></span>
-                <span className="text-gray-600">2020</span>
+                <span className="text-gray-700 font-medium">2020</span>
               </div>
             </div>
           </div>
@@ -222,32 +236,41 @@ export default function DashboardClient({ stats, allCourses }: DashboardClientPr
         </div>
 
         {/* Bảng xếp hạng */}
-        <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-bold text-gray-800">Bảng xếp hạng khóa học</h2>
-            <button className="text-gray-400 hover:text-gray-600">
+        <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Bảng xếp hạng khóa học</h2>
+            <button className="text-gray-400 hover:text-purple-600 transition-colors">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
               </svg>
             </button>
           </div>
           <div className="space-y-3">
-            <div className="flex items-center text-xs text-gray-500 pb-2 border-b">
+            <div className="flex items-center text-xs text-gray-500 pb-2 border-b-2 border-purple-100">
               <div className="w-8">#</div>
-              <div className="flex-1">Mã khóa học</div>
-              <div className="w-24 text-right">Học viên</div>
+              <div className="flex-1 font-semibold">Mã khóa học</div>
+              <div className="w-24 text-right font-semibold">Học viên</div>
             </div>
             {top10Courses.map((course, index) => (
-              <div key={course.courseId} className="flex items-center text-sm">
-                <div className="w-8 text-gray-600">{index + 1}</div>
+              <div key={course.courseId} className="flex items-center text-sm hover:bg-gradient-to-r hover:from-purple-50 hover:to-blue-50 p-2 rounded-lg transition-colors">
+                <div className="w-8">
+                  <span className={`inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold ${
+                    index === 0 ? 'bg-gradient-to-r from-yellow-400 to-orange-400 text-white' :
+                    index === 1 ? 'bg-gradient-to-r from-gray-300 to-gray-400 text-white' :
+                    index === 2 ? 'bg-gradient-to-r from-orange-300 to-orange-400 text-white' :
+                    'bg-gray-100 text-gray-600'
+                  }`}>
+                    {index + 1}
+                  </span>
+                </div>
                 <div className="flex-1">
-                  <div className="font-medium text-gray-800">{course.courseId}</div>
+                  <div className="font-semibold text-gray-800">{course.courseId}</div>
                   <div className="text-xs text-gray-500">
                     Videos: {course.totalVideos}, Exercises: {course.totalExercises}
                   </div>
                 </div>
                 <div className="w-24 text-right">
-                  <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-medium">
+                  <span className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md">
                     {course.totalStudentsEnrolled.toLocaleString()}
                   </span>
                 </div>
@@ -260,10 +283,10 @@ export default function DashboardClient({ stats, allCourses }: DashboardClientPr
       {/* Bottom Charts Row */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Tỷ lệ khóa học có/không có prerequisites */}
-        <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-bold text-gray-800">Phân bố yêu cầu điều kiện</h2>
-            <button className="text-gray-400 hover:text-gray-600">
+        <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Phân bố yêu cầu điều kiện</h2>
+            <button className="text-gray-400 hover:text-purple-600 transition-colors">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
               </svg>
@@ -307,12 +330,12 @@ export default function DashboardClient({ stats, allCourses }: DashboardClientPr
         </div>
 
         {/* Phân phối kết quả học tập */}
-        <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-bold text-gray-800">
+        <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
               Phân phối kết quả học tập
             </h2>
-            <button className="text-gray-400 hover:text-gray-600">
+            <button className="text-gray-400 hover:text-purple-600 transition-colors">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
               </svg>
@@ -359,9 +382,9 @@ export default function DashboardClient({ stats, allCourses }: DashboardClientPr
       {/* New Charts Row - Top 10 Videos & Exercise Distribution */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Top 10 Courses by Videos */}
-        <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-bold text-gray-800">Top 10 khóa học theo số lượng video</h2>
+        <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Top 10 khóa học theo số lượng video</h2>
           </div>
           <ResponsiveContainer width="100%" height={350}>
             <BarChart data={top10CoursesByVideos} layout="vertical">
@@ -381,9 +404,9 @@ export default function DashboardClient({ stats, allCourses }: DashboardClientPr
         </div>
 
         {/* Exercise Distribution */}
-        <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-bold text-gray-800">Phân bố số lượng exercises</h2>
+        <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Phân bố số lượng exercises</h2>
           </div>
           <ResponsiveContainer width="100%" height={350}>
             <BarChart data={exerciseDistributionData}>
@@ -404,9 +427,9 @@ export default function DashboardClient({ stats, allCourses }: DashboardClientPr
       </div>
 
       {/* Student Distribution Area Chart */}
-      <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200">
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-bold text-gray-800">Phân bố học viên theo khóa học</h2>
+      <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300">
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Phân bố học viên theo khóa học</h2>
         </div>
         <ResponsiveContainer width="100%" height={300}>
           <AreaChart data={studentDistributionData}>
@@ -436,37 +459,37 @@ export default function DashboardClient({ stats, allCourses }: DashboardClientPr
       </div>
 
       {/* Summary Statistics Table */}
-      <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200">
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-bold text-gray-800">Thống kê tổng quan</h2>
+      <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300">
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Thống kê tổng quan</h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div className="bg-white rounded-lg p-4 shadow-sm">
-            <p className="text-sm text-gray-600 mb-1">Trung bình videos/khóa học</p>
-            <p className="text-2xl font-bold text-blue-600">{avgVideosPerCourse}</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-5 shadow-md hover:shadow-lg transition-shadow">
+            <p className="text-sm text-gray-600 mb-2 font-medium">Trung bình videos/khóa học</p>
+            <p className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{avgVideosPerCourse}</p>
           </div>
-          <div className="bg-white rounded-lg p-4 shadow-sm">
-            <p className="text-sm text-gray-600 mb-1">Trung bình exercises/khóa học</p>
-            <p className="text-2xl font-bold text-green-600">{avgExercisesPerCourse}</p>
+          <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-5 shadow-md hover:shadow-lg transition-shadow">
+            <p className="text-sm text-gray-600 mb-2 font-medium">Trung bình exercises/khóa học</p>
+            <p className="text-3xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">{avgExercisesPerCourse}</p>
           </div>
-          <div className="bg-white rounded-lg p-4 shadow-sm">
-            <p className="text-sm text-gray-600 mb-1">Trung bình học viên/khóa học</p>
-            <p className="text-2xl font-bold text-orange-600">{avgStudentsPerCourse.toLocaleString()}</p>
+          <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-5 shadow-md hover:shadow-lg transition-shadow">
+            <p className="text-sm text-gray-600 mb-2 font-medium">Trung bình học viên/khóa học</p>
+            <p className="text-3xl font-bold bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">{avgStudentsPerCourse.toLocaleString()}</p>
           </div>
-          <div className="bg-white rounded-lg p-4 shadow-sm">
-            <p className="text-sm text-gray-600 mb-1">Khóa học nhiều học viên nhất</p>
-            <p className="text-lg font-bold text-purple-600">{courseWithMostStudents.courseId}</p>
-            <p className="text-sm text-gray-500">{courseWithMostStudents.totalStudentsEnrolled.toLocaleString()} học viên</p>
+          <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-5 shadow-md hover:shadow-lg transition-shadow">
+            <p className="text-sm text-gray-600 mb-2 font-medium">Khóa học nhiều học viên nhất</p>
+            <p className="text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">{courseWithMostStudents.courseId}</p>
+            <p className="text-sm text-gray-500 mt-1">{courseWithMostStudents.totalStudentsEnrolled.toLocaleString()} học viên</p>
           </div>
-          <div className="bg-white rounded-lg p-4 shadow-sm">
-            <p className="text-sm text-gray-600 mb-1">Khóa học ít học viên nhất</p>
-            <p className="text-lg font-bold text-pink-600">{courseWithLeastStudents.courseId}</p>
-            <p className="text-sm text-gray-500">{courseWithLeastStudents.totalStudentsEnrolled.toLocaleString()} học viên</p>
+          <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl p-5 shadow-md hover:shadow-lg transition-shadow">
+            <p className="text-sm text-gray-600 mb-2 font-medium">Khóa học ít học viên nhất</p>
+            <p className="text-xl font-bold bg-gradient-to-r from-pink-600 to-rose-600 bg-clip-text text-transparent">{courseWithLeastStudents.courseId}</p>
+            <p className="text-sm text-gray-500 mt-1">{courseWithLeastStudents.totalStudentsEnrolled.toLocaleString()} học viên</p>
           </div>
-          <div className="bg-white rounded-lg p-4 shadow-sm">
-            <p className="text-sm text-gray-600 mb-1">Tổng số khóa học</p>
-            <p className="text-2xl font-bold text-cyan-600">{totalCourses}</p>
-            <p className="text-sm text-gray-500">{prerequisitesPercentage}% có điều kiện</p>
+          <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-5 shadow-md hover:shadow-lg transition-shadow">
+            <p className="text-sm text-gray-600 mb-2 font-medium">Tổng số khóa học</p>
+            <p className="text-3xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">{totalCourses}</p>
+            <p className="text-sm text-gray-500 mt-1">{prerequisitesPercentage}% có điều kiện</p>
           </div>
         </div>
       </div>
