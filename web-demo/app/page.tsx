@@ -4,13 +4,13 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Banner Section */}
-      <div className="relative bg-gradient-to-br from-blue-600 via-blue-500 to-blue-400 text-white">
+      <div className="relative bg-gradient-to-br from-blue-400 via-blue-300 to-blue-200 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           {/* Logos */}
           <div className="flex items-center justify-center gap-8 mb-12 flex-wrap">
-            <div className="p-3 flex items-center justify-center" style={{ height: '80px', width: 'auto' }}>
+            <div className="p-3 flex items-center justify-center" style={{ height: '120px', width: 'auto' }}>
               <Image
-                src="/EPv4pC2UYAAa8kn.png"
+                src="/xuetangx-trn-sq.png"
                 alt="XuetangX Logo"
                 width={120}
                 height={60}
@@ -18,7 +18,7 @@ export default function Home() {
                 style={{ maxHeight: '60px', width: 'auto' }}
               />
             </div>
-            <div className="p-3 flex items-center justify-center" style={{ height: '80px', width: 'auto' }}>
+            <div className="p-3 flex items-center justify-center" style={{ height: '120px', width: 'auto' }}>
               <Image
                 src="/GMA-new-logo.png"
                 alt="Global MOOC Alliance Logo"
@@ -28,7 +28,7 @@ export default function Home() {
                 style={{ maxHeight: '60px', width: 'auto' }}
               />
             </div>
-            <div className="p-3 flex items-center justify-center" style={{ height: '80px', width: 'auto' }}>
+            <div className="p-3 flex items-center justify-center" style={{ height: '120px', width: 'auto' }}>
               <Image
                 src="/Logo_UIT_updated.svg.png"
                 alt="UIT Logo"
@@ -38,7 +38,7 @@ export default function Home() {
                 style={{ maxHeight: '60px', width: 'auto' }}
               />
             </div>
-            <div className="p-3 flex items-center justify-center" style={{ height: '80px', width: 'auto' }}>
+            <div className="p-3 flex items-center justify-center" style={{ height: '120px', width: 'auto' }}>
               <Image
                 src="/Tsinghua_University_Logo.svg.png"
                 alt="Tsinghua University Logo"
