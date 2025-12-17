@@ -25,6 +25,21 @@ interface DashboardClientProps {
   allCourses: CourseInfo[];
 }
 
+// Gradient mappings for stat cards
+const STAT_CARD_GRADIENTS = {
+  cyan: 'from-cyan-100 to-blue-100',
+  indigo: 'from-indigo-100 to-purple-100',
+  pink: 'from-pink-100 to-rose-100',
+  teal: 'from-teal-100 to-emerald-100',
+} as const;
+
+const STAT_CARD_TEXT_GRADIENTS = {
+  cyan: 'from-cyan-600 to-blue-600',
+  indigo: 'from-indigo-600 to-purple-600',
+  pink: 'from-pink-600 to-rose-600',
+  teal: 'from-teal-600 to-emerald-600',
+} as const;
+
 export default function DashboardClient({ stats, allCourses }: DashboardClientProps) {
   // Calculate derived statistics
   const totalCourses = stats.totalCourses;
@@ -166,20 +181,10 @@ export default function DashboardClient({ stats, allCourses }: DashboardClientPr
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {additionalStatsData.map((stat, idx) => (
           <div key={idx} className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
-            <div className={`absolute inset-0 bg-gradient-to-br ${
-              stat.color === 'cyan' ? 'from-cyan-100 to-blue-100' :
-              stat.color === 'indigo' ? 'from-indigo-100 to-purple-100' :
-              stat.color === 'pink' ? 'from-pink-100 to-rose-100' :
-              'from-teal-100 to-emerald-100'
-            } rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+            <div className={`absolute inset-0 bg-gradient-to-br ${STAT_CARD_GRADIENTS[stat.color as keyof typeof STAT_CARD_GRADIENTS]} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
             <div className="relative z-10">
               <p className="text-sm text-gray-600 mb-3 font-medium">{stat.title}</p>
-              <h3 className={`${stat.size === "small" ? "text-lg" : "text-3xl"} font-bold bg-gradient-to-r ${
-                stat.color === 'cyan' ? 'from-cyan-600 to-blue-600' :
-                stat.color === 'indigo' ? 'from-indigo-600 to-purple-600' :
-                stat.color === 'pink' ? 'from-pink-600 to-rose-600' :
-                'from-teal-600 to-emerald-600'
-              } bg-clip-text text-transparent`}>{stat.value}</h3>
+              <h3 className={`${stat.size === "small" ? "text-lg" : "text-3xl"} font-bold bg-gradient-to-r ${STAT_CARD_TEXT_GRADIENTS[stat.color as keyof typeof STAT_CARD_TEXT_GRADIENTS]} bg-clip-text text-transparent`}>{stat.value}</h3>
             </div>
           </div>
         ))}

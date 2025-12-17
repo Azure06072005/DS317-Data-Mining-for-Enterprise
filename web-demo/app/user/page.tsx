@@ -77,6 +77,22 @@ export default function UserPage() {
     
     const courses = getUserCourses(selectedUserId);
     
+    // Guard against empty courses array
+    if (courses.length === 0) {
+      return {
+        courses: [],
+        avgSatisfaction: 0,
+        groupCounts: { A: 0, B: 0, C: 0, D: 0, E: 0 },
+        radarData: [
+          { subject: 'Group A', value: 0, fullMark: 5 },
+          { subject: 'Group B', value: 0, fullMark: 5 },
+          { subject: 'Group C', value: 0, fullMark: 5 },
+          { subject: 'Group D', value: 0, fullMark: 5 },
+          { subject: 'Group E', value: 0, fullMark: 5 },
+        ],
+      };
+    }
+    
     // Calculate user statistics
     const avgSatisfaction = courses.reduce((sum, c) => sum + c.satisfactionPercentage, 0) / courses.length;
     const groupCounts = {
@@ -87,13 +103,16 @@ export default function UserPage() {
       E: courses.filter(c => c.group === 'E').length,
     };
     
+    // Use a fixed maximum value for better visualization
+    const maxCoursesForRadar = Math.max(courses.length, 5);
+    
     // Radar chart data for user performance
     const radarData = [
-      { subject: 'Group A', value: groupCounts.A, fullMark: courses.length },
-      { subject: 'Group B', value: groupCounts.B, fullMark: courses.length },
-      { subject: 'Group C', value: groupCounts.C, fullMark: courses.length },
-      { subject: 'Group D', value: groupCounts.D, fullMark: courses.length },
-      { subject: 'Group E', value: groupCounts.E, fullMark: courses.length },
+      { subject: 'Group A', value: groupCounts.A, fullMark: maxCoursesForRadar },
+      { subject: 'Group B', value: groupCounts.B, fullMark: maxCoursesForRadar },
+      { subject: 'Group C', value: groupCounts.C, fullMark: maxCoursesForRadar },
+      { subject: 'Group D', value: groupCounts.D, fullMark: maxCoursesForRadar },
+      { subject: 'Group E', value: groupCounts.E, fullMark: maxCoursesForRadar },
     ];
     
     return { courses, avgSatisfaction, groupCounts, radarData };
