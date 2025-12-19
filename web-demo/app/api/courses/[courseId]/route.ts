@@ -3,7 +3,7 @@ import { streamCSV, getCSVPath } from '@/lib/csv-parser';
 import { CourseCSVRow } from '@/types/api';
 import { CourseInfo } from '@/types/prediction';
 
-const COURSE_CSV_PATH = getCSVPath('course_resource.csv');
+const COURSE_CSV_PATH = getCSVPath('course_resource_enhanced.csv');
 
 /**
  * Convert CSV row to CourseInfo
@@ -11,6 +11,10 @@ const COURSE_CSV_PATH = getCSVPath('course_resource.csv');
 function csvRowToCourseInfo(row: CourseCSVRow): CourseInfo {
   return {
     courseId: row.course_id,
+    courseName: row.course_name,
+    description: row.description,
+    field: row.field,
+    additionalFields: row.additional_fields ? row.additional_fields.split(',').filter(f => f.trim()) : [],
     totalStudentsEnrolled: Number(row.total_students_enrolled),
     totalVideos: Number(row.total_videos),
     totalExercises: Number(row.total_exercises),

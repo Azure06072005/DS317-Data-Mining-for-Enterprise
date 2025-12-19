@@ -3,8 +3,9 @@
 import { useState, useMemo } from "react";
 import { 
   userCourseSatisfactionData,
-  getUserCourses,
+  getEnrichedUserCourses,
 } from "@/data/predictionData";
+import { coursesData } from "@/data/courseData";
 import { SATISFACTION_GROUPS } from "@/types/prediction";
 import {
   BarChart,
@@ -75,7 +76,7 @@ export default function UserPage() {
   const selectedUserData = useMemo(() => {
     if (!selectedUserId) return null;
     
-    const courses = getUserCourses(selectedUserId);
+    const courses = getEnrichedUserCourses(selectedUserId);
     
     // Guard against empty courses array
     if (courses.length === 0) {
@@ -83,6 +84,8 @@ export default function UserPage() {
         courses: [],
         avgSatisfaction: 0,
         groupCounts: { A: 0, B: 0, C: 0, D: 0, E: 0 },
+        fieldPreferences: {},
+        recommendedFields: [],
         radarData: [
           { subject: 'Group A', value: 0, fullMark: 5 },
           { subject: 'Group B', value: 0, fullMark: 5 },
@@ -103,6 +106,32 @@ export default function UserPage() {
       E: courses.filter(c => c.group === 'E').length,
     };
     
+    // Calculate field preferences based on satisfaction
+    const fieldPreferences: Record<string, { count: number; avgSatisfaction: number }> = {};
+    courses.forEach(course => {
+      if (!fieldPreferences[course.field]) {
+        fieldPreferences[course.field] = { count: 0, avgSatisfaction: 0 };
+      }
+      fieldPreferences[course.field].count += 1;
+      fieldPreferences[course.field].avgSatisfaction += course.satisfactionPercentage;
+    });
+    
+    // Calculate average satisfaction per field
+    Object.keys(fieldPreferences).forEach(field => {
+      fieldPreferences[field].avgSatisfaction = 
+        fieldPreferences[field].avgSatisfaction / fieldPreferences[field].count;
+    });
+    
+    // Get recommended fields based on high satisfaction
+    const recommendedFields = Object.entries(fieldPreferences)
+      .filter(([_, data]) => data.avgSatisfaction >= 60)
+      .sort((a, b) => b[1].avgSatisfaction - a[1].avgSatisfaction)
+      .map(([field, data]) => ({
+        field,
+        avgSatisfaction: Math.round(data.avgSatisfaction),
+        coursesTaken: data.count
+      }));
+    
     // Use a fixed maximum value for better visualization
     const maxCoursesForRadar = Math.max(courses.length, 5);
     
@@ -115,7 +144,7 @@ export default function UserPage() {
       { subject: 'Group E', value: groupCounts.E, fullMark: maxCoursesForRadar },
     ];
     
-    return { courses, avgSatisfaction, groupCounts, radarData };
+    return { courses, avgSatisfaction, groupCounts, fieldPreferences, recommendedFields, radarData };
   }, [selectedUserId]);
 
   return (
@@ -297,9 +326,9 @@ export default function UserPage() {
                       <tr>
                         <th className="text-left py-4 px-6 font-bold text-gray-700">#</th>
                         <th className="text-left py-4 px-6 font-bold text-gray-700">Khóa học</th>
+                        <th className="text-left py-4 px-6 font-bold text-gray-700">Lĩnh vực</th>
                         <th className="text-left py-4 px-6 font-bold text-gray-700">Mức độ hài lòng</th>
                         <th className="text-left py-4 px-6 font-bold text-gray-700">Phân loại</th>
-                        <th className="text-left py-4 px-6 font-bold text-gray-700">Nhãn</th>
                       </tr>
                     </thead>
                     <tbody className="bg-white">
@@ -309,8 +338,14 @@ export default function UserPage() {
                           className="border-b border-gray-100 hover:bg-gradient-to-r hover:from-purple-50 hover:to-blue-50 transition-colors"
                         >
                           <td className="py-4 px-6 text-gray-600 font-medium">{index + 1}</td>
-                          <td className="py-4 px-6 text-gray-800 font-semibold">
-                            {course.courseId}
+                          <td className="py-4 px-6">
+                            <div className="font-semibold text-gray-800">{course.courseName}</div>
+                            <div className="text-xs text-gray-500">{course.courseId}</div>
+                          </td>
+                          <td className="py-4 px-6">
+                            <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium">
+                              {course.field}
+                            </span>
                           </td>
                           <td className="py-4 px-6">
                             <div className="flex items-center">
@@ -338,11 +373,8 @@ export default function UserPage() {
                               course.group === 'D' ? 'bg-gradient-to-r from-orange-400 to-red-500 text-white' :
                               'bg-gradient-to-r from-red-500 to-pink-600 text-white'
                             }`}>
-                              Group {course.group}
+                              {course.group} - {SATISFACTION_GROUPS[course.group].label}
                             </span>
-                          </td>
-                          <td className="py-4 px-6 text-gray-600 font-medium">
-                            {SATISFACTION_GROUPS[course.group as keyof typeof SATISFACTION_GROUPS].label}
                           </td>
                         </tr>
                       ))}
@@ -383,6 +415,68 @@ export default function UserPage() {
                     </div>
                   </div>
                 </div>
+              </div>
+
+              {/* Field Preferences and Recommendations */}
+              <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border-2 border-green-200">
+                <h3 className="text-xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-4">
+                  🎯 Sở thích Lĩnh vực & Gợi ý Khóa học
+                </h3>
+                
+                {selectedUserData.recommendedFields.length > 0 ? (
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="font-semibold text-gray-800 mb-3">Lĩnh vực phù hợp (Mức độ hài lòng ≥ 60%):</h4>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        {selectedUserData.recommendedFields.map((rec, idx) => (
+                          <div key={idx} className="bg-white rounded-lg p-4 shadow-sm border border-green-200">
+                            <div className="flex justify-between items-center mb-2">
+                              <span className="font-semibold text-gray-800">{rec.field}</span>
+                              <span className="text-green-600 font-bold">{rec.avgSatisfaction}%</span>
+                            </div>
+                            <div className="text-xs text-gray-600">
+                              {rec.coursesTaken} khóa học đã học
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="bg-white rounded-lg p-4 shadow-sm">
+                      <h4 className="font-semibold text-gray-800 mb-3">💡 Gợi ý khóa học mới:</h4>
+                      <div className="space-y-2">
+                        {selectedUserData.recommendedFields.slice(0, 2).flatMap(rec => {
+                          // Get courses in this field that the user hasn't taken
+                          const takenCourseIds = new Set(selectedUserData.courses.map(c => c.courseId));
+                          const availableCourses = coursesData
+                            .filter(c => c.field === rec.field && !takenCourseIds.has(c.courseId))
+                            .sort((a, b) => b.totalStudentsEnrolled - a.totalStudentsEnrolled)
+                            .slice(0, 2);
+                          
+                          return availableCourses.map((course, idx) => (
+                            <div key={`${rec.field}-${idx}`} className="flex items-start p-3 bg-green-50 rounded-lg border border-green-200 hover:bg-green-100 transition-colors">
+                              <span className="text-green-600 mr-2">→</span>
+                              <div className="flex-1">
+                                <div className="font-medium text-gray-800">{course.courseName}</div>
+                                <div className="text-xs text-gray-600">{course.description}</div>
+                                <div className="flex gap-2 mt-1">
+                                  <span className="text-xs px-2 py-0.5 bg-green-200 text-green-700 rounded">
+                                    {course.field}
+                                  </span>
+                                  <span className="text-xs text-gray-500">
+                                    {course.totalStudentsEnrolled.toLocaleString()} học viên
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          ));
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <p className="text-gray-600">Chưa đủ dữ liệu để đưa ra gợi ý.</p>
+                )}
               </div>
             </div>
           )}

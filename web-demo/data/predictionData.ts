@@ -9,6 +9,12 @@ export interface UserCourseSatisfaction {
   group: 'A' | 'B' | 'C' | 'D' | 'E';
 }
 
+export interface EnrichedUserCourseSatisfaction extends UserCourseSatisfaction {
+  courseName: string;
+  field: string;
+  description: string;
+}
+
 // Constants from data distribution (node2vec_smote_sample.csv: 764 satisfied, 236 dissatisfied)
 const SATISFIED_RATIO = 0.764; // 764 / 1000 users are satisfied (label 2.0)
 
@@ -99,6 +105,22 @@ export function getUsersByCourseId(courseId: string): string[] {
 
 export function getUserCourses(userId: string): UserCourseSatisfaction[] {
   return userCourseSatisfactionData.filter(item => item.userId === userId);
+}
+
+export function getEnrichedUserCourses(userId: string): EnrichedUserCourseSatisfaction[] {
+  // Import coursesData dynamically to avoid circular dependency
+  const { coursesData } = require('./courseData');
+  
+  const userCourses = getUserCourses(userId);
+  return userCourses.map(uc => {
+    const courseInfo = coursesData.find((c: any) => c.courseId === uc.courseId);
+    return {
+      ...uc,
+      courseName: courseInfo?.courseName || uc.courseId,
+      field: courseInfo?.field || 'Unknown',
+      description: courseInfo?.description || '',
+    };
+  });
 }
 
 export function getUserCourseSatisfaction(userId: string, courseId: string): UserCourseSatisfaction | undefined {
