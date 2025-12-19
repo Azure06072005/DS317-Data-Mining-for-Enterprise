@@ -2,6 +2,10 @@
 
 export interface CourseInfo {
   courseId: string;
+  courseName: string;
+  description: string;
+  field: string;
+  additionalFields: string[];
   totalStudentsEnrolled: number;
   totalVideos: number;
   totalExercises: number;

@@ -127,6 +127,10 @@ export interface PredictionsListResponse {
 // CSV Row Types (raw data from CSV files)
 export interface CourseCSVRow {
   course_id: string;
+  course_name: string;
+  description: string;
+  field: string;
+  additional_fields: string;
   total_students_enrolled: string | number;
   total_videos: string | number;
   total_exercises: string | number;
