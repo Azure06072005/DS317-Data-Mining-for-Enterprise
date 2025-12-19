@@ -108,7 +108,7 @@ FIELD_TEMPLATES = {
 }
 
 # Generate course descriptions
-def generate_course_name(field, index, total_in_field):
+def generate_course_name(field, index):
     """Generate a course name based on field"""
     templates = FIELD_TEMPLATES.get(field, ["Course"])
     
@@ -174,7 +174,7 @@ def main():
         primary_field = fields[0]
         
         # Generate course name
-        course_name = generate_course_name(primary_field, field_counters[primary_field], len(courses))
+        course_name = generate_course_name(primary_field, field_counters[primary_field])
         field_counters[primary_field] += 1
         
         # Generate description

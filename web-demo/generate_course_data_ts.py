@@ -4,6 +4,7 @@ Generate courseData.ts from enhanced CSV
 """
 
 import csv
+import json
 
 def main():
     input_file = 'course_resource_enhanced.csv'
@@ -32,12 +33,15 @@ def main():
             description = course['description'].replace('"', '\\"')
             field = course['field'].replace('"', '\\"')
             
+            # Format additional fields as JSON array
+            additional_fields_json = json.dumps(additional_fields)
+            
             f.write('  {\n')
             f.write(f'    courseId: "{course["course_id"]}",\n')
             f.write(f'    courseName: "{course_name}",\n')
             f.write(f'    description: "{description}",\n')
             f.write(f'    field: "{field}",\n')
-            f.write(f'    additionalFields: {additional_fields},\n')
+            f.write(f'    additionalFields: {additional_fields_json},\n')
             f.write(f'    totalStudentsEnrolled: {course["total_students_enrolled"]},\n')
             f.write(f'    totalVideos: {course["total_videos"]},\n')
             f.write(f'    totalExercises: {course["total_exercises"]},\n')

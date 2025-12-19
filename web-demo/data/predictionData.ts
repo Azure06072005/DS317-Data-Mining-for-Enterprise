@@ -108,7 +108,9 @@ export function getUserCourses(userId: string): UserCourseSatisfaction[] {
 }
 
 export function getEnrichedUserCourses(userId: string): EnrichedUserCourseSatisfaction[] {
-  // Import coursesData dynamically to avoid circular dependency
+  // Import coursesData at runtime to avoid circular dependency
+  // This uses require() because we're in a mixed module environment
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
   const { coursesData } = require('./courseData');
   
   const userCourses = getUserCourses(userId);

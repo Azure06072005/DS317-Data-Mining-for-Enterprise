@@ -3709,5 +3709,5 @@ export const coursesData: CourseInfo[] = [
     totalExercises: 13,
     numFields: 0,
     isPrerequisites: false,
-  }
+  },
 ];
