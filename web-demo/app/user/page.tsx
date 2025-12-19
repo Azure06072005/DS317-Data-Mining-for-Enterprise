@@ -394,6 +394,143 @@ export default function UserPage() {
             </div>
           )}
         </div>
+
+        {/* Predictive Model Ideas Section */}
+        <div className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-shadow duration-300 mt-10">
+          <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-8">
+            Ý tưởng Mô hình Dự đoán cho Người học
+          </h2>
+          
+          <div className="space-y-6">
+            {/* High-level Objectives */}
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-xl border-2 border-blue-200">
+              <h3 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                <span className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center mr-3 text-sm">1</span>
+                Mục tiêu Cao cấp
+              </h3>
+              <div className="ml-11 space-y-3">
+                <div className="bg-white p-4 rounded-lg shadow-sm">
+                  <h4 className="font-semibold text-gray-800 mb-2">🎯 Dự đoán Mức độ Hài lòng Cá nhân hóa</h4>
+                  <p className="text-gray-600">
+                    Phát triển mô hình dự đoán mức độ hài lòng của từng người học dựa trên lịch sử học tập, 
+                    hành vi tương tác, và đặc điểm cá nhân để cung cấp khuyến nghị phù hợp.
+                  </p>
+                </div>
+                <div className="bg-white p-4 rounded-lg shadow-sm">
+                  <h4 className="font-semibold text-gray-800 mb-2">📊 Phân tích Xu hướng Học tập</h4>
+                  <p className="text-gray-600">
+                    Xác định các pattern trong hành vi học tập để dự đoán khả năng hoàn thành khóa học 
+                    và mức độ tương tác trong tương lai.
+                  </p>
+                </div>
+                <div className="bg-white p-4 rounded-lg shadow-sm">
+                  <h4 className="font-semibold text-gray-800 mb-2">🔍 Phát hiện Học viên Có Nguy cơ</h4>
+                  <p className="text-gray-600">
+                    Nhận diện sớm những học viên có nguy cơ bỏ học hoặc không hài lòng để kịp thời 
+                    can thiệp và hỗ trợ.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Feasible Methods */}
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border-2 border-purple-200">
+              <h3 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                <span className="w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center mr-3 text-sm">2</span>
+                Phương pháp Khả thi
+              </h3>
+              <div className="ml-11 space-y-3">
+                <div className="bg-white p-4 rounded-lg shadow-sm">
+                  <h4 className="font-semibold text-gray-800 mb-2">🤖 Machine Learning Collaborative Filtering</h4>
+                  <p className="text-gray-600 mb-2">
+                    Sử dụng kỹ thuật collaborative filtering để dự đoán mức độ hài lòng dựa trên 
+                    hành vi của những người học tương tự.
+                  </p>
+                  <ul className="list-disc list-inside text-sm text-gray-600 ml-4 space-y-1">
+                    <li>User-based collaborative filtering: Tìm người học có pattern tương tự</li>
+                    <li>Item-based collaborative filtering: Phân tích mối quan hệ giữa các khóa học</li>
+                    <li>Matrix factorization: Giảm chiều dữ liệu để tìm latent factors</li>
+                  </ul>
+                </div>
+
+                <div className="bg-white p-4 rounded-lg shadow-sm">
+                  <h4 className="font-semibold text-gray-800 mb-2">📈 Time Series Analysis</h4>
+                  <p className="text-gray-600 mb-2">
+                    Phân tích chuỗi thời gian để dự đoán xu hướng học tập và mức độ tương tác trong tương lai.
+                  </p>
+                  <ul className="list-disc list-inside text-sm text-gray-600 ml-4 space-y-1">
+                    <li>LSTM/GRU networks cho sequential pattern learning</li>
+                    <li>ARIMA models cho short-term predictions</li>
+                    <li>Prophet cho long-term trend forecasting</li>
+                  </ul>
+                </div>
+
+                <div className="bg-white p-4 rounded-lg shadow-sm">
+                  <h4 className="font-semibold text-gray-800 mb-2">🌐 Graph Neural Networks</h4>
+                  <p className="text-gray-600 mb-2">
+                    Mở rộng phương pháp Node2Vec hiện tại với Graph Neural Networks để học representation tốt hơn.
+                  </p>
+                  <ul className="list-disc list-inside text-sm text-gray-600 ml-4 space-y-1">
+                    <li>GraphSAGE: Học node embeddings từ neighborhood aggregation</li>
+                    <li>GAT (Graph Attention Networks): Sử dụng attention mechanism</li>
+                    <li>Heterogeneous graph learning: Kết hợp user-course-video graph</li>
+                  </ul>
+                </div>
+
+                <div className="bg-white p-4 rounded-lg shadow-sm">
+                  <h4 className="font-semibold text-gray-800 mb-2">🎯 Deep Learning Ensemble</h4>
+                  <p className="text-gray-600 mb-2">
+                    Kết hợp nhiều mô hình deep learning để cải thiện độ chính xác và robustness.
+                  </p>
+                  <ul className="list-disc list-inside text-sm text-gray-600 ml-4 space-y-1">
+                    <li>Stacking: Kết hợp CNN (video features) + RNN (sequential behavior) + MLP (tabular data)</li>
+                    <li>Boosting: XGBoost/LightGBM cho structured data</li>
+                    <li>Voting: Ensemble của multiple models với weighted voting</li>
+                  </ul>
+                </div>
+
+                <div className="bg-white p-4 rounded-lg shadow-sm">
+                  <h4 className="font-semibold text-gray-800 mb-2">💡 Feature Engineering Nâng cao</h4>
+                  <p className="text-gray-600 mb-2">
+                    Tạo các đặc trưng mới từ dữ liệu thô để cải thiện hiệu suất mô hình.
+                  </p>
+                  <ul className="list-disc list-inside text-sm text-gray-600 ml-4 space-y-1">
+                    <li>Engagement score: Tính toán từ video watch time, exercise attempts, forum participation</li>
+                    <li>Learning velocity: Tốc độ hoàn thành các module so với baseline</li>
+                    <li>Consistency index: Đo lường sự đều đặn trong việc học</li>
+                    <li>Difficulty adaptation: Khả năng thích nghi với độ khó của bài tập</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Implementation Roadmap */}
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-xl border-2 border-green-200">
+              <h3 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                <span className="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center mr-3 text-sm">3</span>
+                Lộ trình Triển khai
+              </h3>
+              <div className="ml-11 space-y-2">
+                <div className="flex items-start">
+                  <span className="text-green-600 font-bold mr-3">Phase 1:</span>
+                  <p className="text-gray-600">Xây dựng baseline model với Random Forest và logistic regression</p>
+                </div>
+                <div className="flex items-start">
+                  <span className="text-green-600 font-bold mr-3">Phase 2:</span>
+                  <p className="text-gray-600">Thử nghiệm advanced feature engineering và Graph Neural Networks</p>
+                </div>
+                <div className="flex items-start">
+                  <span className="text-green-600 font-bold mr-3">Phase 3:</span>
+                  <p className="text-gray-600">Triển khai deep learning ensemble và time series analysis</p>
+                </div>
+                <div className="flex items-start">
+                  <span className="text-green-600 font-bold mr-3">Phase 4:</span>
+                  <p className="text-gray-600">A/B testing và continuous improvement dựa trên feedback thực tế</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

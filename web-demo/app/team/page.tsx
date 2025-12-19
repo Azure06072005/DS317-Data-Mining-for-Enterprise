@@ -53,7 +53,7 @@ export default function Team() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Thành viên nhóm
+            About Us
           </h1>
           <p className="text-lg text-gray-600">
             Đội ngũ phát triển dự án EduPredict
