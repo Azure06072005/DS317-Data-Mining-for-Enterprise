@@ -13,7 +13,7 @@ const Navbar = () => {
     { name: "Dashboard", path: "/dashboard" },
     { name: "Course", path: "/course" },
     { name: "User", path: "/user" },
-    { name: "Thành viên", path: "/team" },
+    { name: "About Us", path: "/team" },
   ];
 
   return (
