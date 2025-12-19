@@ -111,9 +111,30 @@ export default function DashboardClient({ stats, allCourses }: DashboardClientPr
   const additionalStatsData = [
     { title: "Trung bình videos/khóa học", value: avgVideosPerCourse.toString(), color: "cyan", size: "large" },
     { title: "Trung bình exercises/khóa học", value: avgExercisesPerCourse.toString(), color: "indigo", size: "large" },
-    { title: "Khóa học nhiều học viên nhất", value: `${courseWithMostStudents.courseId}`, subValue: `${courseWithMostStudents.totalStudentsEnrolled.toLocaleString()} học viên`, color: "pink", size: "small" },
+    { title: "Khóa học nhiều học viên nhất", value: `${courseWithMostStudents.courseName}`, subValue: `${courseWithMostStudents.totalStudentsEnrolled.toLocaleString()} học viên`, color: "pink", size: "small" },
     { title: "Tổng tài nguyên học tập", value: `${totalVideos + totalExercises} items`, subValue: `${totalVideos} videos + ${totalExercises} exercises`, color: "teal", size: "small" },
   ];
+  
+  // Field distribution statistics
+  const fieldDistribution = allCourses.reduce((acc, course) => {
+    acc[course.field] = (acc[course.field] || 0) + 1;
+    return acc;
+  }, {} as Record<string, number>);
+  
+  const fieldDistributionData = Object.entries(fieldDistribution)
+    .map(([field, count]) => ({ field, count }))
+    .sort((a, b) => b.count - a.count);
+  
+  // Student enrollment by field
+  const studentsByField = allCourses.reduce((acc, course) => {
+    acc[course.field] = (acc[course.field] || 0) + course.totalStudentsEnrolled;
+    return acc;
+  }, {} as Record<string, number>);
+  
+  const studentsByFieldData = Object.entries(studentsByField)
+    .map(([field, students]) => ({ field, students }))
+    .sort((a, b) => b.students - a.students)
+    .slice(0, 8);
   
   // Dữ liệu xu hướng học viên (mock data - keeping for visualization)
   const trendData = [
@@ -257,7 +278,7 @@ export default function DashboardClient({ stats, allCourses }: DashboardClientPr
           <div className="space-y-3">
             <div className="flex items-center text-xs text-gray-500 pb-2 border-b-2 border-purple-100">
               <div className="w-8">#</div>
-              <div className="flex-1 font-semibold">Mã khóa học</div>
+              <div className="flex-1 font-semibold">Khóa học</div>
               <div className="w-24 text-right font-semibold">Học viên</div>
             </div>
             {top10Courses.map((course, index) => (
@@ -273,9 +294,9 @@ export default function DashboardClient({ stats, allCourses }: DashboardClientPr
                   </span>
                 </div>
                 <div className="flex-1">
-                  <div className="font-semibold text-gray-800">{course.courseId}</div>
+                  <div className="font-semibold text-gray-800">{course.courseName}</div>
                   <div className="text-xs text-gray-500">
-                    Videos: {course.totalVideos}, Exercises: {course.totalExercises}
+                    {course.field} • {course.totalVideos} videos • {course.totalExercises} exercises
                   </div>
                 </div>
                 <div className="w-24 text-right">
@@ -443,6 +464,74 @@ export default function DashboardClient({ stats, allCourses }: DashboardClientPr
             <Area type="monotone" dataKey="students" stroke="#8b5cf6" fillOpacity={1} fill="url(#dashboardStudentDistributionGradient)" name="students" />
           </AreaChart>
         </ResponsiveContainer>
+      </div>
+
+      {/* Field-Based Statistics - New Section */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Field Distribution */}
+        <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+              Phân bố Khóa học theo Lĩnh vực
+            </h2>
+          </div>
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart data={fieldDistributionData}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+              <XAxis 
+                dataKey="field" 
+                stroke="#6b7280" 
+                angle={-45} 
+                textAnchor="end" 
+                height={100}
+                tick={{ fontSize: 12 }}
+              />
+              <YAxis stroke="#6b7280" label={{ value: 'Số khóa học', angle: -90, position: 'insideLeft' }} />
+              <Tooltip 
+                contentStyle={{
+                  backgroundColor: "#fff",
+                  border: "1px solid #e5e7eb",
+                  borderRadius: "8px",
+                }}
+              />
+              <Bar dataKey="count" fill="#8b5cf6" name="Số khóa học" />
+            </BarChart>
+          </ResponsiveContainer>
+          <div className="mt-4 text-center">
+            <p className="text-sm text-gray-600">Tổng: {fieldDistributionData.length} lĩnh vực khác nhau</p>
+          </div>
+        </div>
+
+        {/* Students by Field */}
+        <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+              Số Học viên theo Lĩnh vực (Top 8)
+            </h2>
+          </div>
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart data={studentsByFieldData} layout="horizontal">
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+              <XAxis type="number" stroke="#6b7280" />
+              <YAxis 
+                type="category" 
+                dataKey="field" 
+                stroke="#6b7280" 
+                width={120}
+                tick={{ fontSize: 11 }}
+              />
+              <Tooltip 
+                contentStyle={{
+                  backgroundColor: "#fff",
+                  border: "1px solid #e5e7eb",
+                  borderRadius: "8px",
+                }}
+                formatter={(value: number) => value.toLocaleString()}
+              />
+              <Bar dataKey="students" fill="#10b981" name="Học viên" />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
       </div>
 
       {/* Key Insights for Student Satisfaction Prediction */}

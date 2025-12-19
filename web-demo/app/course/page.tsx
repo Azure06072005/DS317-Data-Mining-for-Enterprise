@@ -27,37 +27,67 @@ const COLORS = {
 
 export default function CoursePage() {
   const [selectedCourseId, setSelectedCourseId] = useState("");
+  const [selectedField, setSelectedField] = useState<string>("all");
+  const [searchTerm, setSearchTerm] = useState("");
 
-  // Calculate overview statistics
+  // Get all unique fields
+  const allFields = useMemo(() => {
+    const fieldSet = new Set(coursesData.map(c => c.field));
+    return ["all", ...Array.from(fieldSet).sort()];
+  }, []);
+
+  // Filter courses by field and search term
+  const filteredCourses = useMemo(() => {
+    return coursesData.filter(course => {
+      const matchesField = selectedField === "all" || course.field === selectedField;
+      const matchesSearch = searchTerm === "" || 
+        course.courseName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        course.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        course.courseId.toLowerCase().includes(searchTerm.toLowerCase());
+      return matchesField && matchesSearch;
+    });
+  }, [selectedField, searchTerm]);
+
+  // Calculate overview statistics from filtered courses
   const stats = useMemo(() => {
-    const totalCourses = coursesData.length;
-    const totalStudents = coursesData.reduce((sum, c) => sum + c.totalStudentsEnrolled, 0);
-    const avgVideos = Math.round(coursesData.reduce((sum, c) => sum + c.totalVideos, 0) / totalCourses);
-    const avgExercises = Math.round(coursesData.reduce((sum, c) => sum + c.totalExercises, 0) / totalCourses);
+    const totalCourses = filteredCourses.length;
+    const totalStudents = filteredCourses.reduce((sum, c) => sum + c.totalStudentsEnrolled, 0);
+    const avgVideos = totalCourses > 0 ? Math.round(filteredCourses.reduce((sum, c) => sum + c.totalVideos, 0) / totalCourses) : 0;
+    const avgExercises = totalCourses > 0 ? Math.round(filteredCourses.reduce((sum, c) => sum + c.totalExercises, 0) / totalCourses) : 0;
     
     return { totalCourses, totalStudents, avgVideos, avgExercises };
-  }, []);
+  }, [filteredCourses]);
+
+  // Field distribution
+  const fieldDistribution = useMemo(() => {
+    const dist: Record<string, number> = {};
+    filteredCourses.forEach(course => {
+      dist[course.field] = (dist[course.field] || 0) + 1;
+    });
+    return Object.entries(dist).map(([field, count]) => ({ field, count })).sort((a, b) => b.count - a.count);
+  }, [filteredCourses]);
 
   // Top 10 courses by student enrollment
   const top10Courses = useMemo(() => {
-    return [...coursesData]
+    return [...filteredCourses]
       .sort((a, b) => b.totalStudentsEnrolled - a.totalStudentsEnrolled)
       .slice(0, 10)
       .map(c => ({
-        name: c.courseId,
+        name: c.courseName,
+        courseId: c.courseId,
         students: c.totalStudentsEnrolled,
       }));
-  }, []);
+  }, [filteredCourses]);
 
   // Prerequisites distribution
   const prerequisitesData = useMemo(() => {
-    const withPrereq = coursesData.filter(c => c.isPrerequisites).length;
-    const withoutPrereq = coursesData.length - withPrereq;
+    const withPrereq = filteredCourses.filter(c => c.isPrerequisites).length;
+    const withoutPrereq = filteredCourses.length - withPrereq;
     return [
       { name: 'Có Prerequisites', value: withPrereq },
       { name: 'Không có Prerequisites', value: withoutPrereq },
     ];
-  }, []);
+  }, [filteredCourses]);
 
   // Video count distribution by ranges
   const videoDistribution = useMemo(() => {
@@ -69,13 +99,13 @@ export default function CoursePage() {
       { name: '100+', min: 101, max: Infinity, count: 0 },
     ];
     
-    coursesData.forEach(course => {
+    filteredCourses.forEach(course => {
       const range = ranges.find(r => course.totalVideos >= r.min && course.totalVideos <= r.max);
       if (range) range.count++;
     });
     
     return ranges;
-  }, []);
+  }, [filteredCourses]);
 
   // Get selected course statistics
   const selectedCourseStats = useMemo(() => {
@@ -91,13 +121,63 @@ export default function CoursePage() {
     <div className="min-h-screen bg-gradient-to-br from-cyan-50 to-blue-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Thống kê Khóa học
+            Danh mục Khóa học
           </h1>
           <p className="text-lg text-gray-600">
-            Phân tích và thống kê chi tiết về các khóa học
+            Khám phá và phân tích chi tiết các khóa học theo lĩnh vực
           </p>
+        </div>
+
+        {/* Filters */}
+        <div className="bg-white rounded-xl shadow-md p-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Field Filter */}
+            <div>
+              <label htmlFor="fieldFilter" className="block text-sm font-medium text-gray-700 mb-2">
+                Lọc theo lĩnh vực
+              </label>
+              <select
+                id="fieldFilter"
+                value={selectedField}
+                onChange={(e) => setSelectedField(e.target.value)}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition bg-white"
+              >
+                <option value="all">Tất cả lĩnh vực ({coursesData.length} khóa học)</option>
+                {allFields.filter(f => f !== "all").map((field) => {
+                  const count = coursesData.filter(c => c.field === field).length;
+                  return (
+                    <option key={field} value={field}>
+                      {field} ({count} khóa học)
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
+
+            {/* Search */}
+            <div>
+              <label htmlFor="searchCourse" className="block text-sm font-medium text-gray-700 mb-2">
+                Tìm kiếm khóa học
+              </label>
+              <input
+                id="searchCourse"
+                type="text"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                placeholder="Nhập tên khóa học, mô tả hoặc mã..."
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition"
+              />
+            </div>
+          </div>
+          
+          {/* Results count */}
+          <div className="mt-4 text-sm text-gray-600 text-center">
+            Hiển thị <span className="font-bold text-cyan-600">{stats.totalCourses}</span> khóa học
+            {selectedField !== "all" && ` trong lĩnh vực ${selectedField}`}
+            {searchTerm && ` khớp với "${searchTerm}"`}
+          </div>
         </div>
 
         {/* Overview Cards */}
@@ -122,6 +202,23 @@ export default function CoursePage() {
 
         {/* Charts Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+          {/* Field Distribution */}
+          <div className="bg-white rounded-xl shadow-md p-6">
+            <h2 className="text-xl font-bold text-gray-900 mb-4">
+              Phân bố Khóa học theo Lĩnh vực
+            </h2>
+            <ResponsiveContainer width="100%" height={300}>
+              <BarChart data={fieldDistribution}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="field" angle={-45} textAnchor="end" height={100} tick={{ fontSize: 11 }} />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="count" fill="#8b5cf6" name="Số khóa học" />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+
           {/* Top 10 Courses */}
           <div className="bg-white rounded-xl shadow-md p-6">
             <h2 className="text-xl font-bold text-gray-900 mb-4">
@@ -130,9 +227,20 @@ export default function CoursePage() {
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={top10Courses}>
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" angle={-45} textAnchor="end" height={100} />
+                <XAxis dataKey="name" angle={-45} textAnchor="end" height={100} tick={{ fontSize: 10 }} />
                 <YAxis />
-                <Tooltip />
+                <Tooltip content={({ active, payload }) => {
+                  if (active && payload && payload.length) {
+                    return (
+                      <div className="bg-white p-3 border border-gray-200 rounded shadow-lg">
+                        <p className="font-semibold">{payload[0].payload.name}</p>
+                        <p className="text-sm text-gray-600">ID: {payload[0].payload.courseId}</p>
+                        <p className="text-sm text-blue-600">{payload[0].value?.toLocaleString()} học viên</p>
+                      </div>
+                    );
+                  }
+                  return null;
+                }} />
                 <Legend />
                 <Bar dataKey="students" fill="#3b82f6" name="Số học viên" />
               </BarChart>
@@ -192,18 +300,18 @@ export default function CoursePage() {
           {/* Course Selection */}
           <div className="mb-6">
             <label htmlFor="courseSelect" className="block text-sm font-medium text-gray-700 mb-2">
-              Chọn khóa học
+              Chọn khóa học để xem chi tiết
             </label>
             <select
               id="courseSelect"
               value={selectedCourseId}
               onChange={(e) => setSelectedCourseId(e.target.value)}
-              className="w-full md:w-1/2 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition bg-white"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition bg-white"
             >
               <option value="">-- Chọn khóa học --</option>
-              {coursesData.map((course) => (
+              {filteredCourses.map((course) => (
                 <option key={course.courseId} value={course.courseId}>
-                  {course.courseId}
+                  {course.courseName} ({course.field}) - {course.courseId}
                 </option>
               ))}
             </select>
@@ -212,6 +320,27 @@ export default function CoursePage() {
           {/* Course Details */}
           {selectedCourseStats && (
             <div className="space-y-6">
+              {/* Course Header */}
+              <div className="bg-gradient-to-r from-cyan-50 to-blue-50 rounded-lg p-6 border border-cyan-200">
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">{selectedCourseStats.course.courseName}</h3>
+                <p className="text-gray-600 mb-3">{selectedCourseStats.course.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-cyan-100 text-cyan-700 rounded-full text-sm font-medium">
+                    {selectedCourseStats.course.field}
+                  </span>
+                  {selectedCourseStats.course.additionalFields.map((field, idx) => (
+                    <span key={idx} className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
+                      {field}
+                    </span>
+                  ))}
+                  {selectedCourseStats.course.isPrerequisites && (
+                    <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">
+                      ✓ Có Prerequisites
+                    </span>
+                  )}
+                </div>
+              </div>
+
               {/* Course Info */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-lg p-4 border border-blue-200">

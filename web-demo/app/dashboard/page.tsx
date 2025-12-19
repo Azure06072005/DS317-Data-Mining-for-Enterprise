@@ -9,7 +9,7 @@ import { cache } from "@/lib/cache";
 // Mark this page as dynamic
 export const dynamic = 'force-dynamic';
 
-const COURSE_CSV_PATH = getCSVPath('course_resource.csv');
+const COURSE_CSV_PATH = getCSVPath('course_resource_enhanced.csv');
 const CACHE_TTL = 300; // 5 minutes
 
 /**
@@ -18,6 +18,10 @@ const CACHE_TTL = 300; // 5 minutes
 function csvRowToCourseInfo(row: CourseCSVRow): CourseInfo {
   return {
     courseId: row.course_id,
+    courseName: row.course_name,
+    description: row.description,
+    field: row.field,
+    additionalFields: row.additional_fields ? row.additional_fields.split(',').filter(f => f.trim()) : [],
     totalStudentsEnrolled: Number(row.total_students_enrolled),
     totalVideos: Number(row.total_videos),
     totalExercises: Number(row.total_exercises),
