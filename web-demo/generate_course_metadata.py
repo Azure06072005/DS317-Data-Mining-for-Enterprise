@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
 Generate enhanced course metadata with course names and fields based on existing course_resource.csv
+Uses deterministic assignment based on course_id to ensure stable output across runs.
 """
 
 import csv
-import random
+import hashlib
 
 # Define field categories and their course name templates
 FIELD_TEMPLATES = {
@@ -108,27 +109,25 @@ FIELD_TEMPLATES = {
 }
 
 # Generate course descriptions
-def generate_course_name(field, index):
-    """Generate a course name based on field"""
+def generate_course_name(field, course_id):
+    """Generate a deterministic course name based on field and course_id"""
     templates = FIELD_TEMPLATES.get(field, ["Course"])
     
-    # Pick a template
-    if index < len(templates):
-        base_name = templates[index]
-    else:
-        # Generate numbered courses
-        base_name = f"{field} Advanced Topics {index - len(templates) + 1}"
+    # Use course_id hash to deterministically select a template
+    hash_value = int(hashlib.sha256(course_id.encode()).hexdigest(), 16)
+    template_index = hash_value % len(templates)
+    base_name = templates[template_index]
     
-    # Occasionally add level indicators
-    if random.random() < 0.3:
+    # Deterministically add level indicators based on hash
+    if (hash_value % 10) < 3:  # 30% of courses get a level
         levels = ["Beginner", "Intermediate", "Advanced"]
-        level = levels[min(index % 3, 2)]
+        level = levels[hash_value % 3]
         return f"{base_name} - {level}"
     
     return base_name
 
-def generate_description(course_name, field):
-    """Generate a brief course description"""
+def generate_description(course_name, field, course_id):
+    """Generate a deterministic course description"""
     templates = [
         f"Comprehensive introduction to {course_name.lower()} in {field}",
         f"Master the fundamentals of {course_name.lower()} with hands-on projects",
@@ -136,19 +135,40 @@ def generate_description(course_name, field):
         f"Learn {course_name.lower()} through practical examples and case studies",
         f"Deep dive into {course_name.lower()} with real-world applications",
     ]
-    return random.choice(templates)
+    # Use course_id hash to deterministically select a description template
+    hash_value = int(hashlib.sha256(course_id.encode()).hexdigest(), 16)
+    return templates[hash_value % len(templates)]
 
-def assign_fields(num_fields):
-    """Assign fields based on num_fields count"""
+def assign_fields(num_fields, course_id):
+    """Assign fields deterministically based on num_fields count and course_id"""
+    all_fields = list(FIELD_TEMPLATES.keys())
+    hash_value = int(hashlib.sha256(course_id.encode()).hexdigest(), 16)
+    
     if num_fields == 0:
-        # Assign a random field
-        return [random.choice(list(FIELD_TEMPLATES.keys()))]
+        # Assign one field deterministically
+        return [all_fields[hash_value % len(all_fields)]]
     elif num_fields == 1:
-        return [random.choice(list(FIELD_TEMPLATES.keys()))]
+        return [all_fields[hash_value % len(all_fields)]]
     else:
-        # Multiple fields - pick randomly
-        fields = random.sample(list(FIELD_TEMPLATES.keys()), min(num_fields, len(FIELD_TEMPLATES)))
-        return fields
+        # Multiple fields - pick deterministically based on hash
+        # Use different parts of hash for different field selections
+        selected_fields = []
+        for i in range(min(num_fields, len(all_fields))):
+            # Generate unique index for each field selection
+            field_hash = int(hashlib.sha256(f"{course_id}_{i}".encode()).hexdigest(), 16)
+            field_idx = field_hash % len(all_fields)
+            field = all_fields[field_idx]
+            # Avoid duplicates
+            if field not in selected_fields:
+                selected_fields.append(field)
+            else:
+                # Find next available field
+                for j in range(len(all_fields)):
+                    alt_field = all_fields[(field_idx + j) % len(all_fields)]
+                    if alt_field not in selected_fields:
+                        selected_fields.append(alt_field)
+                        break
+        return selected_fields
 
 def main():
     input_file = 'course_resource.csv'
@@ -160,25 +180,21 @@ def main():
         reader = csv.DictReader(f)
         courses = list(reader)
     
-    # Track course counts per field for name generation
-    field_counters = {field: 0 for field in FIELD_TEMPLATES.keys()}
-    
     # Enhance courses
     enhanced_courses = []
     for course in courses:
         course_id = course['course_id']
         num_fields_val = int(course['num_fields'])
         
-        # Assign fields
-        fields = assign_fields(num_fields_val)
+        # Assign fields deterministically
+        fields = assign_fields(num_fields_val, course_id)
         primary_field = fields[0]
         
-        # Generate course name
-        course_name = generate_course_name(primary_field, field_counters[primary_field])
-        field_counters[primary_field] += 1
+        # Generate course name deterministically
+        course_name = generate_course_name(primary_field, course_id)
         
-        # Generate description
-        description = generate_description(course_name, primary_field)
+        # Generate description deterministically
+        description = generate_description(course_name, primary_field, course_id)
         
         # Create enhanced record
         enhanced_course = {

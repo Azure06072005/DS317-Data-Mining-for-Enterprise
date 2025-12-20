@@ -1,310 +1,310 @@
 course_id,course_name,description,field,additional_fields,total_students_enrolled,total_videos,total_exercises,num_fields,is_prerequisites
-C_680777,Introduction to Data Science,Deep dive into introduction to data science with real-world applications,Data Science,,14843,19,9,1,0
-C_682515,General Chemistry,Learn general chemistry through practical examples and case studies,Chemistry,,21069,133,44,0,0
-C_696855,Business Management - Beginner,Learn business management - beginner through practical examples and case studies,Business,,14863,161,12,0,0
-C_680958,Linear Algebra,Deep dive into linear algebra with real-world applications,Mathematics,,14268,107,70,1,1
-C_680808,Engineering Mathematics,Deep dive into engineering mathematics with real-world applications,Engineering,,10363,79,15,1,0
-C_685664,Introduction to Psychology,Master the fundamentals of introduction to psychology with hands-on projects,Psychology,,10059,32,24,1,1
-C_680993,Big Data Analytics,Master the fundamentals of big data analytics with hands-on projects,Data Science,,10007,80,4,0,1
-C_676996,Classical Mechanics - Beginner,Comprehensive introduction to classical mechanics - beginner in Physics,Physics,,11350,13,13,0,0
-C_676969,Circuit Analysis,Master the fundamentals of circuit analysis with hands-on projects,Engineering,,11408,83,10,1,1
-C_682195,Mechanics,Master the fundamentals of mechanics with hands-on projects,Engineering,,17662,40,9,0,0
-C_682240,Cognitive Psychology,Learn cognitive psychology through practical examples and case studies,Psychology,,13492,92,10,0,0
-C_680823,Statistical Learning,Advanced statistical learning course covering key concepts in Data Science,Data Science,,18634,42,17,0,1
-C_676898,Electromagnetism,Deep dive into electromagnetism with real-world applications,Physics,,13122,57,101,1,1
-C_682360,Calculus I - Intermediate,Advanced calculus i - intermediate course covering key concepts in Mathematics,Mathematics,,10447,113,58,1,1
-C_682147,Data Visualization,Advanced data visualization course covering key concepts in Data Science,Data Science,,14141,50,14,0,1
-C_677020,Organic Chemistry - Intermediate,Learn organic chemistry - intermediate through practical examples and case studies,Chemistry,,11948,100,11,1,0
-C_677159,Inorganic Chemistry,Advanced inorganic chemistry course covering key concepts in Chemistry,Chemistry,,14042,53,1,1,0
-C_676656,Introduction to Programming - Beginner,Advanced introduction to programming - beginner course covering key concepts in Computer Science,Computer Science,,21003,158,16,0,0
-C_674903,Calculus II - Advanced,Advanced calculus ii - advanced course covering key concepts in Mathematics,Mathematics,,48029,109,15,1,1
-C_681711,Python for Data Science,Learn python for data science through practical examples and case studies,Data Science,,12952,52,98,0,1
-C_696679,R Programming,Deep dive into r programming with real-world applications,Data Science,,41847,258,110,1,0
-C_674920,Social Psychology,Master the fundamentals of social psychology with hands-on projects,Psychology,,32466,162,24,1,0
-C_680740,Discrete Mathematics,Master the fundamentals of discrete mathematics with hands-on projects,Mathematics,,13485,51,18,0,0
-C_682193,Deep Learning,Deep dive into deep learning with real-world applications,Data Science,,12072,52,77,0,0
-C_682624,Thermodynamics - Beginner,Master the fundamentals of thermodynamics - beginner with hands-on projects,Engineering,,10703,147,16,1,0
-C_697188,Probability and Statistics - Intermediate,Advanced probability and statistics - intermediate course covering key concepts in Mathematics,Mathematics,,30312,120,7,0,0
-C_697075,Quantum Mechanics - Advanced,Advanced quantum mechanics - advanced course covering key concepts in Physics,Physics,,15499,133,37,0,1
-C_898310,Differential Equations,Master the fundamentals of differential equations with hands-on projects,Mathematics,,14147,20,18,0,1
-C_707127,Applied Mathematics,Master the fundamentals of applied mathematics with hands-on projects,Mathematics,,14017,69,66,0,1
-C_758221,Thermodynamics and Statistical Physics - Beginner,Master the fundamentals of thermodynamics and statistical physics - beginner with hands-on projects,Physics,,11065,91,8,0,0
-C_799931,Materials Science,Master the fundamentals of materials science with hands-on projects,Engineering,,22116,31,4,0,1
-C_697149,Marketing Fundamentals,Deep dive into marketing fundamentals with real-world applications,Business,,19239,100,22,1,0
-C_696998,Numerical Methods,Learn numerical methods through practical examples and case studies,Mathematics,,10078,47,39,0,0
-C_735244,Control Systems,Advanced control systems course covering key concepts in Engineering,Engineering,,17541,49,16,0,0
-C_758208,Developmental Psychology,Learn developmental psychology through practical examples and case studies,Psychology,,11988,54,27,0,1
-C_879040,Modern Physics,Learn modern physics through practical examples and case studies,Physics,,24500,72,16,0,1
-C_696908,Optics,Advanced optics course covering key concepts in Physics,Physics,,25164,42,5,0,0
-C_697381,Astrophysics,Master the fundamentals of astrophysics with hands-on projects,Physics,Psychology,16458,60,8,2,0
-C_808528,Physical Chemistry,Advanced physical chemistry course covering key concepts in Chemistry,Chemistry,,19988,30,5,0,1
-C_707032,Natural Language Processing - Intermediate,Advanced natural language processing - intermediate course covering key concepts in Data Science,Data Science,,13877,202,16,0,0
-C_735342,Data Structures and Algorithms,Comprehensive introduction to data structures and algorithms in Computer Science,Computer Science,,24391,77,22,1,1
-C_735239,Time Series Analysis - Advanced,Learn time series analysis - advanced through practical examples and case studies,Data Science,,12848,66,17,0,0
-C_681730,Signal Processing,Learn signal processing through practical examples and case studies,Engineering,"Psychology,Chemistry",12188,35,29,3,0
-C_697176,Analytical Chemistry,Comprehensive introduction to analytical chemistry in Chemistry,Chemistry,,14473,49,45,1,0
-C_681005,Data Mining,Advanced data mining course covering key concepts in Data Science,Data Science,,20173,16,15,1,1
-C_697076,Behavioral Psychology,Master the fundamentals of behavioral psychology with hands-on projects,Psychology,,10261,63,49,0,0
-C_746983,Mathematical Optimization,Comprehensive introduction to mathematical optimization in Mathematics,Mathematics,,13086,92,16,1,1
-C_696586,Predictive Analytics,Deep dive into predictive analytics with real-world applications,Data Science,,21863,28,24,1,0
-C_735155,Number Theory - Beginner,Learn number theory - beginner through practical examples and case studies,Mathematics,,11483,11,9,1,0
-C_697284,Data Science Advanced Topics 1,Master the fundamentals of data science advanced topics 1 with hands-on projects,Data Science,,16995,81,11,0,0
-C_694168,Physics Advanced Topics 1,Comprehensive introduction to physics advanced topics 1 in Physics,Physics,,19105,160,12,0,1
-C_696911,Educational Psychology,Deep dive into educational psychology with real-world applications,Psychology,,61055,134,12,1,1
-C_735031,Biochemistry - Advanced,Comprehensive introduction to biochemistry - advanced in Chemistry,Chemistry,,17665,114,97,0,1
-C_707038,Chemistry Advanced Topics 1,Deep dive into chemistry advanced topics 1 with real-world applications,Chemistry,Psychology,25751,258,42,2,0
-C_907949,Clinical Psychology,Comprehensive introduction to clinical psychology in Psychology,Psychology,,11698,51,34,0,1
-C_865842,Physics Advanced Topics 2,Advanced physics advanced topics 2 course covering key concepts in Physics,Physics,,14692,25,35,0,1
-C_879054,Physics Advanced Topics 3,Comprehensive introduction to physics advanced topics 3 in Physics,Physics,,19871,98,9,0,1
-C_697025,Research Methods in Psychology,Deep dive into research methods in psychology with real-world applications,Psychology,,18034,93,69,0,1
-C_735405,Physics Advanced Topics 4,Advanced physics advanced topics 4 course covering key concepts in Physics,Physics,Mathematics,21994,83,12,2,0
-C_781494,Physics Advanced Topics 5,Deep dive into physics advanced topics 5 with real-world applications,Physics,,15301,86,10,0,0
-C_735214,Chemistry Advanced Topics 2 - Intermediate,Deep dive into chemistry advanced topics 2 - intermediate with real-world applications,Chemistry,,24049,34,6,0,1
-C_758190,Physics Advanced Topics 6,Comprehensive introduction to physics advanced topics 6 in Physics,Physics,,11160,28,28,0,1
-C_784172,Data Science Advanced Topics 2,Master the fundamentals of data science advanced topics 2 with hands-on projects,Data Science,,13114,91,23,1,0
-C_817691,Financial Accounting - Advanced,Advanced financial accounting - advanced course covering key concepts in Business,Business,,18215,76,9,0,1
-C_697797,Physics Advanced Topics 7,Advanced physics advanced topics 7 course covering key concepts in Physics,Physics,,16068,147,10,0,1
-C_746997,Psychology Advanced Topics 1 - Advanced,Deep dive into psychology advanced topics 1 - advanced with real-world applications,Psychology,,26335,110,103,1,0
-C_696972,Physics Advanced Topics 8,Deep dive into physics advanced topics 8 with real-world applications,Physics,,12179,120,90,0,0
-C_697423,Graph Theory - Intermediate,Learn graph theory - intermediate through practical examples and case studies,Mathematics,,18868,61,12,1,1
-C_734037,Chemistry Advanced Topics 3 - Advanced,Comprehensive introduction to chemistry advanced topics 3 - advanced in Chemistry,Chemistry,,10323,64,16,0,1
-C_799796,Combinatorics,Advanced combinatorics course covering key concepts in Mathematics,Mathematics,,25028,147,55,1,0
-C_707025,Chemistry Advanced Topics 4,Advanced chemistry advanced topics 4 course covering key concepts in Chemistry,Chemistry,,11560,92,5,0,0
-C_676676,Psychology Advanced Topics 2,Master the fundamentals of psychology advanced topics 2 with hands-on projects,Psychology,,29700,26,32,0,1
-C_697068,Data Science Advanced Topics 3 - Intermediate,Deep dive into data science advanced topics 3 - intermediate with real-world applications,Data Science,,16305,58,11,0,1
-C_948409,Business Analytics,Advanced business analytics course covering key concepts in Business,Business,,18336,55,7,0,0
-C_697374,Embedded Systems,Comprehensive introduction to embedded systems in Engineering,Engineering,,23820,53,9,0,1
-C_947165,Psychology Advanced Topics 3 - Intermediate,Master the fundamentals of psychology advanced topics 3 - intermediate with hands-on projects,Psychology,,11071,32,5,0,1
-C_947257,Chemistry Advanced Topics 5,Master the fundamentals of chemistry advanced topics 5 with hands-on projects,Chemistry,,15875,34,8,0,0
-C_934526,Chemistry Advanced Topics 6,Advanced chemistry advanced topics 6 course covering key concepts in Chemistry,Chemistry,,11764,37,16,0,0
-C_948419,Web Development Fundamentals,Deep dive into web development fundamentals with real-world applications,Computer Science,,16097,30,30,0,0
-C_1428968,Mathematics Advanced Topics 1,Advanced mathematics advanced topics 1 course covering key concepts in Mathematics,Mathematics,,23478,49,5,0,1
-C_680762,Psychology Advanced Topics 4,Master the fundamentals of psychology advanced topics 4 with hands-on projects,Psychology,,13075,40,35,1,0
-C_947244,Entrepreneurship - Intermediate,Advanced entrepreneurship - intermediate course covering key concepts in Business,Business,,11162,88,8,0,1
-C_948411,Mathematics Advanced Topics 2 - Intermediate,Comprehensive introduction to mathematics advanced topics 2 - intermediate in Mathematics,Mathematics,,15426,120,15,0,0
-C_948208,Database Management Systems,Master the fundamentals of database management systems with hands-on projects,Computer Science,,16751,55,12,0,1
-C_676673,Software Engineering Principles,Deep dive into software engineering principles with real-world applications,Computer Science,,15529,54,19,1,0
-C_948468,Strategic Management,Master the fundamentals of strategic management with hands-on projects,Business,,10326,69,12,0,0
-C_948421,Physics Advanced Topics 9 - Beginner,Learn physics advanced topics 9 - beginner through practical examples and case studies,Physics,,27023,36,5,0,0
-C_936973,Psychology Advanced Topics 5,Comprehensive introduction to psychology advanced topics 5 in Psychology,Psychology,,14618,52,6,0,1
-C_697748,Mathematics Advanced Topics 3 - Advanced,Comprehensive introduction to mathematics advanced topics 3 - advanced in Mathematics,Mathematics,,14880,118,69,0,0
-C_948103,Data Science Advanced Topics 4,Master the fundamentals of data science advanced topics 4 with hands-on projects,Data Science,,11761,46,8,0,0
-C_1822804,Robotics,Deep dive into robotics with real-world applications,Engineering,,22319,86,79,0,1
-C_696826,Human Resource Management - Beginner,Master the fundamentals of human resource management - beginner with hands-on projects,Business,,26611,97,13,1,0
-C_948129,Psychology Advanced Topics 6,Deep dive into psychology advanced topics 6 with real-world applications,Psychology,,12379,41,43,0,1
-C_948424,Chemistry Advanced Topics 7,Deep dive into chemistry advanced topics 7 with real-world applications,Chemistry,,10475,38,12,0,1
-C_697032,Physics Advanced Topics 10 - Intermediate,Master the fundamentals of physics advanced topics 10 - intermediate with hands-on projects,Physics,,15340,16,14,0,1
-C_948136,Data Science Advanced Topics 5 - Beginner,Learn data science advanced topics 5 - beginner through practical examples and case studies,Data Science,,18999,49,13,0,1
-C_948408,Data Science Advanced Topics 6 - Intermediate,Advanced data science advanced topics 6 - intermediate course covering key concepts in Data Science,Data Science,,15717,64,15,0,0
-C_676937,Physics Advanced Topics 11 - Advanced,Advanced physics advanced topics 11 - advanced course covering key concepts in Physics,Physics,,21331,84,30,1,0
-C_883345,Data Science Advanced Topics 7,Comprehensive introduction to data science advanced topics 7 in Data Science,Data Science,,78374,1006,194,0,0
-C_862969,Chemistry Advanced Topics 8 - Intermediate,Learn chemistry advanced topics 8 - intermediate through practical examples and case studies,Chemistry,,29082,57,13,0,0
-C_696835,Supply Chain Management - Intermediate,Master the fundamentals of supply chain management - intermediate with hands-on projects,Business,,14033,65,7,0,1
-C_697293,Mathematics Advanced Topics 4,Comprehensive introduction to mathematics advanced topics 4 in Mathematics,Mathematics,,12113,42,14,1,0
-C_677218,Psychology Advanced Topics 7 - Advanced,Master the fundamentals of psychology advanced topics 7 - advanced with hands-on projects,Psychology,,19948,155,9,1,0
-C_685689,Psychology Advanced Topics 8 - Beginner,Master the fundamentals of psychology advanced topics 8 - beginner with hands-on projects,Psychology,,24765,119,18,0,0
-C_707031,Digital Marketing,Master the fundamentals of digital marketing with hands-on projects,Business,,29351,25,6,0,0
-C_696994,Psychology Advanced Topics 9,Learn psychology advanced topics 9 through practical examples and case studies,Psychology,,181697,80,48,0,0
-C_879111,Renewable Energy,Comprehensive introduction to renewable energy in Engineering,Engineering,,10127,35,7,0,0
-C_948153,Project Management,Comprehensive introduction to project management in Business,Business,,15731,38,13,0,0
-C_681655,Engineering Advanced Topics 1 - Intermediate,Deep dive into engineering advanced topics 1 - intermediate with real-world applications,Engineering,Psychology,21594,121,21,2,1
-C_707093,Engineering Advanced Topics 2,Comprehensive introduction to engineering advanced topics 2 in Engineering,Engineering,,16668,73,14,0,0
-C_851362,Physics Advanced Topics 12,Comprehensive introduction to physics advanced topics 12 in Physics,Physics,,15052,33,10,0,0
-C_682702,Chemistry Advanced Topics 9 - Advanced,Advanced chemistry advanced topics 9 - advanced course covering key concepts in Chemistry,Chemistry,,11713,53,8,1,0
-C_681255,Engineering Advanced Topics 3,Learn engineering advanced topics 3 through practical examples and case studies,Engineering,,16831,25,20,0,1
-C_681088,Physics Advanced Topics 13,Advanced physics advanced topics 13 course covering key concepts in Physics,Physics,,12866,26,25,0,1
-C_694163,Business Law - Intermediate,Comprehensive introduction to business law - intermediate in Business,Business,,11256,38,27,0,1
-C_696746,Mathematics Advanced Topics 5,Learn mathematics advanced topics 5 through practical examples and case studies,Mathematics,,17501,45,37,0,1
-C_696729,Mathematics Advanced Topics 6,Master the fundamentals of mathematics advanced topics 6 with hands-on projects,Mathematics,,19001,101,26,1,1
-C_681754,Psychology Advanced Topics 10,Deep dive into psychology advanced topics 10 with real-world applications,Psychology,,21460,55,5,0,1
-C_696724,Data Science Advanced Topics 8,Deep dive into data science advanced topics 8 with real-world applications,Data Science,,29821,86,60,1,1
-C_677019,Mathematics Advanced Topics 7,Master the fundamentals of mathematics advanced topics 7 with hands-on projects,Mathematics,,16323,76,14,0,0
-C_677236,Economics Principles - Advanced,Learn economics principles - advanced through practical examples and case studies,Business,,16841,40,5,1,0
-C_680761,Physics Advanced Topics 14,Comprehensive introduction to physics advanced topics 14 in Physics,Physics,Data Science,17580,89,11,2,0
-C_682466,Machine Learning Basics,Advanced machine learning basics course covering key concepts in Computer Science,Computer Science,,14405,22,18,0,0
-C_682458,Artificial Intelligence - Beginner,Deep dive into artificial intelligence - beginner with real-world applications,Computer Science,,22077,64,9,1,0
-C_696689,Data Science Advanced Topics 9,Learn data science advanced topics 9 through practical examples and case studies,Data Science,,10921,116,88,0,1
-C_682586,Mathematics Advanced Topics 8,Advanced mathematics advanced topics 8 course covering key concepts in Mathematics,Mathematics,,17888,24,8,1,0
-C_676915,Psychology Advanced Topics 11,Advanced psychology advanced topics 11 course covering key concepts in Psychology,Psychology,,13388,49,6,1,0
-C_676651,Mathematics Advanced Topics 9 - Advanced,Learn mathematics advanced topics 9 - advanced through practical examples and case studies,Mathematics,,17878,33,1,0,0
-C_676683,Chemistry Advanced Topics 10 - Beginner,Comprehensive introduction to chemistry advanced topics 10 - beginner in Chemistry,Chemistry,,34310,57,8,1,0
-C_676664,Psychology Advanced Topics 12,Comprehensive introduction to psychology advanced topics 12 in Psychology,Psychology,,11833,36,62,0,0
-C_681636,Business Advanced Topics 1 - Beginner,Advanced business advanced topics 1 - beginner course covering key concepts in Business,Business,,18200,60,16,0,0
-C_682473,Mathematics Advanced Topics 10,Comprehensive introduction to mathematics advanced topics 10 in Mathematics,Mathematics,,15222,77,46,0,1
-C_677010,Engineering Advanced Topics 4,Comprehensive introduction to engineering advanced topics 4 in Engineering,Engineering,,42690,104,37,1,1
-C_696740,Chemistry Advanced Topics 11,Advanced chemistry advanced topics 11 course covering key concepts in Chemistry,Chemistry,Data Science,22766,27,14,2,1
-C_682222,Mathematics Advanced Topics 11,Comprehensive introduction to mathematics advanced topics 11 in Mathematics,Mathematics,,10509,89,16,0,0
-C_680961,Chemistry Advanced Topics 12,Comprehensive introduction to chemistry advanced topics 12 in Chemistry,Chemistry,,11094,19,18,0,1
-C_682442,Engineering Advanced Topics 5,Master the fundamentals of engineering advanced topics 5 with hands-on projects,Engineering,,10909,113,75,1,0
-C_677243,Engineering Advanced Topics 6,Advanced engineering advanced topics 6 course covering key concepts in Engineering,Engineering,,23279,40,10,0,1
-C_680987,Chemistry Advanced Topics 13 - Beginner,Learn chemistry advanced topics 13 - beginner through practical examples and case studies,Chemistry,,15888,19,16,1,1
-C_696614,Psychology Advanced Topics 13,Deep dive into psychology advanced topics 13 with real-world applications,Psychology,,21027,98,32,0,1
-C_676661,Psychology Advanced Topics 14,Master the fundamentals of psychology advanced topics 14 with hands-on projects,Psychology,,10349,19,15,0,0
-C_682759,Business Advanced Topics 2,Advanced business advanced topics 2 course covering key concepts in Business,Business,,12854,51,4,1,1
-C_707035,Data Science Advanced Topics 10,Advanced data science advanced topics 10 course covering key concepts in Data Science,Data Science,,11239,83,11,0,1
-C_677093,Chemistry Advanced Topics 14,Learn chemistry advanced topics 14 through practical examples and case studies,Chemistry,,12800,119,62,0,0
-C_682469,Business Advanced Topics 3,Advanced business advanced topics 3 course covering key concepts in Business,Business,,16748,94,14,0,1
-C_735269,Mathematics Advanced Topics 12,Learn mathematics advanced topics 12 through practical examples and case studies,Mathematics,,13138,52,63,0,1
-C_696976,Computer Networks - Intermediate,Deep dive into computer networks - intermediate with real-world applications,Computer Science,,10662,101,84,0,0
-C_696597,Data Science Advanced Topics 11,Master the fundamentals of data science advanced topics 11 with hands-on projects,Data Science,,31810,69,10,0,1
-C_817148,Mathematics Advanced Topics 13 - Beginner,Master the fundamentals of mathematics advanced topics 13 - beginner with hands-on projects,Mathematics,,10574,76,12,0,1
-C_697299,Psychology Advanced Topics 15 - Intermediate,Deep dive into psychology advanced topics 15 - intermediate with real-world applications,Psychology,,11401,31,6,0,0
-C_697034,Business Advanced Topics 4,Learn business advanced topics 4 through practical examples and case studies,Business,,44291,128,32,0,0
-C_770784,Engineering Advanced Topics 7,Master the fundamentals of engineering advanced topics 7 with hands-on projects,Engineering,,24497,272,15,1,1
-C_735175,Operating Systems,Comprehensive introduction to operating systems in Computer Science,Computer Science,,11498,66,48,0,1
-C_697091,Data Science Advanced Topics 12,Comprehensive introduction to data science advanced topics 12 in Data Science,Data Science,,25264,73,15,1,0
-C_676635,Engineering Advanced Topics 8,Comprehensive introduction to engineering advanced topics 8 in Engineering,Engineering,,17068,52,7,0,0
-C_696928,Chemistry Advanced Topics 15,Advanced chemistry advanced topics 15 course covering key concepts in Chemistry,Chemistry,,20756,28,4,0,1
-C_697018,Physics Advanced Topics 15,Advanced physics advanced topics 15 course covering key concepts in Physics,Physics,,21787,166,11,1,0
-C_707456,Mathematics Advanced Topics 14,Master the fundamentals of mathematics advanced topics 14 with hands-on projects,Mathematics,,21916,99,12,0,1
-C_707119,Physics Advanced Topics 16 - Intermediate,Advanced physics advanced topics 16 - intermediate course covering key concepts in Physics,Physics,Psychology,20628,54,8,2,0
-C_782490,Data Science Advanced Topics 13 - Advanced,Deep dive into data science advanced topics 13 - advanced with real-world applications,Data Science,,17445,85,45,0,0
-C_697289,Cybersecurity Fundamentals,Master the fundamentals of cybersecurity fundamentals with hands-on projects,Computer Science,,13358,61,14,0,1
-C_881485,Engineering Advanced Topics 9,Comprehensive introduction to engineering advanced topics 9 in Engineering,Engineering,,16165,30,15,0,1
-C_854839,Data Science Advanced Topics 14,Deep dive into data science advanced topics 14 with real-world applications,Data Science,,22975,68,17,0,0
-C_697130,Mathematics Advanced Topics 15,Master the fundamentals of mathematics advanced topics 15 with hands-on projects,Mathematics,,32195,103,9,1,1
-C_697405,Engineering Advanced Topics 10,Advanced engineering advanced topics 10 course covering key concepts in Engineering,Engineering,,25405,36,9,1,0
-C_754135,Data Science Advanced Topics 15,Advanced data science advanced topics 15 course covering key concepts in Data Science,Data Science,,16670,42,42,0,1
-C_857823,Cloud Computing,Learn cloud computing through practical examples and case studies,Computer Science,,11567,46,9,0,1
-C_707081,Data Science Advanced Topics 16 - Advanced,Master the fundamentals of data science advanced topics 16 - advanced with hands-on projects,Data Science,,32242,66,12,0,1
-C_697026,Business Advanced Topics 5 - Intermediate,Comprehensive introduction to business advanced topics 5 - intermediate in Business,Business,,25066,119,7,0,0
-C_697020,Mathematics Advanced Topics 16,Comprehensive introduction to mathematics advanced topics 16 in Mathematics,Mathematics,,10180,52,17,0,0
-C_680979,Mathematics Advanced Topics 17 - Intermediate,Master the fundamentals of mathematics advanced topics 17 - intermediate with hands-on projects,Mathematics,,13537,75,31,0,1
-C_680732,Mathematics Advanced Topics 18 - Advanced,Learn mathematics advanced topics 18 - advanced through practical examples and case studies,Mathematics,,12077,36,34,1,0
-C_735123,Psychology Advanced Topics 16,Learn psychology advanced topics 16 through practical examples and case studies,Psychology,,14088,72,7,0,1
-C_814402,Chemistry Advanced Topics 16 - Beginner,Deep dive into chemistry advanced topics 16 - beginner with real-world applications,Chemistry,,13248,20,9,0,1
-C_697019,Chemistry Advanced Topics 17,Deep dive into chemistry advanced topics 17 with real-world applications,Chemistry,,14855,34,8,0,1
-C_758183,Business Advanced Topics 6 - Advanced,Comprehensive introduction to business advanced topics 6 - advanced in Business,Business,,10030,34,31,0,1
-C_677049,Data Science Advanced Topics 17,Comprehensive introduction to data science advanced topics 17 in Data Science,Data Science,Psychology,68762,126,13,2,0
-C_680784,Chemistry Advanced Topics 18,Learn chemistry advanced topics 18 through practical examples and case studies,Chemistry,,11983,30,28,0,0
-C_931245,Mathematics Advanced Topics 19,Deep dive into mathematics advanced topics 19 with real-world applications,Mathematics,,21340,63,16,0,1
-C_916826,Mathematics Advanced Topics 20,Deep dive into mathematics advanced topics 20 with real-world applications,Mathematics,,11053,102,12,0,1
-C_773985,Business Advanced Topics 7,Comprehensive introduction to business advanced topics 7 in Business,Business,,19480,57,12,0,1
-C_845950,Mathematics Advanced Topics 21,Master the fundamentals of mathematics advanced topics 21 with hands-on projects,Mathematics,,24720,111,101,0,0
-C_735054,Physics Advanced Topics 17 - Advanced,Advanced physics advanced topics 17 - advanced course covering key concepts in Physics,Physics,,28769,60,10,0,0
-C_866164,Data Science Advanced Topics 18,Deep dive into data science advanced topics 18 with real-world applications,Data Science,,16426,93,15,0,1
-C_696946,Data Science Advanced Topics 19,Master the fundamentals of data science advanced topics 19 with hands-on projects,Data Science,,22317,40,7,0,0
-C_682210,Business Advanced Topics 8,Learn business advanced topics 8 through practical examples and case studies,Business,,18897,64,60,0,0
-C_696954,Psychology Advanced Topics 17,Master the fundamentals of psychology advanced topics 17 with hands-on projects,Psychology,,17400,66,10,0,0
-C_707037,Mathematics Advanced Topics 22 - Beginner,Comprehensive introduction to mathematics advanced topics 22 - beginner in Mathematics,Mathematics,,12735,51,9,1,0
-C_697288,Engineering Advanced Topics 11,Master the fundamentals of engineering advanced topics 11 with hands-on projects,Engineering,,12071,53,55,1,0
-C_697556,Engineering Advanced Topics 12,Advanced engineering advanced topics 12 course covering key concepts in Engineering,Engineering,,13170,125,72,0,1
-C_697729,Mobile App Development,Deep dive into mobile app development with real-world applications,Computer Science,,18625,15,4,0,0
-C_697117,Physics Advanced Topics 18,Deep dive into physics advanced topics 18 with real-world applications,Physics,,12055,91,15,0,0
-C_922867,Engineering Advanced Topics 13,Learn engineering advanced topics 13 through practical examples and case studies,Engineering,,14900,52,114,0,1
-C_879093,Chemistry Advanced Topics 19,Deep dive into chemistry advanced topics 19 with real-world applications,Chemistry,,13078,65,8,0,1
-C_697415,Data Science Advanced Topics 20 - Beginner,Deep dive into data science advanced topics 20 - beginner with real-world applications,Data Science,,15636,81,37,0,0
-C_922850,DevOps and CI/CD,Advanced devops and ci/cd course covering key concepts in Computer Science,Computer Science,,16294,84,10,0,1
-C_735143,Data Science Advanced Topics 21,Master the fundamentals of data science advanced topics 21 with hands-on projects,Data Science,,15132,149,17,0,1
-C_782555,Data Science Advanced Topics 22 - Advanced,Learn data science advanced topics 22 - advanced through practical examples and case studies,Data Science,,10585,79,9,1,0
-C_801420,Chemistry Advanced Topics 20,Master the fundamentals of chemistry advanced topics 20 with hands-on projects,Chemistry,,50848,85,59,0,0
-C_873864,Data Science Advanced Topics 23,Deep dive into data science advanced topics 23 with real-world applications,Data Science,,26266,36,19,0,1
-C_697265,Data Science Advanced Topics 24,Comprehensive introduction to data science advanced topics 24 in Data Science,Data Science,,15167,38,11,0,0
-C_862963,Data Science Advanced Topics 25 - Advanced,Advanced data science advanced topics 25 - advanced course covering key concepts in Data Science,Data Science,,13594,26,10,0,1
-C_931252,Business Advanced Topics 9 - Advanced,Advanced business advanced topics 9 - advanced course covering key concepts in Business,Business,,11109,68,62,0,0
-C_707373,Business Advanced Topics 10 - Beginner,Comprehensive introduction to business advanced topics 10 - beginner in Business,Business,,29316,71,7,0,0
-C_735259,Chemistry Advanced Topics 21,Master the fundamentals of chemistry advanced topics 21 with hands-on projects,Chemistry,,11802,92,15,0,1
-C_890220,Engineering Advanced Topics 14,Learn engineering advanced topics 14 through practical examples and case studies,Engineering,,24221,20,19,0,1
-C_756747,Data Science Advanced Topics 26 - Beginner,Deep dive into data science advanced topics 26 - beginner with real-world applications,Data Science,,12673,22,24,0,1
-C_898349,Psychology Advanced Topics 18 - Intermediate,Deep dive into psychology advanced topics 18 - intermediate with real-world applications,Psychology,,10577,80,11,0,0
-C_907961,Engineering Advanced Topics 15,Learn engineering advanced topics 15 through practical examples and case studies,Engineering,,15901,67,6,0,0
-C_682239,Chemistry Advanced Topics 22,Learn chemistry advanced topics 22 through practical examples and case studies,Chemistry,,11948,117,16,0,0
-C_696942,Engineering Advanced Topics 16 - Intermediate,Master the fundamentals of engineering advanced topics 16 - intermediate with hands-on projects,Engineering,,46328,43,28,0,0
-C_756665,Engineering Advanced Topics 17,Master the fundamentals of engineering advanced topics 17 with hands-on projects,Engineering,,14258,74,64,0,1
-C_697096,Physics Advanced Topics 19,Deep dive into physics advanced topics 19 with real-world applications,Physics,,11392,12,4,1,0
-C_680970,Mathematics Advanced Topics 23,Comprehensive introduction to mathematics advanced topics 23 in Mathematics,Mathematics,,12701,41,42,1,0
-C_696922,Mathematics Advanced Topics 24 - Advanced,Master the fundamentals of mathematics advanced topics 24 - advanced with hands-on projects,Mathematics,,20208,113,45,1,0
-C_819285,Physics Advanced Topics 20,Comprehensive introduction to physics advanced topics 20 in Physics,Physics,,16458,25,17,0,1
-C_866756,Blockchain Technology,Learn blockchain technology through practical examples and case studies,Computer Science,,46060,26,9,1,0
-C_808526,Mathematics Advanced Topics 25,Master the fundamentals of mathematics advanced topics 25 with hands-on projects,Mathematics,,18110,21,18,0,0
-C_793017,Business Advanced Topics 11,Comprehensive introduction to business advanced topics 11 in Business,Business,,11074,21,21,0,1
-C_789278,Business Advanced Topics 12,Learn business advanced topics 12 through practical examples and case studies,Business,,12406,65,55,0,0
-C_735351,Mathematics Advanced Topics 26 - Intermediate,Advanced mathematics advanced topics 26 - intermediate course covering key concepts in Mathematics,Mathematics,,45079,38,9,0,0
-C_879045,Physics Advanced Topics 21,Advanced physics advanced topics 21 course covering key concepts in Physics,Physics,,16004,44,13,0,1
-C_845674,Data Science Advanced Topics 27,Comprehensive introduction to data science advanced topics 27 in Data Science,Data Science,,17538,46,13,0,1
-C_911165,Chemistry Advanced Topics 23 - Intermediate,Learn chemistry advanced topics 23 - intermediate through practical examples and case studies,Chemistry,,12626,41,10,0,0
-C_800360,Data Science Advanced Topics 28,Learn data science advanced topics 28 through practical examples and case studies,Data Science,,10069,27,10,0,1
-C_696875,Computer Graphics,Comprehensive introduction to computer graphics in Computer Science,Computer Science,,11106,18,8,0,1
-C_840084,Business Advanced Topics 13,Deep dive into business advanced topics 13 with real-world applications,Business,,31568,32,10,0,1
-C_697007,Psychology Advanced Topics 19 - Advanced,Comprehensive introduction to psychology advanced topics 19 - advanced in Psychology,Psychology,,13594,45,31,0,1
-C_696700,Computer Science Advanced Topics 1 - Beginner,Comprehensive introduction to computer science advanced topics 1 - beginner in Computer Science,Computer Science,,55873,76,15,0,0
-C_749807,Chemistry Advanced Topics 24,Advanced chemistry advanced topics 24 course covering key concepts in Chemistry,Chemistry,,27065,99,12,0,1
-C_682335,Computer Science Advanced Topics 2,Comprehensive introduction to computer science advanced topics 2 in Computer Science,Computer Science,,18147,21,21,0,1
-C_948435,Computer Science Advanced Topics 3,Master the fundamentals of computer science advanced topics 3 with hands-on projects,Computer Science,,12668,52,52,0,0
-C_676932,Engineering Advanced Topics 18,Master the fundamentals of engineering advanced topics 18 with hands-on projects,Engineering,,125789,57,12,1,0
-C_1738818,Computer Science Advanced Topics 4,Comprehensive introduction to computer science advanced topics 4 in Computer Science,Computer Science,,10064,115,12,0,1
-C_936971,Business Advanced Topics 14,Learn business advanced topics 14 through practical examples and case studies,Business,,231674,38,36,0,0
-C_936990,Computer Science Advanced Topics 5,Advanced computer science advanced topics 5 course covering key concepts in Computer Science,Computer Science,,19080,57,15,0,1
-C_854843,Data Science Advanced Topics 29,Learn data science advanced topics 29 through practical examples and case studies,Data Science,Mathematics,12686,83,82,2,0
-C_947250,Mathematics Advanced Topics 27 - Advanced,Comprehensive introduction to mathematics advanced topics 27 - advanced in Mathematics,Mathematics,,10575,36,11,0,0
-C_948412,Chemistry Advanced Topics 25,Deep dive into chemistry advanced topics 25 with real-world applications,Chemistry,,14899,188,21,0,1
-C_948417,Engineering Advanced Topics 19 - Intermediate,Master the fundamentals of engineering advanced topics 19 - intermediate with hands-on projects,Engineering,,16876,93,32,0,0
-C_948269,Data Science Advanced Topics 30 - Intermediate,Learn data science advanced topics 30 - intermediate through practical examples and case studies,Data Science,,12983,50,4,0,1
-C_1797904,Engineering Advanced Topics 20 - Advanced,Master the fundamentals of engineering advanced topics 20 - advanced with hands-on projects,Engineering,,10755,35,8,0,1
-C_947241,Data Science Advanced Topics 31,Advanced data science advanced topics 31 course covering key concepts in Data Science,Data Science,,15001,25,10,0,1
-C_948289,Chemistry Advanced Topics 26,Master the fundamentals of chemistry advanced topics 26 with hands-on projects,Chemistry,,11275,76,12,0,1
-C_948078,Engineering Advanced Topics 21,Comprehensive introduction to engineering advanced topics 21 in Engineering,Engineering,,18793,49,10,0,0
-C_948410,Business Advanced Topics 15,Master the fundamentals of business advanced topics 15 with hands-on projects,Business,,27552,44,34,0,0
-C_949540,Chemistry Advanced Topics 27,Learn chemistry advanced topics 27 through practical examples and case studies,Chemistry,,13836,59,10,0,0
-C_735046,Computer Science Advanced Topics 6,Comprehensive introduction to computer science advanced topics 6 in Computer Science,Computer Science,,14342,63,8,0,0
-C_1906555,Mathematics Advanced Topics 28,Master the fundamentals of mathematics advanced topics 28 with hands-on projects,Mathematics,,12240,24,16,0,0
-C_943228,Physics Advanced Topics 22,Advanced physics advanced topics 22 course covering key concepts in Physics,Physics,,13054,78,39,0,1
-C_1741554,Data Science Advanced Topics 32,Advanced data science advanced topics 32 course covering key concepts in Data Science,Data Science,,11476,53,53,0,0
-C_697360,Data Science Advanced Topics 33,Learn data science advanced topics 33 through practical examples and case studies,Data Science,Chemistry,10296,84,69,2,0
-C_1527465,Mathematics Advanced Topics 29 - Intermediate,Comprehensive introduction to mathematics advanced topics 29 - intermediate in Mathematics,Mathematics,,12208,79,7,0,1
-C_943250,Computer Science Advanced Topics 7 - Beginner,Master the fundamentals of computer science advanced topics 7 - beginner with hands-on projects,Computer Science,,13991,17,18,0,0
-C_947240,Data Science Advanced Topics 34,Master the fundamentals of data science advanced topics 34 with hands-on projects,Data Science,,22053,45,9,0,1
-C_947149,Physics Advanced Topics 23,Comprehensive introduction to physics advanced topics 23 in Physics,Physics,,14716,20,14,0,1
-C_936913,Business Advanced Topics 16,Master the fundamentals of business advanced topics 16 with hands-on projects,Business,,13295,18,18,0,1
-C_943267,Chemistry Advanced Topics 28,Learn chemistry advanced topics 28 through practical examples and case studies,Chemistry,,24039,47,10,0,0
-C_934535,Business Advanced Topics 17,Comprehensive introduction to business advanced topics 17 in Business,Business,,11390,35,34,0,1
-C_948099,Computer Science Advanced Topics 8,Comprehensive introduction to computer science advanced topics 8 in Computer Science,Computer Science,,13040,72,8,0,1
-C_948235,Computer Science Advanced Topics 9,Advanced computer science advanced topics 9 course covering key concepts in Computer Science,Computer Science,,11234,61,15,0,0
-C_948423,Data Science Advanced Topics 35,Comprehensive introduction to data science advanced topics 35 in Data Science,Data Science,,14334,43,8,0,0
-C_694136,Computer Science Advanced Topics 10,Learn computer science advanced topics 10 through practical examples and case studies,Computer Science,,30849,68,58,0,0
-C_788575,Psychology Advanced Topics 20,Comprehensive introduction to psychology advanced topics 20 in Psychology,Psychology,,18137,46,47,0,1
-C_1776316,Engineering Advanced Topics 22 - Intermediate,Advanced engineering advanced topics 22 - intermediate course covering key concepts in Engineering,Engineering,,11796,50,16,0,0
-C_676913,Engineering Advanced Topics 23,Learn engineering advanced topics 23 through practical examples and case studies,Engineering,"Physics,Computer Science",12987,44,6,3,0
-C_934528,Physics Advanced Topics 24 - Beginner,Master the fundamentals of physics advanced topics 24 - beginner with hands-on projects,Physics,,13780,25,6,0,0
-C_955163,Chemistry Advanced Topics 29 - Intermediate,Deep dive into chemistry advanced topics 29 - intermediate with real-world applications,Chemistry,,17782,101,7,0,1
-C_629559,Business Advanced Topics 18,Comprehensive introduction to business advanced topics 18 in Business,Business,,67051,76,73,1,0
-C_948092,Computer Science Advanced Topics 11 - Intermediate,Comprehensive introduction to computer science advanced topics 11 - intermediate in Computer Science,Computer Science,,12807,103,10,0,1
-C_781445,Engineering Advanced Topics 24,Deep dive into engineering advanced topics 24 with real-world applications,Engineering,,17295,68,21,0,0
-C_677146,Chemistry Advanced Topics 30 - Advanced,Comprehensive introduction to chemistry advanced topics 30 - advanced in Chemistry,Chemistry,,16459,137,27,0,0
-C_682277,Chemistry Advanced Topics 31 - Beginner,Master the fundamentals of chemistry advanced topics 31 - beginner with hands-on projects,Chemistry,Business,10201,44,10,2,0
-C_948415,Business Advanced Topics 19,Learn business advanced topics 19 through practical examples and case studies,Business,,14776,14,16,0,1
-C_696554,Psychology Advanced Topics 21 - Intermediate,Comprehensive introduction to psychology advanced topics 21 - intermediate in Psychology,Psychology,,11301,89,7,0,1
-C_948137,Data Science Advanced Topics 36,Comprehensive introduction to data science advanced topics 36 in Data Science,Data Science,,15117,137,126,0,1
-C_943271,Chemistry Advanced Topics 32,Master the fundamentals of chemistry advanced topics 32 with hands-on projects,Chemistry,,11716,60,20,0,1
-C_682546,Physics Advanced Topics 25 - Intermediate,Deep dive into physics advanced topics 25 - intermediate with real-world applications,Physics,,13915,105,13,0,0
-C_948414,Business Advanced Topics 20,Learn business advanced topics 20 through practical examples and case studies,Business,,15593,213,17,0,0
-C_947252,Psychology Advanced Topics 22 - Advanced,Master the fundamentals of psychology advanced topics 22 - advanced with hands-on projects,Psychology,,27165,56,7,0,0
-C_697024,Business Advanced Topics 21,Comprehensive introduction to business advanced topics 21 in Business,Business,,12000,107,107,0,0
-C_760442,Physics Advanced Topics 26,Deep dive into physics advanced topics 26 with real-world applications,Physics,,17904,28,35,0,0
-C_674953,Data Science Advanced Topics 37,Master the fundamentals of data science advanced topics 37 with hands-on projects,Data Science,,12547,30,8,0,0
-C_948428,Engineering Advanced Topics 25 - Intermediate,Master the fundamentals of engineering advanced topics 25 - intermediate with hands-on projects,Engineering,,17793,43,8,0,0
-C_696968,Psychology Advanced Topics 23,Deep dive into psychology advanced topics 23 with real-world applications,Psychology,,39824,92,72,0,0
-C_756642,Computer Science Advanced Topics 12,Deep dive into computer science advanced topics 12 with real-world applications,Computer Science,Psychology,14074,52,5,2,1
-C_677047,Engineering Advanced Topics 26,Learn engineering advanced topics 26 through practical examples and case studies,Engineering,,15795,64,10,1,1
-C_697821,Mathematics Advanced Topics 30,Master the fundamentals of mathematics advanced topics 30 with hands-on projects,Mathematics,,44600,138,69,1,0
-C_697828,Data Science Advanced Topics 38,Advanced data science advanced topics 38 course covering key concepts in Data Science,Data Science,,11015,148,9,0,0
-C_696800,Computer Science Advanced Topics 13 - Beginner,Learn computer science advanced topics 13 - beginner through practical examples and case studies,Computer Science,,22206,33,30,1,0
-C_948427,Chemistry Advanced Topics 33,Comprehensive introduction to chemistry advanced topics 33 in Chemistry,Chemistry,,20390,39,7,0,0
-C_696841,Data Science Advanced Topics 39 - Intermediate,Learn data science advanced topics 39 - intermediate through practical examples and case studies,Data Science,,14655,50,10,1,1
-C_770738,Mathematics Advanced Topics 31,Master the fundamentals of mathematics advanced topics 31 with hands-on projects,Mathematics,,29516,503,52,0,0
-C_948431,Psychology Advanced Topics 24,Deep dive into psychology advanced topics 24 with real-world applications,Psychology,,18512,40,3,0,0
-C_681678,Psychology Advanced Topics 25,Master the fundamentals of psychology advanced topics 25 with hands-on projects,Psychology,,22596,57,9,1,0
-C_735157,Data Science Advanced Topics 40,Advanced data science advanced topics 40 course covering key concepts in Data Science,Data Science,,24003,62,12,1,0
-C_696927,Computer Science Advanced Topics 14 - Intermediate,Comprehensive introduction to computer science advanced topics 14 - intermediate in Computer Science,Computer Science,,20513,62,8,1,1
-C_854866,Computer Science Advanced Topics 15,Master the fundamentals of computer science advanced topics 15 with hands-on projects,Computer Science,,20573,83,20,0,0
-C_1903985,Data Science Advanced Topics 41,Deep dive into data science advanced topics 41 with real-world applications,Data Science,,19649,66,7,0,0
-C_697236,Chemistry Advanced Topics 34,Advanced chemistry advanced topics 34 course covering key concepts in Chemistry,Chemistry,,15003,68,56,0,0
-C_916828,Data Science Advanced Topics 42,Comprehensive introduction to data science advanced topics 42 in Data Science,Data Science,,32230,45,14,0,0
-C_756646,Engineering Advanced Topics 27,Advanced engineering advanced topics 27 course covering key concepts in Engineering,Engineering,,10438,70,15,1,0
-C_862967,Data Science Advanced Topics 43 - Advanced,Master the fundamentals of data science advanced topics 43 - advanced with hands-on projects,Data Science,,11151,50,9,0,0
-C_948214,Chemistry Advanced Topics 35,Deep dive into chemistry advanced topics 35 with real-world applications,Chemistry,,11212,43,6,0,1
-C_680933,Psychology Advanced Topics 26,Advanced psychology advanced topics 26 course covering key concepts in Psychology,Psychology,,18251,27,7,1,0
-C_697791,Data Science Advanced Topics 44 - Beginner,Advanced data science advanced topics 44 - beginner course covering key concepts in Data Science,Data Science,,96210,114,48,1,0
-C_893812,Chemistry Advanced Topics 36,Advanced chemistry advanced topics 36 course covering key concepts in Chemistry,Chemistry,,17249,46,10,0,0
-C_679390,Chemistry Advanced Topics 37,Deep dive into chemistry advanced topics 37 with real-world applications,Chemistry,,32797,79,52,0,1
-C_680998,Psychology Advanced Topics 27 - Intermediate,Learn psychology advanced topics 27 - intermediate through practical examples and case studies,Psychology,,18025,79,13,0,0
+C_680777,Differential Equations,Comprehensive introduction to differential equations in Mathematics,Mathematics,,14843,19,9,1,0
+C_682515,Differential Equations,Deep dive into differential equations with real-world applications,Mathematics,,21069,133,44,0,0
+C_696855,Software Engineering Principles,Deep dive into software engineering principles with real-world applications,Computer Science,,14863,161,12,0,0
+C_680958,DevOps and CI/CD - Beginner,Advanced devops and ci/cd - beginner course covering key concepts in Computer Science,Computer Science,,14268,107,70,1,1
+C_680808,Biochemistry,Advanced biochemistry course covering key concepts in Chemistry,Chemistry,,10363,79,15,1,0
+C_685664,Biochemistry,Deep dive into biochemistry with real-world applications,Chemistry,,10059,32,24,1,1
+C_680993,Human Resource Management,Deep dive into human resource management with real-world applications,Business,,10007,80,4,0,1
+C_676996,Differential Equations,Learn differential equations through practical examples and case studies,Mathematics,,11350,13,13,0,0
+C_676969,Differential Equations,Advanced differential equations course covering key concepts in Mathematics,Mathematics,,11408,83,10,1,1
+C_682195,Web Development Fundamentals - Advanced,Advanced web development fundamentals - advanced course covering key concepts in Computer Science,Computer Science,,17662,40,9,0,0
+C_682240,Modern Physics - Advanced,Advanced modern physics - advanced course covering key concepts in Physics,Physics,,13492,92,10,0,0
+C_680823,Human Resource Management - Beginner,Comprehensive introduction to human resource management - beginner in Business,Business,,18634,42,17,0,1
+C_676898,Machine Learning Basics - Advanced,Comprehensive introduction to machine learning basics - advanced in Computer Science,Computer Science,,13122,57,101,1,1
+C_682360,Educational Psychology,Comprehensive introduction to educational psychology in Psychology,Psychology,,10447,113,58,1,1
+C_682147,Number Theory - Beginner,Master the fundamentals of number theory - beginner with hands-on projects,Mathematics,,14141,50,14,0,1
+C_677020,Cybersecurity Fundamentals,Deep dive into cybersecurity fundamentals with real-world applications,Computer Science,,11948,100,11,1,0
+C_677159,Optics,Learn optics through practical examples and case studies,Physics,,14042,53,1,1,0
+C_676656,Differential Equations,Advanced differential equations course covering key concepts in Mathematics,Mathematics,,21003,158,16,0,0
+C_674903,Physical Chemistry,Learn physical chemistry through practical examples and case studies,Chemistry,,48029,109,15,1,1
+C_681711,Statistical Learning,Comprehensive introduction to statistical learning in Data Science,Data Science,,12952,52,98,0,1
+C_696679,Statistical Learning,Advanced statistical learning course covering key concepts in Data Science,Data Science,,41847,258,110,1,0
+C_674920,Differential Equations,Advanced differential equations course covering key concepts in Mathematics,Mathematics,,32466,162,24,1,0
+C_680740,Educational Psychology,Comprehensive introduction to educational psychology in Psychology,Psychology,,13485,51,18,0,0
+C_682193,Deep Learning - Intermediate,Master the fundamentals of deep learning - intermediate with hands-on projects,Data Science,,12072,52,77,0,0
+C_682624,Robotics,Learn robotics through practical examples and case studies,Engineering,,10703,147,16,1,0
+C_697188,Robotics,Learn robotics through practical examples and case studies,Engineering,,30312,120,7,0,0
+C_697075,Classical Mechanics - Advanced,Comprehensive introduction to classical mechanics - advanced in Physics,Physics,,15499,133,37,0,1
+C_898310,Astrophysics,Learn astrophysics through practical examples and case studies,Physics,,14147,20,18,0,1
+C_707127,Astrophysics - Intermediate,Advanced astrophysics - intermediate course covering key concepts in Physics,Physics,,14017,69,66,0,1
+C_758221,Educational Psychology,Comprehensive introduction to educational psychology in Psychology,Psychology,,11065,91,8,0,0
+C_799931,Human Resource Management,Deep dive into human resource management with real-world applications,Business,,22116,31,4,0,1
+C_697149,Number Theory,Comprehensive introduction to number theory in Mathematics,Mathematics,,19239,100,22,1,0
+C_696998,Robotics,Learn robotics through practical examples and case studies,Engineering,,10078,47,39,0,0
+C_735244,Physical Chemistry - Beginner,Master the fundamentals of physical chemistry - beginner with hands-on projects,Chemistry,,17541,49,16,0,0
+C_758208,Signal Processing,Master the fundamentals of signal processing with hands-on projects,Engineering,,11988,54,27,0,1
+C_879040,Natural Language Processing,Deep dive into natural language processing with real-world applications,Data Science,,24500,72,16,0,1
+C_696908,Robotics,Learn robotics through practical examples and case studies,Engineering,,25164,42,5,0,0
+C_697381,Data Structures and Algorithms - Intermediate,Master the fundamentals of data structures and algorithms - intermediate with hands-on projects,Computer Science,Chemistry,16458,60,8,2,0
+C_808528,Financial Accounting,Deep dive into financial accounting with real-world applications,Business,,19988,30,5,0,1
+C_707032,Biochemistry - Advanced,Master the fundamentals of biochemistry - advanced with hands-on projects,Chemistry,,13877,202,16,0,0
+C_735342,Thermodynamics and Statistical Physics - Beginner,Advanced thermodynamics and statistical physics - beginner course covering key concepts in Physics,Physics,,24391,77,22,1,1
+C_735239,Educational Psychology,Advanced educational psychology course covering key concepts in Psychology,Psychology,,12848,66,17,0,0
+C_681730,Data Visualization - Advanced,Comprehensive introduction to data visualization - advanced in Data Science,Data Science,"Chemistry,Psychology",12188,35,29,3,0
+C_697176,Educational Psychology,Comprehensive introduction to educational psychology in Psychology,Psychology,,14473,49,45,1,0
+C_681005,Engineering Mathematics - Advanced,Comprehensive introduction to engineering mathematics - advanced in Engineering,Engineering,,20173,16,15,1,1
+C_697076,Calculus I,Learn calculus i through practical examples and case studies,Mathematics,,10261,63,49,0,0
+C_746983,Educational Psychology,Advanced educational psychology course covering key concepts in Psychology,Psychology,,13086,92,16,1,1
+C_696586,Deep Learning,Deep dive into deep learning with real-world applications,Data Science,,21863,28,24,1,0
+C_735155,Financial Accounting - Advanced,Advanced financial accounting - advanced course covering key concepts in Business,Business,,11483,11,9,1,0
+C_697284,Classical Mechanics,Master the fundamentals of classical mechanics with hands-on projects,Physics,,16995,81,11,0,0
+C_694168,DevOps and CI/CD - Beginner,Advanced devops and ci/cd - beginner course covering key concepts in Computer Science,Computer Science,,19105,160,12,0,1
+C_696911,Calculus I,Comprehensive introduction to calculus i in Mathematics,Mathematics,,61055,134,12,1,1
+C_735031,Engineering Mathematics - Intermediate,Comprehensive introduction to engineering mathematics - intermediate in Engineering,Engineering,,17665,114,97,0,1
+C_707038,Educational Psychology - Intermediate,Master the fundamentals of educational psychology - intermediate with hands-on projects,Psychology,Computer Science,25751,258,42,2,0
+C_907949,Calculus I,Learn calculus i through practical examples and case studies,Mathematics,,11698,51,34,0,1
+C_865842,Robotics,Learn robotics through practical examples and case studies,Engineering,,14692,25,35,0,1
+C_879054,Natural Language Processing,Comprehensive introduction to natural language processing in Data Science,Data Science,,19871,98,9,0,1
+C_697025,Physical Chemistry,Deep dive into physical chemistry with real-world applications,Chemistry,,18034,93,69,0,1
+C_735405,Business Analytics,Learn business analytics through practical examples and case studies,Business,Mathematics,21994,83,12,2,0
+C_781494,Calculus I,Advanced calculus i course covering key concepts in Mathematics,Mathematics,,15301,86,10,0,0
+C_735214,Thermodynamics and Statistical Physics - Intermediate,Comprehensive introduction to thermodynamics and statistical physics - intermediate in Physics,Physics,,24049,34,6,0,1
+C_758190,Astrophysics,Master the fundamentals of astrophysics with hands-on projects,Physics,,11160,28,28,0,1
+C_784172,Signal Processing,Master the fundamentals of signal processing with hands-on projects,Engineering,,13114,91,23,1,0
+C_817691,Organic Chemistry,Advanced organic chemistry course covering key concepts in Chemistry,Chemistry,,18215,76,9,0,1
+C_697797,Materials Science,Deep dive into materials science with real-world applications,Engineering,,16068,147,10,0,1
+C_746997,Signal Processing,Master the fundamentals of signal processing with hands-on projects,Engineering,,26335,110,103,1,0
+C_696972,Data Mining,Comprehensive introduction to data mining in Data Science,Data Science,,12179,120,90,0,0
+C_697423,Electromagnetism - Advanced,Advanced electromagnetism - advanced course covering key concepts in Physics,Physics,,18868,61,12,1,1
+C_734037,Operating Systems,Learn operating systems through practical examples and case studies,Computer Science,,10323,64,16,0,1
+C_799796,Financial Accounting,Master the fundamentals of financial accounting with hands-on projects,Business,,25028,147,55,1,0
+C_707025,Financial Accounting,Master the fundamentals of financial accounting with hands-on projects,Business,,11560,92,5,0,0
+C_676676,Organic Chemistry,Advanced organic chemistry course covering key concepts in Chemistry,Chemistry,,29700,26,32,0,1
+C_697068,Materials Science,Deep dive into materials science with real-world applications,Engineering,,16305,58,11,0,1
+C_948409,Business Law,Learn business law through practical examples and case studies,Business,,18336,55,7,0,0
+C_697374,Educational Psychology,Comprehensive introduction to educational psychology in Psychology,Psychology,,23820,53,9,0,1
+C_947165,Calculus I,Deep dive into calculus i with real-world applications,Mathematics,,11071,32,5,0,1
+C_947257,Calculus I - Intermediate,Master the fundamentals of calculus i - intermediate with hands-on projects,Mathematics,,15875,34,8,0,0
+C_934526,Deep Learning,Learn deep learning through practical examples and case studies,Data Science,,11764,37,16,0,0
+C_948419,Statistical Learning,Deep dive into statistical learning with real-world applications,Data Science,,16097,30,30,0,0
+C_1428968,Computer Networks - Intermediate,Advanced computer networks - intermediate course covering key concepts in Computer Science,Computer Science,,23478,49,5,0,1
+C_680762,Educational Psychology,Advanced educational psychology course covering key concepts in Psychology,Psychology,,13075,40,35,1,0
+C_947244,Robotics,Learn robotics through practical examples and case studies,Engineering,,11162,88,8,0,1
+C_948411,Mechanics - Advanced,Advanced mechanics - advanced course covering key concepts in Engineering,Engineering,,15426,120,15,0,0
+C_948208,Database Management Systems,Learn database management systems through practical examples and case studies,Computer Science,,16751,55,12,0,1
+C_676673,Educational Psychology,Learn educational psychology through practical examples and case studies,Psychology,,15529,54,19,1,0
+C_948468,Human Resource Management,Learn human resource management through practical examples and case studies,Business,,10326,69,12,0,0
+C_948421,Introduction to Programming - Beginner,Comprehensive introduction to introduction to programming - beginner in Computer Science,Computer Science,,27023,36,5,0,0
+C_936973,Classical Mechanics,Master the fundamentals of classical mechanics with hands-on projects,Physics,,14618,52,6,0,1
+C_697748,Quantum Mechanics,Deep dive into quantum mechanics with real-world applications,Physics,,14880,118,69,0,0
+C_948103,Robotics,Learn robotics through practical examples and case studies,Engineering,,11761,46,8,0,0
+C_1822804,Mechanics - Beginner,Advanced mechanics - beginner course covering key concepts in Engineering,Engineering,,22319,86,79,0,1
+C_696826,Software Engineering Principles,Deep dive into software engineering principles with real-world applications,Computer Science,,26611,97,13,1,0
+C_948129,Human Resource Management,Deep dive into human resource management with real-world applications,Business,,12379,41,43,0,1
+C_948424,Number Theory,Comprehensive introduction to number theory in Mathematics,Mathematics,,10475,38,12,0,1
+C_697032,Electromagnetism,Deep dive into electromagnetism with real-world applications,Physics,,15340,16,14,0,1
+C_948136,Data Visualization,Learn data visualization through practical examples and case studies,Data Science,,18999,49,13,0,1
+C_948408,Physical Chemistry,Deep dive into physical chemistry with real-world applications,Chemistry,,15717,64,15,0,0
+C_676937,Educational Psychology,Learn educational psychology through practical examples and case studies,Psychology,,21331,84,30,1,0
+C_883345,Classical Mechanics,Deep dive into classical mechanics with real-world applications,Physics,,78374,1006,194,0,0
+C_862969,Educational Psychology,Advanced educational psychology course covering key concepts in Psychology,Psychology,,29082,57,13,0,0
+C_696835,Financial Accounting - Advanced,Comprehensive introduction to financial accounting - advanced in Business,Business,,14033,65,7,0,1
+C_697293,Educational Psychology - Advanced,Master the fundamentals of educational psychology - advanced with hands-on projects,Psychology,,12113,42,14,1,0
+C_677218,Physical Chemistry,Advanced physical chemistry course covering key concepts in Chemistry,Chemistry,,19948,155,9,1,0
+C_685689,Organic Chemistry,Deep dive into organic chemistry with real-world applications,Chemistry,,24765,119,18,0,0
+C_707031,Business Law,Deep dive into business law with real-world applications,Business,,29351,25,6,0,0
+C_696994,Physical Chemistry,Comprehensive introduction to physical chemistry in Chemistry,Chemistry,,181697,80,48,0,0
+C_879111,Organic Chemistry,Learn organic chemistry through practical examples and case studies,Chemistry,,10127,35,7,0,0
+C_948153,Educational Psychology,Learn educational psychology through practical examples and case studies,Psychology,,15731,38,13,0,0
+C_681655,Natural Language Processing,Comprehensive introduction to natural language processing in Data Science,Data Science,Psychology,21594,121,21,2,1
+C_707093,DevOps and CI/CD - Beginner,Advanced devops and ci/cd - beginner course covering key concepts in Computer Science,Computer Science,,16668,73,14,0,0
+C_851362,Financial Accounting,Deep dive into financial accounting with real-world applications,Business,,15052,33,10,0,0
+C_682702,Astrophysics - Advanced,Comprehensive introduction to astrophysics - advanced in Physics,Physics,,11713,53,8,1,0
+C_681255,Electromagnetism - Intermediate,Comprehensive introduction to electromagnetism - intermediate in Physics,Physics,,16831,25,20,0,1
+C_681088,Educational Psychology,Learn educational psychology through practical examples and case studies,Psychology,,12866,26,25,0,1
+C_694163,Calculus I,Learn calculus i through practical examples and case studies,Mathematics,,11256,38,27,0,1
+C_696746,Financial Accounting,Learn financial accounting through practical examples and case studies,Business,,17501,45,37,0,1
+C_696729,Materials Science,Deep dive into materials science with real-world applications,Engineering,,19001,101,26,1,1
+C_681754,Financial Accounting - Advanced,Comprehensive introduction to financial accounting - advanced in Business,Business,,21460,55,5,0,1
+C_696724,Educational Psychology - Beginner,Master the fundamentals of educational psychology - beginner with hands-on projects,Psychology,,29821,86,60,1,1
+C_677019,Educational Psychology,Deep dive into educational psychology with real-world applications,Psychology,,16323,76,14,0,0
+C_677236,Financial Accounting,Learn financial accounting through practical examples and case studies,Business,,16841,40,5,1,0
+C_680761,Renewable Energy,Deep dive into renewable energy with real-world applications,Engineering,Psychology,17580,89,11,2,0
+C_682466,Calculus I,Advanced calculus i course covering key concepts in Mathematics,Mathematics,,14405,22,18,0,0
+C_682458,Educational Psychology,Comprehensive introduction to educational psychology in Psychology,Psychology,,22077,64,9,1,0
+C_696689,Computer Networks - Intermediate,Advanced computer networks - intermediate course covering key concepts in Computer Science,Computer Science,,10921,116,88,0,1
+C_682586,Cloud Computing - Intermediate,Comprehensive introduction to cloud computing - intermediate in Computer Science,Computer Science,,17888,24,8,1,0
+C_676915,Number Theory - Beginner,Master the fundamentals of number theory - beginner with hands-on projects,Mathematics,,13388,49,6,1,0
+C_676651,Signal Processing,Master the fundamentals of signal processing with hands-on projects,Engineering,,17878,33,1,0,0
+C_676683,Modern Physics - Advanced,Advanced modern physics - advanced course covering key concepts in Physics,Physics,,34310,57,8,1,0
+C_676664,Robotics,Learn robotics through practical examples and case studies,Engineering,,11833,36,62,0,0
+C_681636,Predictive Analytics,Deep dive into predictive analytics with real-world applications,Data Science,,18200,60,16,0,0
+C_682473,Differential Equations - Advanced,Master the fundamentals of differential equations - advanced with hands-on projects,Mathematics,,15222,77,46,0,1
+C_677010,Differential Equations,Advanced differential equations course covering key concepts in Mathematics,Mathematics,,42690,104,37,1,1
+C_696740,Data Visualization,Advanced data visualization course covering key concepts in Data Science,Data Science,Mathematics,22766,27,14,2,1
+C_682222,Materials Science,Deep dive into materials science with real-world applications,Engineering,,10509,89,16,0,0
+C_680961,Biochemistry,Comprehensive introduction to biochemistry in Chemistry,Chemistry,,11094,19,18,0,1
+C_682442,Organic Chemistry,Advanced organic chemistry course covering key concepts in Chemistry,Chemistry,,10909,113,75,1,0
+C_677243,Robotics,Learn robotics through practical examples and case studies,Engineering,,23279,40,10,0,1
+C_680987,Predictive Analytics,Learn predictive analytics through practical examples and case studies,Data Science,,15888,19,16,1,1
+C_696614,Physical Chemistry,Learn physical chemistry through practical examples and case studies,Chemistry,,21027,98,32,0,1
+C_676661,Introduction to Programming - Beginner,Comprehensive introduction to introduction to programming - beginner in Computer Science,Computer Science,,10349,19,15,0,0
+C_682759,Calculus I,Learn calculus i through practical examples and case studies,Mathematics,,12854,51,4,1,1
+C_707035,Number Theory,Learn number theory through practical examples and case studies,Mathematics,,11239,83,11,0,1
+C_677093,Cloud Computing - Intermediate,Comprehensive introduction to cloud computing - intermediate in Computer Science,Computer Science,,12800,119,62,0,0
+C_682469,Number Theory,Advanced number theory course covering key concepts in Mathematics,Mathematics,,16748,94,14,0,1
+C_735269,Financial Accounting - Advanced,Advanced financial accounting - advanced course covering key concepts in Business,Business,,13138,52,63,0,1
+C_696976,Educational Psychology - Beginner,Master the fundamentals of educational psychology - beginner with hands-on projects,Psychology,,10662,101,84,0,0
+C_696597,Signal Processing,Master the fundamentals of signal processing with hands-on projects,Engineering,,31810,69,10,0,1
+C_817148,Human Resource Management - Beginner,Comprehensive introduction to human resource management - beginner in Business,Business,,10574,76,12,0,1
+C_697299,Database Management Systems,Learn database management systems through practical examples and case studies,Computer Science,,11401,31,6,0,0
+C_697034,Electromagnetism,Learn electromagnetism through practical examples and case studies,Physics,,44291,128,32,0,0
+C_770784,Biochemistry,Deep dive into biochemistry with real-world applications,Chemistry,,24497,272,15,1,1
+C_735175,Materials Science,Deep dive into materials science with real-world applications,Engineering,,11498,66,48,0,1
+C_697091,Educational Psychology,Comprehensive introduction to educational psychology in Psychology,Psychology,,25264,73,15,1,0
+C_676635,Calculus I,Comprehensive introduction to calculus i in Mathematics,Mathematics,,17068,52,7,0,0
+C_696928,Web Development Fundamentals - Advanced,Advanced web development fundamentals - advanced course covering key concepts in Computer Science,Computer Science,,20756,28,4,0,1
+C_697018,Calculus I,Learn calculus i through practical examples and case studies,Mathematics,,21787,166,11,1,0
+C_707456,Machine Learning Basics - Advanced,Comprehensive introduction to machine learning basics - advanced in Computer Science,Computer Science,,21916,99,12,0,1
+C_707119,Engineering Mathematics - Beginner,Comprehensive introduction to engineering mathematics - beginner in Engineering,Engineering,Mathematics,20628,54,8,2,0
+C_782490,Astrophysics - Advanced,Comprehensive introduction to astrophysics - advanced in Physics,Physics,,17445,85,45,0,0
+C_697289,Educational Psychology - Advanced,Master the fundamentals of educational psychology - advanced with hands-on projects,Psychology,,13358,61,14,0,1
+C_881485,Data Structures and Algorithms,Master the fundamentals of data structures and algorithms with hands-on projects,Computer Science,,16165,30,15,0,1
+C_854839,Data Mining,Deep dive into data mining with real-world applications,Data Science,,22975,68,17,0,0
+C_697130,Differential Equations - Advanced,Master the fundamentals of differential equations - advanced with hands-on projects,Mathematics,,32195,103,9,1,1
+C_697405,Organic Chemistry,Advanced organic chemistry course covering key concepts in Chemistry,Chemistry,,25405,36,9,1,0
+C_754135,Materials Science,Deep dive into materials science with real-world applications,Engineering,,16670,42,42,0,1
+C_857823,Introduction to Data Science,Deep dive into introduction to data science with real-world applications,Data Science,,11567,46,9,0,1
+C_707081,Biochemistry,Learn biochemistry through practical examples and case studies,Chemistry,,32242,66,12,0,1
+C_697026,Robotics,Learn robotics through practical examples and case studies,Engineering,,25066,119,7,0,0
+C_697020,Time Series Analysis,Advanced time series analysis course covering key concepts in Data Science,Data Science,,10180,52,17,0,0
+C_680979,Web Development Fundamentals - Advanced,Advanced web development fundamentals - advanced course covering key concepts in Computer Science,Computer Science,,13537,75,31,0,1
+C_680732,Python for Data Science,Advanced python for data science course covering key concepts in Data Science,Data Science,,12077,36,34,1,0
+C_735123,Engineering Mathematics - Intermediate,Comprehensive introduction to engineering mathematics - intermediate in Engineering,Engineering,,14088,72,7,0,1
+C_814402,Calculus I,Learn calculus i through practical examples and case studies,Mathematics,,13248,20,9,0,1
+C_697019,Data Structures and Algorithms,Master the fundamentals of data structures and algorithms with hands-on projects,Computer Science,,14855,34,8,0,1
+C_758183,Business Law - Intermediate,Advanced business law - intermediate course covering key concepts in Business,Business,,10030,34,31,0,1
+C_677049,Engineering Mathematics - Beginner,Comprehensive introduction to engineering mathematics - beginner in Engineering,Engineering,Chemistry,68762,126,13,2,0
+C_680784,Business Law,Deep dive into business law with real-world applications,Business,,11983,30,28,0,0
+C_931245,Educational Psychology,Advanced educational psychology course covering key concepts in Psychology,Psychology,,21340,63,16,0,1
+C_916826,Biochemistry,Comprehensive introduction to biochemistry in Chemistry,Chemistry,,11053,102,12,0,1
+C_773985,Physical Chemistry - Beginner,Master the fundamentals of physical chemistry - beginner with hands-on projects,Chemistry,,19480,57,12,0,1
+C_845950,Financial Accounting - Advanced,Comprehensive introduction to financial accounting - advanced in Business,Business,,24720,111,101,0,0
+C_735054,Biochemistry,Advanced biochemistry course covering key concepts in Chemistry,Chemistry,,28769,60,10,0,0
+C_866164,Number Theory - Beginner,Master the fundamentals of number theory - beginner with hands-on projects,Mathematics,,16426,93,15,0,1
+C_696946,Computer Networks - Intermediate,Advanced computer networks - intermediate course covering key concepts in Computer Science,Computer Science,,22317,40,7,0,0
+C_682210,Financial Accounting,Master the fundamentals of financial accounting with hands-on projects,Business,,18897,64,60,0,0
+C_696954,Educational Psychology,Advanced educational psychology course covering key concepts in Psychology,Psychology,,17400,66,10,0,0
+C_707037,Mechanics - Advanced,Advanced mechanics - advanced course covering key concepts in Engineering,Engineering,,12735,51,9,1,0
+C_697288,Number Theory,Deep dive into number theory with real-world applications,Mathematics,,12071,53,55,1,0
+C_697556,Human Resource Management,Master the fundamentals of human resource management with hands-on projects,Business,,13170,125,72,0,1
+C_697729,Introduction to Programming - Beginner,Comprehensive introduction to introduction to programming - beginner in Computer Science,Computer Science,,18625,15,4,0,0
+C_697117,Engineering Mathematics - Intermediate,Comprehensive introduction to engineering mathematics - intermediate in Engineering,Engineering,,12055,91,15,0,0
+C_922867,Modern Physics - Beginner,Comprehensive introduction to modern physics - beginner in Physics,Physics,,14900,52,114,0,1
+C_879093,Educational Psychology - Intermediate,Master the fundamentals of educational psychology - intermediate with hands-on projects,Psychology,,13078,65,8,0,1
+C_697415,Biochemistry,Advanced biochemistry course covering key concepts in Chemistry,Chemistry,,15636,81,37,0,0
+C_922850,Computer Graphics,Deep dive into computer graphics with real-world applications,Computer Science,,16294,84,10,0,1
+C_735143,Statistical Learning,Learn statistical learning through practical examples and case studies,Data Science,,15132,149,17,0,1
+C_782555,Educational Psychology,Deep dive into educational psychology with real-world applications,Psychology,,10585,79,9,1,0
+C_801420,Materials Science,Deep dive into materials science with real-world applications,Engineering,,50848,85,59,0,0
+C_873864,Biochemistry - Advanced,Master the fundamentals of biochemistry - advanced with hands-on projects,Chemistry,,26266,36,19,0,1
+C_697265,Calculus I - Intermediate,Master the fundamentals of calculus i - intermediate with hands-on projects,Mathematics,,15167,38,11,0,0
+C_862963,Modern Physics - Intermediate,Comprehensive introduction to modern physics - intermediate in Physics,Physics,,13594,26,10,0,1
+C_931252,Differential Equations,Learn differential equations through practical examples and case studies,Mathematics,,11109,68,62,0,0
+C_707373,Biochemistry,Learn biochemistry through practical examples and case studies,Chemistry,,29316,71,7,0,0
+C_735259,Cloud Computing - Intermediate,Comprehensive introduction to cloud computing - intermediate in Computer Science,Computer Science,,11802,92,15,0,1
+C_890220,Mobile App Development,Master the fundamentals of mobile app development with hands-on projects,Computer Science,,24221,20,19,0,1
+C_756747,Calculus I,Comprehensive introduction to calculus i in Mathematics,Mathematics,,12673,22,24,0,1
+C_898349,R Programming,Comprehensive introduction to r programming in Data Science,Data Science,,10577,80,11,0,0
+C_907961,Deep Learning,Learn deep learning through practical examples and case studies,Data Science,,15901,67,6,0,0
+C_682239,Educational Psychology,Deep dive into educational psychology with real-world applications,Psychology,,11948,117,16,0,0
+C_696942,Optics,Master the fundamentals of optics with hands-on projects,Physics,,46328,43,28,0,0
+C_756665,Robotics,Learn robotics through practical examples and case studies,Engineering,,14258,74,64,0,1
+C_697096,Data Visualization,Learn data visualization through practical examples and case studies,Data Science,,11392,12,4,1,0
+C_680970,Organic Chemistry,Comprehensive introduction to organic chemistry in Chemistry,Chemistry,,12701,41,42,1,0
+C_696922,Educational Psychology,Learn educational psychology through practical examples and case studies,Psychology,,20208,113,45,1,0
+C_819285,Physical Chemistry,Learn physical chemistry through practical examples and case studies,Chemistry,,16458,25,17,0,1
+C_866756,Astrophysics - Beginner,Advanced astrophysics - beginner course covering key concepts in Physics,Physics,,46060,26,9,1,0
+C_808526,Calculus I,Deep dive into calculus i with real-world applications,Mathematics,,18110,21,18,0,0
+C_793017,Data Structures and Algorithms,Master the fundamentals of data structures and algorithms with hands-on projects,Computer Science,,11074,21,21,0,1
+C_789278,Educational Psychology,Deep dive into educational psychology with real-world applications,Psychology,,12406,65,55,0,0
+C_735351,Biochemistry,Deep dive into biochemistry with real-world applications,Chemistry,,45079,38,9,0,0
+C_879045,Calculus I,Advanced calculus i course covering key concepts in Mathematics,Mathematics,,16004,44,13,0,1
+C_845674,Educational Psychology,Deep dive into educational psychology with real-world applications,Psychology,,17538,46,13,0,1
+C_911165,Differential Equations,Comprehensive introduction to differential equations in Mathematics,Mathematics,,12626,41,10,0,0
+C_800360,Blockchain Technology,Learn blockchain technology through practical examples and case studies,Computer Science,,10069,27,10,0,1
+C_696875,R Programming,Comprehensive introduction to r programming in Data Science,Data Science,,11106,18,8,0,1
+C_840084,Differential Equations - Advanced,Master the fundamentals of differential equations - advanced with hands-on projects,Mathematics,,31568,32,10,0,1
+C_697007,Statistical Learning - Intermediate,Master the fundamentals of statistical learning - intermediate with hands-on projects,Data Science,,13594,45,31,0,1
+C_696700,Financial Accounting,Master the fundamentals of financial accounting with hands-on projects,Business,,55873,76,15,0,0
+C_749807,Mechanics - Beginner,Advanced mechanics - beginner course covering key concepts in Engineering,Engineering,,27065,99,12,0,1
+C_682335,DevOps and CI/CD - Beginner,Advanced devops and ci/cd - beginner course covering key concepts in Computer Science,Computer Science,,18147,21,21,0,1
+C_948435,Big Data Analytics,Deep dive into big data analytics with real-world applications,Data Science,,12668,52,52,0,0
+C_676932,Data Mining,Advanced data mining course covering key concepts in Data Science,Data Science,,125789,57,12,1,0
+C_1738818,Financial Accounting,Learn financial accounting through practical examples and case studies,Business,,10064,115,12,0,1
+C_936971,Thermodynamics and Statistical Physics,Master the fundamentals of thermodynamics and statistical physics with hands-on projects,Physics,,231674,38,36,0,0
+C_936990,Educational Psychology - Intermediate,Master the fundamentals of educational psychology - intermediate with hands-on projects,Psychology,,19080,57,15,0,1
+C_854843,General Chemistry - Beginner,Comprehensive introduction to general chemistry - beginner in Chemistry,Chemistry,Mathematics,12686,83,82,2,0
+C_947250,Organic Chemistry,Deep dive into organic chemistry with real-world applications,Chemistry,,10575,36,11,0,0
+C_948412,Time Series Analysis - Intermediate,Master the fundamentals of time series analysis - intermediate with hands-on projects,Data Science,,14899,188,21,0,1
+C_948417,Educational Psychology - Intermediate,Master the fundamentals of educational psychology - intermediate with hands-on projects,Psychology,,16876,93,32,0,0
+C_948269,Business Law - Intermediate,Comprehensive introduction to business law - intermediate in Business,Business,,12983,50,4,0,1
+C_1797904,Cybersecurity Fundamentals,Deep dive into cybersecurity fundamentals with real-world applications,Computer Science,,10755,35,8,0,1
+C_947241,Differential Equations,Comprehensive introduction to differential equations in Mathematics,Mathematics,,15001,25,10,0,1
+C_948289,Business Law,Deep dive into business law with real-world applications,Business,,11275,76,12,0,1
+C_948078,Physical Chemistry,Learn physical chemistry through practical examples and case studies,Chemistry,,18793,49,10,0,0
+C_948410,Business Law,Deep dive into business law with real-world applications,Business,,27552,44,34,0,0
+C_949540,Educational Psychology,Learn educational psychology through practical examples and case studies,Psychology,,13836,59,10,0,0
+C_735046,R Programming - Advanced,Master the fundamentals of r programming - advanced with hands-on projects,Data Science,,14342,63,8,0,0
+C_1906555,Quantum Mechanics,Learn quantum mechanics through practical examples and case studies,Physics,,12240,24,16,0,0
+C_943228,Data Mining,Deep dive into data mining with real-world applications,Data Science,,13054,78,39,0,1
+C_1741554,Organic Chemistry - Intermediate,Master the fundamentals of organic chemistry - intermediate with hands-on projects,Chemistry,,11476,53,53,0,0
+C_697360,Deep Learning,Deep dive into deep learning with real-world applications,Data Science,Engineering,10296,84,69,2,0
+C_1527465,Physical Chemistry,Learn physical chemistry through practical examples and case studies,Chemistry,,12208,79,7,0,1
+C_943250,Educational Psychology,Comprehensive introduction to educational psychology in Psychology,Psychology,,13991,17,18,0,0
+C_947240,Physical Chemistry,Learn physical chemistry through practical examples and case studies,Chemistry,,22053,45,9,0,1
+C_947149,Business Law - Intermediate,Comprehensive introduction to business law - intermediate in Business,Business,,14716,20,14,0,1
+C_936913,Human Resource Management - Beginner,Advanced human resource management - beginner course covering key concepts in Business,Business,,13295,18,18,0,1
+C_943267,Differential Equations,Advanced differential equations course covering key concepts in Mathematics,Mathematics,,24039,47,10,0,0
+C_934535,Big Data Analytics,Learn big data analytics through practical examples and case studies,Data Science,,11390,35,34,0,1
+C_948099,Educational Psychology,Deep dive into educational psychology with real-world applications,Psychology,,13040,72,8,0,1
+C_948235,Physical Chemistry - Beginner,Master the fundamentals of physical chemistry - beginner with hands-on projects,Chemistry,,11234,61,15,0,0
+C_948423,Cybersecurity Fundamentals,Deep dive into cybersecurity fundamentals with real-world applications,Computer Science,,14334,43,8,0,0
+C_694136,Engineering Mathematics - Intermediate,Comprehensive introduction to engineering mathematics - intermediate in Engineering,Engineering,,30849,68,58,0,0
+C_788575,Thermodynamics and Statistical Physics,Master the fundamentals of thermodynamics and statistical physics with hands-on projects,Physics,,18137,46,47,0,1
+C_1776316,Educational Psychology,Advanced educational psychology course covering key concepts in Psychology,Psychology,,11796,50,16,0,0
+C_676913,Electromagnetism - Advanced,Master the fundamentals of electromagnetism - advanced with hands-on projects,Physics,"Chemistry,Data Science",12987,44,6,3,0
+C_934528,Natural Language Processing,Learn natural language processing through practical examples and case studies,Data Science,,13780,25,6,0,0
+C_955163,Mechanics - Beginner,Advanced mechanics - beginner course covering key concepts in Engineering,Engineering,,17782,101,7,0,1
+C_629559,Business Law - Intermediate,Advanced business law - intermediate course covering key concepts in Business,Business,,67051,76,73,1,0
+C_948092,Thermodynamics and Statistical Physics - Advanced,Comprehensive introduction to thermodynamics and statistical physics - advanced in Physics,Physics,,12807,103,10,0,1
+C_781445,Data Mining,Comprehensive introduction to data mining in Data Science,Data Science,,17295,68,21,0,0
+C_677146,Deep Learning,Comprehensive introduction to deep learning in Data Science,Data Science,,16459,137,27,0,0
+C_682277,Biochemistry,Learn biochemistry through practical examples and case studies,Chemistry,Business,10201,44,10,2,0
+C_948415,Educational Psychology,Learn educational psychology through practical examples and case studies,Psychology,,14776,14,16,0,1
+C_696554,Astrophysics,Deep dive into astrophysics with real-world applications,Physics,,11301,89,7,0,1
+C_948137,Computer Networks - Intermediate,Advanced computer networks - intermediate course covering key concepts in Computer Science,Computer Science,,15117,137,126,0,1
+C_943271,Robotics,Learn robotics through practical examples and case studies,Engineering,,11716,60,20,0,1
+C_682546,Educational Psychology,Comprehensive introduction to educational psychology in Psychology,Psychology,,13915,105,13,0,0
+C_948414,Cybersecurity Fundamentals,Deep dive into cybersecurity fundamentals with real-world applications,Computer Science,,15593,213,17,0,0
+C_947252,Business Law,Deep dive into business law with real-world applications,Business,,27165,56,7,0,0
+C_697024,Human Resource Management,Master the fundamentals of human resource management with hands-on projects,Business,,12000,107,107,0,0
+C_760442,Web Development Fundamentals - Advanced,Advanced web development fundamentals - advanced course covering key concepts in Computer Science,Computer Science,,17904,28,35,0,0
+C_674953,Calculus I,Comprehensive introduction to calculus i in Mathematics,Mathematics,,12547,30,8,0,0
+C_948428,Biochemistry,Advanced biochemistry course covering key concepts in Chemistry,Chemistry,,17793,43,8,0,0
+C_696968,Electromagnetism - Intermediate,Advanced electromagnetism - intermediate course covering key concepts in Physics,Physics,,39824,92,72,0,0
+C_756642,Clinical Psychology,Master the fundamentals of clinical psychology with hands-on projects,Psychology,Data Science,14074,52,5,2,1
+C_677047,Financial Accounting,Learn financial accounting through practical examples and case studies,Business,,15795,64,10,1,1
+C_697821,Number Theory,Comprehensive introduction to number theory in Mathematics,Mathematics,,44600,138,69,1,0
+C_697828,Educational Psychology,Learn educational psychology through practical examples and case studies,Psychology,,11015,148,9,0,0
+C_696800,Business Law,Learn business law through practical examples and case studies,Business,,22206,33,30,1,0
+C_948427,Time Series Analysis,Advanced time series analysis course covering key concepts in Data Science,Data Science,,20390,39,7,0,0
+C_696841,Cybersecurity Fundamentals,Deep dive into cybersecurity fundamentals with real-world applications,Computer Science,,14655,50,10,1,1
+C_770738,Signal Processing,Master the fundamentals of signal processing with hands-on projects,Engineering,,29516,503,52,0,0
+C_948431,Statistical Learning - Intermediate,Master the fundamentals of statistical learning - intermediate with hands-on projects,Data Science,,18512,40,3,0,0
+C_681678,Time Series Analysis,Deep dive into time series analysis with real-world applications,Data Science,,22596,57,9,1,0
+C_735157,Educational Psychology,Learn educational psychology through practical examples and case studies,Psychology,,24003,62,12,1,0
+C_696927,Biochemistry,Comprehensive introduction to biochemistry in Chemistry,Chemistry,,20513,62,8,1,1
+C_854866,Calculus I,Advanced calculus i course covering key concepts in Mathematics,Mathematics,,20573,83,20,0,0
+C_1903985,Materials Science,Deep dive into materials science with real-world applications,Engineering,,19649,66,7,0,0
+C_697236,Human Resource Management,Learn human resource management through practical examples and case studies,Business,,15003,68,56,0,0
+C_916828,Mechanics - Beginner,Advanced mechanics - beginner course covering key concepts in Engineering,Engineering,,32230,45,14,0,0
+C_756646,Data Visualization,Advanced data visualization course covering key concepts in Data Science,Data Science,,10438,70,15,1,0
+C_862967,Number Theory,Deep dive into number theory with real-world applications,Mathematics,,11151,50,9,0,0
+C_948214,Business Law,Learn business law through practical examples and case studies,Business,,11212,43,6,0,1
+C_680933,Biochemistry - Advanced,Master the fundamentals of biochemistry - advanced with hands-on projects,Chemistry,,18251,27,7,1,0
+C_697791,Biochemistry,Advanced biochemistry course covering key concepts in Chemistry,Chemistry,,96210,114,48,1,0
+C_893812,Financial Accounting - Advanced,Advanced financial accounting - advanced course covering key concepts in Business,Business,,17249,46,10,0,0
+C_679390,Organic Chemistry,Advanced organic chemistry course covering key concepts in Chemistry,Chemistry,,32797,79,52,0,1
+C_680998,Data Structures and Algorithms,Master the fundamentals of data structures and algorithms with hands-on projects,Computer Science,,18025,79,13,0,0

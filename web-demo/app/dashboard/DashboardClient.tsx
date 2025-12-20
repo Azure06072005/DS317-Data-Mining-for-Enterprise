@@ -65,30 +65,7 @@ export default function DashboardClient({ stats, allCourses }: DashboardClientPr
     videos: course.totalVideos
   }));
   
-  // Exercise distribution buckets
-  const exerciseBuckets = {
-    "0-20": 0,
-    "21-40": 0,
-    "41-60": 0,
-    "61-80": 0,
-    "81-100": 0,
-    ">100": 0
-  };
-  
-  allCourses.forEach(course => {
-    const exercises = course.totalExercises;
-    if (exercises <= 20) exerciseBuckets["0-20"]++;
-    else if (exercises <= 40) exerciseBuckets["21-40"]++;
-    else if (exercises <= 60) exerciseBuckets["41-60"]++;
-    else if (exercises <= 80) exerciseBuckets["61-80"]++;
-    else if (exercises <= 100) exerciseBuckets["81-100"]++;
-    else exerciseBuckets[">100"]++;
-  });
-  
-  const exerciseDistributionData = Object.entries(exerciseBuckets).map(([range, count]) => ({
-    range,
-    count
-  }));
+
   
   // Student distribution by course (sorted descending)
   const studentDistributionData = [...allCourses]
@@ -125,16 +102,7 @@ export default function DashboardClient({ stats, allCourses }: DashboardClientPr
     .map(([field, count]) => ({ field, count }))
     .sort((a, b) => b.count - a.count);
   
-  // Student enrollment by field
-  const studentsByField = allCourses.reduce((acc, course) => {
-    acc[course.field] = (acc[course.field] || 0) + course.totalStudentsEnrolled;
-    return acc;
-  }, {} as Record<string, number>);
-  
-  const studentsByFieldData = Object.entries(studentsByField)
-    .map(([field, students]) => ({ field, students }))
-    .sort((a, b) => b.students - a.students)
-    .slice(0, 8);
+
   
   // Dữ liệu xu hướng học viên (mock data - keeping for visualization)
   const trendData = [
@@ -152,11 +120,7 @@ export default function DashboardClient({ stats, allCourses }: DashboardClientPr
     { month: "Dec", value2019: 0, value2020: 850 },
   ];
   
-  // Prerequisites distribution
-  const prerequisitesData = [
-    { name: "Có yêu cầu", value: stats.coursesWithPrerequisites, color: "#3b82f6" },
-    { name: "Không yêu cầu", value: stats.coursesWithoutPrerequisites, color: "#10b981" },
-  ];
+
   
   // Dữ liệu phân phối kết quả (from previous data)
   const resultDistributionData = [
@@ -311,54 +275,7 @@ export default function DashboardClient({ stats, allCourses }: DashboardClientPr
       </div>
 
       {/* Bottom Charts Row */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Tỷ lệ khóa học có/không có prerequisites */}
-        <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Phân bố yêu cầu điều kiện</h2>
-            <button className="text-gray-400 hover:text-purple-600 transition-colors">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-              </svg>
-            </button>
-          </div>
-          <ResponsiveContainer width="100%" height={280}>
-            <PieChart>
-              <Pie
-                data={prerequisitesData}
-                cx="50%"
-                cy="50%"
-                innerRadius={60}
-                outerRadius={100}
-                paddingAngle={2}
-                dataKey="value"
-              >
-                {prerequisitesData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={entry.color} />
-                ))}
-              </Pie>
-              <Tooltip />
-            </PieChart>
-          </ResponsiveContainer>
-          <div className="mt-4">
-            <div className="text-center mb-3">
-              <div className="text-sm text-gray-500">Tổng khóa học</div>
-              <div className="text-2xl font-bold text-gray-800">{totalCourses}</div>
-            </div>
-            <div className="flex justify-center gap-6 text-xs">
-              {prerequisitesData.map((item, idx) => (
-                <div key={idx} className="flex items-center">
-                  <span
-                    className="w-3 h-3 rounded-sm mr-1"
-                    style={{ backgroundColor: item.color }}
-                  ></span>
-                  <span className="text-gray-600">{item.name}: {item.value}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
+      <div className="grid grid-cols-1 lg:grid-cols-1 gap-6">
         {/* Phân phối kết quả học tập */}
         <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300">
           <div className="flex items-center justify-between mb-6">
@@ -409,31 +326,6 @@ export default function DashboardClient({ stats, allCourses }: DashboardClientPr
         </div>
       </div>
 
-      {/* Exercise Distribution - Full Width */}
-      <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-            Phân bố số lượng bài tập theo khóa học
-          </h2>
-          <p className="text-sm text-gray-600">Yếu tố quan trọng cho mức độ hài lòng</p>
-        </div>
-        <ResponsiveContainer width="100%" height={300}>
-          <BarChart data={exerciseDistributionData}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-            <XAxis dataKey="range" stroke="#6b7280" label={{ value: 'Số lượng bài tập', position: 'insideBottom', offset: -5 }} />
-            <YAxis stroke="#6b7280" label={{ value: 'Số khóa học', angle: -90, position: 'insideLeft' }} />
-            <Tooltip 
-              contentStyle={{
-                backgroundColor: "#fff",
-                border: "1px solid #e5e7eb",
-                borderRadius: "8px",
-              }}
-            />
-            <Bar dataKey="count" fill="#10b981" name="Số khóa học" />
-          </BarChart>
-        </ResponsiveContainer>
-      </div>
-
       {/* Student Distribution Area Chart */}
       <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300">
         <div className="flex items-center justify-between mb-6">
@@ -467,7 +359,7 @@ export default function DashboardClient({ stats, allCourses }: DashboardClientPr
       </div>
 
       {/* Field-Based Statistics - New Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-1 gap-6">
         {/* Field Distribution */}
         <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300">
           <div className="flex items-center justify-between mb-6">
@@ -500,37 +392,6 @@ export default function DashboardClient({ stats, allCourses }: DashboardClientPr
           <div className="mt-4 text-center">
             <p className="text-sm text-gray-600">Tổng: {fieldDistributionData.length} lĩnh vực khác nhau</p>
           </div>
-        </div>
-
-        {/* Students by Field */}
-        <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-              Số Học viên theo Lĩnh vực (Top 8)
-            </h2>
-          </div>
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={studentsByFieldData} layout="horizontal">
-              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-              <XAxis type="number" stroke="#6b7280" />
-              <YAxis 
-                type="category" 
-                dataKey="field" 
-                stroke="#6b7280" 
-                width={120}
-                tick={{ fontSize: 11 }}
-              />
-              <Tooltip 
-                contentStyle={{
-                  backgroundColor: "#fff",
-                  border: "1px solid #e5e7eb",
-                  borderRadius: "8px",
-                }}
-                formatter={(value: number) => value.toLocaleString()}
-              />
-              <Bar dataKey="students" fill="#10b981" name="Học viên" />
-            </BarChart>
-          </ResponsiveContainer>
         </div>
       </div>
 
