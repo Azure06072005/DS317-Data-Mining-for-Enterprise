@@ -170,22 +170,29 @@ export default function Home() {
                 <div className="prose max-w-none">
                   <h3 className="text-2xl font-semibold text-gray-700 mb-3">Tổng quan</h3>
                   <p className="text-gray-600 mb-4">
-                    Dự án EduPredict tập trung vào việc phát triển hệ thống dự đoán mức độ hài lòng của học viên 
-                    trong các khóa học trực tuyến (MOOC) sử dụng các kỹ thuật Data Mining tiên tiến.
+                    Dự án <strong>EduPredict</strong> hướng tới việc xây dựng mô hình <em>dự đoán sớm</em> mức độ hài&nbsp;lòng của học viên 
+                    đối với các khóa học trực tuyến trên nền tảng XuetangX. Mô hình sử dụng bộ dữ liệu <strong>MOOC‑CubeX</strong> 
+                    quy mô lớn – gồm 4 216 khóa học, hơn 230 000 video, 358 000 bài tập và hơn 296 triệu bản ghi hành vi của 
+                    3,33 triệu học viên【591452651977941†L56-L62】. Điểm thách thức của đề tài là bộ dữ liệu không chứa 
+                    nhãn hài&nbsp;lòng trực tiếp; do đó nhóm thiết kế một nhãn <em>proxy</em> bằng cách kết hợp bốn thành phần: hiệu quả học tập 
+                    (Learning), cảm xúc bình luận (Sentiment), độ phức tạp khóa học (Course) và tính đều đặn theo thời gian (Time), 
+                    qua đó phân loại thành 5 mức độ hài&nbsp;lòng【325245144627243†L83-L90】.
                   </p>
                   
                   <h3 className="text-2xl font-semibold text-gray-700 mb-3 mt-6">Mục tiêu</h3>
                   <ul className="list-disc list-inside text-gray-600 space-y-2">
-                    <li>Dự đoán mức độ hài lòng của học viên dựa trên hành vi học tập và tương tác với khóa học</li>
-                    <li>Phân tích các yếu tố ảnh hưởng đến sự hài lòng của học viên</li>
-                    <li>Cung cấp thông tin chi tiết để cải thiện chất lượng khóa học</li>
-                    <li>Hỗ trợ giảng viên và quản trị viên trong việc tối ưu hóa nội dung học tập</li>
+                    <li>Dự đoán sớm mức độ hài&nbsp;lòng của học viên dựa trên chuỗi hành vi học tập và tương tác, từ đó kịp thời can&nbsp;thiệp giảm bỏ&nbsp;học【543749709443744†L2580-L2631】.</li>
+                    <li>Phân tích các yếu tố ảnh hưởng đến sự hài&nbsp;lòng (hiệu quả học tập, hành vi xem video, cảm xúc bình luận, độ phức tạp khóa học).</li>
+                    <li>Xây dựng nhãn hài&nbsp;lòng gián tiếp dựa trên trọng số của bốn thành phần Learning–Sentiment–Course–Time【325245144627243†L83-L90】.</li>
+                    <li>Triển khai hệ thống dự đoán và dashboard BI để hỗ trợ giảng viên và quản&nbsp;trị viên đưa ra quyết định cải thiện chất lượng khóa học【543749709443744†L2591-L2623】.</li>
                   </ul>
 
                   <h3 className="text-2xl font-semibold text-gray-700 mb-3 mt-6">Nguồn dữ liệu</h3>
                   <p className="text-gray-600 mb-4">
-                    Dự án sử dụng dữ liệu từ MOOCCubeX, một tập dữ liệu lớn về các khóa học trực tuyến 
-                    bao gồm thông tin về học viên, khóa học, video bài giảng, bài tập và tương tác của người học.
+                    <strong>MOOC‑CubeX</strong> là một kho dữ liệu tổng hợp nhiều nguồn tài nguyên học thuật – từ thông tin khóa học, 
+                    hồ sơ học viên, hành vi xem video, làm bài tập tới bình luận và đồ thị khái niệm – được duy trì bởi 
+                    Tsinghua University và XuetangX【591452651977941†L48-L68】. Bộ dữ liệu cung cấp nền tảng vững chắc cho 
+                    nghiên cứu dự đoán hài&nbsp;lòng nhờ quy mô lớn, độ bao phủ cao và cấu trúc xoay quanh đồ thị khái niệm【591452651977941†L48-L75】.
                   </p>
                 </div>
               </div>
@@ -195,31 +202,36 @@ export default function Home() {
               <div className="space-y-6">
                 <h2 className="text-3xl font-bold text-gray-800 mb-4">Kết quả thực nghiệm</h2>
                 <div className="prose max-w-none">
-                  <h3 className="text-2xl font-semibold text-gray-700 mb-3">Độ chính xác của mô hình</h3>
+                  <h3 className="text-2xl font-semibold text-gray-700 mb-3">Bộ dữ liệu và kết quả</h3>
                   <p className="text-gray-600 mb-4">
-                    Các mô hình Data Mining đã được huấn luyện và đánh giá trên tập dữ liệu MOOCCubeX 
-                    với các kết quả đáng khích lệ.
+                    Bộ dữ liệu time series được xây dựng gồm <strong>337 617</strong> cặp <code>user_id&nbsp;×&nbsp;course_id</code>, 
+                    tương ứng hơn 1,35&nbsp;triệu dòng dữ liệu và 30&nbsp;đặc trưng ở định dạng dài; sau khi xoay trục sang 
+                    định dạng rộng có 110&nbsp;đặc trưng dùng huấn luyện【325245144627243†L74-L90】. Phân phối nhãn hài&nbsp;lòng 
+                    rất mất cân bằng: nhãn&nbsp;2 chiếm khoảng&nbsp;85,9%, trong khi các nhãn 1, 3, 4 và 5 chiếm dưới 7% tổng số mẫu【325245144627243†L100-L107】. 
+                    Kết quả thử nghiệm sơ bộ cho thấy các mô hình như Random&nbsp;Forest và XGBoost đạt hiệu suất dự đoán tốt, 
+                    đặc biệt khi sử dụng Node2Vec và SMOTE để làm giàu và cân bằng dữ liệu.
                   </p>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
                     <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-lg border-2 border-blue-200">
-                      <h4 className="text-xl font-bold text-gray-800 mb-2">Độ chính xác</h4>
-                      <p className="text-4xl font-bold text-blue-600">85%+</p>
-                      <p className="text-gray-600 mt-2">Trên tập test</p>
+                      <h4 className="text-xl font-bold text-gray-800 mb-2">Số cặp học&nbsp;viên–khóa</h4>
+                      <p className="text-4xl font-bold text-blue-600">337k+</p>
+                      <p className="text-gray-600 mt-2">Sau khi lọc dữ liệu</p>
                     </div>
                     <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-lg border-2 border-green-200">
-                      <h4 className="text-xl font-bold text-gray-800 mb-2">F1-Score</h4>
-                      <p className="text-4xl font-bold text-green-600">0.83</p>
-                      <p className="text-gray-600 mt-2">Cân bằng giữa precision và recall</p>
+                      <h4 className="text-xl font-bold text-gray-800 mb-2">Số đặc trưng</h4>
+                      <p className="text-4xl font-bold text-green-600">110</p>
+                      <p className="text-gray-600 mt-2">Trong định dạng rộng</p>
                     </div>
                   </div>
 
                   <h3 className="text-2xl font-semibold text-gray-700 mb-3 mt-6">Phân tích kết quả</h3>
                   <ul className="list-disc list-inside text-gray-600 space-y-2">
-                    <li>Mô hình có khả năng dự đoán chính xác mức độ hài lòng của học viên</li>
-                    <li>Các đặc trưng quan trọng nhất bao gồm: tỷ lệ hoàn thành video, điểm bài tập, và tương tác với nội dung</li>
-                    <li>Việc sử dụng Node2Vec embeddings giúp cải thiện độ chính xác đáng kể</li>
-                    <li>Phương pháp SMOTE giúp cân bằng dữ liệu và cải thiện hiệu suất trên các nhóm thiểu số</li>
+                    <li>Bộ dữ liệu được xây dựng từ 4&nbsp;phase và 337 617 cặp học&nbsp;viên–khóa, sau pivot thành 110 đặc trưng【325245144627243†L74-L90】.</li>
+                    <li>Phân phối nhãn mất cân bằng nghiêm trọng: nhãn 2 áp đảo (~85,9%), các nhãn còn lại rất ít【325245144627243†L100-L107】.</li>
+                    <li>Các đặc trưng quan trọng bao gồm: điểm <em>earned_score</em>, số bài làm, thời lượng và mẫu xem video (rewind/fast‑forward, session), và số bình luận tích cực/tiêu cực【325245144627243†L109-L165】.</li>
+                    <li>Áp dụng Node2Vec giúp biểu diễn các mối quan hệ trong đồ thị và SMOTE giúp cân bằng dữ liệu, cải thiện hiệu suất mô hình【543749709443744†L128-L139】.</li>
+                    <li>F1‑score được chọn làm độ đo chính; cùng với AUC‑ROC để đánh giá mô hình trên dữ liệu mất cân bằng【325245144627243†L883-L904】.</li>
                   </ul>
                 </div>
               </div>
@@ -233,46 +245,45 @@ export default function Home() {
                   
                   <div className="space-y-4">
                     <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-600">
-                      <h4 className="text-lg font-bold text-gray-800 mb-2">1. Thu thập và tiền xử lý dữ liệu</h4>
+                      <h4 className="text-lg font-bold text-gray-800 mb-2">1. Thu thập và tiền&nbsp;xử&nbsp;lý</h4>
                       <p className="text-gray-600">
-                        - Trích xuất dữ liệu từ MOOCCubeX dataset<br/>
-                        - Làm sạch và chuẩn hóa dữ liệu<br/>
-                        - Xử lý giá trị thiếu và outliers
+                        - Lọc bỏ các khóa học <em>self‑paced</em> và trích xuất dữ liệu hành vi (user, course, video, exercise, comment) từ MOOC‑CubeX.<br/>
+                        - Làm sạch, chuẩn hóa dữ liệu, xử lý giá trị thiếu và ngoại lai; chỉ giữ những cặp <code>user_id&nbsp;×&nbsp;course_id</code> có ít nhất một tương tác【325245144627243†L70-L74】.<br/>
+                        - Xây dựng bộ dữ liệu chuỗi thời gian gồm 4&nbsp;phase với 30 đặc trưng ở định dạng dài.
                       </p>
                     </div>
 
                     <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-600">
-                      <h4 className="text-lg font-bold text-gray-800 mb-2">2. Feature Engineering</h4>
+                      <h4 className="text-lg font-bold text-gray-800 mb-2">2. Xây dựng dữ liệu giai đoạn &amp; đặc&nbsp;trưng</h4>
                       <p className="text-gray-600">
-                        - Tạo các đặc trưng từ hành vi học tập (video watching, exercise completion)<br/>
-                        - Sử dụng Node2Vec để tạo graph embeddings<br/>
-                        - Tính toán các chỉ số thống kê theo từng giai đoạn (period 1-4)
+                        - Chia tiến trình học của mỗi học&nbsp;viên thành 4&nbsp;phase dựa trên tỷ lệ thời gian còn lại (0–25%, 25–50%, 50–75%, 75–100%)【325245144627243†L52-L60】.<br/>
+                        - Tạo các đặc trưng tĩnh (giới tính, số khóa, số video/bài&nbsp;tập, số lĩnh vực), đặc trưng học tập (số bài làm, earned_score, số lần nộp), đặc trưng video (thời lượng xem, rewind/fast‑forward, session_count, speed_change_count) và đặc trưng bình luận (số bình luận tích cực, trung tính, tiêu cực)【325245144627243†L109-L165】.<br/>
+                        - Xoay trục dữ liệu sang định dạng rộng với 110 đặc trưng để huấn luyện mô hình.
                       </p>
                     </div>
 
                     <div className="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-600">
-                      <h4 className="text-lg font-bold text-gray-800 mb-2">3. Cân bằng dữ liệu</h4>
+                      <h4 className="text-lg font-bold text-gray-800 mb-2">3. Gán nhãn hài&nbsp;lòng</h4>
                       <p className="text-gray-600">
-                        - Áp dụng kỹ thuật SMOTE (Synthetic Minority Over-sampling Technique)<br/>
-                        - Xử lý vấn đề imbalanced data trong phân loại mức độ hài lòng
+                        - Tính điểm <em>satisfaction_score</em> dựa trên bốn trụ cột: Learning, Sentiment, Course và Time; áp dụng trọng số (0.60, 0.15, 0.15, 0.10) và điều chỉnh theo độ tin cậy của bình luận【325245144627243†L83-L90】.<br/>
+                        - Ánh xạ điểm số thành 5 mức độ hài&nbsp;lòng (1→5) để tạo nhãn huấn luyện.
                       </p>
                     </div>
 
                     <div className="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-600">
-                      <h4 className="text-lg font-bold text-gray-800 mb-2">4. Huấn luyện mô hình</h4>
+                      <h4 className="text-lg font-bold text-gray-800 mb-2">4. Cân bằng &amp; làm&nbsp;giàu dữ liệu</h4>
                       <p className="text-gray-600">
-                        - Thử nghiệm nhiều thuật toán: Random Forest, XGBoost, Neural Networks<br/>
-                        - Cross-validation để đánh giá và tối ưu hóa mô hình<br/>
-                        - Hyperparameter tuning để đạt hiệu suất tốt nhất
+                        - Sử dụng Node2Vec để tạo embedding cho đồ thị người&nbsp;học–khóa&nbsp;học–khái&nbsp;niệm và kết hợp vào bộ dữ liệu【543749709443744†L128-L139】.<br/>
+                        - Áp dụng kỹ thuật SMOTE để tăng cường các lớp thiểu số, xây dựng các bộ dữ liệu gốc, Node2Vec, SMOTE và SMOTE&nbsp;+&nbsp;Node2Vec.
                       </p>
                     </div>
 
                     <div className="bg-pink-50 p-4 rounded-lg border-l-4 border-pink-600">
-                      <h4 className="text-lg font-bold text-gray-800 mb-2">5. Đánh giá và triển khai</h4>
+                      <h4 className="text-lg font-bold text-gray-800 mb-2">5. Huấn luyện &amp; đánh&nbsp;giá mô hình</h4>
                       <p className="text-gray-600">
-                        - Đánh giá trên tập test độc lập<br/>
-                        - Phân tích feature importance<br/>
-                        - Triển khai mô hình lên web application
+                        - Thử nghiệm các thuật toán học máy và học sâu: Random Forest, XGBoost, LightGBM, TabNet, LSTM, GRU và TCN để khai thác cả dữ liệu bảng và chuỗi thời gian【325245144627243†L700-L835】.<br/>
+                        - Huấn luyện theo từng giai đoạn để dự đoán sớm; sử dụng cross‑validation và tìm kiếm siêu tham số để tối ưu hiệu suất.<br/>
+                        - Đánh giá mô hình bằng F1‑score, Accuracy và AUC‑ROC; phân tích độ quan trọng của đặc trưng và triển khai vào dashboard BI để hỗ trợ can&nbsp;thiệp【325245144627243†L883-L904】【543749709443744†L2591-L2623】.
                       </p>
                     </div>
                   </div>
