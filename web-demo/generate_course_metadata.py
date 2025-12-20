@@ -114,7 +114,7 @@ def generate_course_name(field, course_id):
     templates = FIELD_TEMPLATES.get(field, ["Course"])
     
     # Use course_id hash to deterministically select a template
-    hash_value = int(hashlib.md5(course_id.encode()).hexdigest(), 16)
+    hash_value = int(hashlib.sha256(course_id.encode()).hexdigest(), 16)
     template_index = hash_value % len(templates)
     base_name = templates[template_index]
     
@@ -136,13 +136,13 @@ def generate_description(course_name, field, course_id):
         f"Deep dive into {course_name.lower()} with real-world applications",
     ]
     # Use course_id hash to deterministically select a description template
-    hash_value = int(hashlib.md5(course_id.encode()).hexdigest(), 16)
+    hash_value = int(hashlib.sha256(course_id.encode()).hexdigest(), 16)
     return templates[hash_value % len(templates)]
 
 def assign_fields(num_fields, course_id):
     """Assign fields deterministically based on num_fields count and course_id"""
     all_fields = list(FIELD_TEMPLATES.keys())
-    hash_value = int(hashlib.md5(course_id.encode()).hexdigest(), 16)
+    hash_value = int(hashlib.sha256(course_id.encode()).hexdigest(), 16)
     
     if num_fields == 0:
         # Assign one field deterministically
@@ -155,7 +155,7 @@ def assign_fields(num_fields, course_id):
         selected_fields = []
         for i in range(min(num_fields, len(all_fields))):
             # Generate unique index for each field selection
-            field_hash = int(hashlib.md5(f"{course_id}_{i}".encode()).hexdigest(), 16)
+            field_hash = int(hashlib.sha256(f"{course_id}_{i}".encode()).hexdigest(), 16)
             field_idx = field_hash % len(all_fields)
             field = all_fields[field_idx]
             # Avoid duplicates
