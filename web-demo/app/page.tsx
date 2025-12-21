@@ -10,7 +10,14 @@ type MetricCell = {
   F1_Macro: number;
   MSE: number;
 };
-type MetricsJson = Record<string, Record<string, Record<PeriodKey, MetricCell>>>;
+
+type MetricsRoot = {
+  title?: string;
+  periods?: PeriodKey[];
+  metrics: Record<string, Record<string, Record<PeriodKey, MetricCell>>>;
+};
+
+type MetricsJson = MetricsRoot["metrics"];
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<'overview' | 'results' | 'methods'>('overview');
@@ -34,9 +41,9 @@ export default function Home() {
         setMetricsError(null);
         const res = await fetch("/artifacts/metrics.json", { cache: "no-store" });
         if (!res.ok) throw new Error(`Không tải được metrics.json (HTTP ${res.status})`);
-        const json = (await res.json()) as MetricsJson;
+        const json = (await res.json()) as MetricsRoot;
         if (cancelled) return;
-        setMetrics(json);
+        setMetrics(json.metrics);
       } catch (e: any) {
         if (cancelled) return;
         setMetrics(null);
