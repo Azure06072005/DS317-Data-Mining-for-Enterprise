@@ -1,0 +1,335 @@
+{
+  "title": "Bảng tổng hợp toàn diện (QWK, Accuracy, F1_Macro, MSE)",
+  "source": {
+    "type": "image",
+    "file": "87f98f11-b3a8-4f47-8e0d-49a551602da3.png"
+  },
+  "periods": [
+    "P1",
+    "P2",
+    "P3",
+    "P4"
+  ],
+  "metrics": {
+    "Node2Vec": {
+      "Ensemble": {
+        "P1": {
+          "QWK": -0.0234,
+          "Accuracy": 0.5576,
+          "F1_Macro": 0.1901,
+          "MSE": 0.9886
+        },
+        "P2": {
+          "QWK": 0.0104,
+          "Accuracy": 0.706,
+          "F1_Macro": 0.2324,
+          "MSE": 0.7682
+        },
+        "P3": {
+          "QWK": 0.3005,
+          "Accuracy": 0.8341,
+          "F1_Macro": 0.2971,
+          "MSE": 0.4092
+        },
+        "P4": {
+          "QWK": 0.9673,
+          "Accuracy": 0.9819,
+          "F1_Macro": 0.929,
+          "MSE": 0.0252
+        }
+      },
+      "ML_Stack": {
+        "P1": {
+          "QWK": 0.0084,
+          "Accuracy": 0.1185,
+          "F1_Macro": 0.0492,
+          "MSE": 1.4682
+        },
+        "P2": {
+          "QWK": 0.0085,
+          "Accuracy": 0.1357,
+          "F1_Macro": 0.0565,
+          "MSE": 1.4493
+        },
+        "P3": {
+          "QWK": 0.0826,
+          "Accuracy": 0.6208,
+          "F1_Macro": 0.2082,
+          "MSE": 0.797
+        },
+        "P4": {
+          "QWK": 0.9692,
+          "Accuracy": 0.9818,
+          "F1_Macro": 0.9281,
+          "MSE": 0.0239
+        }
+      },
+      "TabNet": {
+        "P1": {
+          "QWK": 0.0634,
+          "Accuracy": 0.5895,
+          "F1_Macro": 0.1999,
+          "MSE": 0.8565
+        },
+        "P2": {
+          "QWK": 0.1446,
+          "Accuracy": 0.7613,
+          "F1_Macro": 0.2547,
+          "MSE": 0.5904
+        },
+        "P3": {
+          "QWK": 0.5721,
+          "Accuracy": 0.8602,
+          "F1_Macro": 0.3484,
+          "MSE": 0.2554
+        },
+        "P4": {
+          "QWK": 0.9611,
+          "Accuracy": 0.9784,
+          "F1_Macro": 0.91,
+          "MSE": 0.0295
+        }
+      }
+    },
+    "Node2Vec_SMOTE": {
+      "Ensemble": {
+        "P1": {
+          "QWK": -0.0366,
+          "Accuracy": 0.2957,
+          "F1_Macro": 0.1591,
+          "MSE": 4.0605
+        },
+        "P2": {
+          "QWK": -0.0664,
+          "Accuracy": 0.4187,
+          "F1_Macro": 0.2139,
+          "MSE": 3.8382
+        },
+        "P3": {
+          "QWK": 0.1576,
+          "Accuracy": 0.485,
+          "F1_Macro": 0.2448,
+          "MSE": 2.4057
+        },
+        "P4": {
+          "QWK": 0.9932,
+          "Accuracy": 0.9816,
+          "F1_Macro": 0.979,
+          "MSE": 0.0213
+        }
+      },
+      "ML_Stack": {
+        "P1": {
+          "QWK": -0.0148,
+          "Accuracy": 0.1832,
+          "F1_Macro": 0.0994,
+          "MSE": 4.2042
+        },
+        "P2": {
+          "QWK": 0.0052,
+          "Accuracy": 0.2523,
+          "F1_Macro": 0.1425,
+          "MSE": 3.875
+        },
+        "P3": {
+          "QWK": 0.0965,
+          "Accuracy": 0.2728,
+          "F1_Macro": 0.1595,
+          "MSE": 3.346
+        },
+        "P4": {
+          "QWK": 0.9956,
+          "Accuracy": 0.9885,
+          "F1_Macro": 0.9876,
+          "MSE": 0.0137
+        }
+      },
+      "TabNet": {
+        "P1": {
+          "QWK": -0.0181,
+          "Accuracy": 0.3867,
+          "F1_Macro": 0.1981,
+          "MSE": 3.6605
+        },
+        "P2": {
+          "QWK": -0.0509,
+          "Accuracy": 0.4313,
+          "F1_Macro": 0.2168,
+          "MSE": 3.7067
+        },
+        "P3": {
+          "QWK": 0.2343,
+          "Accuracy": 0.501,
+          "F1_Macro": 0.26,
+          "MSE": 2.0658
+        },
+        "P4": {
+          "QWK": 0.986,
+          "Accuracy": 0.9646,
+          "F1_Macro": 0.9575,
+          "MSE": 0.0436
+        }
+      }
+    },
+    "Raw": {
+      "Ensemble": {
+        "P1": {
+          "QWK": -0.0164,
+          "Accuracy": 0.514,
+          "F1_Macro": 0.1774,
+          "MSE": 1.004
+        },
+        "P2": {
+          "QWK": 0.097,
+          "Accuracy": 0.6883,
+          "F1_Macro": 0.2259,
+          "MSE": 0.6824
+        },
+        "P3": {
+          "QWK": 0.1922,
+          "Accuracy": 0.7518,
+          "F1_Macro": 0.2526,
+          "MSE": 0.5434
+        },
+        "P4": {
+          "QWK": 0.9649,
+          "Accuracy": 0.9811,
+          "F1_Macro": 0.927,
+          "MSE": 0.0261
+        }
+      },
+      "ML_Stack": {
+        "P1": {
+          "QWK": 0.0004,
+          "Accuracy": 0.195,
+          "F1_Macro": 0.0796,
+          "MSE": 1.3549
+        },
+        "P2": {
+          "QWK": 0.002,
+          "Accuracy": 0.1972,
+          "F1_Macro": 0.0804,
+          "MSE": 1.3506
+        },
+        "P3": {
+          "QWK": 0.0717,
+          "Accuracy": 0.2195,
+          "F1_Macro": 0.0886,
+          "MSE": 1.2204
+        },
+        "P4": {
+          "QWK": 0.9658,
+          "Accuracy": 0.9801,
+          "F1_Macro": 0.9198,
+          "MSE": 0.0256
+        }
+      },
+      "TabNet": {
+        "P1": {
+          "QWK": 0.014,
+          "Accuracy": 0.5441,
+          "F1_Macro": 0.1861,
+          "MSE": 0.9377
+        },
+        "P2": {
+          "QWK": 0.1827,
+          "Accuracy": 0.7335,
+          "F1_Macro": 0.2436,
+          "MSE": 0.5726
+        },
+        "P3": {
+          "QWK": 0.2713,
+          "Accuracy": 0.7868,
+          "F1_Macro": 0.2702,
+          "MSE": 0.4624
+        },
+        "P4": {
+          "QWK": 0.9578,
+          "Accuracy": 0.9789,
+          "F1_Macro": 0.9168,
+          "MSE": 0.0312
+        }
+      }
+    },
+    "SMOTE": {
+      "Ensemble": {
+        "P1": {
+          "QWK": 0.1942,
+          "Accuracy": 0.3339,
+          "F1_Macro": 0.1669,
+          "MSE": 2.3811
+        },
+        "P2": {
+          "QWK": 0.3164,
+          "Accuracy": 0.4652,
+          "F1_Macro": 0.2531,
+          "MSE": 1.7294
+        },
+        "P3": {
+          "QWK": 0.4785,
+          "Accuracy": 0.4651,
+          "F1_Macro": 0.3036,
+          "MSE": 1.3
+        },
+        "P4": {
+          "QWK": 0.9591,
+          "Accuracy": 0.9167,
+          "F1_Macro": 0.9135,
+          "MSE": 0.1284
+        }
+      },
+      "ML_Stack": {
+        "P1": {
+          "QWK": 0.1412,
+          "Accuracy": 0.454,
+          "F1_Macro": 0.2195,
+          "MSE": 2.1699
+        },
+        "P2": {
+          "QWK": 0.3937,
+          "Accuracy": 0.4834,
+          "F1_Macro": 0.3416,
+          "MSE": 1.4885
+        },
+        "P3": {
+          "QWK": 0.3811,
+          "Accuracy": 0.3924,
+          "F1_Macro": 0.3118,
+          "MSE": 1.5685
+        },
+        "P4": {
+          "QWK": 0.9616,
+          "Accuracy": 0.9235,
+          "F1_Macro": 0.9236,
+          "MSE": 0.1209
+        }
+      },
+      "TabNet": {
+        "P1": {
+          "QWK": 0.171,
+          "Accuracy": 0.1384,
+          "F1_Macro": 0.0623,
+          "MSE": 3.2276
+        },
+        "P2": {
+          "QWK": 0.2428,
+          "Accuracy": 0.2699,
+          "F1_Macro": 0.1455,
+          "MSE": 2.5669
+        },
+        "P3": {
+          "QWK": 0.4499,
+          "Accuracy": 0.3823,
+          "F1_Macro": 0.2304,
+          "MSE": 1.6326
+        },
+        "P4": {
+          "QWK": 0.9485,
+          "Accuracy": 0.894,
+          "F1_Macro": 0.882,
+          "MSE": 0.1605
+        }
+      }
+    }
+  }
+}
