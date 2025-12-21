@@ -1,224 +1,84 @@
-#!/usr/bin/env python3
-"""
-Generate enhanced course metadata with course names and fields based on existing course_resource.csv
+"""Utilities for generating course metadata.
+
+This module previously generated semi-random metadata for demo purposes.
+For reproducibility (tests, CI, and deterministic demos), this version
+removes all sources of randomness.
+
+Rules implemented:
+- course_name is set deterministically to: "Course <course_id>"
+- field is derived deterministically from a stable hash of course_id
+- description is derived deterministically from course_name and field
+- numeric fields that exist in the input are preserved as-is
+- num_fields is set deterministically to 1
+- additional_fields is left empty (""), deterministically
+
+NOTE: We intentionally use a stable hash (SHA-256) rather than Python's
+built-in hash(), which is salted per-process and therefore non-deterministic.
 """
 
-import csv
-import random
+from __future__ import annotations
 
-# Define field categories and their course name templates
-FIELD_TEMPLATES = {
-    "Computer Science": [
-        "Introduction to Programming",
-        "Data Structures and Algorithms",
-        "Web Development Fundamentals",
-        "Database Management Systems",
-        "Software Engineering Principles",
-        "Machine Learning Basics",
+import hashlib
+from typing import Any, Dict
+
+
+def _stable_int_from_course_id(course_id: Any) -> int:
+    """Return a stable non-negative integer derived from course_id."""
+    # Normalize to a stable string representation.
+    cid = "" if course_id is None else str(course_id)
+    digest = hashlib.sha256(cid.encode("utf-8")).hexdigest()
+    # Use a prefix of the digest to keep the integer small but stable.
+    return int(digest[:12], 16)
+
+
+def _deterministic_field(course_id: Any) -> str:
+    """Return a deterministic field label derived from course_id."""
+    # Keep a fixed palette so the value is human-friendly yet stable.
+    fields = [
+        "Analytics",
         "Artificial Intelligence",
-        "Computer Networks",
-        "Operating Systems",
-        "Cybersecurity Fundamentals",
-        "Cloud Computing",
-        "Mobile App Development",
-        "DevOps and CI/CD",
-        "Blockchain Technology",
-        "Computer Graphics",
-    ],
-    "Mathematics": [
-        "Linear Algebra",
-        "Calculus I",
-        "Calculus II",
-        "Discrete Mathematics",
-        "Probability and Statistics",
-        "Differential Equations",
-        "Applied Mathematics",
-        "Numerical Methods",
-        "Mathematical Optimization",
-        "Number Theory",
-        "Graph Theory",
-        "Combinatorics",
-    ],
-    "Business": [
-        "Business Management",
-        "Marketing Fundamentals",
-        "Financial Accounting",
-        "Business Analytics",
-        "Entrepreneurship",
-        "Strategic Management",
-        "Human Resource Management",
-        "Supply Chain Management",
-        "Digital Marketing",
-        "Project Management",
-        "Business Law",
-        "Economics Principles",
-    ],
-    "Data Science": [
-        "Introduction to Data Science",
-        "Big Data Analytics",
-        "Statistical Learning",
-        "Data Visualization",
-        "Python for Data Science",
-        "R Programming",
-        "Deep Learning",
-        "Natural Language Processing",
-        "Time Series Analysis",
+        "Business",
+        "Computer Science",
+        "Data Engineering",
         "Data Mining",
-        "Predictive Analytics",
-    ],
-    "Engineering": [
-        "Engineering Mathematics",
-        "Circuit Analysis",
-        "Mechanics",
-        "Thermodynamics",
-        "Materials Science",
-        "Control Systems",
-        "Signal Processing",
-        "Embedded Systems",
-        "Robotics",
-        "Renewable Energy",
-    ],
-    "Psychology": [
-        "Introduction to Psychology",
-        "Cognitive Psychology",
-        "Social Psychology",
-        "Developmental Psychology",
-        "Behavioral Psychology",
-        "Educational Psychology",
-        "Clinical Psychology",
-        "Research Methods in Psychology",
-    ],
-    "Physics": [
-        "Classical Mechanics",
-        "Electromagnetism",
-        "Quantum Mechanics",
-        "Thermodynamics and Statistical Physics",
-        "Modern Physics",
-        "Optics",
-        "Astrophysics",
-    ],
-    "Chemistry": [
-        "General Chemistry",
-        "Organic Chemistry",
-        "Inorganic Chemistry",
-        "Physical Chemistry",
-        "Analytical Chemistry",
-        "Biochemistry",
-    ],
-}
-
-# Generate course descriptions
-def generate_course_name(field, index):
-    """Generate a course name based on field"""
-    templates = FIELD_TEMPLATES.get(field, ["Course"])
-    
-    # Pick a template
-    if index < len(templates):
-        base_name = templates[index]
-    else:
-        # Generate numbered courses
-        base_name = f"{field} Advanced Topics {index - len(templates) + 1}"
-    
-    # Occasionally add level indicators
-    if random.random() < 0.3:
-        levels = ["Beginner", "Intermediate", "Advanced"]
-        level = levels[min(index % 3, 2)]
-        return f"{base_name} - {level}"
-    
-    return base_name
-
-def generate_description(course_name, field):
-    """Generate a brief course description"""
-    templates = [
-        f"Comprehensive introduction to {course_name.lower()} in {field}",
-        f"Master the fundamentals of {course_name.lower()} with hands-on projects",
-        f"Advanced {course_name.lower()} course covering key concepts in {field}",
-        f"Learn {course_name.lower()} through practical examples and case studies",
-        f"Deep dive into {course_name.lower()} with real-world applications",
+        "Data Science",
+        "Economics",
+        "Finance",
+        "Information Systems",
+        "Machine Learning",
+        "Statistics",
     ]
-    return random.choice(templates)
+    n = _stable_int_from_course_id(course_id)
+    return fields[n % len(fields)]
 
-def assign_fields(num_fields):
-    """Assign fields based on num_fields count"""
-    if num_fields == 0:
-        # Assign a random field
-        return [random.choice(list(FIELD_TEMPLATES.keys()))]
-    elif num_fields == 1:
-        return [random.choice(list(FIELD_TEMPLATES.keys()))]
-    else:
-        # Multiple fields - pick randomly
-        fields = random.sample(list(FIELD_TEMPLATES.keys()), min(num_fields, len(FIELD_TEMPLATES)))
-        return fields
 
-def main():
-    input_file = 'course_resource.csv'
-    output_file = 'course_resource_enhanced.csv'
-    
-    # Read existing courses
-    courses = []
-    with open(input_file, 'r', encoding='utf-8') as f:
-        reader = csv.DictReader(f)
-        courses = list(reader)
-    
-    # Track course counts per field for name generation
-    field_counters = {field: 0 for field in FIELD_TEMPLATES.keys()}
-    
-    # Enhance courses
-    enhanced_courses = []
-    for course in courses:
-        course_id = course['course_id']
-        num_fields_val = int(course['num_fields'])
-        
-        # Assign fields
-        fields = assign_fields(num_fields_val)
-        primary_field = fields[0]
-        
-        # Generate course name
-        course_name = generate_course_name(primary_field, field_counters[primary_field])
-        field_counters[primary_field] += 1
-        
-        # Generate description
-        description = generate_description(course_name, primary_field)
-        
-        # Create enhanced record
-        enhanced_course = {
-            'course_id': course_id,
-            'course_name': course_name,
-            'description': description,
-            'field': primary_field,
-            'additional_fields': ','.join(fields[1:]) if len(fields) > 1 else '',
-            'total_students_enrolled': course['total_students_enrolled'],
-            'total_videos': course['total_videos'],
-            'total_exercises': course['total_exercises'],
-            'num_fields': course['num_fields'],
-            'is_prerequisites': course['is_prerequisites'],
-        }
-        enhanced_courses.append(enhanced_course)
-    
-    # Write enhanced courses
-    fieldnames = [
-        'course_id', 'course_name', 'description', 'field', 'additional_fields',
-        'total_students_enrolled', 'total_videos', 'total_exercises', 
-        'num_fields', 'is_prerequisites'
-    ]
-    
-    with open(output_file, 'w', encoding='utf-8', newline='') as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
-        writer.writeheader()
-        writer.writerows(enhanced_courses)
-    
-    print(f"✅ Generated {len(enhanced_courses)} enhanced course records")
-    print(f"📄 Output file: {output_file}")
-    
-    # Print field distribution
-    print("\n📊 Field Distribution:")
-    field_dist = {}
-    for course in enhanced_courses:
-        field = course['field']
-        field_dist[field] = field_dist.get(field, 0) + 1
-    
-    for field, count in sorted(field_dist.items(), key=lambda x: x[1], reverse=True):
-        print(f"   {field}: {count} courses")
+def generate_course_metadata(course: Dict[str, Any]) -> Dict[str, Any]:
+    """Generate deterministic course metadata.
 
-if __name__ == '__main__':
-    main()
+    The function accepts a course record (dict) and returns an updated dict.
+    It preserves any existing numeric fields from the input record.
+
+    Deterministic outputs:
+      - course_name: "Course <course_id>"
+      - field: stable hash-derived field label
+      - description: derived from course_name + field
+      - num_fields: 1
+      - additional_fields: ""
+    """
+
+    # Work on a shallow copy to avoid mutating the caller's object.
+    out: Dict[str, Any] = dict(course)
+
+    course_id = out.get("course_id")
+    course_name = f"Course {course_id}"
+    field = _deterministic_field(course_id)
+
+    out["course_name"] = course_name
+    out["field"] = field
+    out["description"] = f"{course_name} focuses on {field}."
+
+    # Ensure deterministic handling of field counts.
+    out["num_fields"] = 1
+    out["additional_fields"] = ""
+
+    return out
