@@ -107,25 +107,7 @@ FIELD_TEMPLATES = {
     ],
 }
 
-# Generate course descriptions
-def generate_course_name(field, index):
-    """Generate a course name based on field"""
-    templates = FIELD_TEMPLATES.get(field, ["Course"])
-    
-    # Pick a template
-    if index < len(templates):
-        base_name = templates[index]
-    else:
-        # Generate numbered courses
-        base_name = f"{field} Advanced Topics {index - len(templates) + 1}"
-    
-    # Occasionally add level indicators
-    if random.random() < 0.3:
-        levels = ["Beginner", "Intermediate", "Advanced"]
-        level = levels[min(index % 3, 2)]
-        return f"{base_name} - {level}"
-    
-    return base_name
+
 
 def generate_description(course_name, field):
     """Generate a brief course description"""
