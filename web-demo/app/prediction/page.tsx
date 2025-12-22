@@ -7,7 +7,7 @@ import {
   getUsersByCourseId,
   getUserCourseSatisfaction,
   getUserCourses,
-  getCourseStatistics
+  getCourseStatistics,
 } from "@/data/predictionData";
 
 type PredictionType = "course" | "user";
@@ -17,8 +17,8 @@ interface CoursePredictionResult {
   courseId: string;
   totalUsers: number;
   avgSatisfaction: number;
-  overallGroup: 'A' | 'B' | 'C' | 'D' | 'E';
-  groupCounts: Record<'A' | 'B' | 'C' | 'D' | 'E', number>;
+  overallGroup: "A" | "B" | "C" | "D" | "E";
+  groupCounts: Record<"A" | "B" | "C" | "D" | "E", number>;
   distribution: Array<{ name: string; value: number; percentage: number }>;
 }
 
@@ -31,27 +31,30 @@ interface UserPredictionResult {
     courseId: string;
     satisfactionLabel: number;
     satisfactionPercentage: number;
-    group: 'A' | 'B' | 'C' | 'D' | 'E';
+    group: "A" | "B" | "C" | "D" | "E";
   };
   otherCourses: Array<{
     userId: string;
     courseId: string;
     satisfactionLabel: number;
     satisfactionPercentage: number;
-    group: 'A' | 'B' | 'C' | 'D' | 'E';
+    group: "A" | "B" | "C" | "D" | "E";
   }>;
 }
 
 type PredictionResult = CoursePredictionResult | UserPredictionResult;
 
 export default function Prediction() {
-  const [predictionType, setPredictionType] = useState<PredictionType>("course");
+  const [predictionType, setPredictionType] =
+    useState<PredictionType>("course");
   const [selectedCourseId, setSelectedCourseId] = useState("");
   const [selectedUserId, setSelectedUserId] = useState("");
   const [prediction, setPrediction] = useState<PredictionResult | null>(null);
 
   // Get available users for selected course
-  const availableUsers = selectedCourseId ? getUsersByCourseId(selectedCourseId) : [];
+  const availableUsers = selectedCourseId
+    ? getUsersByCourseId(selectedCourseId)
+    : [];
 
   const handleCourseChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const newCourseId = e.target.value;
@@ -74,7 +77,7 @@ export default function Prediction() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (predictionType === "course") {
       // Predict by course - show overall satisfaction
       const stats = getCourseStatistics(selectedCourseId);
@@ -82,21 +85,26 @@ export default function Prediction() {
         setPrediction({
           type: "course",
           courseId: selectedCourseId,
-          ...stats
+          ...stats,
         });
       }
     } else {
       // Predict by user - show user's satisfaction with selected course + other courses
-      const userCourseSat = getUserCourseSatisfaction(selectedUserId, selectedCourseId);
-      const otherCourses = getUserCourses(selectedUserId).filter(c => c.courseId !== selectedCourseId);
-      
+      const userCourseSat = getUserCourseSatisfaction(
+        selectedUserId,
+        selectedCourseId
+      );
+      const otherCourses = getUserCourses(selectedUserId).filter(
+        (c) => c.courseId !== selectedCourseId
+      );
+
       if (userCourseSat) {
         setPrediction({
           type: "user",
           userId: selectedUserId,
           courseId: selectedCourseId,
           satisfaction: userCourseSat,
-          otherCourses
+          otherCourses,
         });
       }
     }
@@ -119,8 +127,18 @@ export default function Prediction() {
         <div className="bg-blue-50 border-l-4 border-blue-500 p-6 mb-8 rounded-r-lg">
           <div className="flex items-start">
             <div className="flex-shrink-0">
-              <svg className="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              <svg
+                className="h-6 w-6 text-blue-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
               </svg>
             </div>
             <div className="ml-3">
@@ -129,17 +147,24 @@ export default function Prediction() {
               </h3>
               <div className="mt-2 text-sm text-blue-700">
                 <p className="mb-2">
-                  Chúng tôi đã tách trang này thành 2 trang chuyên biệt để bạn có trải nghiệm tốt hơn:
+                  Chúng tôi đã tách trang này thành 2 trang chuyên biệt để bạn
+                  có trải nghiệm tốt hơn:
                 </p>
                 <ul className="list-disc list-inside space-y-1 ml-2">
                   <li>
-                    <a href="/course" className="font-semibold underline hover:text-blue-900">
+                    <a
+                      href="/course"
+                      className="font-semibold underline hover:text-blue-900"
+                    >
                       Trang Course
                     </a>
                     {" - Xem thống kê và phân tích chi tiết về các khóa học"}
                   </li>
                   <li>
-                    <a href="/user" className="font-semibold underline hover:text-blue-900">
+                    <a
+                      href="/user"
+                      className="font-semibold underline hover:text-blue-900"
+                    >
                       Trang User
                     </a>
                     {" - Tra cứu thông tin và mức độ hài lòng của người học"}
@@ -191,7 +216,10 @@ export default function Prediction() {
 
               {/* Course Selection */}
               <div>
-                <label htmlFor="courseId" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="courseId"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Khóa học
                 </label>
                 <select
@@ -204,7 +232,7 @@ export default function Prediction() {
                   <option value="">-- Chọn khóa học --</option>
                   {coursesData.map((course) => (
                     <option key={course.courseId} value={course.courseId}>
-                      {course.courseId}
+                      {course.courseName} ({course.field}) - {course.courseId}
                     </option>
                   ))}
                 </select>
@@ -213,7 +241,10 @@ export default function Prediction() {
               {/* User Selection - Only shown for "user" type and after course is selected */}
               {predictionType === "user" && (
                 <div>
-                  <label htmlFor="userId" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="userId"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Người học
                   </label>
                   <select
@@ -246,7 +277,10 @@ export default function Prediction() {
               {/* Submit Button */}
               <button
                 type="submit"
-                disabled={!selectedCourseId || (predictionType === "user" && !selectedUserId)}
+                disabled={
+                  !selectedCourseId ||
+                  (predictionType === "user" && !selectedUserId)
+                }
                 className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 text-white py-3 px-6 rounded-lg font-medium hover:from-cyan-700 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 transition transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
                 Dự đoán
@@ -259,31 +293,46 @@ export default function Prediction() {
             <h2 className="text-2xl font-bold text-gray-900 mb-6">
               Kết quả dự đoán
             </h2>
-            
+
             {prediction ? (
               <div className="space-y-6">
                 {prediction.type === "course" ? (
                   /* Course Prediction Results */
                   <>
                     <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border-2 border-cyan-200">
-                      <div className="text-sm text-gray-600 mb-2">Khóa học: {prediction.courseId}</div>
-                      <div className="text-sm text-gray-600 mb-2">Tổng số người học: {prediction.totalUsers}</div>
+                      <div className="text-sm text-gray-600 mb-2">
+                        Khóa học: {prediction.courseId}
+                      </div>
+                      <div className="text-sm text-gray-600 mb-2">
+                        Tổng số người học: {prediction.totalUsers}
+                      </div>
                       <div className="flex items-baseline gap-3 mt-4">
-                        <div className={`text-5xl font-bold ${
-                          prediction.overallGroup === 'A' ? 'text-green-600' :
-                          prediction.overallGroup === 'B' ? 'text-blue-600' :
-                          prediction.overallGroup === 'C' ? 'text-yellow-600' :
-                          prediction.overallGroup === 'D' ? 'text-orange-600' :
-                          'text-red-600'
-                        }`}>
+                        <div
+                          className={`text-5xl font-bold ${
+                            prediction.overallGroup === "A"
+                              ? "text-green-600"
+                              : prediction.overallGroup === "B"
+                              ? "text-blue-600"
+                              : prediction.overallGroup === "C"
+                              ? "text-yellow-600"
+                              : prediction.overallGroup === "D"
+                              ? "text-orange-600"
+                              : "text-red-600"
+                          }`}
+                        >
                           {prediction.overallGroup}
                         </div>
                         <div className="text-lg text-gray-700">
-                          {SATISFACTION_GROUPS[prediction.overallGroup as keyof typeof SATISFACTION_GROUPS].label}
+                          {
+                            SATISFACTION_GROUPS[
+                              prediction.overallGroup as keyof typeof SATISFACTION_GROUPS
+                            ].label
+                          }
                         </div>
                       </div>
                       <div className="mt-2 text-sm text-gray-600">
-                        Mức độ hài lòng trung bình: {prediction.avgSatisfaction}%
+                        Mức độ hài lòng trung bình: {prediction.avgSatisfaction}
+                        %
                       </div>
                     </div>
 
@@ -295,23 +344,33 @@ export default function Prediction() {
                       <div className="grid grid-cols-2 gap-4 mb-4">
                         <div className="bg-green-50 p-3 rounded-lg">
                           <div className="text-sm text-gray-600">Group A</div>
-                          <div className="text-2xl font-bold text-green-600">{prediction.groupCounts.A}</div>
+                          <div className="text-2xl font-bold text-green-600">
+                            {prediction.groupCounts.A}
+                          </div>
                         </div>
                         <div className="bg-blue-50 p-3 rounded-lg">
                           <div className="text-sm text-gray-600">Group B</div>
-                          <div className="text-2xl font-bold text-blue-600">{prediction.groupCounts.B}</div>
+                          <div className="text-2xl font-bold text-blue-600">
+                            {prediction.groupCounts.B}
+                          </div>
                         </div>
                         <div className="bg-yellow-50 p-3 rounded-lg">
                           <div className="text-sm text-gray-600">Group C</div>
-                          <div className="text-2xl font-bold text-yellow-600">{prediction.groupCounts.C}</div>
+                          <div className="text-2xl font-bold text-yellow-600">
+                            {prediction.groupCounts.C}
+                          </div>
                         </div>
                         <div className="bg-orange-50 p-3 rounded-lg">
                           <div className="text-sm text-gray-600">Group D</div>
-                          <div className="text-2xl font-bold text-orange-600">{prediction.groupCounts.D}</div>
+                          <div className="text-2xl font-bold text-orange-600">
+                            {prediction.groupCounts.D}
+                          </div>
                         </div>
                         <div className="col-span-2 bg-red-50 p-3 rounded-lg">
                           <div className="text-sm text-gray-600">Group E</div>
-                          <div className="text-2xl font-bold text-red-600">{prediction.groupCounts.E}</div>
+                          <div className="text-2xl font-bold text-red-600">
+                            {prediction.groupCounts.E}
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -325,7 +384,9 @@ export default function Prediction() {
                         {prediction.distribution.map((item) => (
                           <div key={item.name}>
                             <div className="flex justify-between text-sm mb-1">
-                              <span className="text-gray-700 font-medium">{item.name}</span>
+                              <span className="text-gray-700 font-medium">
+                                {item.name}
+                              </span>
                               <span className="text-gray-900 font-medium">
                                 {item.value} ({item.percentage}%)
                               </span>
@@ -333,11 +394,15 @@ export default function Prediction() {
                             <div className="w-full bg-gray-200 rounded-full h-2">
                               <div
                                 className={`h-2 rounded-full ${
-                                  item.name === 'Group A' ? 'bg-green-500' :
-                                  item.name === 'Group B' ? 'bg-blue-500' :
-                                  item.name === 'Group C' ? 'bg-yellow-500' :
-                                  item.name === 'Group D' ? 'bg-orange-500' :
-                                  'bg-red-500'
+                                  item.name === "Group A"
+                                    ? "bg-green-500"
+                                    : item.name === "Group B"
+                                    ? "bg-blue-500"
+                                    : item.name === "Group C"
+                                    ? "bg-yellow-500"
+                                    : item.name === "Group D"
+                                    ? "bg-orange-500"
+                                    : "bg-red-500"
                                 }`}
                                 style={{ width: `${item.percentage}%` }}
                               ></div>
@@ -351,24 +416,40 @@ export default function Prediction() {
                   /* User Prediction Results */
                   <>
                     <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-6 border-2 border-cyan-200">
-                      <div className="text-sm text-gray-600 mb-2">Người học: {prediction.userId}</div>
-                      <div className="text-sm text-gray-600 mb-2">Khóa học đang xem: {prediction.courseId}</div>
+                      <div className="text-sm text-gray-600 mb-2">
+                        Người học: {prediction.userId}
+                      </div>
+                      <div className="text-sm text-gray-600 mb-2">
+                        Khóa học đang xem: {prediction.courseId}
+                      </div>
                       <div className="flex items-baseline gap-3 mt-4">
-                        <div className={`text-5xl font-bold ${
-                          prediction.satisfaction.group === 'A' ? 'text-green-600' :
-                          prediction.satisfaction.group === 'B' ? 'text-blue-600' :
-                          prediction.satisfaction.group === 'C' ? 'text-yellow-600' :
-                          prediction.satisfaction.group === 'D' ? 'text-orange-600' :
-                          'text-red-600'
-                        }`}>
+                        <div
+                          className={`text-5xl font-bold ${
+                            prediction.satisfaction.group === "A"
+                              ? "text-green-600"
+                              : prediction.satisfaction.group === "B"
+                              ? "text-blue-600"
+                              : prediction.satisfaction.group === "C"
+                              ? "text-yellow-600"
+                              : prediction.satisfaction.group === "D"
+                              ? "text-orange-600"
+                              : "text-red-600"
+                          }`}
+                        >
                           {prediction.satisfaction.group}
                         </div>
                         <div className="text-lg text-gray-700">
-                          {SATISFACTION_GROUPS[prediction.satisfaction.group as keyof typeof SATISFACTION_GROUPS].label}
+                          {
+                            SATISFACTION_GROUPS[
+                              prediction.satisfaction
+                                .group as keyof typeof SATISFACTION_GROUPS
+                            ].label
+                          }
                         </div>
                       </div>
                       <div className="mt-2 text-sm text-gray-600">
-                        Mức độ hài lòng: {prediction.satisfaction.satisfactionPercentage}%
+                        Mức độ hài lòng:{" "}
+                        {prediction.satisfaction.satisfactionPercentage}%
                       </div>
                     </div>
 
@@ -382,24 +463,43 @@ export default function Prediction() {
                           <table className="w-full">
                             <thead>
                               <tr className="border-b-2 border-gray-300">
-                                <th className="text-left py-3 px-4 font-semibold text-gray-700">Khóa học</th>
-                                <th className="text-left py-3 px-4 font-semibold text-gray-700">Mức độ hài lòng</th>
-                                <th className="text-left py-3 px-4 font-semibold text-gray-700">Phân loại</th>
+                                <th className="text-left py-3 px-4 font-semibold text-gray-700">
+                                  Khóa học
+                                </th>
+                                <th className="text-left py-3 px-4 font-semibold text-gray-700">
+                                  Mức độ hài lòng
+                                </th>
+                                <th className="text-left py-3 px-4 font-semibold text-gray-700">
+                                  Phân loại
+                                </th>
                               </tr>
                             </thead>
                             <tbody>
                               {prediction.otherCourses.map((course) => (
-                                <tr key={course.courseId} className="border-b border-gray-200">
-                                  <td className="py-3 px-4 text-gray-800">{course.courseId}</td>
-                                  <td className="py-3 px-4 text-gray-800">{course.satisfactionPercentage}%</td>
+                                <tr
+                                  key={course.courseId}
+                                  className="border-b border-gray-200"
+                                >
+                                  <td className="py-3 px-4 text-gray-800">
+                                    {course.courseId}
+                                  </td>
+                                  <td className="py-3 px-4 text-gray-800">
+                                    {course.satisfactionPercentage}%
+                                  </td>
                                   <td className="py-3 px-4">
-                                    <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${
-                                      course.group === 'A' ? 'bg-green-100 text-green-700' :
-                                      course.group === 'B' ? 'bg-blue-100 text-blue-700' :
-                                      course.group === 'C' ? 'bg-yellow-100 text-yellow-700' :
-                                      course.group === 'D' ? 'bg-orange-100 text-orange-700' :
-                                      'bg-red-100 text-red-700'
-                                    }`}>
+                                    <span
+                                      className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${
+                                        course.group === "A"
+                                          ? "bg-green-100 text-green-700"
+                                          : course.group === "B"
+                                          ? "bg-blue-100 text-blue-700"
+                                          : course.group === "C"
+                                          ? "bg-yellow-100 text-yellow-700"
+                                          : course.group === "D"
+                                          ? "bg-orange-100 text-orange-700"
+                                          : "bg-red-100 text-red-700"
+                                      }`}
+                                    >
                                       Group {course.group}
                                     </span>
                                   </td>
@@ -416,17 +516,31 @@ export default function Prediction() {
                 {/* Info */}
                 <div className="bg-cyan-50 rounded-lg p-4 border border-cyan-200">
                   <p className="text-sm text-gray-700">
-                    <span className="font-semibold">Lưu ý:</span> Kết quả dự đoán được tính toán dựa trên mô hình Data Mining đã được huấn luyện với dữ liệu lịch sử.
+                    <span className="font-semibold">Lưu ý:</span> Kết quả dự
+                    đoán được tính toán dựa trên mô hình Data Mining đã được
+                    huấn luyện với dữ liệu lịch sử.
                   </p>
                 </div>
               </div>
             ) : (
               <div className="flex flex-col items-center justify-center h-96 text-gray-400">
-                <svg className="w-24 h-24 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                <svg
+                  className="w-24 h-24 mb-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                  />
                 </svg>
                 <p className="text-lg font-medium">Chưa có kết quả</p>
-                <p className="text-sm">Vui lòng nhập thông tin và nhấn nút Dự đoán</p>
+                <p className="text-sm">
+                  Vui lòng nhập thông tin và nhấn nút Dự đoán
+                </p>
               </div>
             )}
           </div>

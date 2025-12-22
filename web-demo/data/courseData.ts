@@ -1,7 +1,61 @@
 // Course data from course_resource_enhanced.csv
 import { CourseInfo } from "@/types/prediction";
 
-export const coursesData: CourseInfo[] = [
+// ===== Course metadata helpers (DETERMINISTIC, NO RANDOM) =====
+
+function inferLevel(totalVideos: number, totalExercises: number): "Intro" | "Intermediate" | "Advanced" {
+  const score = totalVideos + 2 * totalExercises;
+  if (score <= 80) return "Intro";
+  if (score <= 220) return "Intermediate";
+  return "Advanced";
+}
+
+function isPopular(totalStudents: number): boolean {
+  return totalStudents >= 30000;
+}
+
+function buildCourseName(
+  field: string,
+  level: string,
+  multi: boolean,
+  isPrerequisites: boolean,
+  popular: boolean
+): string {
+  const parts: string[] = [level, field];
+
+  if (multi) parts.push("Multi-disciplinary");
+  if (isPrerequisites) parts.push("With Prerequisites");
+  if (popular) parts.push("Popular");
+
+  return parts.join(" • ");
+}
+
+function buildDescription(
+  field: string,
+  level: string,
+  totalVideos: number,
+  totalExercises: number,
+  multi: boolean,
+  isPrerequisites: boolean,
+  totalStudents: number
+): string {
+  const tags: string[] = [];
+
+  if (multi) tags.push("multi-disciplinary");
+  if (isPrerequisites) tags.push("requires prerequisites");
+  if (totalStudents > 0) tags.push(`${totalStudents.toLocaleString()} learners enrolled`);
+
+  const tagText = tags.length ? ` This course is ${tags.join(", ")}.` : "";
+
+  return (
+    `${level}-level course in ${field}. ` +
+    `Resources include ${totalVideos} videos and ${totalExercises} exercises.` +
+    tagText
+  );
+}
+
+
+const rawCoursesData: CourseInfo[] = [
   {
     courseId: "C_680777",
     courseName: "Introduction to Data Science",
@@ -3711,3 +3765,26 @@ export const coursesData: CourseInfo[] = [
     isPrerequisites: false,
   },
 ];
+
+export const coursesData: CourseInfo[] = rawCoursesData.map((c) => {
+  const level = inferLevel(c.totalVideos, c.totalExercises);
+  const multi = (c.additionalFields?.length ?? 0) > 0 || c.numFields > 1;
+  const popular = isPopular(c.totalStudentsEnrolled);
+
+  return {
+    ...c,
+    // Ghi đè tên/mô tả => KHÔNG NHIỄU, nhất quán với logic bạn đã dùng khi tạo CSV enhanced
+    courseName: buildCourseName(c.field, level, multi, c.isPrerequisites, popular),
+    description: buildDescription(
+      c.field,
+      level,
+      c.totalVideos,
+      c.totalExercises,
+      multi,
+      c.isPrerequisites,
+      c.totalStudentsEnrolled
+    ),
+  };
+});
+
+
