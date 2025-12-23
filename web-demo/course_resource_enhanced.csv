@@ -1,310 +1,310 @@
-course_id,course_name,description,field,additional_fields,level,is_popular,is_multi_field,total_students_enrolled,total_videos,total_exercises,num_fields,is_prerequisites
-C_674903,Intermediate • Data Science • With Prerequisites • Popular,"Intermediate-level course in Data Science. Resources include 109 videos and 15 exercises. This course is requires prerequisites, 48,029 learners enrolled.",Data Science,,Intermediate,1,0,48029,109,15,1,1
-C_674920,Intermediate • Engineering • Popular,"Intermediate-level course in Engineering. Resources include 162 videos and 24 exercises. This course is 32,466 learners enrolled.",Engineering,,Intermediate,1,0,32466,162,24,1,0
-C_676651,Intro • Mathematics,"Intro-level course in Mathematics. Resources include 33 videos and 1 exercises. This course is 17,878 learners enrolled.",Mathematics,,Intro,0,0,17878,33,1,0,0
-C_676656,Intermediate • Data Science,"Intermediate-level course in Data Science. Resources include 158 videos and 16 exercises. This course is 21,003 learners enrolled.",Data Science,,Intermediate,0,0,21003,158,16,0,0
-C_676661,Intro • Mathematics,"Intro-level course in Mathematics. Resources include 19 videos and 15 exercises. This course is 10,349 learners enrolled.",Mathematics,,Intro,0,0,10349,19,15,0,0
-C_676664,Intermediate • Physics,"Intermediate-level course in Physics. Resources include 36 videos and 62 exercises. This course is 11,833 learners enrolled.",Physics,,Intermediate,0,0,11833,36,62,0,0
-C_676683,Intro • Physics • Popular,"Intro-level course in Physics. Resources include 57 videos and 8 exercises. This course is 34,310 learners enrolled.",Physics,,Intro,1,0,34310,57,8,1,0
-C_676898,Advanced • Physics • With Prerequisites,"Advanced-level course in Physics. Resources include 57 videos and 101 exercises. This course is requires prerequisites, 13,122 learners enrolled.",Physics,,Advanced,0,0,13122,57,101,1,1
-C_676915,Intro • Psychology,"Intro-level course in Psychology. Resources include 49 videos and 6 exercises. This course is 13,388 learners enrolled.",Psychology,,Intro,0,0,13388,49,6,1,0
-C_676969,Intermediate • Chemistry • With Prerequisites,"Intermediate-level course in Chemistry. Resources include 83 videos and 10 exercises. This course is requires prerequisites, 11,408 learners enrolled.",Chemistry,,Intermediate,0,0,11408,83,10,1,1
-C_676996,Intro • Psychology,"Intro-level course in Psychology. Resources include 13 videos and 13 exercises. This course is 11,350 learners enrolled.",Psychology,,Intro,0,0,11350,13,13,0,0
-C_677010,Intermediate • Computer Science • With Prerequisites • Popular,"Intermediate-level course in Computer Science. Resources include 104 videos and 37 exercises. This course is requires prerequisites, 42,690 learners enrolled.",Computer Science,,Intermediate,1,0,42690,104,37,1,1
-C_677019,Intermediate • Physics,"Intermediate-level course in Physics. Resources include 76 videos and 14 exercises. This course is 16,323 learners enrolled.",Physics,,Intermediate,0,0,16323,76,14,0,0
-C_677020,Intermediate • Computer Science,"Intermediate-level course in Computer Science. Resources include 100 videos and 11 exercises. This course is 11,948 learners enrolled.",Computer Science,,Intermediate,0,0,11948,100,11,1,0
-C_677093,Advanced • Chemistry,"Advanced-level course in Chemistry. Resources include 119 videos and 62 exercises. This course is 12,800 learners enrolled.",Chemistry,,Advanced,0,0,12800,119,62,0,0
-C_677159,Intro • Engineering,"Intro-level course in Engineering. Resources include 53 videos and 1 exercises. This course is 14,042 learners enrolled.",Engineering,,Intro,0,0,14042,53,1,1,0
-C_677236,Intro • Psychology,"Intro-level course in Psychology. Resources include 40 videos and 5 exercises. This course is 16,841 learners enrolled.",Psychology,,Intro,0,0,16841,40,5,1,0
-C_677243,Intro • Computer Science • With Prerequisites,"Intro-level course in Computer Science. Resources include 40 videos and 10 exercises. This course is requires prerequisites, 23,279 learners enrolled.",Computer Science,,Intro,0,0,23279,40,10,0,1
-C_680740,Intermediate • Psychology,"Intermediate-level course in Psychology. Resources include 51 videos and 18 exercises. This course is 13,485 learners enrolled.",Psychology,,Intermediate,0,0,13485,51,18,0,0
-C_680761,Intermediate • Mathematics • Multi-disciplinary,"Intermediate-level course in Mathematics. Resources include 89 videos and 11 exercises. This course is multi-disciplinary, 17,580 learners enrolled.",Mathematics,Business,Intermediate,0,1,17580,89,11,2,0
-C_680777,Intro • Psychology,"Intro-level course in Psychology. Resources include 19 videos and 9 exercises. This course is 14,843 learners enrolled.",Psychology,,Intro,0,0,14843,19,9,1,0
-C_680808,Intermediate • Business,"Intermediate-level course in Business. Resources include 79 videos and 15 exercises. This course is 10,363 learners enrolled.",Business,,Intermediate,0,0,10363,79,15,1,0
-C_680823,Intro • Computer Science • With Prerequisites,"Intro-level course in Computer Science. Resources include 42 videos and 17 exercises. This course is requires prerequisites, 18,634 learners enrolled.",Computer Science,,Intro,0,0,18634,42,17,0,1
-C_680958,Advanced • Engineering • With Prerequisites,"Advanced-level course in Engineering. Resources include 107 videos and 70 exercises. This course is requires prerequisites, 14,268 learners enrolled.",Engineering,,Advanced,0,0,14268,107,70,1,1
-C_680961,Intro • Mathematics • With Prerequisites,"Intro-level course in Mathematics. Resources include 19 videos and 18 exercises. This course is requires prerequisites, 11,094 learners enrolled.",Mathematics,,Intro,0,0,11094,19,18,0,1
-C_680987,Intro • Engineering • With Prerequisites,"Intro-level course in Engineering. Resources include 19 videos and 16 exercises. This course is requires prerequisites, 15,888 learners enrolled.",Engineering,,Intro,0,0,15888,19,16,1,1
-C_680993,Intermediate • Engineering • With Prerequisites,"Intermediate-level course in Engineering. Resources include 80 videos and 4 exercises. This course is requires prerequisites, 10,007 learners enrolled.",Engineering,,Intermediate,0,0,10007,80,4,0,1
-C_681088,Intro • Engineering • With Prerequisites,"Intro-level course in Engineering. Resources include 26 videos and 25 exercises. This course is requires prerequisites, 12,866 learners enrolled.",Engineering,,Intro,0,0,12866,26,25,0,1
-C_681255,Intro • Chemistry • With Prerequisites,"Intro-level course in Chemistry. Resources include 25 videos and 20 exercises. This course is requires prerequisites, 16,831 learners enrolled.",Chemistry,,Intro,0,0,16831,25,20,0,1
-C_681636,Intermediate • Business,"Intermediate-level course in Business. Resources include 60 videos and 16 exercises. This course is 18,200 learners enrolled.",Business,,Intermediate,0,0,18200,60,16,0,0
-C_681711,Advanced • Psychology • With Prerequisites,"Advanced-level course in Psychology. Resources include 52 videos and 98 exercises. This course is requires prerequisites, 12,952 learners enrolled.",Psychology,,Advanced,0,0,12952,52,98,0,1
-C_681754,Intro • Psychology • With Prerequisites,"Intro-level course in Psychology. Resources include 55 videos and 5 exercises. This course is requires prerequisites, 21,460 learners enrolled.",Psychology,,Intro,0,0,21460,55,5,0,1
-C_682147,Intro • Chemistry • With Prerequisites,"Intro-level course in Chemistry. Resources include 50 videos and 14 exercises. This course is requires prerequisites, 14,141 learners enrolled.",Chemistry,,Intro,0,0,14141,50,14,0,1
-C_682195,Intro • Business,"Intro-level course in Business. Resources include 40 videos and 9 exercises. This course is 17,662 learners enrolled.",Business,,Intro,0,0,17662,40,9,0,0
-C_682193,Intermediate • Mathematics,"Intermediate-level course in Mathematics. Resources include 52 videos and 77 exercises. This course is 12,072 learners enrolled.",Mathematics,,Intermediate,0,0,12072,52,77,0,0
-C_682222,Intermediate • Data Science,"Intermediate-level course in Data Science. Resources include 89 videos and 16 exercises. This course is 10,509 learners enrolled.",Data Science,,Intermediate,0,0,10509,89,16,0,0
-C_682240,Intermediate • Chemistry,"Intermediate-level course in Chemistry. Resources include 92 videos and 10 exercises. This course is 13,492 learners enrolled.",Chemistry,,Intermediate,0,0,13492,92,10,0,0
-C_682360,Advanced • Business • With Prerequisites,"Advanced-level course in Business. Resources include 113 videos and 58 exercises. This course is requires prerequisites, 10,447 learners enrolled.",Business,,Advanced,0,0,10447,113,58,1,1
-C_682442,Advanced • Mathematics,"Advanced-level course in Mathematics. Resources include 113 videos and 75 exercises. This course is 10,909 learners enrolled.",Mathematics,,Advanced,0,0,10909,113,75,1,0
-C_682458,Intermediate • Mathematics,"Intermediate-level course in Mathematics. Resources include 64 videos and 9 exercises. This course is 22,077 learners enrolled.",Mathematics,,Intermediate,0,0,22077,64,9,1,0
-C_682466,Intro • Engineering,"Intro-level course in Engineering. Resources include 22 videos and 18 exercises. This course is 14,405 learners enrolled.",Engineering,,Intro,0,0,14405,22,18,0,0
-C_682469,Intermediate • Business • With Prerequisites,"Intermediate-level course in Business. Resources include 94 videos and 14 exercises. This course is requires prerequisites, 16,748 learners enrolled.",Business,,Intermediate,0,0,16748,94,14,0,1
-C_682473,Intermediate • Mathematics • With Prerequisites,"Intermediate-level course in Mathematics. Resources include 77 videos and 46 exercises. This course is requires prerequisites, 15,222 learners enrolled.",Mathematics,,Intermediate,0,0,15222,77,46,0,1
-C_682515,Advanced • Engineering,"Advanced-level course in Engineering. Resources include 133 videos and 44 exercises. This course is 21,069 learners enrolled.",Engineering,,Advanced,0,0,21069,133,44,0,0
-C_682586,Intro • Psychology,"Intro-level course in Psychology. Resources include 24 videos and 8 exercises. This course is 17,888 learners enrolled.",Psychology,,Intro,0,0,17888,24,8,1,0
-C_682624,Intermediate • Psychology,"Intermediate-level course in Psychology. Resources include 147 videos and 16 exercises. This course is 10,703 learners enrolled.",Psychology,,Intermediate,0,0,10703,147,16,1,0
-C_682702,Intro • Psychology,"Intro-level course in Psychology. Resources include 53 videos and 8 exercises. This course is 11,713 learners enrolled.",Psychology,,Intro,0,0,11713,53,8,1,0
-C_707035,Intermediate • Psychology • With Prerequisites,"Intermediate-level course in Psychology. Resources include 83 videos and 11 exercises. This course is requires prerequisites, 11,239 learners enrolled.",Psychology,,Intermediate,0,0,11239,83,11,0,1
-C_682759,Intro • Business • With Prerequisites,"Intro-level course in Business. Resources include 51 videos and 4 exercises. This course is requires prerequisites, 12,854 learners enrolled.",Business,,Intro,0,0,12854,51,4,1,1
-C_685664,Intro • Physics • With Prerequisites,"Intro-level course in Physics. Resources include 32 videos and 24 exercises. This course is requires prerequisites, 10,059 learners enrolled.",Physics,,Intro,0,0,10059,32,24,1,1
-C_694163,Intermediate • Data Science • With Prerequisites,"Intermediate-level course in Data Science. Resources include 38 videos and 27 exercises. This course is requires prerequisites, 11,256 learners enrolled.",Data Science,,Intermediate,0,0,11256,38,27,0,1
-C_696614,Intermediate • Physics • With Prerequisites,"Intermediate-level course in Physics. Resources include 98 videos and 32 exercises. This course is requires prerequisites, 21,027 learners enrolled.",Physics,,Intermediate,0,0,21027,98,32,0,1
-C_696679,Advanced • Data Science • Popular,"Advanced-level course in Data Science. Resources include 258 videos and 110 exercises. This course is 41,847 learners enrolled.",Data Science,,Advanced,1,0,41847,258,110,1,0
-C_696689,Advanced • Engineering • With Prerequisites,"Advanced-level course in Engineering. Resources include 116 videos and 88 exercises. This course is requires prerequisites, 10,921 learners enrolled.",Engineering,,Advanced,0,0,10921,116,88,0,1
-C_696724,Intermediate • Engineering • With Prerequisites,"Intermediate-level course in Engineering. Resources include 86 videos and 60 exercises. This course is requires prerequisites, 29,821 learners enrolled.",Engineering,,Intermediate,0,0,29821,86,60,1,1
-C_696729,Intermediate • Physics • With Prerequisites,"Intermediate-level course in Physics. Resources include 101 videos and 26 exercises. This course is requires prerequisites, 19,001 learners enrolled.",Physics,,Intermediate,0,0,19001,101,26,1,1
-C_696740,Intro • Psychology • Multi-disciplinary • With Prerequisites,"Intro-level course in Psychology. Resources include 27 videos and 14 exercises. This course is multi-disciplinary, requires prerequisites, 22,766 learners enrolled.",Psychology,Physics,Intro,0,1,22766,27,14,2,1
-C_696746,Intermediate • Engineering • With Prerequisites,"Intermediate-level course in Engineering. Resources include 45 videos and 37 exercises. This course is requires prerequisites, 17,501 learners enrolled.",Engineering,,Intermediate,0,0,17501,45,37,0,1
-C_696855,Intermediate • Physics,"Intermediate-level course in Physics. Resources include 161 videos and 12 exercises. This course is 14,863 learners enrolled.",Physics,,Intermediate,0,0,14863,161,12,0,0
-C_696875,Intro • Engineering • With Prerequisites,"Intro-level course in Engineering. Resources include 18 videos and 8 exercises. This course is requires prerequisites, 11,106 learners enrolled.",Engineering,,Intro,0,0,11106,18,8,0,1
-C_696908,Intro • Business,"Intro-level course in Business. Resources include 42 videos and 5 exercises. This course is 25,164 learners enrolled.",Business,,Intro,0,0,25164,42,5,0,0
-C_696922,Intermediate • Psychology,"Intermediate-level course in Psychology. Resources include 113 videos and 45 exercises. This course is 20,208 learners enrolled.",Psychology,,Intermediate,0,0,20208,113,45,1,0
-C_696928,Intro • Chemistry • With Prerequisites,"Intro-level course in Chemistry. Resources include 28 videos and 4 exercises. This course is requires prerequisites, 20,756 learners enrolled.",Chemistry,,Intro,0,0,20756,28,4,0,1
-C_696942,Intermediate • Physics • Popular,"Intermediate-level course in Physics. Resources include 43 videos and 28 exercises. This course is 46,328 learners enrolled.",Physics,,Intermediate,1,0,46328,43,28,0,0
-C_696954,Intermediate • Business,"Intermediate-level course in Business. Resources include 66 videos and 10 exercises. This course is 17,400 learners enrolled.",Business,,Intermediate,0,0,17400,66,10,0,0
-C_696976,Advanced • Computer Science,"Advanced-level course in Computer Science. Resources include 101 videos and 84 exercises. This course is 10,662 learners enrolled.",Computer Science,,Advanced,0,0,10662,101,84,0,0
-C_696998,Intermediate • Mathematics,"Intermediate-level course in Mathematics. Resources include 47 videos and 39 exercises. This course is 10,078 learners enrolled.",Mathematics,,Intermediate,0,0,10078,47,39,0,0
-C_697018,Intermediate • Engineering,"Intermediate-level course in Engineering. Resources include 166 videos and 11 exercises. This course is 21,787 learners enrolled.",Engineering,,Intermediate,0,0,21787,166,11,1,0
-C_697019,Intro • Engineering • With Prerequisites,"Intro-level course in Engineering. Resources include 34 videos and 8 exercises. This course is requires prerequisites, 14,855 learners enrolled.",Engineering,,Intro,0,0,14855,34,8,0,1
-C_697020,Intermediate • Data Science,"Intermediate-level course in Data Science. Resources include 52 videos and 17 exercises. This course is 10,180 learners enrolled.",Data Science,,Intermediate,0,0,10180,52,17,0,0
-C_697034,Intermediate • Engineering • Popular,"Intermediate-level course in Engineering. Resources include 128 videos and 32 exercises. This course is 44,291 learners enrolled.",Engineering,,Intermediate,1,0,44291,128,32,0,0
-C_697068,Intro • Physics • With Prerequisites,"Intro-level course in Physics. Resources include 58 videos and 11 exercises. This course is requires prerequisites, 16,305 learners enrolled.",Physics,,Intro,0,0,16305,58,11,0,1
-C_697076,Intermediate • Engineering,"Intermediate-level course in Engineering. Resources include 63 videos and 49 exercises. This course is 10,261 learners enrolled.",Engineering,,Intermediate,0,0,10261,63,49,0,0
-C_697075,Intermediate • Engineering • With Prerequisites,"Intermediate-level course in Engineering. Resources include 133 videos and 37 exercises. This course is requires prerequisites, 15,499 learners enrolled.",Engineering,,Intermediate,0,0,15499,133,37,0,1
-C_697091,Intermediate • Physics,"Intermediate-level course in Physics. Resources include 73 videos and 15 exercises. This course is 25,264 learners enrolled.",Physics,,Intermediate,0,0,25264,73,15,1,0
-C_697096,Intro • Physics,"Intro-level course in Physics. Resources include 12 videos and 4 exercises. This course is 11,392 learners enrolled.",Physics,,Intro,0,0,11392,12,4,1,0
-C_697117,Intermediate • Data Science,"Intermediate-level course in Data Science. Resources include 91 videos and 15 exercises. This course is 12,055 learners enrolled.",Data Science,,Intermediate,0,0,12055,91,15,0,0
-C_697130,Intermediate • Computer Science • With Prerequisites • Popular,"Intermediate-level course in Computer Science. Resources include 103 videos and 9 exercises. This course is requires prerequisites, 32,195 learners enrolled.",Computer Science,,Intermediate,1,0,32195,103,9,1,1
-C_697149,Intermediate • Psychology,"Intermediate-level course in Psychology. Resources include 100 videos and 22 exercises. This course is 19,239 learners enrolled.",Psychology,,Intermediate,0,0,19239,100,22,1,0
-C_697176,Intermediate • Business,"Intermediate-level course in Business. Resources include 49 videos and 45 exercises. This course is 14,473 learners enrolled.",Business,,Intermediate,0,0,14473,49,45,1,0
-C_697188,Intermediate • Business • Popular,"Intermediate-level course in Business. Resources include 120 videos and 7 exercises. This course is 30,312 learners enrolled.",Business,,Intermediate,1,0,30312,120,7,0,0
-C_697288,Intermediate • Mathematics,"Intermediate-level course in Mathematics. Resources include 53 videos and 55 exercises. This course is 12,071 learners enrolled.",Mathematics,,Intermediate,0,0,12071,53,55,1,0
-C_697299,Intro • Data Science,"Intro-level course in Data Science. Resources include 31 videos and 6 exercises. This course is 11,401 learners enrolled.",Data Science,,Intro,0,0,11401,31,6,0,0
-C_697381,Intro • Mathematics • Multi-disciplinary,"Intro-level course in Mathematics. Resources include 60 videos and 8 exercises. This course is multi-disciplinary, 16,458 learners enrolled.",Mathematics,Business,Intro,0,1,16458,60,8,2,0
-C_697405,Intro • Computer Science,"Intro-level course in Computer Science. Resources include 36 videos and 9 exercises. This course is 25,405 learners enrolled.",Computer Science,,Intro,0,0,25405,36,9,1,0
-C_697423,Intermediate • Mathematics • With Prerequisites,"Intermediate-level course in Mathematics. Resources include 61 videos and 12 exercises. This course is requires prerequisites, 18,868 learners enrolled.",Mathematics,,Intermediate,0,0,18868,61,12,1,1
-C_697556,Advanced • Chemistry • With Prerequisites,"Advanced-level course in Chemistry. Resources include 125 videos and 72 exercises. This course is requires prerequisites, 13,170 learners enrolled.",Chemistry,,Advanced,0,0,13170,125,72,0,1
-C_697729,Intro • Data Science,"Intro-level course in Data Science. Resources include 15 videos and 4 exercises. This course is 18,625 learners enrolled.",Data Science,,Intro,0,0,18625,15,4,0,0
-C_697797,Intermediate • Data Science • With Prerequisites,"Intermediate-level course in Data Science. Resources include 147 videos and 10 exercises. This course is requires prerequisites, 16,068 learners enrolled.",Data Science,,Intermediate,0,0,16068,147,10,0,1
-C_707025,Intermediate • Psychology,"Intermediate-level course in Psychology. Resources include 92 videos and 5 exercises. This course is 11,560 learners enrolled.",Psychology,,Intermediate,0,0,11560,92,5,0,0
-C_696700,Intermediate • Business • Popular,"Intermediate-level course in Business. Resources include 76 videos and 15 exercises. This course is 55,873 learners enrolled.",Business,,Intermediate,1,0,55873,76,15,0,0
-C_707032,Advanced • Physics,"Advanced-level course in Physics. Resources include 202 videos and 16 exercises. This course is 13,877 learners enrolled.",Physics,,Advanced,0,0,13877,202,16,0,0
-C_707037,Intro • Chemistry,"Intro-level course in Chemistry. Resources include 51 videos and 9 exercises. This course is 12,735 learners enrolled.",Chemistry,,Intro,0,0,12735,51,9,1,0
-C_707038,Advanced • Business • Multi-disciplinary,"Advanced-level course in Business. Resources include 258 videos and 42 exercises. This course is multi-disciplinary, 25,751 learners enrolled.",Business,Data Science,Advanced,0,1,25751,258,42,2,0
-C_707119,Intro • Psychology • Multi-disciplinary,"Intro-level course in Psychology. Resources include 54 videos and 8 exercises. This course is multi-disciplinary, 20,628 learners enrolled.",Psychology,Physics,Intro,0,1,20628,54,8,2,0
-C_707127,Intermediate • Engineering • With Prerequisites,"Intermediate-level course in Engineering. Resources include 69 videos and 66 exercises. This course is requires prerequisites, 14,017 learners enrolled.",Engineering,,Intermediate,0,0,14017,69,66,0,1
-C_707373,Intermediate • Psychology,"Intermediate-level course in Psychology. Resources include 71 videos and 7 exercises. This course is 29,316 learners enrolled.",Psychology,,Intermediate,0,0,29316,71,7,0,0
-C_707456,Intermediate • Mathematics • With Prerequisites,"Intermediate-level course in Mathematics. Resources include 99 videos and 12 exercises. This course is requires prerequisites, 21,916 learners enrolled.",Mathematics,,Intermediate,0,0,21916,99,12,0,1
-C_734037,Intermediate • Data Science • With Prerequisites,"Intermediate-level course in Data Science. Resources include 64 videos and 16 exercises. This course is requires prerequisites, 10,323 learners enrolled.",Data Science,,Intermediate,0,0,10323,64,16,0,1
-C_735031,Advanced • Business • With Prerequisites,"Advanced-level course in Business. Resources include 114 videos and 97 exercises. This course is requires prerequisites, 17,665 learners enrolled.",Business,,Advanced,0,0,17665,114,97,0,1
-C_735054,Intro • Computer Science,"Intro-level course in Computer Science. Resources include 60 videos and 10 exercises. This course is 28,769 learners enrolled.",Computer Science,,Intro,0,0,28769,60,10,0,0
-C_735123,Intermediate • Chemistry • With Prerequisites,"Intermediate-level course in Chemistry. Resources include 72 videos and 7 exercises. This course is requires prerequisites, 14,088 learners enrolled.",Chemistry,,Intermediate,0,0,14088,72,7,0,1
-C_735143,Intermediate • Engineering • With Prerequisites,"Intermediate-level course in Engineering. Resources include 149 videos and 17 exercises. This course is requires prerequisites, 15,132 learners enrolled.",Engineering,,Intermediate,0,0,15132,149,17,0,1
-C_735155,Intro • Chemistry,"Intro-level course in Chemistry. Resources include 11 videos and 9 exercises. This course is 11,483 learners enrolled.",Chemistry,,Intro,0,0,11483,11,9,1,0
-C_735175,Intermediate • Data Science • With Prerequisites,"Intermediate-level course in Data Science. Resources include 66 videos and 48 exercises. This course is requires prerequisites, 11,498 learners enrolled.",Data Science,,Intermediate,0,0,11498,66,48,0,1
-C_735214,Intro • Engineering • With Prerequisites,"Intro-level course in Engineering. Resources include 34 videos and 6 exercises. This course is requires prerequisites, 24,049 learners enrolled.",Engineering,,Intro,0,0,24049,34,6,0,1
-C_735239,Intermediate • Chemistry,"Intermediate-level course in Chemistry. Resources include 66 videos and 17 exercises. This course is 12,848 learners enrolled.",Chemistry,,Intermediate,0,0,12848,66,17,0,0
-C_735244,Intermediate • Chemistry,"Intermediate-level course in Chemistry. Resources include 49 videos and 16 exercises. This course is 17,541 learners enrolled.",Chemistry,,Intermediate,0,0,17541,49,16,0,0
-C_735259,Intermediate • Engineering • With Prerequisites,"Intermediate-level course in Engineering. Resources include 92 videos and 15 exercises. This course is requires prerequisites, 11,802 learners enrolled.",Engineering,,Intermediate,0,0,11802,92,15,0,1
-C_735269,Intermediate • Business • With Prerequisites,"Intermediate-level course in Business. Resources include 52 videos and 63 exercises. This course is requires prerequisites, 13,138 learners enrolled.",Business,,Intermediate,0,0,13138,52,63,0,1
-C_735342,Intermediate • Computer Science • With Prerequisites,"Intermediate-level course in Computer Science. Resources include 77 videos and 22 exercises. This course is requires prerequisites, 24,391 learners enrolled.",Computer Science,,Intermediate,0,0,24391,77,22,1,1
-C_735351,Intro • Mathematics • Popular,"Intro-level course in Mathematics. Resources include 38 videos and 9 exercises. This course is 45,079 learners enrolled.",Mathematics,,Intro,1,0,45079,38,9,0,0
-C_735405,Intermediate • Psychology • Multi-disciplinary,"Intermediate-level course in Psychology. Resources include 83 videos and 12 exercises. This course is multi-disciplinary, 21,994 learners enrolled.",Psychology,Physics,Intermediate,0,1,21994,83,12,2,0
-C_746983,Intermediate • Chemistry • With Prerequisites,"Intermediate-level course in Chemistry. Resources include 92 videos and 16 exercises. This course is requires prerequisites, 13,086 learners enrolled.",Chemistry,,Intermediate,0,0,13086,92,16,1,1
-C_746997,Advanced • Business,"Advanced-level course in Business. Resources include 110 videos and 103 exercises. This course is 26,335 learners enrolled.",Business,,Advanced,0,0,26335,110,103,1,0
-C_749807,Intermediate • Business • With Prerequisites,"Intermediate-level course in Business. Resources include 99 videos and 12 exercises. This course is requires prerequisites, 27,065 learners enrolled.",Business,,Intermediate,0,0,27065,99,12,0,1
-C_679390,Intermediate • Engineering • With Prerequisites • Popular,"Intermediate-level course in Engineering. Resources include 79 videos and 52 exercises. This course is requires prerequisites, 32,797 learners enrolled.",Engineering,,Intermediate,1,0,32797,79,52,0,1
-C_754135,Intermediate • Engineering • With Prerequisites,"Intermediate-level course in Engineering. Resources include 42 videos and 42 exercises. This course is requires prerequisites, 16,670 learners enrolled.",Engineering,,Intermediate,0,0,16670,42,42,0,1
-C_756665,Intermediate • Chemistry • With Prerequisites,"Intermediate-level course in Chemistry. Resources include 74 videos and 64 exercises. This course is requires prerequisites, 14,258 learners enrolled.",Chemistry,,Intermediate,0,0,14258,74,64,0,1
-C_756747,Intro • Computer Science • With Prerequisites,"Intro-level course in Computer Science. Resources include 22 videos and 24 exercises. This course is requires prerequisites, 12,673 learners enrolled.",Computer Science,,Intro,0,0,12673,22,24,0,1
-C_758183,Intermediate • Psychology • With Prerequisites,"Intermediate-level course in Psychology. Resources include 34 videos and 31 exercises. This course is requires prerequisites, 10,030 learners enrolled.",Psychology,,Intermediate,0,0,10030,34,31,0,1
-C_758190,Intermediate • Mathematics • With Prerequisites,"Intermediate-level course in Mathematics. Resources include 28 videos and 28 exercises. This course is requires prerequisites, 11,160 learners enrolled.",Mathematics,,Intermediate,0,0,11160,28,28,0,1
-C_758208,Intermediate • Chemistry • With Prerequisites,"Intermediate-level course in Chemistry. Resources include 54 videos and 27 exercises. This course is requires prerequisites, 11,988 learners enrolled.",Chemistry,,Intermediate,0,0,11988,54,27,0,1
-C_758221,Intermediate • Business,"Intermediate-level course in Business. Resources include 91 videos and 8 exercises. This course is 11,065 learners enrolled.",Business,,Intermediate,0,0,11065,91,8,0,0
-C_773985,Intermediate • Mathematics • With Prerequisites,"Intermediate-level course in Mathematics. Resources include 57 videos and 12 exercises. This course is requires prerequisites, 19,480 learners enrolled.",Mathematics,,Intermediate,0,0,19480,57,12,0,1
-C_781494,Intermediate • Psychology,"Intermediate-level course in Psychology. Resources include 86 videos and 10 exercises. This course is 15,301 learners enrolled.",Psychology,,Intermediate,0,0,15301,86,10,0,0
-C_782490,Intermediate • Engineering,"Intermediate-level course in Engineering. Resources include 85 videos and 45 exercises. This course is 17,445 learners enrolled.",Engineering,,Intermediate,0,0,17445,85,45,0,0
-C_782555,Intermediate • Business,"Intermediate-level course in Business. Resources include 79 videos and 9 exercises. This course is 10,585 learners enrolled.",Business,,Intermediate,0,0,10585,79,9,1,0
-C_784172,Intermediate • Computer Science,"Intermediate-level course in Computer Science. Resources include 91 videos and 23 exercises. This course is 13,114 learners enrolled.",Computer Science,,Intermediate,0,0,13114,91,23,1,0
-C_789278,Intermediate • Computer Science,"Intermediate-level course in Computer Science. Resources include 65 videos and 55 exercises. This course is 12,406 learners enrolled.",Computer Science,,Intermediate,0,0,12406,65,55,0,0
-C_770784,Advanced • Physics • With Prerequisites,"Advanced-level course in Physics. Resources include 272 videos and 15 exercises. This course is requires prerequisites, 24,497 learners enrolled.",Physics,,Advanced,0,0,24497,272,15,1,1
-C_793017,Intro • Data Science • With Prerequisites,"Intro-level course in Data Science. Resources include 21 videos and 21 exercises. This course is requires prerequisites, 11,074 learners enrolled.",Data Science,,Intro,0,0,11074,21,21,0,1
-C_799796,Advanced • Chemistry,"Advanced-level course in Chemistry. Resources include 147 videos and 55 exercises. This course is 25,028 learners enrolled.",Chemistry,,Advanced,0,0,25028,147,55,1,0
-C_799931,Intro • Computer Science • With Prerequisites,"Intro-level course in Computer Science. Resources include 31 videos and 4 exercises. This course is requires prerequisites, 22,116 learners enrolled.",Computer Science,,Intro,0,0,22116,31,4,0,1
-C_800360,Intro • Physics • With Prerequisites,"Intro-level course in Physics. Resources include 27 videos and 10 exercises. This course is requires prerequisites, 10,069 learners enrolled.",Physics,,Intro,0,0,10069,27,10,0,1
-C_808528,Intro • Business • With Prerequisites,"Intro-level course in Business. Resources include 30 videos and 5 exercises. This course is requires prerequisites, 19,988 learners enrolled.",Business,,Intro,0,0,19988,30,5,0,1
-C_814402,Intro • Psychology • With Prerequisites,"Intro-level course in Psychology. Resources include 20 videos and 9 exercises. This course is requires prerequisites, 13,248 learners enrolled.",Psychology,,Intro,0,0,13248,20,9,0,1
-C_817148,Intermediate • Mathematics • With Prerequisites,"Intermediate-level course in Mathematics. Resources include 76 videos and 12 exercises. This course is requires prerequisites, 10,574 learners enrolled.",Mathematics,,Intermediate,0,0,10574,76,12,0,1
-C_817691,Intermediate • Computer Science • With Prerequisites,"Intermediate-level course in Computer Science. Resources include 76 videos and 9 exercises. This course is requires prerequisites, 18,215 learners enrolled.",Computer Science,,Intermediate,0,0,18215,76,9,0,1
-C_819285,Intro • Computer Science • With Prerequisites,"Intro-level course in Computer Science. Resources include 25 videos and 17 exercises. This course is requires prerequisites, 16,458 learners enrolled.",Computer Science,,Intro,0,0,16458,25,17,0,1
-C_840084,Intro • Physics • With Prerequisites • Popular,"Intro-level course in Physics. Resources include 32 videos and 10 exercises. This course is requires prerequisites, 31,568 learners enrolled.",Physics,,Intro,1,0,31568,32,10,0,1
-C_845674,Intro • Physics • With Prerequisites,"Intro-level course in Physics. Resources include 46 videos and 13 exercises. This course is requires prerequisites, 17,538 learners enrolled.",Physics,,Intro,0,0,17538,46,13,0,1
-C_845950,Advanced • Chemistry,"Advanced-level course in Chemistry. Resources include 111 videos and 101 exercises. This course is 24,720 learners enrolled.",Chemistry,,Advanced,0,0,24720,111,101,0,0
-C_854839,Intermediate • Computer Science,"Intermediate-level course in Computer Science. Resources include 68 videos and 17 exercises. This course is 22,975 learners enrolled.",Computer Science,,Intermediate,0,0,22975,68,17,0,0
-C_857823,Intro • Physics • With Prerequisites,"Intro-level course in Physics. Resources include 46 videos and 9 exercises. This course is requires prerequisites, 11,567 learners enrolled.",Physics,,Intro,0,0,11567,46,9,0,1
-C_862963,Intro • Chemistry • With Prerequisites,"Intro-level course in Chemistry. Resources include 26 videos and 10 exercises. This course is requires prerequisites, 13,594 learners enrolled.",Chemistry,,Intro,0,0,13594,26,10,0,1
-C_865842,Intermediate • Engineering • With Prerequisites,"Intermediate-level course in Engineering. Resources include 25 videos and 35 exercises. This course is requires prerequisites, 14,692 learners enrolled.",Engineering,,Intermediate,0,0,14692,25,35,0,1
-C_866164,Intermediate • Mathematics • With Prerequisites,"Intermediate-level course in Mathematics. Resources include 93 videos and 15 exercises. This course is requires prerequisites, 16,426 learners enrolled.",Mathematics,,Intermediate,0,0,16426,93,15,0,1
-C_873864,Intro • Computer Science • With Prerequisites,"Intro-level course in Computer Science. Resources include 36 videos and 19 exercises. This course is requires prerequisites, 26,266 learners enrolled.",Computer Science,,Intro,0,0,26266,36,19,0,1
-C_879040,Intermediate • Engineering • With Prerequisites,"Intermediate-level course in Engineering. Resources include 72 videos and 16 exercises. This course is requires prerequisites, 24,500 learners enrolled.",Engineering,,Intermediate,0,0,24500,72,16,0,1
-C_879045,Intro • Business • With Prerequisites,"Intro-level course in Business. Resources include 44 videos and 13 exercises. This course is requires prerequisites, 16,004 learners enrolled.",Business,,Intro,0,0,16004,44,13,0,1
-C_879054,Intermediate • Psychology • With Prerequisites,"Intermediate-level course in Psychology. Resources include 98 videos and 9 exercises. This course is requires prerequisites, 19,871 learners enrolled.",Psychology,,Intermediate,0,0,19871,98,9,0,1
-C_879093,Intermediate • Mathematics • With Prerequisites,"Intermediate-level course in Mathematics. Resources include 65 videos and 8 exercises. This course is requires prerequisites, 13,078 learners enrolled.",Mathematics,,Intermediate,0,0,13078,65,8,0,1
-C_881485,Intro • Mathematics • With Prerequisites,"Intro-level course in Mathematics. Resources include 30 videos and 15 exercises. This course is requires prerequisites, 16,165 learners enrolled.",Mathematics,,Intro,0,0,16165,30,15,0,1
-C_890220,Intro • Engineering • With Prerequisites,"Intro-level course in Engineering. Resources include 20 videos and 19 exercises. This course is requires prerequisites, 24,221 learners enrolled.",Engineering,,Intro,0,0,24221,20,19,0,1
-C_898310,Intro • Computer Science • With Prerequisites,"Intro-level course in Computer Science. Resources include 20 videos and 18 exercises. This course is requires prerequisites, 14,147 learners enrolled.",Computer Science,,Intro,0,0,14147,20,18,0,1
-C_898349,Intermediate • Physics,"Intermediate-level course in Physics. Resources include 80 videos and 11 exercises. This course is 10,577 learners enrolled.",Physics,,Intermediate,0,0,10577,80,11,0,0
-C_907949,Intermediate • Psychology • With Prerequisites,"Intermediate-level course in Psychology. Resources include 51 videos and 34 exercises. This course is requires prerequisites, 11,698 learners enrolled.",Psychology,,Intermediate,0,0,11698,51,34,0,1
-C_907961,Intro • Engineering,"Intro-level course in Engineering. Resources include 67 videos and 6 exercises. This course is 15,901 learners enrolled.",Engineering,,Intro,0,0,15901,67,6,0,0
-C_911165,Intro • Business,"Intro-level course in Business. Resources include 41 videos and 10 exercises. This course is 12,626 learners enrolled.",Business,,Intro,0,0,12626,41,10,0,0
-C_916826,Intermediate • Mathematics • With Prerequisites,"Intermediate-level course in Mathematics. Resources include 102 videos and 12 exercises. This course is requires prerequisites, 11,053 learners enrolled.",Mathematics,,Intermediate,0,0,11053,102,12,0,1
-C_922850,Intermediate • Data Science • With Prerequisites,"Intermediate-level course in Data Science. Resources include 84 videos and 10 exercises. This course is requires prerequisites, 16,294 learners enrolled.",Data Science,,Intermediate,0,0,16294,84,10,0,1
-C_922867,Advanced • Engineering • With Prerequisites,"Advanced-level course in Engineering. Resources include 52 videos and 114 exercises. This course is requires prerequisites, 14,900 learners enrolled.",Engineering,,Advanced,0,0,14900,52,114,0,1
-C_696946,Intro • Physics,"Intro-level course in Physics. Resources include 40 videos and 7 exercises. This course is 22,317 learners enrolled.",Physics,,Intro,0,0,22317,40,7,0,0
-C_677049,Intermediate • Data Science • Multi-disciplinary • Popular,"Intermediate-level course in Data Science. Resources include 126 videos and 13 exercises. This course is multi-disciplinary, 68,762 learners enrolled.",Data Science,Engineering,Intermediate,1,1,68762,126,13,2,0
-C_801420,Intermediate • Psychology • Popular,"Intermediate-level course in Psychology. Resources include 85 videos and 59 exercises. This course is 50,848 learners enrolled.",Psychology,,Intermediate,1,0,50848,85,59,0,0
-C_697026,Intermediate • Business,"Intermediate-level course in Business. Resources include 119 videos and 7 exercises. This course is 25,066 learners enrolled.",Business,,Intermediate,0,0,25066,119,7,0,0
-C_696911,Intermediate • Data Science • With Prerequisites • Popular,"Intermediate-level course in Data Science. Resources include 134 videos and 12 exercises. This course is requires prerequisites, 61,055 learners enrolled.",Data Science,,Intermediate,1,0,61055,134,12,1,1
-C_697415,Intermediate • Physics,"Intermediate-level course in Physics. Resources include 81 videos and 37 exercises. This course is 15,636 learners enrolled.",Physics,,Intermediate,0,0,15636,81,37,0,0
-C_697007,Intermediate • Mathematics • With Prerequisites,"Intermediate-level course in Mathematics. Resources include 45 videos and 31 exercises. This course is requires prerequisites, 13,594 learners enrolled.",Mathematics,,Intermediate,0,0,13594,45,31,0,1
-C_696586,Intro • Engineering,"Intro-level course in Engineering. Resources include 28 videos and 24 exercises. This course is 21,863 learners enrolled.",Engineering,,Intro,0,0,21863,28,24,1,0
-C_697284,Intermediate • Chemistry,"Intermediate-level course in Chemistry. Resources include 81 videos and 11 exercises. This course is 16,995 learners enrolled.",Chemistry,,Intermediate,0,0,16995,81,11,0,0
-C_697265,Intro • Computer Science,"Intro-level course in Computer Science. Resources include 38 videos and 11 exercises. This course is 15,167 learners enrolled.",Computer Science,,Intro,0,0,15167,38,11,0,0
-C_682210,Intermediate • Physics,"Intermediate-level course in Physics. Resources include 64 videos and 60 exercises. This course is 18,897 learners enrolled.",Physics,,Intermediate,0,0,18897,64,60,0,0
-C_696972,Advanced • Psychology,"Advanced-level course in Psychology. Resources include 120 videos and 90 exercises. This course is 12,179 learners enrolled.",Psychology,,Advanced,0,0,12179,120,90,0,0
-C_866756,Intro • Engineering • Popular,"Intro-level course in Engineering. Resources include 26 videos and 9 exercises. This course is 46,060 learners enrolled.",Engineering,,Intro,1,0,46060,26,9,1,0
-C_697025,Advanced • Computer Science • With Prerequisites,"Advanced-level course in Computer Science. Resources include 93 videos and 69 exercises. This course is requires prerequisites, 18,034 learners enrolled.",Computer Science,,Advanced,0,0,18034,93,69,0,1
-C_682239,Intermediate • Business,"Intermediate-level course in Business. Resources include 117 videos and 16 exercises. This course is 11,948 learners enrolled.",Business,,Intermediate,0,0,11948,117,16,0,0
-C_696597,Intermediate • Data Science • With Prerequisites • Popular,"Intermediate-level course in Data Science. Resources include 69 videos and 10 exercises. This course is requires prerequisites, 31,810 learners enrolled.",Data Science,,Intermediate,1,0,31810,69,10,0,1
-C_676676,Intermediate • Data Science • With Prerequisites,"Intermediate-level course in Data Science. Resources include 26 videos and 32 exercises. This course is requires prerequisites, 29,700 learners enrolled.",Data Science,,Intermediate,0,0,29700,26,32,0,1
-C_680784,Intermediate • Business,"Intermediate-level course in Business. Resources include 30 videos and 28 exercises. This course is 11,983 learners enrolled.",Business,,Intermediate,0,0,11983,30,28,0,0
-C_680970,Intermediate • Chemistry,"Intermediate-level course in Chemistry. Resources include 41 videos and 42 exercises. This course is 12,701 learners enrolled.",Chemistry,,Intermediate,0,0,12701,41,42,1,0
-C_680979,Intermediate • Engineering • With Prerequisites,"Intermediate-level course in Engineering. Resources include 75 videos and 31 exercises. This course is requires prerequisites, 13,537 learners enrolled.",Engineering,,Intermediate,0,0,13537,75,31,0,1
-C_681005,Intro • Business • With Prerequisites,"Intro-level course in Business. Resources include 16 videos and 15 exercises. This course is requires prerequisites, 20,173 learners enrolled.",Business,,Intro,0,0,20173,16,15,1,1
-C_694168,Intermediate • Mathematics • With Prerequisites,"Intermediate-level course in Mathematics. Resources include 160 videos and 12 exercises. This course is requires prerequisites, 19,105 learners enrolled.",Mathematics,,Intermediate,0,0,19105,160,12,0,1
-C_808526,Intro • Psychology,"Intro-level course in Psychology. Resources include 21 videos and 18 exercises. This course is 18,110 learners enrolled.",Psychology,,Intro,0,0,18110,21,18,0,0
-C_680732,Intermediate • Data Science,"Intermediate-level course in Data Science. Resources include 36 videos and 34 exercises. This course is 12,077 learners enrolled.",Data Science,,Intermediate,0,0,12077,36,34,1,0
-C_676635,Intro • Computer Science,"Intro-level course in Computer Science. Resources include 52 videos and 7 exercises. This course is 17,068 learners enrolled.",Computer Science,,Intro,0,0,17068,52,7,0,0
-C_697289,Intermediate • Business • With Prerequisites,"Intermediate-level course in Business. Resources include 61 videos and 14 exercises. This course is requires prerequisites, 13,358 learners enrolled.",Business,,Intermediate,0,0,13358,61,14,0,1
-C_707081,Intermediate • Engineering • With Prerequisites • Popular,"Intermediate-level course in Engineering. Resources include 66 videos and 12 exercises. This course is requires prerequisites, 32,242 learners enrolled.",Engineering,,Intermediate,1,0,32242,66,12,0,1
-C_681730,Intermediate • Business • Multi-disciplinary,"Intermediate-level course in Business. Resources include 35 videos and 29 exercises. This course is multi-disciplinary, 12,188 learners enrolled.",Business,"Data Science,Engineering",Intermediate,0,1,12188,35,29,3,0
-C_931245,Intermediate • Psychology • With Prerequisites,"Intermediate-level course in Psychology. Resources include 63 videos and 16 exercises. This course is requires prerequisites, 21,340 learners enrolled.",Psychology,,Intermediate,0,0,21340,63,16,0,1
-C_931252,Intermediate • Mathematics,"Intermediate-level course in Mathematics. Resources include 68 videos and 62 exercises. This course is 11,109 learners enrolled.",Mathematics,,Intermediate,0,0,11109,68,62,0,0
-C_934528,Intro • Computer Science,"Intro-level course in Computer Science. Resources include 25 videos and 6 exercises. This course is 13,780 learners enrolled.",Computer Science,,Intro,0,0,13780,25,6,0,0
-C_934535,Intermediate • Business • With Prerequisites,"Intermediate-level course in Business. Resources include 35 videos and 34 exercises. This course is requires prerequisites, 11,390 learners enrolled.",Business,,Intermediate,0,0,11390,35,34,0,1
-C_936971,Intermediate • Data Science • Popular,"Intermediate-level course in Data Science. Resources include 38 videos and 36 exercises. This course is 231,674 learners enrolled.",Data Science,,Intermediate,1,0,231674,38,36,0,0
-C_936973,Intro • Business • With Prerequisites,"Intro-level course in Business. Resources include 52 videos and 6 exercises. This course is requires prerequisites, 14,618 learners enrolled.",Business,,Intro,0,0,14618,52,6,0,1
-C_936990,Intermediate • Computer Science • With Prerequisites,"Intermediate-level course in Computer Science. Resources include 57 videos and 15 exercises. This course is requires prerequisites, 19,080 learners enrolled.",Computer Science,,Intermediate,0,0,19080,57,15,0,1
-C_943228,Intermediate • Engineering • With Prerequisites,"Intermediate-level course in Engineering. Resources include 78 videos and 39 exercises. This course is requires prerequisites, 13,054 learners enrolled.",Engineering,,Intermediate,0,0,13054,78,39,0,1
-C_943250,Intro • Mathematics,"Intro-level course in Mathematics. Resources include 17 videos and 18 exercises. This course is 13,991 learners enrolled.",Mathematics,,Intro,0,0,13991,17,18,0,0
-C_943267,Intro • Engineering,"Intro-level course in Engineering. Resources include 47 videos and 10 exercises. This course is 24,039 learners enrolled.",Engineering,,Intro,0,0,24039,47,10,0,0
-C_943271,Intermediate • Engineering • With Prerequisites,"Intermediate-level course in Engineering. Resources include 60 videos and 20 exercises. This course is requires prerequisites, 11,716 learners enrolled.",Engineering,,Intermediate,0,0,11716,60,20,0,1
-C_680762,Intermediate • Engineering,"Intermediate-level course in Engineering. Resources include 40 videos and 35 exercises. This course is 13,075 learners enrolled.",Engineering,,Intermediate,0,0,13075,40,35,1,0
-C_947149,Intro • Chemistry • With Prerequisites,"Intro-level course in Chemistry. Resources include 20 videos and 14 exercises. This course is requires prerequisites, 14,716 learners enrolled.",Chemistry,,Intro,0,0,14716,20,14,0,1
-C_947165,Intro • Chemistry • With Prerequisites,"Intro-level course in Chemistry. Resources include 32 videos and 5 exercises. This course is requires prerequisites, 11,071 learners enrolled.",Chemistry,,Intro,0,0,11071,32,5,0,1
-C_947240,Intro • Physics • With Prerequisites,"Intro-level course in Physics. Resources include 45 videos and 9 exercises. This course is requires prerequisites, 22,053 learners enrolled.",Physics,,Intro,0,0,22053,45,9,0,1
-C_947241,Intro • Engineering • With Prerequisites,"Intro-level course in Engineering. Resources include 25 videos and 10 exercises. This course is requires prerequisites, 15,001 learners enrolled.",Engineering,,Intro,0,0,15001,25,10,0,1
-C_947244,Intermediate • Psychology • With Prerequisites,"Intermediate-level course in Psychology. Resources include 88 videos and 8 exercises. This course is requires prerequisites, 11,162 learners enrolled.",Psychology,,Intermediate,0,0,11162,88,8,0,1
-C_947250,Intro • Chemistry,"Intro-level course in Chemistry. Resources include 36 videos and 11 exercises. This course is 10,575 learners enrolled.",Chemistry,,Intro,0,0,10575,36,11,0,0
-C_947257,Intro • Data Science,"Intro-level course in Data Science. Resources include 34 videos and 8 exercises. This course is 15,875 learners enrolled.",Data Science,,Intro,0,0,15875,34,8,0,0
-C_948078,Intro • Physics,"Intro-level course in Physics. Resources include 49 videos and 10 exercises. This course is 18,793 learners enrolled.",Physics,,Intro,0,0,18793,49,10,0,0
-C_948092,Intermediate • Chemistry • With Prerequisites,"Intermediate-level course in Chemistry. Resources include 103 videos and 10 exercises. This course is requires prerequisites, 12,807 learners enrolled.",Chemistry,,Intermediate,0,0,12807,103,10,0,1
-C_948099,Intermediate • Mathematics • With Prerequisites,"Intermediate-level course in Mathematics. Resources include 72 videos and 8 exercises. This course is requires prerequisites, 13,040 learners enrolled.",Mathematics,,Intermediate,0,0,13040,72,8,0,1
-C_948103,Intro • Chemistry,"Intro-level course in Chemistry. Resources include 46 videos and 8 exercises. This course is 11,761 learners enrolled.",Chemistry,,Intro,0,0,11761,46,8,0,0
-C_948129,Intermediate • Physics • With Prerequisites,"Intermediate-level course in Physics. Resources include 41 videos and 43 exercises. This course is requires prerequisites, 12,379 learners enrolled.",Physics,,Intermediate,0,0,12379,41,43,0,1
-C_948136,Intro • Psychology • With Prerequisites,"Intro-level course in Psychology. Resources include 49 videos and 13 exercises. This course is requires prerequisites, 18,999 learners enrolled.",Psychology,,Intro,0,0,18999,49,13,0,1
-C_948137,Advanced • Mathematics • With Prerequisites,"Advanced-level course in Mathematics. Resources include 137 videos and 126 exercises. This course is requires prerequisites, 15,117 learners enrolled.",Mathematics,,Advanced,0,0,15117,137,126,0,1
-C_948208,Intro • Physics • With Prerequisites,"Intro-level course in Physics. Resources include 55 videos and 12 exercises. This course is requires prerequisites, 16,751 learners enrolled.",Physics,,Intro,0,0,16751,55,12,0,1
-C_948235,Intermediate • Engineering,"Intermediate-level course in Engineering. Resources include 61 videos and 15 exercises. This course is 11,234 learners enrolled.",Engineering,,Intermediate,0,0,11234,61,15,0,0
-C_948269,Intro • Chemistry • With Prerequisites,"Intro-level course in Chemistry. Resources include 50 videos and 4 exercises. This course is requires prerequisites, 12,983 learners enrolled.",Chemistry,,Intro,0,0,12983,50,4,0,1
-C_948289,Intermediate • Business • With Prerequisites,"Intermediate-level course in Business. Resources include 76 videos and 12 exercises. This course is requires prerequisites, 11,275 learners enrolled.",Business,,Intermediate,0,0,11275,76,12,0,1
-C_948408,Intermediate • Psychology,"Intermediate-level course in Psychology. Resources include 64 videos and 15 exercises. This course is 15,717 learners enrolled.",Psychology,,Intermediate,0,0,15717,64,15,0,0
-C_948410,Intermediate • Engineering,"Intermediate-level course in Engineering. Resources include 44 videos and 34 exercises. This course is 27,552 learners enrolled.",Engineering,,Intermediate,0,0,27552,44,34,0,0
-C_948411,Intermediate • Data Science,"Intermediate-level course in Data Science. Resources include 120 videos and 15 exercises. This course is 15,426 learners enrolled.",Data Science,,Intermediate,0,0,15426,120,15,0,0
-C_948412,Advanced • Psychology • With Prerequisites,"Advanced-level course in Psychology. Resources include 188 videos and 21 exercises. This course is requires prerequisites, 14,899 learners enrolled.",Psychology,,Advanced,0,0,14899,188,21,0,1
-C_948414,Advanced • Chemistry,"Advanced-level course in Chemistry. Resources include 213 videos and 17 exercises. This course is 15,593 learners enrolled.",Chemistry,,Advanced,0,0,15593,213,17,0,0
-C_948415,Intro • Mathematics • With Prerequisites,"Intro-level course in Mathematics. Resources include 14 videos and 16 exercises. This course is requires prerequisites, 14,776 learners enrolled.",Mathematics,,Intro,0,0,14776,14,16,0,1
-C_948417,Intermediate • Business,"Intermediate-level course in Business. Resources include 93 videos and 32 exercises. This course is 16,876 learners enrolled.",Business,,Intermediate,0,0,16876,93,32,0,0
-C_948419,Intermediate • Physics,"Intermediate-level course in Physics. Resources include 30 videos and 30 exercises. This course is 16,097 learners enrolled.",Physics,,Intermediate,0,0,16097,30,30,0,0
-C_948421,Intro • Mathematics,"Intro-level course in Mathematics. Resources include 36 videos and 5 exercises. This course is 27,023 learners enrolled.",Mathematics,,Intro,0,0,27023,36,5,0,0
-C_948423,Intro • Physics,"Intro-level course in Physics. Resources include 43 videos and 8 exercises. This course is 14,334 learners enrolled.",Physics,,Intro,0,0,14334,43,8,0,0
-C_948424,Intro • Data Science • With Prerequisites,"Intro-level course in Data Science. Resources include 38 videos and 12 exercises. This course is requires prerequisites, 10,475 learners enrolled.",Data Science,,Intro,0,0,10475,38,12,0,1
-C_948435,Intermediate • Computer Science,"Intermediate-level course in Computer Science. Resources include 52 videos and 52 exercises. This course is 12,668 learners enrolled.",Computer Science,,Intermediate,0,0,12668,52,52,0,0
-C_948468,Intermediate • Computer Science,"Intermediate-level course in Computer Science. Resources include 69 videos and 12 exercises. This course is 10,326 learners enrolled.",Computer Science,,Intermediate,0,0,10326,69,12,0,0
-C_949540,Intro • Mathematics,"Intro-level course in Mathematics. Resources include 59 videos and 10 exercises. This course is 13,836 learners enrolled.",Mathematics,,Intro,0,0,13836,59,10,0,0
-C_955163,Intermediate • Chemistry • With Prerequisites,"Intermediate-level course in Chemistry. Resources include 101 videos and 7 exercises. This course is requires prerequisites, 17,782 learners enrolled.",Chemistry,,Intermediate,0,0,17782,101,7,0,1
-C_677146,Intermediate • Physics,"Intermediate-level course in Physics. Resources include 137 videos and 27 exercises. This course is 16,459 learners enrolled.",Physics,,Intermediate,0,0,16459,137,27,0,0
-C_696554,Intermediate • Data Science • With Prerequisites,"Intermediate-level course in Data Science. Resources include 89 videos and 7 exercises. This course is requires prerequisites, 11,301 learners enrolled.",Data Science,,Intermediate,0,0,11301,89,7,0,1
-C_694136,Intermediate • Data Science • Popular,"Intermediate-level course in Data Science. Resources include 68 videos and 58 exercises. This course is 30,849 learners enrolled.",Data Science,,Intermediate,1,0,30849,68,58,0,0
-C_697374,Intro • Mathematics • With Prerequisites,"Intro-level course in Mathematics. Resources include 53 videos and 9 exercises. This course is requires prerequisites, 23,820 learners enrolled.",Mathematics,,Intro,0,0,23820,53,9,0,1
-C_676932,Intermediate • Physics • Popular,"Intermediate-level course in Physics. Resources include 57 videos and 12 exercises. This course is 125,789 learners enrolled.",Physics,,Intermediate,1,0,125789,57,12,1,0
-C_1428968,Intro • Engineering • With Prerequisites,"Intro-level course in Engineering. Resources include 49 videos and 5 exercises. This course is requires prerequisites, 23,478 learners enrolled.",Engineering,,Intro,0,0,23478,49,5,0,1
-C_1527465,Intermediate • Business • With Prerequisites,"Intermediate-level course in Business. Resources include 79 videos and 7 exercises. This course is requires prerequisites, 12,208 learners enrolled.",Business,,Intermediate,0,0,12208,79,7,0,1
-C_682335,Intro • Physics • With Prerequisites,"Intro-level course in Physics. Resources include 21 videos and 21 exercises. This course is requires prerequisites, 18,147 learners enrolled.",Physics,,Intro,0,0,18147,21,21,0,1
-C_697032,Intro • Computer Science • With Prerequisites,"Intro-level course in Computer Science. Resources include 16 videos and 14 exercises. This course is requires prerequisites, 15,340 learners enrolled.",Computer Science,,Intro,0,0,15340,16,14,0,1
-C_936913,Intro • Business • With Prerequisites,"Intro-level course in Business. Resources include 18 videos and 18 exercises. This course is requires prerequisites, 13,295 learners enrolled.",Business,,Intro,0,0,13295,18,18,0,1
-C_934526,Intro • Engineering,"Intro-level course in Engineering. Resources include 37 videos and 16 exercises. This course is 11,764 learners enrolled.",Engineering,,Intro,0,0,11764,37,16,0,0
-C_788575,Intermediate • Chemistry • With Prerequisites,"Intermediate-level course in Chemistry. Resources include 46 videos and 47 exercises. This course is requires prerequisites, 18,137 learners enrolled.",Chemistry,,Intermediate,0,0,18137,46,47,0,1
-C_1738818,Intermediate • Data Science • With Prerequisites,"Intermediate-level course in Data Science. Resources include 115 videos and 12 exercises. This course is requires prerequisites, 10,064 learners enrolled.",Data Science,,Intermediate,0,0,10064,115,12,0,1
-C_1741554,Intermediate • Psychology,"Intermediate-level course in Psychology. Resources include 53 videos and 53 exercises. This course is 11,476 learners enrolled.",Psychology,,Intermediate,0,0,11476,53,53,0,0
-C_1776316,Intermediate • Business,"Intermediate-level course in Business. Resources include 50 videos and 16 exercises. This course is 11,796 learners enrolled.",Business,,Intermediate,0,0,11796,50,16,0,0
-C_1797904,Intro • Physics • With Prerequisites,"Intro-level course in Physics. Resources include 35 videos and 8 exercises. This course is requires prerequisites, 10,755 learners enrolled.",Physics,,Intro,0,0,10755,35,8,0,1
-C_1822804,Advanced • Engineering • With Prerequisites,"Advanced-level course in Engineering. Resources include 86 videos and 79 exercises. This course is requires prerequisites, 22,319 learners enrolled.",Engineering,,Advanced,0,0,22319,86,79,0,1
-C_629559,Advanced • Data Science • Popular,"Advanced-level course in Data Science. Resources include 76 videos and 73 exercises. This course is 67,051 learners enrolled.",Data Science,,Advanced,1,0,67051,76,73,1,0
-C_676913,Intro • Engineering • Multi-disciplinary,"Intro-level course in Engineering. Resources include 44 videos and 6 exercises. This course is multi-disciplinary, 12,987 learners enrolled.",Engineering,"Psychology,Physics",Intro,0,1,12987,44,6,3,0
-C_735046,Intro • Psychology,"Intro-level course in Psychology. Resources include 63 videos and 8 exercises. This course is 14,342 learners enrolled.",Psychology,,Intro,0,0,14342,63,8,0,0
-C_948409,Intro • Psychology,"Intro-level course in Psychology. Resources include 55 videos and 7 exercises. This course is 18,336 learners enrolled.",Psychology,,Intro,0,0,18336,55,7,0,0
-C_781445,Intermediate • Engineering,"Intermediate-level course in Engineering. Resources include 68 videos and 21 exercises. This course is 17,295 learners enrolled.",Engineering,,Intermediate,0,0,17295,68,21,0,0
-C_1906555,Intro • Physics,"Intro-level course in Physics. Resources include 24 videos and 16 exercises. This course is 12,240 learners enrolled.",Physics,,Intro,0,0,12240,24,16,0,0
-C_696826,Intermediate • Data Science,"Intermediate-level course in Data Science. Resources include 97 videos and 13 exercises. This course is 26,611 learners enrolled.",Data Science,,Intermediate,0,0,26611,97,13,1,0
-C_854843,Advanced • Data Science • Multi-disciplinary,"Advanced-level course in Data Science. Resources include 83 videos and 82 exercises. This course is multi-disciplinary, 12,686 learners enrolled.",Data Science,Engineering,Advanced,0,1,12686,83,82,2,0
-C_697360,Advanced • Physics • Multi-disciplinary,"Advanced-level course in Physics. Resources include 84 videos and 69 exercises. This course is multi-disciplinary, 10,296 learners enrolled.",Physics,Chemistry,Advanced,0,1,10296,84,69,2,0
-C_676673,Intermediate • Mathematics,"Intermediate-level course in Mathematics. Resources include 54 videos and 19 exercises. This course is 15,529 learners enrolled.",Mathematics,,Intermediate,0,0,15529,54,19,1,0
-C_697748,Advanced • Chemistry,"Advanced-level course in Chemistry. Resources include 118 videos and 69 exercises. This course is 14,880 learners enrolled.",Chemistry,,Advanced,0,0,14880,118,69,0,0
-C_682546,Intermediate • Chemistry,"Intermediate-level course in Chemistry. Resources include 105 videos and 13 exercises. This course is 13,915 learners enrolled.",Chemistry,,Intermediate,0,0,13915,105,13,0,0
-C_682277,Intro • Engineering • Multi-disciplinary,"Intro-level course in Engineering. Resources include 44 videos and 10 exercises. This course is multi-disciplinary, 10,201 learners enrolled.",Engineering,Psychology,Intro,0,1,10201,44,10,2,0
-C_697024,Advanced • Chemistry,"Advanced-level course in Chemistry. Resources include 107 videos and 107 exercises. This course is 12,000 learners enrolled.",Chemistry,,Advanced,0,0,12000,107,107,0,0
-C_879111,Intro • Data Science,"Intro-level course in Data Science. Resources include 35 videos and 7 exercises. This course is 10,127 learners enrolled.",Data Science,,Intro,0,0,10127,35,7,0,0
-C_680933,Intro • Engineering,"Intro-level course in Engineering. Resources include 27 videos and 7 exercises. This course is 18,251 learners enrolled.",Engineering,,Intro,0,0,18251,27,7,1,0
-C_681678,Intro • Mathematics,"Intro-level course in Mathematics. Resources include 57 videos and 9 exercises. This course is 22,596 learners enrolled.",Mathematics,,Intro,0,0,22596,57,9,1,0
-C_862967,Intro • Computer Science,"Intro-level course in Computer Science. Resources include 50 videos and 9 exercises. This course is 11,151 learners enrolled.",Computer Science,,Intro,0,0,11151,50,9,0,0
-C_756646,Intermediate • Mathematics,"Intermediate-level course in Mathematics. Resources include 70 videos and 15 exercises. This course is 10,438 learners enrolled.",Mathematics,,Intermediate,0,0,10438,70,15,1,0
-C_948214,Intro • Business • With Prerequisites,"Intro-level course in Business. Resources include 43 videos and 6 exercises. This course is requires prerequisites, 11,212 learners enrolled.",Business,,Intro,0,0,11212,43,6,0,1
-C_756642,Intro • Physics • Multi-disciplinary • With Prerequisites,"Intro-level course in Physics. Resources include 52 videos and 5 exercises. This course is multi-disciplinary, requires prerequisites, 14,074 learners enrolled.",Physics,Chemistry,Intro,0,1,14074,52,5,2,1
-C_685689,Intermediate • Computer Science,"Intermediate-level course in Computer Science. Resources include 119 videos and 18 exercises. This course is 24,765 learners enrolled.",Computer Science,,Intermediate,0,0,24765,119,18,0,0
-C_707093,Intermediate • Mathematics,"Intermediate-level course in Mathematics. Resources include 73 videos and 14 exercises. This course is 16,668 learners enrolled.",Mathematics,,Intermediate,0,0,16668,73,14,0,0
-C_948428,Intro • Psychology,"Intro-level course in Psychology. Resources include 43 videos and 8 exercises. This course is 17,793 learners enrolled.",Psychology,,Intro,0,0,17793,43,8,0,0
-C_948427,Intro • Psychology,"Intro-level course in Psychology. Resources include 39 videos and 7 exercises. This course is 20,390 learners enrolled.",Psychology,,Intro,0,0,20390,39,7,0,0
-C_680998,Intermediate • Mathematics,"Intermediate-level course in Mathematics. Resources include 79 videos and 13 exercises. This course is 18,025 learners enrolled.",Mathematics,,Intermediate,0,0,18025,79,13,0,0
-C_916828,Intro • Engineering • Popular,"Intro-level course in Engineering. Resources include 45 videos and 14 exercises. This course is 32,230 learners enrolled.",Engineering,,Intro,1,0,32230,45,14,0,0
-C_696800,Intermediate • Mathematics,"Intermediate-level course in Mathematics. Resources include 33 videos and 30 exercises. This course is 22,206 learners enrolled.",Mathematics,,Intermediate,0,0,22206,33,30,1,0
-C_851362,Intro • Physics,"Intro-level course in Physics. Resources include 33 videos and 10 exercises. This course is 15,052 learners enrolled.",Physics,,Intro,0,0,15052,33,10,0,0
-C_681655,Intermediate • Computer Science • Multi-disciplinary • With Prerequisites,"Intermediate-level course in Computer Science. Resources include 121 videos and 21 exercises. This course is multi-disciplinary, requires prerequisites, 21,594 learners enrolled.",Computer Science,Mathematics,Intermediate,0,1,21594,121,21,2,1
-C_674953,Intro • Computer Science,"Intro-level course in Computer Science. Resources include 30 videos and 8 exercises. This course is 12,547 learners enrolled.",Computer Science,,Intro,0,0,12547,30,8,0,0
-C_862969,Intermediate • Psychology,"Intermediate-level course in Psychology. Resources include 57 videos and 13 exercises. This course is 29,082 learners enrolled.",Psychology,,Intermediate,0,0,29082,57,13,0,0
-C_948153,Intro • Engineering,"Intro-level course in Engineering. Resources include 38 videos and 13 exercises. This course is 15,731 learners enrolled.",Engineering,,Intro,0,0,15731,38,13,0,0
-C_760442,Intermediate • Data Science,"Intermediate-level course in Data Science. Resources include 28 videos and 35 exercises. This course is 17,904 learners enrolled.",Data Science,,Intermediate,0,0,17904,28,35,0,0
-C_948431,Intro • Psychology,"Intro-level course in Psychology. Resources include 40 videos and 3 exercises. This course is 18,512 learners enrolled.",Psychology,,Intro,0,0,18512,40,3,0,0
-C_947252,Intro • Business,"Intro-level course in Business. Resources include 56 videos and 7 exercises. This course is 27,165 learners enrolled.",Business,,Intro,0,0,27165,56,7,0,0
-C_707031,Intro • Physics,"Intro-level course in Physics. Resources include 25 videos and 6 exercises. This course is 29,351 learners enrolled.",Physics,,Intro,0,0,29351,25,6,0,0
-C_697236,Intermediate • Engineering,"Intermediate-level course in Engineering. Resources include 68 videos and 56 exercises. This course is 15,003 learners enrolled.",Engineering,,Intermediate,0,0,15003,68,56,0,0
-C_697293,Intro • Computer Science,"Intro-level course in Computer Science. Resources include 42 videos and 14 exercises. This course is 12,113 learners enrolled.",Computer Science,,Intro,0,0,12113,42,14,1,0
-C_1903985,Intro • Mathematics,"Intro-level course in Mathematics. Resources include 66 videos and 7 exercises. This course is 19,649 learners enrolled.",Mathematics,,Intro,0,0,19649,66,7,0,0
-C_696994,Intermediate • Computer Science • Popular,"Intermediate-level course in Computer Science. Resources include 80 videos and 48 exercises. This course is 181,697 learners enrolled.",Computer Science,,Intermediate,1,0,181697,80,48,0,0
-C_696968,Advanced • Physics • Popular,"Advanced-level course in Physics. Resources include 92 videos and 72 exercises. This course is 39,824 learners enrolled.",Physics,,Advanced,1,0,39824,92,72,0,0
-C_696927,Intro • Engineering • With Prerequisites,"Intro-level course in Engineering. Resources include 62 videos and 8 exercises. This course is requires prerequisites, 20,513 learners enrolled.",Engineering,,Intro,0,0,20513,62,8,1,1
-C_696841,Intro • Computer Science • With Prerequisites,"Intro-level course in Computer Science. Resources include 50 videos and 10 exercises. This course is requires prerequisites, 14,655 learners enrolled.",Computer Science,,Intro,0,0,14655,50,10,1,1
-C_696835,Intro • Chemistry • With Prerequisites,"Intro-level course in Chemistry. Resources include 65 videos and 7 exercises. This course is requires prerequisites, 14,033 learners enrolled.",Chemistry,,Intro,0,0,14033,65,7,0,1
-C_677047,Intermediate • Data Science • With Prerequisites,"Intermediate-level course in Data Science. Resources include 64 videos and 10 exercises. This course is requires prerequisites, 15,795 learners enrolled.",Data Science,,Intermediate,0,0,15795,64,10,1,1
-C_676937,Intermediate • Computer Science,"Intermediate-level course in Computer Science. Resources include 84 videos and 30 exercises. This course is 21,331 learners enrolled.",Computer Science,,Intermediate,0,0,21331,84,30,1,0
-C_883345,Advanced • Chemistry • Popular,"Advanced-level course in Chemistry. Resources include 1006 videos and 194 exercises. This course is 78,374 learners enrolled.",Chemistry,,Advanced,1,0,78374,1006,194,0,0
-C_770738,Advanced • Business,"Advanced-level course in Business. Resources include 503 videos and 52 exercises. This course is 29,516 learners enrolled.",Business,,Advanced,0,0,29516,503,52,0,0
-C_697791,Intermediate • Business • Popular,"Intermediate-level course in Business. Resources include 114 videos and 48 exercises. This course is 96,210 learners enrolled.",Business,,Intermediate,1,0,96210,114,48,1,0
-C_854866,Intermediate • Computer Science,"Intermediate-level course in Computer Science. Resources include 83 videos and 20 exercises. This course is 20,573 learners enrolled.",Computer Science,,Intermediate,0,0,20573,83,20,0,0
-C_735157,Intermediate • Data Science,"Intermediate-level course in Data Science. Resources include 62 videos and 12 exercises. This course is 24,003 learners enrolled.",Data Science,,Intermediate,0,0,24003,62,12,1,0
-C_677218,Intermediate • Data Science,"Intermediate-level course in Data Science. Resources include 155 videos and 9 exercises. This course is 19,948 learners enrolled.",Data Science,,Intermediate,0,0,19948,155,9,1,0
-C_697821,Advanced • Data Science • Popular,"Advanced-level course in Data Science. Resources include 138 videos and 69 exercises. This course is 44,600 learners enrolled.",Data Science,,Advanced,1,0,44600,138,69,1,0
-C_697828,Intermediate • Data Science,"Intermediate-level course in Data Science. Resources include 148 videos and 9 exercises. This course is 11,015 learners enrolled.",Data Science,,Intermediate,0,0,11015,148,9,0,0
-C_893812,Intro • Business,"Intro-level course in Business. Resources include 46 videos and 10 exercises. This course is 17,249 learners enrolled.",Business,,Intro,0,0,17249,46,10,0,0
+course_id,course_name,field,additional_fields,level,is_popular,is_multi_field,total_students_enrolled,total_videos,total_exercises,num_fields,is_prerequisites,schools
+C_948409,Intro • Psychology,Psychology,,Intro,0,0,18336,55,7,0,0,"[\"Tsinghua University\"]"
+C_676937,Intermediate • Computer Science,Computer Science,,Intermediate,0,0,21331,84,30,1,0,"[\"Tsinghua University\"]"
+C_883345,Advanced • Chemistry • Popular,Chemistry,,Advanced,1,0,78374,1006,194,0,0,"[\"Tsinghua University\"]"
+C_680777,Intro • Psychology,Psychology,,Intro,0,0,14843,19,9,1,0,"[\"Tsinghua University\"]"
+C_682515,Advanced • Engineering,Engineering,,Advanced,0,0,21069,133,44,0,0,"[\"Air Force Engineering University\"]"
+C_696855,Intermediate • Physics,Physics,,Intermediate,0,0,14863,161,12,0,0,"[\"Tsinghua University\"]"
+C_697188,Intermediate • Business • Popular,Business,,Intermediate,1,0,30312,120,7,0,0,"[\"Tsinghua University\"]"
+C_697374,Intro • Mathematics • With Prerequisites,Mathematics,,Intro,0,0,23820,53,9,0,1,"[\"Tsinghua University\"]"
+C_862969,Intermediate • Psychology,Psychology,,Intermediate,0,0,29082,57,13,0,0,"[\"Capital Medical University\"]"
+C_680958,Advanced • Engineering • With Prerequisites,Engineering,,Advanced,0,0,14268,107,70,1,1,"[\"Beijing Forestry University\"]"
+C_697075,Intermediate • Engineering • With Prerequisites,Engineering,,Intermediate,0,0,15499,133,37,0,1,"[\"Tsinghua University\"]"
+C_898310,Intro • Computer Science • With Prerequisites,Computer Science,,Intro,0,0,14147,20,18,0,1,"[\"Yunnan University\"]"
+C_707127,Intermediate • Engineering • With Prerequisites,Engineering,,Intermediate,0,0,14017,69,66,0,1,"[\"Beijing Normal University\"]"
+C_758221,Intermediate • Business,Business,,Intermediate,0,0,11065,91,8,0,0,"[\"Southwest University\"]"
+C_696835,Intro • Chemistry • With Prerequisites,Chemistry,,Intro,0,0,14033,65,7,0,1,"[\"Tsinghua University\"]"
+C_799931,Intro • Computer Science • With Prerequisites,Computer Science,,Intro,0,0,22116,31,4,0,1,"[\"Northeast Normal University\"]"
+C_947165,Intro • Chemistry • With Prerequisites,Chemistry,,Intro,0,0,11071,32,5,0,1,"[\"Shanghai Art & Design Academy\"]"
+C_680808,Intermediate • Business,Business,,Intermediate,0,0,10363,79,15,1,0,"[\"Tsinghua University\"]"
+C_697149,Intermediate • Psychology,Psychology,,Intermediate,0,0,19239,100,22,1,0,"[\"Tsinghua University\"]"
+C_947257,Intro • Data Science,Data Science,,Intro,0,0,15875,34,8,0,0,"[\"Northeast Normal University\"]"
+C_685664,Intro • Physics • With Prerequisites,Physics,,Intro,0,0,10059,32,24,1,1,"[\"Beijing Forestry University\"]"
+C_696998,Intermediate • Mathematics,Mathematics,,Intermediate,0,0,10078,47,39,0,0,"[\"Beijing Sport University\"]"
+C_934526,Intro • Engineering,Engineering,,Intro,0,0,11764,37,16,0,0,"[\"Chongqing University\"]"
+C_735244,Intermediate • Chemistry,Chemistry,,Intermediate,0,0,17541,49,16,0,0,"[\"Tsinghua University\"]"
+C_758208,Intermediate • Chemistry • With Prerequisites,Chemistry,,Intermediate,0,0,11988,54,27,0,1,"[\"Xinjiang University\"]"
+C_879040,Intermediate • Engineering • With Prerequisites,Engineering,,Intermediate,0,0,24500,72,16,0,1,"[\"Tsinghua University\"]"
+C_680993,Intermediate • Engineering • With Prerequisites,Engineering,,Intermediate,0,0,10007,80,4,0,1,"[\"Xi'an Jiaotong University\"]"
+C_948419,Intermediate • Physics,Physics,,Intermediate,0,0,16097,30,30,0,0,"[\"Tsinghua University\"]"
+C_696908,Intro • Business,Business,,Intro,0,0,25164,42,5,0,0,"[\"Tsinghua University\"]"
+C_697293,Intro • Computer Science,Computer Science,,Intro,0,0,12113,42,14,1,0,"[\"Tsinghua University\"]"
+C_697381,Intro • Mathematics • Multi-disciplinary,Mathematics,Business,Intro,0,1,16458,60,8,2,0,"[\"Tsinghua University\"]"
+C_808528,Intro • Business • With Prerequisites,Business,,Intro,0,0,19988,30,5,0,1,"[\"Northeast Normal University\"]"
+C_676996,Intro • Psychology,Psychology,,Intro,0,0,11350,13,13,0,0,"[\"Peking University\"]"
+C_677218,Intermediate • Data Science,Data Science,,Intermediate,0,0,19948,155,9,1,0,"[\"Tsinghua University\",\"South China University of Technology\"]"
+C_707032,Advanced • Physics,Physics,,Advanced,0,0,13877,202,16,0,0,"[\"Tsinghua University\"]"
+C_735342,Intermediate • Computer Science • With Prerequisites,Computer Science,,Intermediate,0,0,24391,77,22,1,1,"[\"Tsinghua University\"]"
+C_1428968,Intro • Engineering • With Prerequisites,Engineering,,Intro,0,0,23478,49,5,0,1,"[\"Tsinghua University\"]"
+C_685689,Intermediate • Computer Science,Computer Science,,Intermediate,0,0,24765,119,18,0,0,"[\"Tsinghua University\"]"
+C_707031,Intro • Physics,Physics,,Intro,0,0,29351,25,6,0,0,"[\"Tsinghua University\"]"
+C_735239,Intermediate • Chemistry,Chemistry,,Intermediate,0,0,12848,66,17,0,0,"[\"South China University of Technology\"]"
+C_681730,Intermediate • Business • Multi-disciplinary,Business,"Data Science,Engineering",Intermediate,0,1,12188,35,29,3,0,"[\"Chengdu University of Traditional Chinese Medicine\"]"
+C_697176,Intermediate • Business,Business,,Intermediate,0,0,14473,49,45,1,0,"[\"Tsinghua University\"]"
+C_681005,Intro • Business • With Prerequisites,Business,,Intro,0,0,20173,16,15,1,1,"[\"Beijing Sport University\"]"
+C_680762,Intermediate • Engineering,Engineering,,Intermediate,0,0,13075,40,35,1,0,"[\"Tsinghua University\"]"
+C_676969,Intermediate • Chemistry • With Prerequisites,Chemistry,,Intermediate,0,0,11408,83,10,1,1,"[\"Tsinghua University\"]"
+C_947244,Intermediate • Psychology • With Prerequisites,Psychology,,Intermediate,0,0,11162,88,8,0,1,"[\"Officers  College  of PAP\"]"
+C_948411,Intermediate • Data Science,Data Science,,Intermediate,0,0,15426,120,15,0,0,"[\"Tsinghua University\"]"
+C_948208,Intro • Physics • With Prerequisites,Physics,,Intro,0,0,16751,55,12,0,1,"[\"Liaoning University\"]"
+C_697076,Intermediate • Engineering,Engineering,,Intermediate,0,0,10261,63,49,0,0,"[\"Liaoning University of International Business\"]"
+C_682195,Intro • Business,Business,,Intro,0,0,17662,40,9,0,0,"[\"Tsinghua University\"]"
+C_746983,Intermediate • Chemistry • With Prerequisites,Chemistry,,Intermediate,0,0,13086,92,16,1,1,"[\"Dalian University of Technology\"]"
+C_696586,Intro • Engineering,Engineering,,Intro,0,0,21863,28,24,1,0,"[\"Xi'an Jiaotong University\"]"
+C_735155,Intro • Chemistry,Chemistry,,Intro,0,0,11483,11,9,1,0,"[\"Tsinghua University\"]"
+C_697284,Intermediate • Chemistry,Chemistry,,Intermediate,0,0,16995,81,11,0,0,"[\"Tsinghua University\"]"
+C_696994,Intermediate • Computer Science • Popular,Computer Science,,Intermediate,1,0,181697,80,48,0,0,"[\"Tsinghua University\"]"
+C_694168,Intermediate • Mathematics • With Prerequisites,Mathematics,,Intermediate,0,0,19105,160,12,0,1,"[\"Dalian Medical University\"]"
+C_676673,Intermediate • Mathematics,Mathematics,,Intermediate,0,0,15529,54,19,1,0,"[\"Tsinghua University\"]"
+C_696911,Intermediate • Data Science • With Prerequisites • Popular,Data Science,,Intermediate,1,0,61055,134,12,1,1,"[\"Tsinghua University\"]"
+C_682240,Intermediate • Chemistry,Chemistry,,Intermediate,0,0,13492,92,10,0,0,"[\"Hebei University of Technology\"]"
+C_735031,Advanced • Business • With Prerequisites,Business,,Advanced,0,0,17665,114,97,0,1,"[\"Shaanxi Polytechnic Institute\"]"
+C_680823,Intro • Computer Science • With Prerequisites,Computer Science,,Intro,0,0,18634,42,17,0,1,"[\"Zhengzhou University\"]"
+C_707038,Advanced • Business • Multi-disciplinary,Business,Data Science,Advanced,0,1,25751,258,42,2,0,"[\"Tsinghua University\"]"
+C_907949,Intermediate • Psychology • With Prerequisites,Psychology,,Intermediate,0,0,11698,51,34,0,1,"[\"Xi’an Polytechnic University\"]"
+C_948468,Intermediate • Computer Science,Computer Science,,Intermediate,0,0,10326,69,12,0,0,"[\"Shandong University\"]"
+C_676898,Advanced • Physics • With Prerequisites,Physics,,Advanced,0,0,13122,57,101,1,1,"[\"Northeastern University\"]"
+C_865842,Intermediate • Engineering • With Prerequisites,Engineering,,Intermediate,0,0,14692,25,35,0,1,"[\"Shenzhen Institute & Information Technology\"]"
+C_879054,Intermediate • Psychology • With Prerequisites,Psychology,,Intermediate,0,0,19871,98,9,0,1,"[\"Tsinghua University\"]"
+C_697025,Advanced • Computer Science • With Prerequisites,Computer Science,,Advanced,0,0,18034,93,69,0,1,"[\"Jinan University\"]"
+C_948421,Intro • Mathematics,Mathematics,,Intro,0,0,27023,36,5,0,0,"[\"Tsinghua University\"]"
+C_735405,Intermediate • Psychology • Multi-disciplinary,Psychology,Physics,Intermediate,0,1,21994,83,12,2,0,"[\"Fudan University\"]"
+C_781494,Intermediate • Psychology,Psychology,,Intermediate,0,0,15301,86,10,0,0,"[\"Xi'an Jiaotong University\"]"
+C_735214,Intro • Engineering • With Prerequisites,Engineering,,Intro,0,0,24049,34,6,0,1,"[\"Tsinghua University\"]"
+C_758190,Intermediate • Mathematics • With Prerequisites,Mathematics,,Intermediate,0,0,11160,28,28,0,1,"[\"Shandong Water Conservancy Vocational College\"]"
+C_936973,Intro • Business • With Prerequisites,Business,,Intro,0,0,14618,52,6,0,1,"[\"Shanxi University\"]"
+C_697748,Advanced • Chemistry,Chemistry,,Advanced,0,0,14880,118,69,0,0,"[\"Nankai University\"]"
+C_784172,Intermediate • Computer Science,Computer Science,,Intermediate,0,0,13114,91,23,1,0,"[\"Beijing Institute of Technology\"]"
+C_879111,Intro • Data Science,Data Science,,Intro,0,0,10127,35,7,0,0,"[\"TianjinUniversity\"]"
+C_948153,Intro • Engineering,Engineering,,Intro,0,0,15731,38,13,0,0,"[\"Xi’an University of Science and Technology\"]"
+C_817691,Intermediate • Computer Science • With Prerequisites,Computer Science,,Intermediate,0,0,18215,76,9,0,1,"[\"Xinjiang University\"]"
+C_948103,Intro • Chemistry,Chemistry,,Intro,0,0,11761,46,8,0,0,"[\"Ningxia University\"]"
+C_682360,Advanced • Business • With Prerequisites,Business,,Advanced,0,0,10447,113,58,1,1,"[\"Army  Engineering University of PLA\"]"
+C_1822804,Advanced • Engineering • With Prerequisites,Engineering,,Advanced,0,0,22319,86,79,0,1,"[\"Chongqing Three Gorges Medical College\"]"
+C_696826,Intermediate • Data Science,Data Science,,Intermediate,0,0,26611,97,13,1,0,"[\"Tsinghua University\"]"
+C_682147,Intro • Chemistry • With Prerequisites,Chemistry,,Intro,0,0,14141,50,14,0,1,"[\"Tsinghua University\"]"
+C_677020,Intermediate • Computer Science,Computer Science,,Intermediate,0,0,11948,100,11,1,0,"[\"Tsinghua University\"]"
+C_948129,Intermediate • Physics • With Prerequisites,Physics,,Intermediate,0,0,12379,41,43,0,1,"[\"North China University of Water Resources and Electric Power\"]"
+C_697797,Intermediate • Data Science • With Prerequisites,Data Science,,Intermediate,0,0,16068,147,10,0,1,"[\"Tsinghua University\"]"
+C_746997,Advanced • Business,Business,,Advanced,0,0,26335,110,103,1,0,"[\"Tsinghua University\"]"
+C_948424,Intro • Data Science • With Prerequisites,Data Science,,Intro,0,0,10475,38,12,0,1,"[\"Shanghai Art & Design Academy\"]"
+C_696972,Advanced • Psychology,Psychology,,Advanced,0,0,12179,120,90,0,0,"[\"South China University of Technology\"]"
+C_697032,Intro • Computer Science • With Prerequisites,Computer Science,,Intro,0,0,15340,16,14,0,1,"[\"University of California, Berkeley\"]"
+C_677159,Intro • Engineering,Engineering,,Intro,0,0,14042,53,1,1,0,"[\"Tsinghua University\"]"
+C_697423,Intermediate • Mathematics • With Prerequisites,Mathematics,,Intermediate,0,0,18868,61,12,1,1,"[\"Tsinghua University\"]"
+C_734037,Intermediate • Data Science • With Prerequisites,Data Science,,Intermediate,0,0,10323,64,16,0,1,"[\"Fudan University\"]"
+C_681655,Intermediate • Computer Science • Multi-disciplinary • With Prerequisites,Computer Science,Mathematics,Intermediate,0,1,21594,121,21,2,1,"[\"Capital Medical University\"]"
+C_676656,Intermediate • Data Science,Data Science,,Intermediate,0,0,21003,158,16,0,0,"[\"Tsinghua University\"]"
+C_674903,Intermediate • Data Science • With Prerequisites • Popular,Data Science,,Intermediate,1,0,48029,109,15,1,1,"[\"Tsinghua University\"]"
+C_681711,Advanced • Psychology • With Prerequisites,Psychology,,Advanced,0,0,12952,52,98,0,1,"[\"Air Force Engineering University\"]"
+C_696679,Advanced • Data Science • Popular,Data Science,,Advanced,1,0,41847,258,110,1,0,"[\"Tsinghua University\"]"
+C_799796,Advanced • Chemistry,Chemistry,,Advanced,0,0,25028,147,55,1,0,"[\"Tsinghua University\"]"
+C_674920,Intermediate • Engineering • Popular,Engineering,,Intermediate,1,0,32466,162,24,1,0,"[\"Tsinghua University\"]"
+C_680740,Intermediate • Psychology,Psychology,,Intermediate,0,0,13485,51,18,0,0,"[\"Tsinghua University\"]"
+C_707025,Intermediate • Psychology,Psychology,,Intermediate,0,0,11560,92,5,0,0,"[\"Tsinghua University\"]"
+C_682193,Intermediate • Mathematics,Mathematics,,Intermediate,0,0,12072,52,77,0,0,"[\"Beijing Normal University\"]"
+C_682624,Intermediate • Psychology,Psychology,,Intermediate,0,0,10703,147,16,1,0,"[\"Tsinghua University\"]"
+C_948136,Intro • Psychology • With Prerequisites,Psychology,,Intro,0,0,18999,49,13,0,1,"[\"Harbin Institute of Technology\"]"
+C_707093,Intermediate • Mathematics,Mathematics,,Intermediate,0,0,16668,73,14,0,0,"[\"Central South University\"]"
+C_851362,Intro • Physics,Physics,,Intro,0,0,15052,33,10,0,0,"[\"North China Electric Power University\"]"
+C_676676,Intermediate • Data Science • With Prerequisites,Data Science,,Intermediate,0,0,29700,26,32,0,1,"[\"Harbin Institute of Technology\"]"
+C_948408,Intermediate • Psychology,Psychology,,Intermediate,0,0,15717,64,15,0,0,"[\"Tsinghua University\"]"
+C_697068,Intro • Physics • With Prerequisites,Physics,,Intro,0,0,16305,58,11,0,1,"[\"Shenzhen Institute & Information Technology\"]"
+C_682335,Intro • Physics • With Prerequisites,Physics,,Intro,0,0,18147,21,21,0,1,"[\"Beijing Normal University\"]"
+C_948435,Intermediate • Computer Science,Computer Science,,Intermediate,0,0,12668,52,52,0,0,"[\"Qinghai University\"]"
+C_947252,Intro • Business,Business,,Intro,0,0,27165,56,7,0,0,"[\"Central University of Finance and Economics\"]"
+C_735269,Intermediate • Business • With Prerequisites,Business,,Intermediate,0,0,13138,52,63,0,1,"[\"Air Force Engineering University\"]"
+C_682702,Intro • Psychology,Psychology,,Intro,0,0,11713,53,8,1,0,"[\"Tsinghua University\"]"
+C_681255,Intro • Chemistry • With Prerequisites,Chemistry,,Intro,0,0,16831,25,20,0,1,"[\"Zhejiang Fashion Institute of Technology\"]"
+C_696976,Advanced • Computer Science,Computer Science,,Advanced,0,0,10662,101,84,0,0,"[\"Beijing Normal University\"]"
+C_696597,Intermediate • Data Science • With Prerequisites • Popular,Data Science,,Intermediate,1,0,31810,69,10,0,1,"[\"Tsinghua University\"]"
+C_681088,Intro • Engineering • With Prerequisites,Engineering,,Intro,0,0,12866,26,25,0,1,"[\"Xihua University\"]"
+C_817148,Intermediate • Mathematics • With Prerequisites,Mathematics,,Intermediate,0,0,10574,76,12,0,1,"[\"China Three Gorges University\"]"
+C_676932,Intermediate • Physics • Popular,Physics,,Intermediate,1,0,125789,57,12,1,0,"[\"Tsinghua University\"]"
+C_697299,Intro • Data Science,Data Science,,Intro,0,0,11401,31,6,0,0,"[\"Tsinghua University\"]"
+C_1738818,Intermediate • Data Science • With Prerequisites,Data Science,,Intermediate,0,0,10064,115,12,0,1,"[\"Tsinghua University\"]"
+C_697034,Intermediate • Engineering • Popular,Engineering,,Intermediate,1,0,44291,128,32,0,0,"[\"Tsinghua University\"]"
+C_770784,Advanced • Physics • With Prerequisites,Physics,,Advanced,0,0,24497,272,15,1,1,"[\"Fudan University\"]"
+C_735175,Intermediate • Data Science • With Prerequisites,Data Science,,Intermediate,0,0,11498,66,48,0,1,"[\"Xidian University\"]"
+C_697024,Advanced • Chemistry,Chemistry,,Advanced,0,0,12000,107,107,0,0,"[\"Beijing University of Aeronautics and Astronautics\"]"
+C_936971,Intermediate • Data Science • Popular,Data Science,,Intermediate,1,0,231674,38,36,0,0,"[\"Wuhan Institute of Physical Education\"]"
+C_697091,Intermediate • Physics,Physics,,Intermediate,0,0,25264,73,15,1,0,"[\"Tsinghua University\"]"
+C_676635,Intro • Computer Science,Computer Science,,Intro,0,0,17068,52,7,0,0,"[\"Kunming University of Science and Technology\"]"
+C_694163,Intermediate • Data Science • With Prerequisites,Data Science,,Intermediate,0,0,11256,38,27,0,1,"[\"Chongqing University\"]"
+C_696928,Intro • Chemistry • With Prerequisites,Chemistry,,Intro,0,0,20756,28,4,0,1,"[\"Tsinghua University\"]"
+C_936990,Intermediate • Computer Science • With Prerequisites,Computer Science,,Intermediate,0,0,19080,57,15,0,1,"[\"Tsinghua University\"]"
+C_854843,Advanced • Data Science • Multi-disciplinary,Data Science,Engineering,Advanced,0,1,12686,83,82,2,0,"[\"Tsinghua University\"]"
+C_760442,Intermediate • Data Science,Data Science,,Intermediate,0,0,17904,28,35,0,0,"[\"China Agricultural University\"]"
+C_697018,Intermediate • Engineering,Engineering,,Intermediate,0,0,21787,166,11,1,0,"[\"Tsinghua University\"]"
+C_707456,Intermediate • Mathematics • With Prerequisites,Mathematics,,Intermediate,0,0,21916,99,12,0,1,"[\"Nankai University\"]"
+C_707119,Intro • Psychology • Multi-disciplinary,Psychology,Physics,Intro,0,1,20628,54,8,2,0,"[\"Tsinghua University\"]"
+C_782490,Intermediate • Engineering,Engineering,,Intermediate,0,0,17445,85,45,0,0,"[\"Tsinghua University\"]"
+C_697289,Intermediate • Business • With Prerequisites,Business,,Intermediate,0,0,13358,61,14,0,1,"[\"Xi`an University of Architecture and Technology\"]"
+C_947250,Intro • Chemistry,Chemistry,,Intro,0,0,10575,36,11,0,0,"[\"Beijing Sport University\"]"
+C_881485,Intro • Mathematics • With Prerequisites,Mathematics,,Intro,0,0,16165,30,15,0,1,"[\"Tsinghua University\"]"
+C_696746,Intermediate • Engineering • With Prerequisites,Engineering,,Intermediate,0,0,17501,45,37,0,1,"[\"National University of Defense Technology\"]"
+C_854839,Intermediate • Computer Science,Computer Science,,Intermediate,0,0,22975,68,17,0,0,"[\"Tsinghua University\"]"
+C_696729,Intermediate • Physics • With Prerequisites,Physics,,Intermediate,0,0,19001,101,26,1,1,"[\"Guizhou Institute of Technology\"]"
+C_674953,Intro • Computer Science,Computer Science,,Intro,0,0,12547,30,8,0,0,"[\"Capital Medical University\"]"
+C_681754,Intro • Psychology • With Prerequisites,Psychology,,Intro,0,0,21460,55,5,0,1,"[\"Guilin University of Technology\"]"
+C_948428,Intro • Psychology,Psychology,,Intro,0,0,17793,43,8,0,0,"[\"Beijing International Studies University\"]"
+C_696724,Intermediate • Engineering • With Prerequisites,Engineering,,Intermediate,0,0,29821,86,60,1,1,"[\"Tsinghua University\"]"
+C_697130,Intermediate • Computer Science • With Prerequisites • Popular,Computer Science,,Intermediate,1,0,32195,103,9,1,1,"[\"Tsinghua University\"]"
+C_948412,Advanced • Psychology • With Prerequisites,Psychology,,Advanced,0,0,14899,188,21,0,1,"[\"Tsinghua University\"]"
+C_948417,Intermediate • Business,Business,,Intermediate,0,0,16876,93,32,0,0,"[\"Tsinghua University\"]"
+C_948269,Intro • Chemistry • With Prerequisites,Chemistry,,Intro,0,0,12983,50,4,0,1,"[\"Liaoning University\"]"
+C_696968,Advanced • Physics • Popular,Physics,,Advanced,1,0,39824,92,72,0,0,"[\"Tsinghua University\"]"
+C_677019,Intermediate • Physics,Physics,,Intermediate,0,0,16323,76,14,0,0,"[\"Hubei University\"]"
+C_697405,Intro • Computer Science,Computer Science,,Intro,0,0,25405,36,9,1,0,"[\"Tsinghua University\"]"
+C_754135,Intermediate • Engineering • With Prerequisites,Engineering,,Intermediate,0,0,16670,42,42,0,1,"[\"Beijing Forestry University\"]"
+C_1797904,Intro • Physics • With Prerequisites,Physics,,Intro,0,0,10755,35,8,0,1,"[\"Harbin Institute of Technology\"]"
+C_857823,Intro • Physics • With Prerequisites,Physics,,Intro,0,0,11567,46,9,0,1,"[\"Yunnan University\"]"
+C_756642,Intro • Physics • Multi-disciplinary • With Prerequisites,Physics,Chemistry,Intro,0,1,14074,52,5,2,1,"[\"Peking University\"]"
+C_947241,Intro • Engineering • With Prerequisites,Engineering,,Intro,0,0,15001,25,10,0,1,"[\"Anhui Polytechnic University\"]"
+C_707081,Intermediate • Engineering • With Prerequisites • Popular,Engineering,,Intermediate,1,0,32242,66,12,0,1,"[\"Peking University\"]"
+C_948289,Intermediate • Business • With Prerequisites,Business,,Intermediate,0,0,11275,76,12,0,1,"[\"South China University of Technology\"]"
+C_677236,Intro • Psychology,Psychology,,Intro,0,0,16841,40,5,1,0,"[\"Nanjing University\"]"
+C_697026,Intermediate • Business,Business,,Intermediate,0,0,25066,119,7,0,0,"[\"Tsinghua University\"]"
+C_948078,Intro • Physics,Physics,,Intro,0,0,18793,49,10,0,0,"[\"Chongqing University\"]"
+C_948410,Intermediate • Engineering,Engineering,,Intermediate,0,0,27552,44,34,0,0,"[\"Tsinghua University\"]"
+C_949540,Intro • Mathematics,Mathematics,,Intro,0,0,13836,59,10,0,0,"[\"Tsinghua University\"]"
+C_735046,Intro • Psychology,Psychology,,Intro,0,0,14342,63,8,0,0,"[\"Tsinghua University\"]"
+C_677047,Intermediate • Data Science • With Prerequisites,Data Science,,Intermediate,0,0,15795,64,10,1,1,"[\"Tsinghua University\"]"
+C_680761,Intermediate • Mathematics • Multi-disciplinary,Mathematics,Business,Intermediate,0,1,17580,89,11,2,0,"[\"Hunan University\"]"
+C_697821,Advanced • Data Science • Popular,Data Science,,Advanced,1,0,44600,138,69,1,0,"[\"Tsinghua University\"]"
+C_697020,Intermediate • Data Science,Data Science,,Intermediate,0,0,10180,52,17,0,0,"[\"Hubei University\"]"
+C_697828,Intermediate • Data Science,Data Science,,Intermediate,0,0,11015,148,9,0,0,"[\"Tsinghua University\"]"
+C_682466,Intro • Engineering,Engineering,,Intro,0,0,14405,22,18,0,0,"[\"Tsinghua University\"]"
+C_680979,Intermediate • Engineering • With Prerequisites,Engineering,,Intermediate,0,0,13537,75,31,0,1,"[\"Xi'an Jiaotong University\"]"
+C_680732,Intermediate • Data Science,Data Science,,Intermediate,0,0,12077,36,34,1,0,"[\"Tsinghua University\"]"
+C_1906555,Intro • Physics,Physics,,Intro,0,0,12240,24,16,0,0,"[\"Minzu University of China\"]"
+C_696800,Intermediate • Mathematics,Mathematics,,Intermediate,0,0,22206,33,30,1,0,"[\"Hubei University\"]"
+C_682458,Intermediate • Mathematics,Mathematics,,Intermediate,0,0,22077,64,9,1,0,"[\"Tsinghua University\"]"
+C_735123,Intermediate • Chemistry • With Prerequisites,Chemistry,,Intermediate,0,0,14088,72,7,0,1,"[\"Hebei University of Technology\"]"
+C_814402,Intro • Psychology • With Prerequisites,Psychology,,Intro,0,0,13248,20,9,0,1,"[\"Yunnan University\"]"
+C_943228,Intermediate • Engineering • With Prerequisites,Engineering,,Intermediate,0,0,13054,78,39,0,1,"[\"Air Force Engineering University\"]"
+C_696689,Advanced • Engineering • With Prerequisites,Engineering,,Advanced,0,0,10921,116,88,0,1,"[\"Dalian University of Technology\"]"
+C_697019,Intro • Engineering • With Prerequisites,Engineering,,Intro,0,0,14855,34,8,0,1,"[\"Wuhu Institute of Technology\"]"
+C_758183,Intermediate • Psychology • With Prerequisites,Psychology,,Intermediate,0,0,10030,34,31,0,1,"[\"Chongqing University\"]"
+C_948427,Intro • Psychology,Psychology,,Intro,0,0,20390,39,7,0,0,"[\"Beijing Technology and Business University\"]"
+C_677049,Intermediate • Data Science • Multi-disciplinary • Popular,Data Science,Engineering,Intermediate,1,1,68762,126,13,2,0,"[\"Tsinghua University\"]"
+C_680784,Intermediate • Business,Business,,Intermediate,0,0,11983,30,28,0,0,"[\"China Pharmaceutical University\"]"
+C_682586,Intro • Psychology,Psychology,,Intro,0,0,17888,24,8,1,0,"[\"Tsinghua University\"]"
+C_1741554,Intermediate • Psychology,Psychology,,Intermediate,0,0,11476,53,53,0,0,"[\"Chongqing University\"]"
+C_697360,Advanced • Physics • Multi-disciplinary,Physics,Chemistry,Advanced,0,1,10296,84,69,2,0,"[\"Tsinghua University\"]"
+C_676915,Intro • Psychology,Psychology,,Intro,0,0,13388,49,6,1,0,"[\"Hunan University\"]"
+C_931245,Intermediate • Psychology • With Prerequisites,Psychology,,Intermediate,0,0,21340,63,16,0,1,"[\"South China University of Technology\"]"
+C_696841,Intro • Computer Science • With Prerequisites,Computer Science,,Intro,0,0,14655,50,10,1,1,"[\"Tsinghua University\"]"
+C_916826,Intermediate • Mathematics • With Prerequisites,Mathematics,,Intermediate,0,0,11053,102,12,0,1,"[\"Inner Mongolia Normal University\"]"
+C_773985,Intermediate • Mathematics • With Prerequisites,Mathematics,,Intermediate,0,0,19480,57,12,0,1,"[\"Nankai University\"]"
+C_1527465,Intermediate • Business • With Prerequisites,Business,,Intermediate,0,0,12208,79,7,0,1,"[\"Tsinghua University\"]"
+C_770738,Advanced • Business,Business,,Advanced,0,0,29516,503,52,0,0,"[\"Tsinghua University\"]"
+C_845950,Advanced • Chemistry,Chemistry,,Advanced,0,0,24720,111,101,0,0,"[\"Chongqing University\"]"
+C_948431,Intro • Psychology,Psychology,,Intro,0,0,18512,40,3,0,0,"[\"Central University of Finance and Economics\"]"
+C_735054,Intro • Computer Science,Computer Science,,Intro,0,0,28769,60,10,0,0,"[\"Central South University\"]"
+C_866164,Intermediate • Mathematics • With Prerequisites,Mathematics,,Intermediate,0,0,16426,93,15,0,1,"[\"Tsinghua University\"]"
+C_696946,Intro • Physics,Physics,,Intro,0,0,22317,40,7,0,0,"[\"Peking University\"]"
+C_682210,Intermediate • Physics,Physics,,Intermediate,0,0,18897,64,60,0,0,"[\"Southeast University\"]"
+C_696954,Intermediate • Business,Business,,Intermediate,0,0,17400,66,10,0,0,"[\"Tsinghua University\"]"
+C_707037,Intro • Chemistry,Chemistry,,Intro,0,0,12735,51,9,1,0,"[\"Tsinghua University\"]"
+C_676651,Intro • Mathematics,Mathematics,,Intro,0,0,17878,33,1,0,0,"[\"Massachusetts Institute of Technology\"]"
+C_697288,Intermediate • Mathematics,Mathematics,,Intermediate,0,0,12071,53,55,1,0,"[\"Beijing Forestry University\"]"
+C_676683,Intro • Physics • Popular,Physics,,Intro,1,0,34310,57,8,1,0,"[\"Tsinghua University\"]"
+C_943250,Intro • Mathematics,Mathematics,,Intro,0,0,13991,17,18,0,0,"[\"Tsinghua University\"]"
+C_947240,Intro • Physics • With Prerequisites,Physics,,Intro,0,0,22053,45,9,0,1,"[\"South China University of Technology\"]"
+C_697556,Advanced • Chemistry • With Prerequisites,Chemistry,,Advanced,0,0,13170,125,72,0,1,"[\"Shaanxi Polytechnic Institute\"]"
+C_697729,Intro • Data Science,Data Science,,Intro,0,0,18625,15,4,0,0,"[\"Xingtai University\"]"
+C_947149,Intro • Chemistry • With Prerequisites,Chemistry,,Intro,0,0,14716,20,14,0,1,"[\"Xidian University\"]"
+C_936913,Intro • Business • With Prerequisites,Business,,Intro,0,0,13295,18,18,0,1,"[\"Tsinghua University\"]"
+C_681678,Intro • Mathematics,Mathematics,,Intro,0,0,22596,57,9,1,0,"[\"Xi’an University of Posts&Telecommunications\"]"
+C_697117,Intermediate • Data Science,Data Science,,Intermediate,0,0,12055,91,15,0,0,"[\"Tsinghua University\"]"
+C_922867,Advanced • Engineering • With Prerequisites,Engineering,,Advanced,0,0,14900,52,114,0,1,"[\"Yunnan University\"]"
+C_879093,Intermediate • Mathematics • With Prerequisites,Mathematics,,Intermediate,0,0,13078,65,8,0,1,"[\"Wenzhou University\"]"
+C_943267,Intro • Engineering,Engineering,,Intro,0,0,24039,47,10,0,0,"[\"Chongqing University\"]"
+C_934535,Intermediate • Business • With Prerequisites,Business,,Intermediate,0,0,11390,35,34,0,1,"[\"Rocket Force University of Engineering\"]"
+C_697415,Intermediate • Physics,Physics,,Intermediate,0,0,15636,81,37,0,0,"[\"Tsinghua University\"]"
+C_922850,Intermediate • Data Science • With Prerequisites,Data Science,,Intermediate,0,0,16294,84,10,0,1,"[\"Tsinghua University\"]"
+C_948099,Intermediate • Mathematics • With Prerequisites,Mathematics,,Intermediate,0,0,13040,72,8,0,1,"[\"Tongren Unlverslty\"]"
+C_735143,Intermediate • Engineering • With Prerequisites,Engineering,,Intermediate,0,0,15132,149,17,0,1,"[\"Southeast University\"]"
+C_782555,Intermediate • Business,Business,,Intermediate,0,0,10585,79,9,1,0,"[\"Tsinghua University\"]"
+C_801420,Intermediate • Psychology • Popular,Psychology,,Intermediate,1,0,50848,85,59,0,0,"[\"Tsinghua University\"]"
+C_735157,Intermediate • Data Science,Data Science,,Intermediate,0,0,24003,62,12,1,0,"[\"Tsinghua University\"]"
+C_696927,Intro • Engineering • With Prerequisites,Engineering,,Intro,0,0,20513,62,8,1,1,"[\"Tsinghua University\"]"
+C_948235,Intermediate • Engineering,Engineering,,Intermediate,0,0,11234,61,15,0,0,"[\"China Foreign Affairs University\"]"
+C_676664,Intermediate • Physics,Physics,,Intermediate,0,0,11833,36,62,0,0,"[\"Naval Aeronautical University\"]"
+C_854866,Intermediate • Computer Science,Computer Science,,Intermediate,0,0,20573,83,20,0,0,"[\"Tsinghua University\"]"
+C_873864,Intro • Computer Science • With Prerequisites,Computer Science,,Intro,0,0,26266,36,19,0,1,"[\"Tsinghua University\"]"
+C_948423,Intro • Physics,Physics,,Intro,0,0,14334,43,8,0,0,"[\"Hainan University\"]"
+C_694136,Intermediate • Data Science • Popular,Data Science,,Intermediate,1,0,30849,68,58,0,0,"[\"Tsinghua University\"]"
+C_697265,Intro • Computer Science,Computer Science,,Intro,0,0,15167,38,11,0,0,"[\"Tsinghua University\"]"
+C_788575,Intermediate • Chemistry • With Prerequisites,Chemistry,,Intermediate,0,0,18137,46,47,0,1,"[\"Chongqing University\"]"
+C_862963,Intro • Chemistry • With Prerequisites,Chemistry,,Intro,0,0,13594,26,10,0,1,"[\"Yunnan University\"]"
+C_931252,Intermediate • Mathematics,Mathematics,,Intermediate,0,0,11109,68,62,0,0,"[\"Guizhou University\"]"
+C_1776316,Intermediate • Business,Business,,Intermediate,0,0,11796,50,16,0,0,"[\"Guizhou University\"]"
+C_1903985,Intro • Mathematics,Mathematics,,Intro,0,0,19649,66,7,0,0,"[\"Tsinghua University\"]"
+C_681636,Intermediate • Business,Business,,Intermediate,0,0,18200,60,16,0,0,"[\"Beijing Dancing Academy\"]"
+C_707373,Intermediate • Psychology,Psychology,,Intermediate,0,0,29316,71,7,0,0,"[\"Nankai University\"]"
+C_735259,Intermediate • Engineering • With Prerequisites,Engineering,,Intermediate,0,0,11802,92,15,0,1,"[\"Xi'an Jiaotong University\"]"
+C_890220,Intro • Engineering • With Prerequisites,Engineering,,Intro,0,0,24221,20,19,0,1,"[\"Xi'an Jiaotong University\"]"
+C_756747,Intro • Computer Science • With Prerequisites,Computer Science,,Intro,0,0,12673,22,24,0,1,"[\"South China University of Technology\"]"
+C_898349,Intermediate • Physics,Physics,,Intermediate,0,0,10577,80,11,0,0,"[\"Tsinghua University\"]"
+C_682473,Intermediate • Mathematics • With Prerequisites,Mathematics,,Intermediate,0,0,15222,77,46,0,1,"[\"South China University of Technology\"]"
+C_677010,Intermediate • Computer Science • With Prerequisites • Popular,Computer Science,,Intermediate,1,0,42690,104,37,1,1,"[\"Tsinghua University\"]"
+C_676913,Intro • Engineering • Multi-disciplinary,Engineering,"Psychology,Physics",Intro,0,1,12987,44,6,3,0,"[\"Tsinghua University\"]"
+C_907961,Intro • Engineering,Engineering,,Intro,0,0,15901,67,6,0,0,"[\"Shandong University\"]"
+C_696740,Intro • Psychology • Multi-disciplinary • With Prerequisites,Psychology,Physics,Intro,0,1,22766,27,14,2,1,[]
+C_680998,Intermediate • Mathematics,Mathematics,,Intermediate,0,0,18025,79,13,0,0,"[\"Beijing Forestry University\"]"
+C_697236,Intermediate • Engineering,Engineering,,Intermediate,0,0,15003,68,56,0,0,"[\"Tsinghua University\"]"
+C_682239,Intermediate • Business,Business,,Intermediate,0,0,11948,117,16,0,0,"[\"Nanchang University\"]"
+C_696942,Intermediate • Physics • Popular,Physics,,Intermediate,1,0,46328,43,28,0,0,"[\"Tsinghua University\"]"
+C_756665,Intermediate • Chemistry • With Prerequisites,Chemistry,,Intermediate,0,0,14258,74,64,0,1,"[\"Shaanxi Business College\"]"
+C_934528,Intro • Computer Science,Computer Science,,Intro,0,0,13780,25,6,0,0,"[\"Zhongnan University of Economics and Law\"]"
+C_955163,Intermediate • Chemistry • With Prerequisites,Chemistry,,Intermediate,0,0,17782,101,7,0,1,"[\"Tsinghua University\"]"
+C_629559,Advanced • Data Science • Popular,Data Science,,Advanced,1,0,67051,76,73,1,0,"[\"Tsinghua University\"]"
+C_697096,Intro • Physics,Physics,,Intro,0,0,11392,12,4,1,0,"[\"Beijing Normal University\"]"
+C_916828,Intro • Engineering • Popular,Engineering,,Intro,1,0,32230,45,14,0,0,"[\"Beijing University of Posts and Telecommunications\"]"
+C_682222,Intermediate • Data Science,Data Science,,Intermediate,0,0,10509,89,16,0,0,"[\"Tsinghua University\"]"
+C_948092,Intermediate • Chemistry • With Prerequisites,Chemistry,,Intermediate,0,0,12807,103,10,0,1,"[\"Guizhou University\"]"
+C_680970,Intermediate • Chemistry,Chemistry,,Intermediate,0,0,12701,41,42,1,0,"[\"Yunnan University\"]"
+C_696922,Intermediate • Psychology,Psychology,,Intermediate,0,0,20208,113,45,1,0,"[\"Tsinghua University\"]"
+C_819285,Intro • Computer Science • With Prerequisites,Computer Science,,Intro,0,0,16458,25,17,0,1,"[\"Beijing University of Aeronautics and Astronautics\"]"
+C_866756,Intro • Engineering • Popular,Engineering,,Intro,1,0,46060,26,9,1,0,"[\"Hubei University\"]"
+C_781445,Intermediate • Engineering,Engineering,,Intermediate,0,0,17295,68,21,0,0,"[\"Guangzhou University of Chinese Medicine\"]"
+C_756646,Intermediate • Mathematics,Mathematics,,Intermediate,0,0,10438,70,15,1,0,"[\"Peking University\"]"
+C_808526,Intro • Psychology,Psychology,,Intro,0,0,18110,21,18,0,0,"[\"Tsinghua University\"]"
+C_793017,Intro • Data Science • With Prerequisites,Data Science,,Intro,0,0,11074,21,21,0,1,"[\"Bei Jing college of politics and law\"]"
+C_677146,Intermediate • Physics,Physics,,Intermediate,0,0,16459,137,27,0,0,"[\"Tsinghua University\"]"
+C_680961,Intro • Mathematics • With Prerequisites,Mathematics,,Intro,0,0,11094,19,18,0,1,"[\"South China University of Technology\"]"
+C_682442,Advanced • Mathematics,Mathematics,,Advanced,0,0,10909,113,75,1,0,"[\"Tsinghua University\"]"
+C_677243,Intro • Computer Science • With Prerequisites,Computer Science,,Intro,0,0,23279,40,10,0,1,"[\"North China Electric Power University\"]"
+C_680987,Intro • Engineering • With Prerequisites,Engineering,,Intro,0,0,15888,19,16,1,1,"[\"Beijing Sport University\"]"
+C_789278,Intermediate • Computer Science,Computer Science,,Intermediate,0,0,12406,65,55,0,0,"[\"Tsinghua University\"]"
+C_682277,Intro • Engineering • Multi-disciplinary,Engineering,Psychology,Intro,0,1,10201,44,10,2,0,"[\"Southwest Jiaotong University\"]"
+C_735351,Intro • Mathematics • Popular,Mathematics,,Intro,1,0,45079,38,9,0,0,"[\"Tsinghua University\"]"
+C_879045,Intro • Business • With Prerequisites,Business,,Intro,0,0,16004,44,13,0,1,"[\"Hunan Normal University\"]"
+C_948415,Intro • Mathematics • With Prerequisites,Mathematics,,Intro,0,0,14776,14,16,0,1,"[\"Tsinghua University\"]"
+C_862967,Intro • Computer Science,Computer Science,,Intro,0,0,11151,50,9,0,0,"[\"TianjinUniversity\"]"
+C_948214,Intro • Business • With Prerequisites,Business,,Intro,0,0,11212,43,6,0,1,"[\"Peking University\"]"
+C_696614,Intermediate • Physics • With Prerequisites,Physics,,Intermediate,0,0,21027,98,32,0,1,"[\"Shenzhen Institute & Information Technology\"]"
+C_696554,Intermediate • Data Science • With Prerequisites,Data Science,,Intermediate,0,0,11301,89,7,0,1,"[\"Tsinghua University\"]"
+C_676661,Intro • Mathematics,Mathematics,,Intro,0,0,10349,19,15,0,0,"[\"University of Macau\"]"
+C_679390,Intermediate • Engineering • With Prerequisites • Popular,Engineering,,Intermediate,1,0,32797,79,52,0,1,"[\"Beijing Forestry University\"]"
+C_845674,Intro • Physics • With Prerequisites,Physics,,Intro,0,0,17538,46,13,0,1,"[\"Yunnan University\"]"
+C_680933,Intro • Engineering,Engineering,,Intro,0,0,18251,27,7,1,0,"[\"National University of Defense Technology\"]"
+C_911165,Intro • Business,Business,,Intro,0,0,12626,41,10,0,0,"[\"Yunnan University\"]"
+C_948137,Advanced • Mathematics • With Prerequisites,Mathematics,,Advanced,0,0,15117,137,126,0,1,"[\"Guizhou University\"]"
+C_682759,Intro • Business • With Prerequisites,Business,,Intro,0,0,12854,51,4,1,1,"[\"Tsinghua University\"]"
+C_943271,Intermediate • Engineering • With Prerequisites,Engineering,,Intermediate,0,0,11716,60,20,0,1,"[\"Guizhou Medical University\"]"
+C_707035,Intermediate • Psychology • With Prerequisites,Psychology,,Intermediate,0,0,11239,83,11,0,1,"[\"Tsinghua University\"]"
+C_682546,Intermediate • Chemistry,Chemistry,,Intermediate,0,0,13915,105,13,0,0,"[\"Tongji University\"]"
+C_697791,Intermediate • Business • Popular,Business,,Intermediate,1,0,96210,114,48,1,0,"[\"Tsinghua University\"]"
+C_800360,Intro • Physics • With Prerequisites,Physics,,Intro,0,0,10069,27,10,0,1,"[\"Minzu University of China\"]"
+C_696875,Intro • Engineering • With Prerequisites,Engineering,,Intro,0,0,11106,18,8,0,1,"[\"Jincheng College of Sichuan University\"]"
+C_840084,Intro • Physics • With Prerequisites • Popular,Physics,,Intro,1,0,31568,32,10,0,1,"[\"Northeast Normal University\"]"
+C_697007,Intermediate • Mathematics • With Prerequisites,Mathematics,,Intermediate,0,0,13594,45,31,0,1,"[\"Jinan University\"]"
+C_948414,Advanced • Chemistry,Chemistry,,Advanced,0,0,15593,213,17,0,0,"[\"Tsinghua University\"]"
+C_893812,Intro • Business,Business,,Intro,0,0,17249,46,10,0,0,"[\"North China Electric Power University\"]"
+C_677093,Advanced • Chemistry,Chemistry,,Advanced,0,0,12800,119,62,0,0,"[\"Communication University of China\"]"
+C_682469,Intermediate • Business • With Prerequisites,Business,,Intermediate,0,0,16748,94,14,0,1,"[\"Chongqing University\"]"
+C_696700,Intermediate • Business • Popular,Business,,Intermediate,1,0,55873,76,15,0,0,"[\"Tsinghua University\"]"
+C_749807,Intermediate • Business • With Prerequisites,Business,,Intermediate,0,0,27065,99,12,0,1,"[\"Nankai University\"]"

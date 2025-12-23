@@ -40,7 +40,63 @@ const STAT_CARD_TEXT_GRADIENTS = {
   teal: 'from-teal-600 to-emerald-600',
 } as const;
 
+// ===== Normalize schools field (fix escaped CSV/JSON issues) =====
+// Handles cases:
+// - string[]
+// - JSON string: "[\"Tsinghua University\"]"
+// - double-escaped strings
+function normalizeSchools(input: unknown): string[] {
+  if (!input) return [];
+
+  if (Array.isArray(input)) {
+    return input
+      .map(String)
+      .map((s) => s.trim())
+      .map((s) => s.replace(/^[\[\\\"]+|[\]\\\"]+$/g, ""))
+      .filter(Boolean);
+  }
+
+  if (typeof input === "string") {
+    let s = input.trim();
+
+    // Try JSON.parse up to 2 times (handles double-escaped JSON-in-string)
+    for (let i = 0; i < 2; i++) {
+      try {
+        const parsed = JSON.parse(s);
+        if (Array.isArray(parsed)) {
+          return parsed
+            .map(String)
+            .map((x) => x.trim())
+            .map((x) => x.replace(/^[\[\\\"]+|[\]\\\"]+$/g, ""))
+            .filter(Boolean);
+        }
+        if (typeof parsed === "string") {
+          s = parsed.trim();
+          continue;
+        }
+        break;
+      } catch {
+        break;
+      }
+    }
+
+    // Fallback: manual cleanup
+    return s
+      .replace(/[\[\]\\\"']/g, "")
+      .split(",")
+      .map((x) => x.trim())
+      .filter(Boolean);
+  }
+
+  return [];
+}
+
+
 export default function DashboardClient({ stats, allCourses }: DashboardClientProps) {
+  // ---------------- University chart controls (keeps original UI; adds new section) ----------------
+  const [uniTopN, setUniTopN] = React.useState<number>(10);
+  const [uniField, setUniField] = React.useState<string>("All");
+  const [uniLevel, setUniLevel] = React.useState<string>("All");
   // Calculate derived statistics
   const totalCourses = stats.totalCourses;
   const totalStudents = stats.totalStudents;
@@ -166,6 +222,44 @@ export default function DashboardClient({ stats, allCourses }: DashboardClientPr
     { name: "Group B", value: 11.1, color: "#52c41a" },
     { name: "Group A", value: 5.7, color: "#1890ff" },
   ];
+
+  // ---------- Top Universities (computed from courses; preserves original UI; adds new chart section) ----------
+  const uniFieldOptions = React.useMemo(() => {
+    const set = new Set<string>();
+    for (const c of allCourses) set.add(String(c.field || "Unknown"));
+    return ["All", ...Array.from(set).sort((a, b) => a.localeCompare(b))];
+  }, [allCourses]);
+
+  const uniLevelOptions = React.useMemo(() => {
+    const set = new Set<string>();
+    for (const c of allCourses) set.add(String((c as any).level || "Unknown"));
+    return ["All", ...Array.from(set).sort((a, b) => a.localeCompare(b))];
+  }, [allCourses]);
+
+  const topUniversitiesData = React.useMemo(() => {
+    const counts = new Map<string, number>();
+    const base = allCourses.filter((c) => {
+      if (uniField !== "All" && String(c.field) !== uniField) return false;
+      const level = String((c as any).level || "Unknown");
+      if (uniLevel !== "All" && level !== uniLevel) return false;
+      return true;
+    });
+
+    for (const c of base) {
+      const schools = normalizeSchools((c as any).schools);
+      const list = schools.length ? schools : ["Unknown"]; // bucket missing values
+      for (const s of list) {
+        const key = (s || "Unknown").trim();
+        if (!key) continue;
+        counts.set(key, (counts.get(key) ?? 0) + 1);
+      }
+    }
+
+    return Array.from(counts.entries())
+      .map(([university, courses]) => ({ university, courses }))
+      .sort((a, b) => b.courses - a.courses || a.university.localeCompare(b.university))
+      .slice(0, uniTopN);
+  }, [allCourses, uniField, uniLevel, uniTopN]);
 
   return (
     <div className="p-6 space-y-8 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 min-h-screen">
@@ -430,6 +524,77 @@ export default function DashboardClient({ stats, allCourses }: DashboardClientPr
                 formatter={(value: number) => value.toLocaleString()}
               />
               <Bar dataKey="students" fill="#10b981" name="Học viên" />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
+
+      {/* Top Universities */}
+      <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow border border-purple-100">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
+          <div>
+            <h2 className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+              🏫 Top Universities có nhiều khóa học
+            </h2>
+            <p className="text-gray-600">Tổng hợp số lượng khóa học theo trường (lọc theo lĩnh vực và level)</p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <label className="text-sm">
+              <span className="block text-gray-600 mb-1">Field</span>
+              <select
+                className="w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-200"
+                value={uniField}
+                onChange={(e) => setUniField(e.target.value)}
+              >
+                {uniFieldOptions.map((f) => (
+                  <option key={f} value={f}>
+                    {f}
+                  </option>
+                ))}
+              </select>
+            </label>
+
+            <label className="text-sm">
+              <span className="block text-gray-600 mb-1">Level</span>
+              <select
+                className="w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-200"
+                value={uniLevel}
+                onChange={(e) => setUniLevel(e.target.value)}
+              >
+                {uniLevelOptions.map((l) => (
+                  <option key={l} value={l}>
+                    {l}
+                  </option>
+                ))}
+              </select>
+            </label>
+
+            <label className="text-sm">
+              <span className="block text-gray-600 mb-1">Top N</span>
+              <select
+                className="w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-200"
+                value={uniTopN}
+                onChange={(e) => setUniTopN(Number(e.target.value))}
+              >
+                {[5, 10, 15, 20].map((n) => (
+                  <option key={n} value={n}>
+                    Top {n}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <div className="h-80">
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart data={topUniversitiesData} layout="vertical" margin={{ top: 10, right: 20, left: 20, bottom: 10 }}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis type="number" />
+              <YAxis type="category" dataKey="university" width={180} />
+              <Tooltip />
+              <Bar dataKey="courses" radius={[0, 6, 6, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
