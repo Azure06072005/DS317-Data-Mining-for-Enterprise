@@ -731,59 +731,303 @@ export default function Home() {
           <div className="p-10 md:p-16">
             {activeTab === "overview" && (
               <div className="space-y-10 animate-fadeIn">
-                <section>
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center">
-                    <span className="w-2 h-8 bg-blue-600 rounded-full mr-4"></span>
-                    Mục tiêu Dự án
-                  </h2>
-                  <p className="text-xl text-gray-600 leading-relaxed">
-                    Dự án giải quyết vấn đề cốt lõi trong MOOCs:{" "}
-                    <strong>Sự thiếu hụt phản hồi tức thời</strong>. Bằng cách
-                    sử dụng dữ liệu hành vi gián tiếp, EduPredict xây dựng mô
-                    hình phân lớp 5 mức độ hài lòng, cho phép giảng viên can
-                    thiệp ngay khi học viên có dấu hiệu chán nản.
-                  </p>
+                {/* HERO */}
+                <section className="relative overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-b from-slate-50 to-white">
+                  <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-blue-100 blur-3xl opacity-70" />
+                  <div className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-indigo-100 blur-3xl opacity-70" />
+
+                  <div className="relative p-8 md:p-10">
+                    <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+                      <div className="max-w-3xl">
+                        <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-sm font-medium text-blue-800">
+                          <span className="h-2 w-2 rounded-full bg-blue-600" />
+                          EduPredict • Dự đoán sớm hài lòng học viên MOOC
+                        </div>
+
+                        <h2 className="mt-4 text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">
+                          Từ “khảo sát cuối kỳ” → “cảnh báo sớm theo hành vi”
+                        </h2>
+
+                        <p className="mt-4 text-lg md:text-xl text-slate-600 leading-relaxed">
+                          Dự án giải quyết điểm nghẽn cốt lõi trong MOOCs:{" "}
+                          <strong>thiếu phản hồi tức thời</strong>. Thay vì chờ
+                          đến cuối khóa học, hệ thống tận dụng dữ liệu hành vi
+                          (xem video, làm bài, bình luận…) để dự đoán{" "}
+                          <strong>mức độ hài lòng theo 5 mức</strong>, giúp
+                          giảng viên và nhà quản lý can thiệp sớm khi học viên
+                          có dấu hiệu giảm hứng thú.
+                        </p>
+                      </div>
+
+                      <div className="w-full md:w-[360px] rounded-2xl border border-slate-200 bg-white/70 p-6 backdrop-blur">
+                        <div className="text-sm font-semibold text-slate-700">
+                          Đầu ra mô hình
+                        </div>
+                        <div className="mt-3 grid grid-cols-1 gap-2">
+                          {[
+                            "Rất hài lòng",
+                            "Hài lòng",
+                            "Bình thường",
+                            "Không hài lòng",
+                            "Rất không hài lòng",
+                          ].map((label) => (
+                            <div
+                              key={label}
+                              className="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-2"
+                            >
+                              <span className="text-slate-800 font-medium">
+                                {label}
+                              </span>
+                              <span className="h-2.5 w-2.5 rounded-full bg-slate-300" />
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+                      {[
+                        {
+                          kpi: "Dự đoán sớm",
+                          desc: "Ngay khi khóa học chưa kết thúc",
+                        },
+                        {
+                          kpi: "Phân lớp 5 mức",
+                          desc: "Dễ diễn giải và ứng dụng quản trị",
+                        },
+                        {
+                          kpi: "Near real-time",
+                          desc: "Theo dõi trạng thái theo thời gian",
+                        },
+                      ].map((item) => (
+                        <div
+                          key={item.kpi}
+                          className="rounded-2xl border border-slate-200 bg-white p-5"
+                        >
+                          <div className="text-lg font-bold text-slate-900">
+                            {item.kpi}
+                          </div>
+                          <div className="mt-2 text-slate-600">{item.desc}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </section>
 
-                <section className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-800 mb-4">
-                      Dữ liệu MOOC-CubeX
-                    </h3>
-                    <ul className="space-y-4 text-gray-600">
-                      <li className="flex items-start">
-                        <span className="text-blue-500 mr-2">✔</span>
-                        <span>
-                          4,216 khóa học đa ngành (Khoa học máy tính chiếm ưu
-                          thế).
-                        </span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-blue-500 mr-2">✔</span>
-                        <span>
-                          230,000+ video bài giảng và 358,000+ bài tập thực
-                          hành.
-                        </span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-blue-500 mr-2">✔</span>
-                        <span>
-                          Dữ liệu tương tác phong phú: Xem video, nộp bài, bình
-                          luận, và đồ thị khái niệm.
-                        </span>
-                      </li>
-                    </ul>
+                {/* MAIN GRID */}
+                <section className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                  {/* LEFT: DATASET + INPUTS */}
+                  <div className="lg:col-span-2 space-y-8">
+                    <div className="rounded-3xl border border-slate-200 bg-white p-8">
+                      <div className="flex items-center justify-between flex-wrap gap-3">
+                        <h3 className="text-2xl font-extrabold text-slate-900">
+                          Dữ liệu nghiên cứu: MOOCCubeX (2019–2021)
+                        </h3>
+                        <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-sm font-medium text-slate-700">
+                          <span className="h-2 w-2 rounded-full bg-slate-500" />
+                          Quy mô lớn • đa nguồn • đa hành vi
+                        </div>
+                      </div>
+
+                      <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+                        {[
+                          { value: "4,216", label: "Khóa học đa ngành" },
+                          { value: "230,000+", label: "Video bài giảng" },
+                          { value: "358,000+", label: "Bài tập thực hành" },
+                        ].map((stat) => (
+                          <div
+                            key={stat.label}
+                            className="rounded-2xl border border-slate-200 bg-gradient-to-b from-slate-50 to-white p-6"
+                          >
+                            <div className="text-3xl font-extrabold text-slate-900">
+                              {stat.value}
+                            </div>
+                            <div className="mt-2 text-slate-600">
+                              {stat.label}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-6">
+                        <div className="text-sm font-semibold text-slate-700">
+                          Thành phần dữ liệu nổi bật
+                        </div>
+                        <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                          {[
+                            {
+                              title: "Hành vi theo thời gian",
+                              desc: "Chuỗi hành động học tập biến đổi theo từng giai đoạn của khóa học.",
+                            },
+                            {
+                              title: "Tương tác đa dạng",
+                              desc: "Xem video, làm bài, nộp bài, bình luận và các tín hiệu tương tác liên quan.",
+                            },
+                            {
+                              title: "Ngữ cảnh học tập",
+                              desc: "Liên kết giữa học viên – nội dung – hoạt động học giúp mô hình hiểu bối cảnh tốt hơn.",
+                            },
+                            {
+                              title: "Tính ứng dụng cao",
+                              desc: "Phù hợp xây dựng hệ thống cảnh báo sớm cho quản trị chất lượng khóa học.",
+                            },
+                          ].map((item) => (
+                            <div
+                              key={item.title}
+                              className="rounded-2xl border border-slate-200 bg-white p-5"
+                            >
+                              <div className="flex items-center gap-3">
+                                <span className="h-3 w-3 rounded-sm bg-blue-600" />
+                                <div className="font-bold text-slate-900">
+                                  {item.title}
+                                </div>
+                              </div>
+                              <div className="mt-2 text-slate-600 leading-relaxed">
+                                {item.desc}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="rounded-3xl border border-slate-200 bg-white p-8">
+                      <h3 className="text-2xl font-extrabold text-slate-900">
+                        Dữ liệu đầu vào
+                      </h3>
+                      <p className="mt-3 text-slate-600 leading-relaxed">
+                        Mô hình xử lý đồng thời dữ liệu <strong>tĩnh</strong> và
+                        dữ liệu <strong>hành vi theo thời gian</strong> để đưa
+                        ra dự đoán sớm.
+                      </p>
+
+                      <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+                          <div className="text-sm font-semibold text-slate-700">
+                            Dữ liệu tĩnh
+                          </div>
+                          <div className="mt-3 space-y-2 text-slate-700">
+                            {[
+                              "Thông tin cơ bản học viên",
+                              "Thông tin khóa học tương ứng",
+                              "Các thuộc tính mô tả nền tảng/khóa học (nếu có)",
+                            ].map((t) => (
+                              <div
+                                key={t}
+                                className="rounded-xl border border-slate-200 bg-white px-4 py-2"
+                              >
+                                {t}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+                          <div className="text-sm font-semibold text-slate-700">
+                            Hành vi theo thời gian (quan trọng nhất)
+                          </div>
+                          <div className="mt-3 space-y-2 text-slate-700">
+                            {[
+                              "Học tập: số bài tập, tiến độ, tần suất làm bài, điểm số",
+                              "Video: thời lượng xem, tua đi/xem lại, tốc độ xem, tỷ lệ hoàn thành",
+                              "Tương tác: số lượt bình luận và mức độ tham gia",
+                            ].map((t) => (
+                              <div
+                                key={t}
+                                className="rounded-xl border border-slate-200 bg-white px-4 py-2"
+                              >
+                                {t}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="bg-blue-50 p-8 rounded-2xl border border-blue-100">
-                    <h3 className="text-xl font-bold text-blue-900 mb-4">
-                      Ý nghĩa Kinh doanh
-                    </h3>
-                    <p className="text-blue-800 leading-relaxed">
-                      Giảm tỷ lệ <strong>Churn Rate</strong> thông qua dự báo
-                      sớm. Tối ưu hóa chi phí vận hành bằng cách tập trung nguồn
-                      lực chăm sóc vào nhóm học viên có rủi ro không hài lòng
-                      cao.
-                    </p>
+
+                  {/* RIGHT: BUSINESS VALUE + SCOPE */}
+                  <div className="space-y-8">
+                    <div className="rounded-3xl border border-blue-100 bg-gradient-to-b from-blue-50 to-white p-8">
+                      <h3 className="text-2xl font-extrabold text-blue-950">
+                        Ý nghĩa kinh doanh
+                      </h3>
+                      <p className="mt-3 text-blue-900 leading-relaxed">
+                        Hệ thống giúp giảm <strong>churn</strong> bằng dự báo
+                        sớm nhóm học viên có nguy cơ không hài lòng, đồng thời
+                        tối ưu chi phí vận hành khi tập trung nguồn lực hỗ trợ
+                        đúng nhóm cần can thiệp.
+                      </p>
+
+                      <div className="mt-6 space-y-3">
+                        {[
+                          {
+                            title: "Giám sát theo thời gian",
+                            desc: "Theo dõi trạng thái hài lòng thay vì chờ khảo sát cuối kỳ.",
+                          },
+                          {
+                            title: "Can thiệp mục tiêu",
+                            desc: "Ưu tiên hỗ trợ nhóm “Không hài lòng / Rất không hài lòng”.",
+                          },
+                          {
+                            title: "Cải thiện chất lượng",
+                            desc: "Xác định nội dung/hoạt động gây khó khăn để tối ưu khóa học.",
+                          },
+                          {
+                            title: "Tăng bền vững nền tảng",
+                            desc: "Duy trì trải nghiệm tốt giúp tăng uy tín và thu hút học viên.",
+                          },
+                        ].map((b) => (
+                          <div
+                            key={b.title}
+                            className="rounded-2xl border border-blue-100 bg-white p-5"
+                          >
+                            <div className="flex items-center gap-3">
+                              <span className="h-3 w-3 rounded-full bg-blue-600" />
+                              <div className="font-bold text-slate-900">
+                                {b.title}
+                              </div>
+                            </div>
+                            <div className="mt-2 text-slate-600">{b.desc}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="rounded-3xl border border-slate-200 bg-white p-8">
+                      <h3 className="text-2xl font-extrabold text-slate-900">
+                        Mục tiêu & phạm vi
+                      </h3>
+                      <div className="mt-4 space-y-3">
+                        {[
+                          "Thu thập, xử lý và phân tích dữ liệu MOOCCubeX",
+                          "Gán nhãn hài lòng theo Likert 5 mức",
+                          "Xây dựng & tối ưu mô hình AI dự đoán sớm",
+                          "Dashboard BI trực quan hóa cảnh báo gần thời gian thực",
+                        ].map((t, idx) => (
+                          <div key={t} className="flex items-start gap-3">
+                            <div className="mt-1 h-7 w-7 shrink-0 rounded-xl border border-slate-200 bg-slate-50 grid place-items-center">
+                              <span className="text-sm font-bold text-slate-700">
+                                {idx + 1}
+                              </span>
+                            </div>
+                            <div className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-700">
+                              {t}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-6">
+                        <div className="text-sm font-semibold text-slate-700">
+                          Lưu ý triển khai
+                        </div>
+                        <div className="mt-2 text-slate-600 leading-relaxed">
+                          Quy mô dữ liệu lớn và đặc trưng theo thời gian yêu cầu
+                          pipeline tiền xử lý ổn định, hạ tầng lưu trữ/compute
+                          phù hợp và đảm bảo bảo mật thông tin học viên.
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </section>
               </div>
@@ -1024,95 +1268,312 @@ export default function Home() {
 
             {activeTab === "methods" && (
               <div className="space-y-10 animate-fadeIn">
+                {/* ===================== SECTION: LABELING ===================== */}
                 <section>
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center">
-                    <span className="w-2 h-8 bg-purple-600 rounded-full mr-4"></span>
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">
                     Quy trình Gán nhãn & Xử lý
                   </h2>
-                  <div className="bg-white border border-purple-100 rounded-2xl p-8 mb-8">
-                    <h3 className="text-xl font-bold text-purple-900 mb-4">
-                      Công thức Satisfaction Score (L-S-C-T)
-                    </h3>
-                    <div className="p-6 bg-purple-50 rounded-xl border border-purple-200 text-purple-900 font-mono text-center text-lg md:text-2xl">
-                      Score = 0.60*L + 0.15*S + 0.15*C + 0.10*T
+
+                  <div className="bg-white border border-purple-100 rounded-2xl p-8 space-y-6">
+                    <div>
+                      <h3 className="text-xl font-bold text-purple-900 mb-3">
+                        Công thức Satisfaction Score (L–S–C–T)
+                      </h3>
+
+                      {/* Main formula (plain text, no LaTeX) */}
+                      <div className="p-6 bg-purple-50 rounded-xl border border-purple-200 text-center">
+                        <p className="font-mono text-lg md:text-2xl text-purple-900">
+                          Score = 0.60·L + 0.15·S + 0.15·C + 0.10·T
+                        </p>
+                        <p className="text-xs text-gray-600 mt-2">
+                          Score được chuẩn hoá về khoảng [0, 1] trước khi chia
+                          lớp.
+                        </p>
+                      </div>
                     </div>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
-                      <div className="text-center">
-                        <p className="font-bold">L</p>
-                        <p className="text-xs text-gray-500">
-                          Learning (Học tập)
+
+                    {/* Definitions */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="p-5 rounded-xl border bg-gray-50">
+                        <p className="font-bold text-gray-900 mb-1">
+                          L — Learning (Học tập)
                         </p>
+                        <p className="text-sm text-gray-700 leading-relaxed">
+                          Tổng hợp từ hành vi bài tập + tiến độ học: số bài đã
+                          làm, số lần thử, số lần đúng, điểm đạt được, độ bền bỉ
+                          theo phase (tích luỹ).
+                        </p>
+                        <div className="mt-3 p-3 bg-white rounded-lg border">
+                          <p className="font-mono text-sm text-gray-800">
+                            L ≈ a1·Accuracy + a2·EarnedScore + a3·DoneRate +
+                            a4·Persistence
+                          </p>
+                          <p className="text-xs text-gray-500 mt-1">
+                            (a1..a4 là trọng số nội bộ sau chuẩn hoá)
+                          </p>
+                        </div>
                       </div>
-                      <div className="text-center">
-                        <p className="font-bold">S</p>
-                        <p className="text-xs text-gray-500">
-                          Sentiment (Cảm xúc)
+
+                      <div className="p-5 rounded-xl border bg-gray-50">
+                        <p className="font-bold text-gray-900 mb-1">
+                          S — Sentiment (Cảm xúc)
                         </p>
+                        <p className="text-sm text-gray-700 leading-relaxed">
+                          Được tổng hợp từ số lượng bình luận theo nhóm cảm xúc
+                          (tích cực / trung tính / tiêu cực), có xét “độ tin
+                          cậy” khi bình luận ít.
+                        </p>
+                        <div className="mt-3 p-3 bg-white rounded-lg border">
+                          <p className="font-mono text-sm text-gray-800">
+                            S ≈ (pos − neg) / max(1, total_comments) → scale về
+                            [0,1]
+                          </p>
+                          <p className="font-mono text-sm text-gray-800 mt-1">
+                            conf_cmt = min(1, total_comments / k)
+                          </p>
+                          <p className="text-xs text-gray-500 mt-1">
+                            k gợi ý: 5 hoặc 10 bình luận để xem là “đủ tin cậy”.
+                          </p>
+                        </div>
                       </div>
-                      <div className="text-center">
-                        <p className="font-bold">C</p>
-                        <p className="text-xs text-gray-500">
-                          Course Resource (tài nguyên khóa học)
+
+                      <div className="p-5 rounded-xl border bg-gray-50">
+                        <p className="font-bold text-gray-900 mb-1">
+                          C — Course Resource (Tài nguyên khoá học)
                         </p>
+                        <p className="text-sm text-gray-700 leading-relaxed">
+                          Đặc trưng thuộc khoá học: số video, số bài tập, độ dài
+                          nội dung, có/không prerequisite… (chuẩn hoá để không
+                          “lấn át” L).
+                        </p>
+                        <div className="mt-3 p-3 bg-white rounded-lg border">
+                          <p className="font-mono text-sm text-gray-800">
+                            C ≈ b1·Videos + b2·Exercises + b3·PrereqFlag
+                          </p>
+                        </div>
                       </div>
-                      <div className="text-center">
-                        <p className="font-bold">T</p>
-                        <p className="text-xs text-gray-500">
-                          Time (Thời gian)
+
+                      <div className="p-5 rounded-xl border bg-gray-50">
+                        <p className="font-bold text-gray-900 mb-1">
+                          T — Time (Tính đều đặn)
                         </p>
+                        <p className="text-sm text-gray-700 leading-relaxed">
+                          Đo mức “đều” của nhịp học (khoảng cách giữa các phiên
+                          học). Biến động càng lớn → T càng thấp.
+                        </p>
+                        <div className="mt-3 p-3 bg-white rounded-lg border">
+                          <p className="font-mono text-sm text-gray-800">
+                            T ≈ 1 − Variability(Δt) → scale về [0,1]
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Dynamic weighting + label mapping */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                      <div className="p-6 rounded-2xl border border-purple-100 bg-white">
+                        <h4 className="font-bold text-gray-900 mb-2">
+                          Trọng số động theo độ tin cậy
+                        </h4>
+                        <p className="text-sm text-gray-700 leading-relaxed">
+                          Khi bình luận ít, giảm ảnh hưởng Sentiment để tránh
+                          “nhiễu”, phần trọng số bị giảm sẽ được phân bổ lại cho
+                          Learning và Time (giữ C ổn định).
+                        </p>
+                        <div className="mt-3 p-4 bg-gray-50 rounded-xl border">
+                          <p className="font-mono text-sm text-gray-800">
+                            wS' = wS · conf_cmt
+                          </p>
+                          <p className="font-mono text-sm text-gray-800 mt-1">
+                            (wS − wS') chia đều cho wL và wT, đảm bảo tổng trọng
+                            số = 1
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="p-6 rounded-2xl border border-purple-100 bg-white">
+                        <h4 className="font-bold text-gray-900 mb-2">
+                          Chuyển Score → 5 mức (Likert)
+                        </h4>
+                        <p className="text-sm text-gray-700 leading-relaxed">
+                          Score sau chuẩn hoá được chia thành 5 mức. Có thể thay
+                          ngưỡng đều (0.2) bằng ngưỡng theo phân vị để giảm mất
+                          cân bằng lớp.
+                        </p>
+                        <div className="mt-3 p-4 bg-gray-50 rounded-xl border">
+                          <p className="font-mono text-sm text-gray-800">
+                            [0.0–0.2)→1, [0.2–0.4)→2, [0.4–0.6)→3, [0.6–0.8)→4,
+                            [0.8–1.0]→5
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Normalization + leakage note */}
+                    <div className="p-6 rounded-2xl border border-purple-100 bg-white">
+                      <h4 className="font-bold text-gray-900 mb-2">
+                        Chuẩn hoá & chống “leakage”
+                      </h4>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="p-4 bg-gray-50 rounded-xl border">
+                          <p className="font-semibold text-gray-800 mb-1">
+                            Chuẩn hoá
+                          </p>
+                          <p className="text-sm text-gray-700 leading-relaxed">
+                            Với biến có thang đo lớn/nhỏ khác nhau: chuẩn hoá
+                            Min–Max hoặc RobustScaler (nếu lệch/outlier).
+                          </p>
+                          <div className="mt-2 p-3 bg-white rounded-lg border">
+                            <p className="font-mono text-sm text-gray-800">
+                              x_norm = (x − min) / (max − min + ε)
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="p-4 bg-gray-50 rounded-xl border">
+                          <p className="font-semibold text-gray-800 mb-1">
+                            Chống leakage theo phase
+                          </p>
+                          <p className="text-sm text-gray-700 leading-relaxed">
+                            Khi dự báo sớm, chỉ dùng dữ liệu “đến phase k”.
+                            Không dùng đặc trưng tương lai (P3/P4) cho P1/P2.
+                            Nếu có embedding/graph, cần build theo phase hoặc
+                            train-only.
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </section>
 
+                {/* ===================== SECTION: EARLY PREDICTION ===================== */}
                 <section>
                   <h3 className="text-2xl font-bold text-gray-800 mb-6">
                     Kiến trúc Dự báo Sớm (Early Prediction)
                   </h3>
-                  <div className="relative border-l-4 border-blue-200 ml-4 pl-10 space-y-12">
-                    <div className="relative">
-                      <div className="absolute -left-[54px] top-0 w-6 h-6 bg-blue-600 rounded-full border-4 border-white"></div>
-                      <h4 className="font-bold text-gray-900">
-                        Phase 1 (0-25%)
-                      </h4>
-                      <p className="text-gray-500 text-sm">
-                        Dự báo sơ khởi dựa trên những tương tác đầu tiên.
+
+                  {/* No timeline dots / no icon-like markers */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="p-6 bg-white rounded-2xl border">
+                      <p className="font-bold text-gray-900">Phase 1 (0–25%)</p>
+                      <p className="text-gray-500 text-sm mt-1">
+                        Dự báo sơ khởi từ tương tác đầu: xem video, chạm bài
+                        tập, phiên học, bình luận đầu tiên.
                       </p>
+                      <div className="mt-3 p-3 bg-gray-50 rounded-xl border">
+                        <p className="text-xs text-gray-600">
+                          Gợi ý: train mô hình riêng cho P1 để tránh “mask 0”
+                          gây lệch phân phối.
+                        </p>
+                      </div>
                     </div>
-                    <div className="relative">
-                      <div className="absolute -left-[54px] top-0 w-6 h-6 bg-blue-600 rounded-full border-4 border-white"></div>
-                      <h4 className="font-bold text-gray-900">
-                        Phase 2 (0-50%)
-                      </h4>
-                      <p className="text-gray-500 text-sm">
-                        Giai đoạn can thiệp vàng để cải thiện tỷ lệ hài lòng.
+
+                    <div className="p-6 bg-white rounded-2xl border">
+                      <p className="font-bold text-gray-900">Phase 2 (0–50%)</p>
+                      <p className="text-gray-500 text-sm mt-1">
+                        Giai đoạn can thiệp vàng: tín hiệu đủ rõ để cảnh báo sớm
+                        & khuyến nghị hành động.
                       </p>
+                      <div className="mt-3 p-3 bg-gray-50 rounded-xl border">
+                        <p className="text-xs text-gray-600">
+                          Theo dõi QWK + MacroF1 để cân bằng ordinal & mất cân
+                          bằng lớp.
+                        </p>
+                      </div>
                     </div>
-                    <div className="relative">
-                      <div className="absolute -left-[54px] top-0 w-6 h-6 bg-gray-300 rounded-full border-4 border-white"></div>
-                      <h4 className="font-bold text-gray-900">Phase 3 & 4</h4>
-                      <p className="text-gray-500 text-sm">
-                        Củng cố mô hình và đánh giá kết quả trọn đời khóa học.
+
+                    <div className="p-6 bg-white rounded-2xl border">
+                      <p className="font-bold text-gray-900">Phase 3 & 4</p>
+                      <p className="text-gray-500 text-sm mt-1">
+                        Củng cố dự đoán, đánh giá tổng kết, phân tích hậu kiểm
+                        (bias/leakage/drift).
                       </p>
+                      <div className="mt-3 p-3 bg-gray-50 rounded-xl border">
+                        <p className="text-xs text-gray-600">
+                          Dùng để so sánh “độ trễ”: P4 thường cao hơn do có đủ
+                          tín hiệu hành vi.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </section>
 
+                {/* ===================== SECTION: CLEANING ===================== */}
+                <section>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-6">
+                    Xử lý dữ liệu (Cleaning & Feature Engineering)
+                  </h3>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="p-6 bg-white rounded-2xl border">
+                      <p className="font-bold text-gray-900 mb-2">
+                        Missing values
+                      </p>
+                      <ul className="text-sm text-gray-700 space-y-2 list-disc pl-5">
+                        <li>Biến đếm (counts): fill 0.</li>
+                        <li>
+                          Biến tỉ lệ: tạo cờ “không tính được” và fill 0/-1 theo
+                          ngữ nghĩa.
+                        </li>
+                        <li>Giữ nhất quán theo phase để mô hình học đúng.</li>
+                      </ul>
+                    </div>
+
+                    <div className="p-6 bg-white rounded-2xl border">
+                      <p className="font-bold text-gray-900 mb-2">
+                        Tạo đặc trưng theo phase
+                      </p>
+                      <ul className="text-sm text-gray-700 space-y-2 list-disc pl-5">
+                        <li>Feature tích luỹ: P1, P1+P2, P1+P2+P3…</li>
+                        <li>Pivot wide-format để dùng ML tabular.</li>
+                        <li>
+                          Ưu tiên train đúng “mốc” dự báo thay vì train P4 rồi
+                          mask.
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div className="p-6 bg-white rounded-2xl border">
+                      <p className="font-bold text-gray-900 mb-2">
+                        Cân bằng lớp
+                      </p>
+                      <ul className="text-sm text-gray-700 space-y-2 list-disc pl-5">
+                        <li>SMOTE cho lớp thiểu số (cẩn thận với ordinal).</li>
+                        <li>Hoặc class_weight nếu muốn giữ phân phối thật.</li>
+                      </ul>
+                    </div>
+
+                    <div className="p-6 bg-white rounded-2xl border">
+                      <p className="font-bold text-gray-900 mb-2">
+                        Split & đánh giá
+                      </p>
+                      <ul className="text-sm text-gray-700 space-y-2 list-disc pl-5">
+                        <li>
+                          Split theo user/course để kiểm tra khả năng tổng quát
+                          hoá.
+                        </li>
+                        <li>Dùng QWK (ordinal), Balanced Acc, MacroF1.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </section>
+
+                {/* ===================== SECTION: TECH STACK ===================== */}
                 <section>
                   <h3 className="text-2xl font-bold text-gray-800 mb-6">
                     Hạ tầng Công nghệ (Tech Stack)
                   </h3>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div className="p-4 bg-gray-50 rounded-lg text-center font-semibold text-gray-700">
+                    <div className="p-4 bg-gray-50 rounded-lg text-center font-semibold text-gray-700 border">
                       React 19 / Tailwind.css
                     </div>
-                    <div className="p-4 bg-gray-50 rounded-lg text-center font-semibold text-gray-700">
+                    <div className="p-4 bg-gray-50 rounded-lg text-center font-semibold text-gray-700 border">
                       PySpark
                     </div>
-                    <div className="p-4 bg-gray-50 rounded-lg text-center font-semibold text-gray-700">
+                    <div className="p-4 bg-gray-50 rounded-lg text-center font-semibold text-gray-700 border">
                       Next.js 16
                     </div>
-                    <div className="p-4 bg-gray-50 rounded-lg text-center font-semibold text-gray-700">
+                    <div className="p-4 bg-gray-50 rounded-lg text-center font-semibold text-gray-700 border">
                       ML/DL models
                     </div>
                   </div>

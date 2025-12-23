@@ -499,34 +499,53 @@ export default function DashboardClient({ stats, allCourses }: DashboardClientPr
 
         {/* Students by Field */}
         <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-              Số Học viên theo Lĩnh vực (Top 8)
-            </h2>
-          </div>
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={studentsByFieldData} layout="horizontal">
-              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-              <XAxis type="number" stroke="#6b7280" />
-              <YAxis 
-                type="category" 
-                dataKey="field" 
-                stroke="#6b7280" 
-                width={120}
-                tick={{ fontSize: 11 }}
-              />
-              <Tooltip 
-                contentStyle={{
-                  backgroundColor: "#fff",
-                  border: "1px solid #e5e7eb",
-                  borderRadius: "8px",
-                }}
-                formatter={(value: number) => value.toLocaleString()}
-              />
-              <Bar dataKey="students" fill="#10b981" name="Học viên" />
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
+  <div className="flex items-center justify-between mb-6">
+    <h2 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+      Số Học viên theo Lĩnh vực (Top 8)
+    </h2>
+  </div>
+
+  <ResponsiveContainer width="100%" height={300}>
+    {/* Bar NGANG => layout="vertical" */}
+    <BarChart data={studentsByFieldData ?? []} layout="vertical" margin={{ left: 8, right: 16 }}>
+      <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+
+      {/* Trục X là số */}
+      <XAxis
+        type="number"
+        stroke="#6b7280"
+        domain={[0, "dataMax"]}
+        tickFormatter={(v) => Number(v).toLocaleString()}
+      />
+
+      {/* Trục Y là danh mục */}
+      <YAxis
+        type="category"
+        dataKey="field"
+        stroke="#6b7280"
+        width={120}
+        tick={{ fontSize: 11 }}
+      />
+
+      <Tooltip
+        contentStyle={{
+          backgroundColor: "#fff",
+          border: "1px solid #e5e7eb",
+          borderRadius: "8px",
+        }}
+        formatter={(value: any) => Number(value).toLocaleString()}
+      />
+
+      <Bar dataKey="students" fill="#10b981" name="Học viên" />
+    </BarChart>
+  </ResponsiveContainer>
+
+  {/* Optional: báo khi data rỗng */}
+  {(!studentsByFieldData || studentsByFieldData.length === 0) && (
+    <div className="mt-3 text-sm text-gray-500">Chưa có dữ liệu để hiển thị.</div>
+  )}
+</div>
+
       </div>
 
       {/* Top Universities */}
