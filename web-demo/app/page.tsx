@@ -520,28 +520,28 @@ export default function Home() {
   const hard = useMemo(
     () => ({
       completeness: {
-        value: 99.16,
+        value: 100,
         delta: 12.5,
         dir: "up" as const,
         color: "green" as const,
       },
       consistency: {
-        value: 68.36,
+        value: 100,
         delta: 7.8,
         dir: "up" as const,
-        color: "yellow" as const,
+        color: "green" as const,
       },
       timeliness: {
-        value: 100.0,
+        value: 81.5,
         delta: 2.3,
-        dir: "down" as const,
-        color: "red" as const,
+        dir: "up" as const,
+        color: "green" as const,
       },
       overall: {
-        value: 89.17,
+        value: 85.93,
         delta: 5.6,
         dir: "up" as const,
-        color: "yellow" as const,
+        color: "green" as const,
       },
     }),
     []
@@ -1127,7 +1127,7 @@ export default function Home() {
                     {/* Hard Dimension */}
                     <div className="flex items-center justify-between gap-4 flex-wrap">
                       <h2 className="text-2xl md:text-3xl font-extrabold text-cyan-300">
-                        Hard Dimension
+                        Chất lượng bộ dữ liệu
                       </h2>
                       <div className="text-xs md:text-sm text-slate-300">
                         Tổng hợp theo batch gần nhất
@@ -1136,7 +1136,7 @@ export default function Home() {
 
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-6">
                       <MetricCard
-                        title="Average Completeness"
+                        title="Completeness - dataset"
                         value={`${hard.completeness.value.toFixed(2)}%`}
                         delta={`${hard.completeness.delta.toFixed(1)}%`}
                         deltaDirection={hard.completeness.dir}
@@ -1171,7 +1171,7 @@ export default function Home() {
                         }
                       />
                       <MetricCard
-                        title="Average Consistency"
+                        title="Consistency - dataset"
                         value={`${hard.consistency.value.toFixed(2)}%`}
                         delta={`${hard.consistency.delta.toFixed(1)}%`}
                         deltaDirection={hard.consistency.dir}
@@ -1214,7 +1214,7 @@ export default function Home() {
                         }
                       />
                       <MetricCard
-                        title="Average Timeliness"
+                        title="ACC - DQ"
                         value={`${hard.timeliness.value.toFixed(0)}%`}
                         delta={`${hard.timeliness.delta.toFixed(1)}%`}
                         deltaDirection={hard.timeliness.dir}
@@ -1243,7 +1243,7 @@ export default function Home() {
                         }
                       />
                       <MetricCard
-                        title="Overall Hard Quality"
+                        title="ACC - DQ with SMOTE"
                         value={`${hard.overall.value.toFixed(2)}%`}
                         delta={`${hard.overall.delta.toFixed(1)}%`}
                         deltaDirection={hard.overall.dir}
@@ -1259,13 +1259,16 @@ export default function Home() {
                         Nhận xét chung:
                       </div>
                       <div className="mt-3 text-slate-200 leading-relaxed">
-                        Độ <strong>Completeness</strong> và{" "}
-                        <strong>Timeliness</strong> cao nhưng{" "}
-                        <strong>Consistency</strong> thấp, cần cải thiện. Trung
-                        bình Hard Dimension là{" "}
-                        <strong>{hard.overall.value.toFixed(2)}%</strong>: có
-                        thể đưa vào huấn luyện nhưng cần xử lý thêm các ràng
-                        buộc/luật để tăng Consistency.
+                        <p className="mb-2">
+                          <strong>Consistency</strong>: đạt chuẩn rất cao (100%)
+                          → pipeline Gold đã kiểm soát tốt quy tắc, schema,
+                          khóa, và logic thời gian.
+                        </p>
+                        <p>
+                          <strong>Completeness</strong>: tốt nhưng chưa đạt
+                          chuẩn ML-ready do một số feature quan trọng bị thiếu
+                          cực lớn (các chỉ số hiệu suất làm bài).
+                        </p>
                       </div>
                     </div>
 
